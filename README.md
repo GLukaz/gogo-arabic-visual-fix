@@ -1,89 +1,81 @@
-# GoGo Arabic
+# Gogo Arabic — Visual Layer Fix
 
-An Arabic learning RPG that teaches Modern Standard Arabic through exploration, quests, and turn-based word battles in a pixel-art world.
+This repository is a stripped-down copy of Gogo Arabic, scoped specifically for a Phaser 3 visual-rendering bug fix. Business-planning files, autonomous-agent scripts, backend code, and unrelated tooling have been removed. Everything you need to reproduce, debug, and fix the visual bugs is here.
 
-## Architecture
+## The problem
 
-This is a **hybrid React + Phaser** application. React handles all UI (menus, quizzes, HUD, overlays) while Phaser 3 runs the game world (tile maps, sprites, camera, physics). They communicate through a centralized EventBus (`src/utils/eventBusTypes.js`). Redux Toolkit manages shared state across both layers.
+The game's Phaser world layer renders incorrectly across all 8 zones:
 
-- **Frontend:** React 19, Phaser 3, Redux Toolkit (29 slices, 9 middleware), Framer Motion
-- **Backend:** Express 5, MongoDB (optional — frontend works fully offline with localStorage/IndexedDB)
-- **Testing:** Vitest, Testing Library, Playwright
-- **Build:** Vite 7
-- **Node:** 22+ required (ESM, `"type": "module"`)
+- Ground tiles display as a chaotic mosaic of sand / water / grass frames
+- NPC sprites recently started rendering at ~8x their intended size (regression from a recent refactor — see `docs/WORLD-AUDIT.md` Face-Bearing NPC Sprites section)
+- Some decoration props appear at wrong positions / scales
+- Specific bug classes are documented below
 
-## Getting Started
+## Where to start (read these in order)
+
+1. **`docs/WORLD-AUDIT.md`** — single most important file. Single-pass audit identifying every bug class with file paths, line numbers, and fix recommendations mapped to downstream sub-tasks.
+2. **`docs/VISUAL-LAYER-DIAGNOSIS.md`** — pre-existing diagnosis of the "black squares" tile issue, with verified PNG dimensions and frame math.
+3. **`docs/WORLD-VS-LOGIC-CONCERN.md`** — confirms the visual layer is decoupled from game logic. Tells you what you can safely touch.
+4. **`docs/97-CONTEXT.md`** — hard constraints (no overlay wiring, "world" terminology, no face-bearing NPCs, etc.)
+5. **`docs/97-RESEARCH.md`** — deep technical research: pitfalls, patterns, validation architecture.
+6. **`src/game/systems/MapLoader.js`** — the ~2000-line file where most rendering bugs live. The audit points at specific line numbers.
+
+## Running the game
 
 ```bash
-# Install dependencies
-npm install
-
-# Start development server (runs on port 3000)
-npm run dev
-
-# Run tests
-npm test
-
-# Build for production
-npm run build
-```
-
-The backend server is optional. To run it:
-```bash
-cd server
-cp .env.example .env  # Edit with your MongoDB URI and JWT secret
 npm install
 npm run dev
 ```
 
-## Project Structure
+Open http://localhost:3000 — the game loads, you walk around with WASD / arrow keys. You should see the broken visuals immediately (chaotic ground tiles, oversized NPCs in certain cases).
 
+## Scope — strictly enforced
+
+**IN SCOPE (you may modify):**
+
+- `src/game/**` (Phaser code — scenes, systems, sprites)
+- `src/data/zones.js`, `src/data/zones/**`, `src/data/kenmiCatalog.js`, `src/data/kenmiFrameTables.js`, `src/data/spriteKeyMap.js`, `src/data/zoneAssetManifests.js`
+- `public/assets/**` (art — modify only if needed)
+- `scripts/**` (build-time helpers)
+- New test files in `src/**/__tests__/`
+
+**OUT OF SCOPE (do not modify):**
+
+- `src/store/**` (Redux state)
+- `src/game/systems/fsrs/**` (learning algorithm)
+- `src/game/systems/battle/**` (battle state machine)
+- `src/data/ink/**` (dialogue story files)
+- Arabic content JSON in `src/data/`
+- `src/components/GameLayout.jsx` (no new overlay wiring)
+- Any existing tests (they must continue to pass)
+
+## Success criteria
+
+1. All 8 zones (`oasis_village`, `ancient_library`, `desert_marketplace`, `farmland`, `bedouin_camp`, `mountain_village`, `coastal_port`, `royal_palace`) render with clean, consistent Kenmi pixel art
+2. NPC sprites at correct scale
+3. All existing tests pass: `npm run test:run`
+4. Terminology lint passes: `npm run lint:world-terminology`
+5. Before/after screenshots for all 8 zones
+
+## Delivery
+
+1. Create a branch from `main`, work on that branch
+2. Atomic commits — one concern per commit, each reverting cleanly
+3. Open a Pull Request against `main`
+4. Include before/after screenshots in the PR description
+5. Ping the repo owner for review
+
+## Test commands
+
+```bash
+npm run test:run                  # Full test suite
+npm run test:e2e                  # Playwright E2E
+npm run lint                      # ESLint
+npm run lint:world-terminology    # Phase-specific terminology gate
+npm run build                     # Production build (must pass)
 ```
-src/
-  components/   # 37 feature directories (Battle/, Quiz/, NPC/, etc.)
-  data/         # Game data (vocabulary, NPCs, zones, quests, grammar)
-  game/
-    scenes/     # 4 Phaser scenes (World, Interior, Battle, Boot)
-    systems/    # 40+ game systems (NPC, Map, Zone, Equipment, etc.)
-    sprites/    # Phaser game objects (Player, NPC, etc.)
-    events/     # EventBus type registry
-    ui/         # Phaser-layer UI elements
-  hooks/        # 19 custom React hooks
-  store/
-    slices/     # 29 Redux slices (player, battle, vocabulary, etc.)
-    middleware/  # 9 middleware (achievements, battle rewards, etc.)
-  services/     # Storage, sync, audio services
-  styles/       # Theme and shared styles
-  utils/        # Helpers and utilities
-  world/        # Zone management
-server/         # Express API (MVC: controllers, routes, models, middleware)
-.planning/      # GSD workflow: roadmap, phase plans, state tracking
-```
 
-For a comprehensive project reference, see `GOGO_ARABIC_OVERVIEW.md`.
+## Notes
 
-## Features
-
-- **Arabic Alphabet Module** — Learn all 28 letters with four forms, vowel combinations, and writing quizzes
-- **Spaced Repetition Vocabulary** — FSRS-based review system across 6 CEFR levels (A1-C2)
-- **Turn-Based Word Battles** — Fight bosses by answering Arabic vocabulary questions
-- **Root Magic System** — Cast spells derived from Arabic trilateral roots with elemental affinities
-- **Equipment & Economy** — Craft, buy, and equip gear from zone-themed shops with haggling
-- **Companion System** — Recruit 12 companions across 6 zones with role-based battle AI
-- **Grammar Lessons** — Interactive exercises covering essential Arabic grammar patterns
-- **Quest System** — Story-driven and side quests with NPC dialogue trees
-- **6 Explorable Zones** — Desert village, ancient library, mountain fortress, coastal market, oasis garden, and grand mosque
-- **Daily Goals & Achievements** — Streaks, milestones, and progress tracking
-
-## Cultural Design
-
-This project follows culturally respectful design principles:
-
-- **Faceless characters** — All pixel-art characters are depicted without facial features, following Islamic artistic traditions
-- **No music** — Audio design uses ambient soundscapes and sound effects only
-- **Arabic-first** — All in-game Arabic text uses proper right-to-left rendering with tashkeel (diacritical marks)
-- **Historically grounded** — Zones and narratives draw from real Arabic and Islamic history and culture
-
-## License
-
-Private project. All rights reserved.
+- This repo has a fresh Git history — your work here won't leak into the main private repo until the owner copies it over as clean commits crediting you.
+- Please document any scope ambiguity before changing anything that touches the out-of-scope list above.
