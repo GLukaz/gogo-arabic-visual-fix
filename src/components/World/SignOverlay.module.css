@@ -1,0 +1,103 @@
+/**
+ * SignOverlay CSS Module
+ * Modal overlay for displaying sign messages in Arabic and English
+ */
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--color-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.card {
+  /* pixelPanel base styles */
+  background: #3e2a14;
+  border: 6px solid var(--color-brown);
+  padding: 32px 40px;
+  text-align: center;
+  min-width: 320px;
+  max-width: 480px;
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  image-rendering: pixelated;
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0,0,0,0.2),
+    inset 4px 4px 0px 0px rgba(255,255,255,0.1),
+    8px 8px 0px 0px rgba(0,0,0,0.4);
+}
+
+.arabic {
+  font-family: var(--font-arabic-display), var(--font-arabic), sans-serif;
+  font-size: 36px;
+  color: var(--color-xp-gold);
+  direction: rtl;
+  unicode-bidi: isolate;
+  margin-bottom: 16px;
+  text-shadow: 2px 2px 0px var(--color-dark-brown);
+  line-height: 1.5;
+  padding-top: 4px;
+}
+
+.english {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  color: var(--color-beige);
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+
+.closeBtn {
+  /* pixelBtnGold styles */
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  padding: 12px 28px;
+  border: none;
+  cursor: pointer;
+  image-rendering: pixelated;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  background: var(--color-xp-gold);
+  color: var(--color-brown);
+  /* UXPL-06: WCAG 2.1 minimum touch target */
+  min-height: 44px;
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0,0,0,0.2),
+    inset 4px 4px 0px 0px rgba(255,255,255,0.3),
+    0 4px 0 0 #a0842a;
+  transition: transform 0.05s;
+}
+
+.closeBtn:hover {
+  transform: translateY(-2px);
+}
+
+.closeBtn:active {
+  transform: translateY(2px);
+}
+
+.closeBtn:focus-visible {
+  outline: 2px solid var(--color-xp-gold);
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .card {
+    min-width: 280px;
+    max-width: 90vw;
+    padding: 24px 28px;
+  }
+
+  .arabic {
+    font-size: 28px;
+  }
+
+  .closeBtn {
+    min-height: 48px;
+    width: 100%;
+  }
+}

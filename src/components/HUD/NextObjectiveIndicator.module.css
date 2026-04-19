@@ -1,0 +1,89 @@
+@import '../../styles/variables.css';
+
+.indicator {
+  position: absolute;
+  top: 100px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(43, 41, 44, 0.82);
+  border: 2px solid var(--color-dark);
+  border-top: none;
+  padding: 5px 10px;
+  pointer-events: none;
+  z-index: 98;
+  max-width: 260px;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.icon {
+  font-size: 12px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.text {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-light);
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.highlight {
+  color: var(--color-xp-gold);
+}
+
+.gateWarning {
+  color: var(--color-red);
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .indicator {
+    top: 92px;
+    left: 8px;
+    max-width: 200px;
+    padding: 4px 8px;
+  }
+
+  .text {
+    font-size: 7px;
+  }
+
+  .icon {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .indicator {
+    top: 82px;
+    left: 4px;
+    max-width: 170px;
+    padding: 3px 6px;
+  }
+
+  .text {
+    font-size: 6px;
+  }
+
+  .icon {
+    font-size: 9px;
+  }
+}

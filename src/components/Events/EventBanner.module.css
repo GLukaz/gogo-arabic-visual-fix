@@ -1,0 +1,103 @@
+/* EventBanner — Compact top-of-screen banner for active faction events (Phase 77) */
+@import '../../styles/variables.css';
+
+.banner {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 40px;
+  min-width: 280px;
+  max-width: 520px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  background: rgba(26, 26, 46, 0.88);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  z-index: var(--z-hud);
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background 0.2s ease;
+}
+
+.banner:hover {
+  background: rgba(26, 26, 46, 0.95);
+  border-color: rgba(255, 215, 0, 0.55);
+}
+
+.banner:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.factionIcon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.factionDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 6px currentColor;
+}
+
+.eventInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.eventName {
+  font-size: 9px;
+  font-family: var(--font-pixel);
+  color: var(--color-white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+.eventNameArabic {
+  font-size: 10px;
+  font-family: var(--font-ui);
+  color: rgba(255, 215, 0, 0.75);
+  direction: rtl;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+.boostBadge {
+  font-size: 7px;
+  font-family: var(--font-pixel);
+  color: #2ecc71;
+  background: rgba(46, 204, 113, 0.12);
+  border: 1px solid rgba(46, 204, 113, 0.3);
+  border-radius: 4px;
+  padding: 2px 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.timeRemaining {
+  font-size: 8px;
+  font-family: var(--font-pixel);
+  color: rgba(255, 215, 0, 0.85);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.multiIndicator {
+  font-size: 7px;
+  font-family: var(--font-pixel);
+  color: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
+  flex-shrink: 0;
+}

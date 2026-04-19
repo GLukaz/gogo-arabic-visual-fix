@@ -1,0 +1,93 @@
+/* WordSearch — Interactive Arabic word search puzzle */
+@import '../../styles/variables.css';
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background: var(--color-beige);
+  overflow: auto;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: var(--font-pixel);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header { text-align: center; margin-bottom: 30px; }
+.title { font-family: var(--font-pixel); font-size: 20px; color: var(--color-brown); margin: 0 0 10px 0; }
+.titleArabic { font-family: var(--font-arabic-display); font-size: 28px; color: var(--color-dark-gold); margin: 0 0 10px 0; direction: rtl; }
+.subtitle { font-size: 10px; color: var(--color-brown); max-width: 600px; margin: 0 auto; }
+
+.setupPanel { background: var(--color-white); border: 4px solid var(--color-brown); padding: 30px; max-width: 700px; text-align: center; }
+.setupSection { margin-bottom: 30px; }
+.setupLabel { font-size: 14px; margin-bottom: 12px; color: var(--color-brown); }
+.buttonGroup { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.buttonSubtext { font-size: 7px; margin-top: 4px; opacity: 0.8; }
+
+.gameHeader { width: 100%; max-width: 1000px; margin-bottom: 20px; }
+.gameInfo { display: flex; justify-content: space-around; background: var(--color-white); border: 3px solid var(--color-brown); padding: 12px; }
+.stat { font-size: 11px; color: var(--color-brown); }
+.statLabel { font-weight: bold; }
+
+.gameContainer { display: flex; gap: 20px; max-width: 1000px; align-items: flex-start; }
+
+.gridContainer { display: grid; gap: 2px; background: var(--color-brown); border: 4px solid var(--color-brown); padding: 2px; user-select: none; }
+.gridCell { background: var(--color-white); aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-family: var(--font-arabic-display); font-size: 20px; color: var(--color-brown); cursor: pointer; min-width: 30px; min-height: 30px; transition: background 0.1s; }
+.selectingCell { background: var(--color-cyan); }
+.foundCell { background: var(--color-green); color: var(--color-white); }
+
+.wordList { background: var(--color-white); border: 4px solid var(--color-brown); padding: 16px; min-width: 200px; max-width: 300px; }
+.wordListTitle { font-size: 12px; color: var(--color-brown); margin-bottom: 12px; text-align: center; }
+.wordItem { padding: 8px; margin-bottom: 8px; background: var(--color-beige); border: 2px solid var(--color-brown); }
+.foundWordItem { background: var(--color-green); color: var(--color-white); }
+.wordArabic { font-family: var(--font-arabic-display); font-size: 16px; direction: rtl; margin-bottom: 4px; }
+.wordEnglish { font-size: 9px; }
+
+.celebrationOverlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.8); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+.celebrationPanel { background: var(--color-white); border: 6px solid var(--color-xp-gold); padding: 40px; text-align: center; max-width: 500px; }
+.celebrationTitle { font-size: 20px; color: var(--color-xp-gold); margin-bottom: 16px; }
+.celebrationText { font-size: 14px; color: var(--color-brown); margin-bottom: 12px; }
+.celebrationTime { font-size: 16px; color: var(--color-dark-gold); margin-bottom: 24px; }
+.celebrationActions { display: flex; gap: 12px; justify-content: center; }
+
+.controls { margin-top: 20px; }
+
+/* Pixel-art button styles (migrated from theme.js inline styles) */
+.pixelBtnGold {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  padding: 14px 28px;
+  border: none;
+  cursor: pointer;
+  image-rendering: pixelated;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  background: var(--color-xp-gold);
+  color: var(--color-brown);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.3),
+    0 4px 0 0 #a0842a;
+  transition: transform 0.05s;
+}
+
+.pixelBtnDark {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  padding: 14px 28px;
+  border: none;
+  cursor: pointer;
+  image-rendering: pixelated;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  background: var(--color-gray);
+  color: var(--color-white);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.3),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.1),
+    0 4px 0 0 #1a191b;
+  transition: transform 0.05s;
+}

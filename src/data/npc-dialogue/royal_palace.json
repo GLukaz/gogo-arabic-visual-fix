@@ -1,0 +1,1279 @@
+[
+  {
+    "id": "vizier-abbas",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَنا الوَزِير عَبّاس، حارِسُ آدابِ البَلاط",
+            "english": "I am Vizier Abbas, keeper of court etiquette.",
+            "transliteration": "ana al-waziir abbaas, haarisu aadaab al-balaat"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "لَقَد وَصَلْتَ إِلى القَصْرِ المَلَكِيّ — نِهايَةُ رِحْلَتِكَ الطَّوِيلَة",
+            "english": "You have reached the Royal Palace — the end of your long journey.",
+            "transliteration": "laqad wasalta ilaa al-qasri al-malakiyy — nihaayatu rihlatika at-tawiila"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "لَكِنْ قَبْلَ أَنْ تَدْخُلَ، يَجِبُ أَنْ تَتَعَلَّمَ آدابَ القَصْر",
+            "english": "But before you enter, you must learn the manners of the palace.",
+            "transliteration": "laakin qabla an tadkhula, yajibu an tata'allama aadaab al-qasr"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمْنِي الآداب",
+                "english": "Teach me the etiquette",
+                "next": "teach_etiquette_1"
+              },
+              {
+                "arabic": "أَخْبِرْنِي عَنِ القَصْر",
+                "english": "Tell me about the palace",
+                "next": "about_palace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "teach_etiquette_1",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "فِي القَصْرِ، الأَدَبُ أَهَمُّ مِنَ القُوَّة. لِنَبْدَأ",
+            "english": "In the palace, manners are more important than strength. Let us begin.",
+            "transliteration": "fil-qasri, al-adabu ahammu min al-quwwa. linabda'"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "لَوْ سَمَحْتَ — تَقُولُها عِنْدَما تَطْلُبُ شَيْئاً بِأَدَب",
+            "english": "Law samaht — you say it when you ask for something politely.",
+            "transliteration": "law samaht — taquuluhaa indamaa tatlub shay'an bi-adab",
+            "teachWord": "excuse_me_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَنا آسِفٌ — تَقُولُها عِنْدَما تُخْطِئ",
+            "english": "Ana aasif — you say it when you make a mistake.",
+            "transliteration": "ana aasif — taquuluhaa indamaa tukhti'",
+            "teachWord": "im_sorry_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "مَبْرُوكٌ — تَقُولُها لِلتَّهْنِئَة",
+            "english": "Mabrook — you say it to congratulate someone.",
+            "transliteration": "mabrook — taquuluhaa lit-tahni'a",
+            "teachWord": "congratulations_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "حَسَنٌ، لِنَرَ إِنْ حَفِظْتَ هَذِهِ العِبارات",
+            "english": "Good, let us see if you memorized these phrases.",
+            "transliteration": "hasanun, linara in hafizta haadhihi al-ibaaraat"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "excuse_me_1",
+              "im_sorry_1",
+              "congratulations_1"
+            ],
+            "quizType": "ar-to-en"
+          }
+        ]
+      },
+      {
+        "id": "teach_etiquette_2",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "عَوْدَةٌ مُبارَكَة! لَدَيَّ عِبارَاتٌ مُهِمَّة أُخرَى",
+            "english": "Blessed return! I have more important phrases for you.",
+            "transliteration": "awdatun mubaaraka! ladayya ibaaraatun muhimma ukhraa"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "لا أَعْرِفُ — تَقُولُها عِنْدَما لا تَعْرِفُ الجَوابَ",
+            "english": "La a'rif — you say it when you don't know the answer.",
+            "transliteration": "laa a'rif — taquuluhaa indamaa laa ta'rif al-jawaab",
+            "teachWord": "i_dont_know_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَنا أَتَعَلَّمُ العَرَبِيَّةَ — عِبارَةٌ مُفِيدَة جِدّاً لِلضُّيُوف",
+            "english": "Ana ata'allam al-arabiyya — a very useful phrase for guests.",
+            "transliteration": "ana ata'allamu al-arabiyya — ibaaratun mufiida jiddan lid-duyuuf",
+            "teachWord": "i_am_learning_arabic_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ما هَذا؟ — تَسْأَلُ بِها عَن الأَشْياء",
+            "english": "Ma haadha? — you ask it about things.",
+            "transliteration": "maa haadha? — tas'alu bihaa an al-ashyaa'",
+            "teachWord": "what_is_this_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَذا... — وَالجَوابُ يَكُونُ هَكَذا",
+            "english": "Haadha... — and the answer is like this.",
+            "transliteration": "haadha... — wal-jawaabu yakuunu haakadha",
+            "teachWord": "this_is_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "اِمْتَحِنْ نَفْسَكَ الآن!",
+            "english": "Test yourself now!",
+            "transliteration": "imtahin nafsaka al-aan!"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "i_dont_know_1",
+              "i_am_learning_arabic_1",
+              "what_is_this_1",
+              "this_is_1"
+            ],
+            "quizType": "en-to-ar"
+          }
+        ]
+      },
+      {
+        "id": "teach_etiquette_3",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَنْتَ تَتَقَدَّمُ بِسُرْعَة. هَذِهِ العِباراتُ مِنْ أَعْمَقِ ما فِي لُغَتِنا",
+            "english": "You are progressing quickly. These phrases are among the deepest in our language.",
+            "transliteration": "anta tataqaddamu bisur'a. haadhihi al-ibaaraatu min a'maqi maa fii lughatinaa"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "إِنْ شاءَ اللَّهُ — نَقُولُها عِنْدَما نَتَكَلَّمُ عَنِ المُسْتَقْبَل",
+            "english": "In shaa' Allah — we say it when speaking about the future.",
+            "transliteration": "in shaa'allaah — naquuluhaa indamaa natakallamu an al-mustaqbal",
+            "teachWord": "god_willing_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ما شاءَ اللَّهُ — نَقُولُها عِنْدَ الإِعْجاب",
+            "english": "Ma shaa' Allah — we say it when we admire something.",
+            "transliteration": "maa shaa'allaah — naquuluhaa inda al-i'jaab",
+            "teachWord": "what_god_has_willed_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "بِسْمِ اللَّهِ — نَقُولُها قَبْلَ كُلِّ عَمَل",
+            "english": "Bismillah — we say it before every action.",
+            "transliteration": "bismillaah — naquuluhaa qabla kulli amal",
+            "teachWord": "in_the_name_of_god_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَذِهِ كَلِماتٌ تَحْمِلُ بَرَكَة. هَل تَحْفَظُها؟",
+            "english": "These are words that carry blessing. Do you remember them?",
+            "transliteration": "haadhihi kalimaatun tahmilu baraka. hal tahfazuhaa?"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "god_willing_1",
+              "what_god_has_willed_1",
+              "in_the_name_of_god_1"
+            ],
+            "quizType": "random"
+          }
+        ]
+      },
+      {
+        "id": "about_palace",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "هَذا القَصْرُ المَلَكِيّ بُنِيَ قَبْلَ مِئاتِ السِّنِين",
+            "english": "This Royal Palace was built hundreds of years ago.",
+            "transliteration": "haadha al-qasru al-malakiyy buniya qabla mi'aati as-siniin"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هُنا تَسْكُنُ الأَمِيرَةُ عائِشَة، وَالإِمامُ مُحَمَّد يُعَلِّمُ فِي المَكْتَبَة",
+            "english": "Here lives Princess Aisha, and Imam Muhammad teaches in the library.",
+            "transliteration": "hunaa taskunu al-amiiiratu aa'isha, wal-imaamu muhammad yu'allimu fil-maktaba"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَالشّاعِرُ الرُّومِيّ يَزُورُنا كَثِيراً بِأَشْعارِهِ الجَمِيلَة",
+            "english": "And the poet Rumi visits us often with his beautiful poetry.",
+            "transliteration": "wash-shaa'iru ar-ruumiyy yazuurunaa kathiiran bi-ash'aarihi al-jamiila"
+          }
+        ]
+      },
+      {
+        "id": "hub",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "بِأَمرِ المَلِك. تَكَلَّم بِسُرعَة",
+            "english": "By the king's command. Speak quickly.",
+            "transliteration": "bi-amr al-malik. takallam bisur'a"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "تاريخ المَملَكَة",
+                "english": "Kingdom history",
+                "topic": "lore"
+              },
+              {
+                "arabic": "مَهامّ مَلَكِيَّة",
+                "english": "Royal missions",
+                "topic": "quests"
+              },
+              {
+                "arabic": "أَسرار البَلاط",
+                "english": "Court secrets",
+                "topic": "gossip"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_lore_kingdom",
+        "topic": "lore",
+        "label": "Kingdom History",
+        "returnToHub": true,
+        "priority": 1,
+        "conditions": [
+          {
+            "type": "relationship",
+            "npcId": "vizier-abbas",
+            "min": 1
+          }
+        ],
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "هَذِهِ المَملَكَة بُنِيَت عَلى العِلم وَالعَدل",
+            "english": "This kingdom was built on knowledge and justice.",
+            "transliteration": "haadhihi al-mamlaka buniyat 'alaa al-'ilm wal-'adl"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "المَلِكُ الأَوَّل أَسَّسَ المَكتَبَة قَبلَ القَصر",
+            "english": "The first king founded the library before the palace.",
+            "transliteration": "al-maliku al-awwal assasa al-maktaba qabla al-qasr"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَذا يَقول الكَثير عَن قِيَمِنا",
+            "english": "This says a lot about our values.",
+            "transliteration": "haadha yaquul al-kathiir 'an qiyaminaa",
+            "effects": [
+              {
+                "type": "story_flag",
+                "flag": "kingdom_history_learned"
+              }
+            ]
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَوْدَة",
+                "english": "Return",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_quests_royal",
+        "topic": "quests",
+        "label": "Royal Missions",
+        "returnToHub": true,
+        "priority": 2,
+        "conditions": [
+          {
+            "type": "relationship",
+            "npcId": "vizier-abbas",
+            "min": 1
+          }
+        ],
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "المَملَكَة تَحتاج مَن يَخدِمُها",
+            "english": "The kingdom needs those who serve it.",
+            "transliteration": "al-mamlaka tahtaaj man yakhdimuhaa"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "إِذا أَثبَتَّ نَفسَك، سَأُعطيكَ مُهِمَّة",
+            "english": "If you prove yourself, I will give you a mission.",
+            "transliteration": "idhaa athbatta nafsak, sa-u'tiika muhimma",
+            "effects": [
+              {
+                "type": "quest_start",
+                "questId": "palace_wisdom"
+              }
+            ]
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "أَنا مُستَعِدّ",
+                "english": "I am ready",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_gossip_court",
+        "topic": "gossip",
+        "label": "Court Secrets",
+        "returnToHub": true,
+        "priority": 3,
+        "conditions": [
+          {
+            "type": "relationship",
+            "npcId": "vizier-abbas",
+            "min": 1
+          }
+        ],
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الأَميرَة عائِشَة تُريد السَّفَر لَكِنَّ المَلِك يَرفُض",
+            "english": "Princess Aisha wants to travel but the king refuses.",
+            "transliteration": "al-amiira 'aa'isha turiid as-safar laakinna al-malik yarfud"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَالشّاعِر رومي يَكتُب قَصيدَة لِلمَلِك",
+            "english": "And the poet Rumi is writing a poem for the king.",
+            "transliteration": "wash-shaa'ir ruumii yaktub qasiida lil-malik"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَوْدَة",
+                "english": "Return",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "abbas_abbasid_admin",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "اِجلِس! الحُكم يَحتَاج عَقلاً قَبلَ سَيف. دَعني أُعَلِّمُكَ كَيفَ تَفكِّر.",
+            "english": "Sit! Governance needs a mind before a sword. Let me teach you how to think.",
+            "transliteration": "Ijlis! Al-hukm yahtaaju 'aqlan qabla sayf. Da'ni u'allimuka kayfa tufakkir."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الدَّولَة العَبَّاسِيَّة بَنَت أَول نِظَام بُرِيد في العَالَم — البَرِيد! أَلف مِيل مِن بَغدَاد إِلى خُرَاسَان!",
+            "english": "The Abbasid state built the world's first postal system — the barid! A thousand miles from Baghdad to Khorasan!",
+            "transliteration": "Ad-dawla al-'abbaasiyya banat awwal nizaam bariid fil-'aalam — al-bariid! Alf miil min Baghdad ilaa Khurasaan!",
+            "culturalNote": "\"Vizier\" (وَزير, wazir) comes from Arabic, meaning \"burden-bearer.\" The Abbasid postal system (البَرِيد, al-bariid) spanned 1,000+ miles, with relay stations every few miles — the world's most sophisticated communication network from 750-1258 CE."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "كَلِمَة \"vizier\" نَفسُها عَرَبِيَّة — وَزِير، حَامِل العِبء! أَنا أَحمِل عِبءَ المَملَكَة!",
+            "english": "The word \"vizier\" itself is Arabic — wazir, burden-bearer! I carry the burden of the kingdom!",
+            "transliteration": "Kalima 'vizier' nafsuhaa 'arabiyya — wazeer, haamil al-'ibb! Ana ahmil 'ib' al-mamlaka!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعَلَّم: المَلِك — لِأَنَّ كُلَّ دَولَة تَحتَاج قَائِداً وَإِدَارَة!",
+            "english": "Learn: the king — because every state needs a leader and administration!",
+            "transliteration": "Ta'allam: al-malik — li-anna kull dawla tahtaaju qaa'idan wa idaara!",
+            "teachWord": "big_1"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمني كَلِمَات السِّيَاسَة",
+                "english": "Teach me political vocabulary",
+                "next": "abbas_formal_vocab"
+              },
+              {
+                "arabic": "مَا سِرُّ الحُكم الجَيِّد؟",
+                "english": "What is the secret of good governance?",
+                "next": "abbas_governance_wisdom"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "abbas_formal_vocab",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "التَّحِيَّة الرَّسمِيَّة أَولاً! في بَلاط الخَليفَة كَانَ لِكُلِّ مَقَام مَقَال.",
+            "english": "The formal greeting first! In the Caliph's court there was a proper expression for every occasion.",
+            "transliteration": "At-tahiyya ar-rasmiyya awwalan! Fii balaat al-khalifa kaana li-kulli maqaam maqaal."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الصَّبَاح. \"صَبَاح الخَير\" — أَفضَل بِدَايَة لِيَوم السِّيَاسَة!",
+            "english": "Morning. \"Sabah al-khayr\" — the best beginning for a day of politics!",
+            "transliteration": "As-sabaah. 'Sabaah al-khayr' — afdal bidaaya li-yawm as-siyaasa!",
+            "teachWord": "sabah_al_khayr"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "المَسَاء. \"مَسَاء الخَير\" — وَمَن يُتِمُّ نَهَاره بِخَير كَسَبَ الدِّبلُومَاسِيَّة!",
+            "english": "Evening. \"Masaa al-khayr\" — and he who ends his day well has won diplomacy!",
+            "transliteration": "Al-masaa'. 'Masaa' al-khayr' — wa man yutimm nahaarah bi-khayr kasaba ad-diblumaasiiyya!",
+            "teachWord": "masa_al_khayr"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَالأَهَمّ: أَعرِف مَتَى تَتَكَلَّم وَمَتَى تَصمُت. السُّكوت ذَهَب في السِّيَاسَة!",
+            "english": "Most importantly: know when to speak and when to be silent. Silence is gold in politics!",
+            "transliteration": "Wa al-ahamm: a'rif mataa tatakallam wa mataa tasмut. As-sukuut dhahab fis-siyaasa!"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "sabah_al_khayr",
+              "masa_al_khayr",
+              "salaam",
+              "ma_a_salama"
+            ],
+            "quizType": "ar-to-en"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "مُمتاز! أَنتَ تَتَعَلَّم آدَاب البَلاط. رُبَّما يَوماً تَصبَح وَزِيراً!",
+            "english": "Excellent! You are learning court manners. Perhaps one day you will become a vizier!",
+            "transliteration": "Mumtaaz! Anta tata'allam aadaab al-balaat. Rubbamaa yawman tasbahu waziiran!"
+          }
+        ]
+      },
+      {
+        "id": "abbas_governance_wisdom",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "سِرُّ الحُكم الجَيِّد؟ ثَلاثَة أَشيَاء: العَدل، الاِستِشَارَة، وَالتَّواضُع!",
+            "english": "The secret of good governance? Three things: justice, consultation, and humility!",
+            "transliteration": "Sirr al-hukm al-jayyid? Thalaatha ashyaa': al-'adl, al-istishaara, wat-tawadu'!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الخَليفَة هَارون الرَّشيد كَانَ يَتَنَكَّر لَيلاً لِيَعرِف أَحوَال النَّاس بِنَفسِه!",
+            "english": "Caliph Harun al-Rashid used to disguise himself at night to personally know the state of the people!",
+            "transliteration": "Al-khalifa Haaruun ar-Rashiid kaana yatanakkar laylan li-ya'rif ahwaal an-naas bi-nafsih!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الدَّولَة العَبَّاسِيَّة جَمَعَت العُلَمَاء مِن كُلِّ الأَدِيَان والأَجنَاس. هَذَا هُوَ الحُكم الحَقِيقِيّ!",
+            "english": "The Abbasid state gathered scholars from all religions and peoples. This is true governance!",
+            "transliteration": "Ad-dawla al-'abbaasiyya jama'at al-'ulamaa' min kulli al-adyaan wal-ajnaas. Haadha huwa al-hukm al-haqiiqi!",
+            "culturalNote": "The Abbasid Caliphate (750-1258 CE) created the first truly multicultural intellectual state. The House of Wisdom (Bayt al-Hikma) employed scholars of every faith — Muslim, Christian, Jewish, Zoroastrian — to translate all human knowledge into Arabic."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعَلَّم: قَديم — لِأَنَّ الحِكمَة القَدِيمَة لا تَشيخ أَبَداً!",
+            "english": "Learn: old/ancient — because ancient wisdom never grows old!",
+            "transliteration": "Ta'allam: qadiim — li-anna al-hikma al-qadiima laa tashiikh abadan!",
+            "teachWord": "old_1"
+          }
+        ]
+      },
+      {
+        "id": "abbas_court_secrets",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَقرَب إِليَّ! سَأُطلِعُكَ على سِرٍّ مِن أَسرَار البَلاط. لا تُخبِر أَحَداً!",
+            "english": "Come closer! I will share with you a secret of the court. Tell no one!",
+            "transliteration": "Aqrab ilayya! Sa-utli'uk 'alaa sirrin min asraar al-balaat. Laa takhbar ahadan!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الوَزِير الجَيِّد يَعرِف مَتَى يُعطِي وَمَتَى يَأخُذ. مَتَى يَتَكَلَّم وَمَتَى يَسكُت.",
+            "english": "A good vizier knows when to give and when to take. When to speak and when to be silent.",
+            "transliteration": "Al-wazeer al-jayyid ya'rif mataa yu'tii wa mataa ya'khudh. Mataa yatakallam wa mataa yaskut."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعَلَّم: أَخَذَ — هَذِه الكَلِمَة مُهِمَّة في كُلِّ مُفَاوَضَة!",
+            "english": "Learn: to take — this word is important in every negotiation!",
+            "transliteration": "Ta'allam: akhadha — haadhihi al-kalima muhimma fii kulli mufaawada!",
+            "teachWord": "take_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَالأَهَمّ: النَّوم! الوَزِير الذي لا يَنَام يَفقِد قُدرَتَه على التَّفكِير. النَّوم عَقل!",
+            "english": "Most important: sleep! The vizier who does not sleep loses his ability to think. Sleep is wisdom!",
+            "transliteration": "Wa al-ahamm: an-nawm! Al-wazeer alladhii laa yanaam yafqid qudratahu 'alaa at-tafkiir. An-nawm 'aql!",
+            "teachWord": "sleep_1"
+          }
+        ]
+      },
+      {
+        "id": "abbas_justice",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "العَدلُ أَساسُ المُلك — هَذا مَبدَأ الحُكم",
+            "english": "Justice is the foundation of rule — this is the principle of governance.",
+            "transliteration": "al-'adl asaas al-mulk — haadha mabda' al-hukm"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "قاضٍ — القاضي يَحكُم بِالعَدل. وَكَلِمَة \"cadi\" الإنجليزِيَّة مِنها",
+            "english": "Qaadi — the judge rules with justice. The English \"cadi\" comes from this word.",
+            "transliteration": "qaadin — al-qaadi yahkum bil-'adl",
+            "teachWord": "right_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "في بَغداد العَبّاسِيَّة كانَ القُضاة مُستَقِلِّين — نِظام قانوني عَادِل",
+            "english": "In Abbasid Baghdad, judges were independent — a fair legal system.",
+            "transliteration": "fii baghdaad al-'abbaasiyya kaana al-qudaat mustaqilliin"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "العَدل قَبلَ كُلّ شَيء! شُكراً وَزير",
+                "english": "Justice above all! Thank you, vizier.",
+                "next": null
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "princess-aisha",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَنا الأَمِيرَةُ عائِشَة. سَمِعْتُ عَنْ رِحْلَتِكَ الطَّوِيلَة",
+            "english": "I am Princess Aisha. I have heard about your long journey.",
+            "transliteration": "ana al-amiiratu aa'isha. sami'tu an rihlatika at-tawiila"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ما شاءَ اللَّه! لَقَدْ تَعَلَّمْتَ كَثِيراً فِي طَرِيقِكَ إِلى هُنا",
+            "english": "Mashallah! You have learned so much on your way here.",
+            "transliteration": "maa shaa'allaah! laqad ta'allamta kathiiran fii tariiqika ilaa hunaa"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أُحِبُّ الشِّعْرَ وَالعائِلَة. دَعْنِي أُعَلِّمُكَ كَلِماتِ العائِلَة",
+            "english": "I love poetry and family. Let me teach you family words.",
+            "transliteration": "uhibbu ash-shi'ra wal-aa'ila. da'nii u'allimuka kalimaat al-aa'ila"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "نَعَم، عَلِّمِينِي",
+                "english": "Yes, teach me",
+                "next": "teach_family_1"
+              },
+              {
+                "arabic": "أَخْبِرِينِي عَنِ العائِلَةِ المَلَكِيَّة",
+                "english": "Tell me about the royal family",
+                "next": "about_royal_family"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "teach_family_1",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "العائِلَةُ هِيَ أَساسُ كُلِّ شَيْء. لِنَبْدَأ بِالوالِدَيْن",
+            "english": "Family is the foundation of everything. Let's start with the parents.",
+            "transliteration": "al-aa'ilatu hiya asaasu kulli shay'. linabda' bil-waalidayn"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَبٌ — الوالِدُ، رَأْسُ العائِلَة",
+            "english": "Ab — the father, head of the family.",
+            "transliteration": "ab — al-waalid, ra'su al-aa'ila",
+            "teachWord": "family_father"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أُمّ — الوالِدَة، قَلْبُ البَيْت",
+            "english": "Umm — the mother, heart of the home.",
+            "transliteration": "umm — al-waalida, qalbu al-bayt",
+            "teachWord": "family_mother"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَخٌ — مِثْلَ أَخِي الَّذِي يَحْمِينِي",
+            "english": "Akh — like my brother who protects me.",
+            "transliteration": "akh — mithla akhii alladhii yahmiinii",
+            "teachWord": "family_brother"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَل حَفِظْتَ هَذِهِ الكَلِمات؟ لِنَرَ!",
+            "english": "Did you memorize these words? Let's see!",
+            "transliteration": "hal hafizta haadhihi al-kalimaat? linara!"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "family_father",
+              "family_mother",
+              "family_brother"
+            ],
+            "quizType": "ar-to-en"
+          }
+        ]
+      },
+      {
+        "id": "teach_family_2",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "عَوْدَةٌ جَمِيلَة! لَدَيَّ كَلِماتٌ أُخرى عَنِ العائِلَة",
+            "english": "A beautiful return! I have more family words for you.",
+            "transliteration": "awdatun jamiila! ladayya kalimaatun ukhraa an al-aa'ila"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أُخْت — مِثْلِي أَنا لِأَخِي",
+            "english": "Ukht — like me to my brother.",
+            "transliteration": "ukht — mithlii ana li-akhii",
+            "teachWord": "family_sister"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "اِبْن — الوَلَدُ لِأَبِيه",
+            "english": "Ibn — the son to his father.",
+            "transliteration": "ibn — al-waladu li-abiih",
+            "teachWord": "family_son"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "بِنْت — البِنْتُ لِأُمِّها",
+            "english": "Bint — the daughter to her mother.",
+            "transliteration": "bint — al-bintu li-ummihaa",
+            "teachWord": "family_daughter"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "طِفْل — الصَّغِيرُ فِي العائِلَة",
+            "english": "Tifl — the little one in the family.",
+            "transliteration": "tifl — as-saghiiru fil-aa'ila",
+            "teachWord": "family_child"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "لِنَخْتَبِر ما تَعَلَّمْتَ!",
+            "english": "Let's test what you've learned!",
+            "transliteration": "linakhtabir maa ta'allamta!"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "family_sister",
+              "family_son",
+              "family_daughter",
+              "family_child"
+            ],
+            "quizType": "en-to-ar"
+          }
+        ]
+      },
+      {
+        "id": "teach_family_3",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "ما شاءَ اللَّه، أَنْتَ تَعْرِفُ كَلِماتٍ كَثِيرَة! لَدَيَّ المَزِيد",
+            "english": "Mashallah, you know many words! I have more.",
+            "transliteration": "maa shaa'allaah, anta ta'rifu kalimaatin kathiira! ladayya al-maziid"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "جَدّ — والِدُ أَبِيكَ أَوْ أُمِّكَ",
+            "english": "Jadd — your father's or mother's father.",
+            "transliteration": "jadd — waalidu abiika aw ummika",
+            "teachWord": "family_grandfather"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "جَدَّة — والِدَةُ أَبِيكَ أَوْ أُمِّكَ",
+            "english": "Jadda — your father's or mother's mother.",
+            "transliteration": "jadda — waalidatu abiika aw ummika",
+            "teachWord": "family_grandmother"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "زَوْج — الرَّجُلُ المُتَزَوِّج",
+            "english": "Zawj — the married man, the husband.",
+            "transliteration": "zawj — ar-rajulu al-mutazawwij",
+            "teachWord": "family_husband"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "زَوْجَة — المَرْأَةُ المُتَزَوِّجَة",
+            "english": "Zawja — the married woman, the wife.",
+            "transliteration": "zawja — al-mar'atu al-mutazawwija",
+            "teachWord": "family_wife"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَذِهِ كَلِماتُ الرَّوابِطِ العائِلِيَّة. هَل تَذْكُرُها؟",
+            "english": "These are the words of family bonds. Do you remember them?",
+            "transliteration": "haadhihi kalimaatu ar-rawaabit al-aa'iliyya. hal tadhkuruhaa?"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "family_grandfather",
+              "family_grandmother",
+              "family_husband",
+              "family_wife"
+            ],
+            "quizType": "random"
+          }
+        ]
+      },
+      {
+        "id": "about_royal_family",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "عائِلَتُنا المَلَكِيَّةُ تَحْكُمُ هَذِهِ المَدِينَةَ مُنْذُ أَجْيال",
+            "english": "Our royal family has ruled this city for generations.",
+            "transliteration": "aa'ilatunaa al-malakiyya tahkumu haadhihi al-madiinata mundhu ajyaal"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَبِي المَلِكُ يَقُولُ: العِلْمُ أَغْلى مِنَ الذَّهَب",
+            "english": "My father the King says: knowledge is more precious than gold.",
+            "transliteration": "abii al-maliku yaquul: al-ilmu aghlaa min adh-dhahab"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "لِهَذا نُرَحِّبُ بِكُلِّ طالِبِ عِلْمٍ فِي قَصْرِنا",
+            "english": "That is why we welcome every seeker of knowledge in our palace.",
+            "transliteration": "li-haadha nurahhibu bikulli taalib ilmin fii qasrinaa"
+          }
+        ]
+      },
+      {
+        "id": "hub",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَهلاً وَسَهلاً في القَصر",
+            "english": "Welcome to the palace.",
+            "transliteration": "ahlan wa sahlan fii al-qasr"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "العَرَبِيَّة الرَّسمِيَّة",
+                "english": "Formal Arabic",
+                "topic": "teaching"
+              },
+              {
+                "arabic": "التَّقاليد المَلَكِيَّة",
+                "english": "Royal traditions",
+                "topic": "lore"
+              },
+              {
+                "arabic": "حَياة القَصر",
+                "english": "Palace life",
+                "topic": "gossip"
+              },
+              {
+                "arabic": "مَهامّ دِبلوماسِيَّة",
+                "english": "Diplomatic missions",
+                "topic": "quests"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_teaching_formal",
+        "topic": "teaching",
+        "label": "Formal Arabic",
+        "returnToHub": true,
+        "priority": 1,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "في القَصر نَتَكَلَّم بِلُغَة رَسمِيَّة",
+            "english": "In the palace we speak formal language.",
+            "transliteration": "fii al-qasr natakallam bilugha rasmiyya"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "صَباح — أَوَّل الكَلِمات في البَلاط",
+            "english": "Morning — the first word in the court.",
+            "transliteration": "sabaah — awwal al-kalimaat fii al-balaat",
+            "teachWord": "morning_1",
+            "inlineVocab": [
+              {
+                "wordId": "morning_1",
+                "arabicText": "صَباح"
+              }
+            ]
+          },
+          {
+            "speaker": "npc",
+            "arabic": "مَساء — وَقت العَشاء المَلَكي",
+            "english": "Evening — time for the royal dinner.",
+            "transliteration": "masaa' — waqt al-'ashaa' al-malakii",
+            "teachWord": "evening_1",
+            "inlineVocab": [
+              {
+                "wordId": "evening_1",
+                "arabicText": "مَساء"
+              }
+            ]
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "شُكراً يا أَميرَة",
+                "english": "Thank you, princess",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_lore_royal",
+        "topic": "lore",
+        "label": "Royal Traditions",
+        "returnToHub": true,
+        "priority": 2,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "كُلّ صَباح نَقرَأ القُرآن مَعاً",
+            "english": "Every morning we read the Quran together.",
+            "transliteration": "kulla sabaah naqra' al-qur'aan ma'an"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَبَعدَ الظُّهر دُروس في اللُّغات والتّاريخ",
+            "english": "And after noon, lessons in languages and history.",
+            "transliteration": "wa ba'da az-zuhr duruus fii al-lughaat wat-taariikh"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أُحِبّ أَن أَتَعَلَّم عَن الشُّعوب الأُخرى",
+            "english": "I love learning about other peoples.",
+            "transliteration": "uhibbu an ata'allam 'an ash-shu'uub al-ukhraa"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَوْدَة",
+                "english": "Return",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_gossip_palace",
+        "topic": "gossip",
+        "label": "Palace Life",
+        "returnToHub": true,
+        "priority": 3,
+        "conditions": [
+          {
+            "type": "relationship",
+            "npcId": "princess-aisha",
+            "min": 3
+          }
+        ],
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أُريدُ أَن أُسافِر لَكِن أَبي يَقلَق",
+            "english": "I want to travel but my father worries.",
+            "transliteration": "uriidu an usaafir laakinn abii yaqlaq"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الوَزير عَبّاس دائِماً يُراقِبُني",
+            "english": "Vizier Abbas always watches me.",
+            "transliteration": "al-waziir 'abbaas daa'iman yuraaqibunii"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَوْدَة",
+                "english": "Return",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_quests_diplo",
+        "topic": "quests",
+        "label": "Diplomatic Missions",
+        "returnToHub": true,
+        "priority": 4,
+        "conditions": [
+          {
+            "type": "relationship",
+            "npcId": "princess-aisha",
+            "min": 2
+          }
+        ],
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَحتاج مَن يُوصِل رِسالَة إِلى المَكتَبَة",
+            "english": "I need someone to deliver a message to the library.",
+            "transliteration": "ahtaaj man yuusil risaala ilaa al-maktaba",
+            "effects": [
+              {
+                "type": "quest_start",
+                "questId": "palace_colors"
+              }
+            ]
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَل يُمكِنُك مُساعَدَتي؟",
+            "english": "Can you help me?",
+            "transliteration": "hal yumkinuk musaa'adatii?"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "بِالتَّأكيد",
+                "english": "Of course",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cultural_women_scholars",
+        "trigger": "relationship_level_2",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "فاطِمَةُ الفِهريَّة أَسَّسَت أَقدَمَ جامِعَةٍ في العالَم",
+            "english": "Fatima al-Fihri founded the oldest university in the world",
+            "transliteration": "fatima al-fihriyya assasat aqdam jami'a fil-'alam",
+            "culturalNote": "Fatima al-Fihri founded the University of al-Qarawiyyin in Fez, Morocco in 859 CE. UNESCO and Guinness World Records recognize it as the oldest continuously operating educational institution."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الشّاعِراتُ العَرَبيّاتُ كَتَبنَ شِعراً يَفوقُ كَثيراً مِنَ الرِّجال",
+            "english": "Arab women poets wrote verse surpassing many men",
+            "transliteration": "ash-sha'irat al-arabiyyat katabna shi'ran yafuqu kathiran min ar-rijal"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَشَهرَزاد — أَقوى شَخصيَّةٍ أَدَبيَّة: أَنقَذَت حَياتَها بالقِصَص",
+            "english": "And Scheherazade — the most powerful literary character: she saved her life through stories",
+            "transliteration": "wa shahrazad — aqwa shakhsiyya adabiyya: anqadhat hayataha bil-qisas",
+            "culturalNote": "In One Thousand and One Nights, Scheherazade tells stories for 1,001 nights to delay her execution. She represents the power of narrative — stories as survival."
+          }
+        ]
+      },
+      {
+        "id": "aisha_fatima_fihri",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَتَعرِف فَاطِمَة الفِهرِيَّة؟ مَرَأَة مُسلِمَة أَسَّسَت أَقدَم جَامِعَة في العَالَم!",
+            "english": "Do you know Fatima al-Fihri? A Muslim woman who founded the oldest university in the world!",
+            "transliteration": "Ata'rif Faatima al-Fihriyya? Imra'a muslima assasat aqdam jaami'a fil-'aalam!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "جَامِعَة القَرَوِيِّين في فَاس، المَغرِب — عَام 859 مِيلادِيّ. اليونِسكو تَعتَرِف بِها كَأَقدَم جَامِعَة!",
+            "english": "Al-Qarawiyyin University in Fez, Morocco — 859 CE. UNESCO recognizes it as the oldest university!",
+            "transliteration": "Jaami'at al-Qarawiyyiin fii Faas, al-Maghrib — 'aam 859 miilaadiiyy. Al-Yuunisku ta'tarif bihaa ka-aqdam jaami'a!",
+            "culturalNote": "Fatima al-Fihri founded al-Qarawiyyin University in Fez, Morocco in 859 CE — recognized by UNESCO and Guinness World Records as the world's oldest continuously operating educational institution. She used her entire inheritance to build it."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَلُبنى القُرطُبِيَّة — رِيَاضِيَّة وَشَاعِرَة وَمَكتَبِيَّة في بَلاط قُرطُبَة. امرَأَة عَظيمَة!",
+            "english": "And Lubna of Cordoba — mathematician, poet, and librarian in the Cordoba court. A great woman!",
+            "transliteration": "Wa Lubna al-Qurtubiyya — riyaadiyya wa shaа'ira wa maktabiyya fii balaat Qurtuba. Imra'a 'aziima!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعَلَّم: الأُمّ — لِأَنَّ فَاطِمَة الفِهرِيَّة كَانَت أُمَّ التَّعلِيم الإِسلَامِيّ!",
+            "english": "Learn: mother — because Fatima al-Fihri was the mother of Islamic education!",
+            "transliteration": "Ta'allam: al-umm — li-anna Faatima al-Fihriyya kaanat umm at-ta'liim al-islaamiyy!",
+            "teachWord": "family_mother"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمني كَلِمَات العَائِلَة",
+                "english": "Teach me family words",
+                "next": "aisha_family_lesson"
+              },
+              {
+                "arabic": "مَاذَا أَنتِ تَتَعَلَّمين؟",
+                "english": "What are you studying?",
+                "next": "aisha_her_studies"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "aisha_family_lesson",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "العَائِلَة — أَهَمُّ مَؤسَّسَة في الحَضَارَة الإِسلَامِيَّة. كُلُّ شَيء يَبدَأ مِن البَيت!",
+            "english": "Family — the most important institution in Islamic civilization. Everything begins from the home!",
+            "transliteration": "Al-'aa'ila — ahamm mu'assasa fil-hadaara al-islaamiyya. Kull shay' yabda' min al-bayt!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الأَب! أَوَّل كَلِمَة تَعلَّمَها كُلُّ طِفل في كُلِّ لُغَة!",
+            "english": "The father! The first word every child learns in every language!",
+            "transliteration": "Al-ab! Awwal kalima ta'allamahaa kull tifl fii kulli lugha!",
+            "teachWord": "family_father"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الأَخ! الأَخوَّة في الإِسلَام تَمتَدُّ لِتَشمَل كُلَّ مُسلِم — لِتَكن أَخاً لِلجَميع!",
+            "english": "The brother! Brotherhood in Islam extends to include every Muslim — be a brother to all!",
+            "transliteration": "Al-akh! Al-ukhuwwa fil-islaam tamtaddu li-tashmila kull muslim — liyakun akhaan lil-jamii'!",
+            "teachWord": "family_brother"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الأُخت! وَالنِّسَاء في الإِسلَام كانَ لَهُنَّ حُقوق قَبلَ أُوروبَّا بِألف سَنَة!",
+            "english": "The sister! And women in Islam had rights a thousand years before Europe!",
+            "transliteration": "Al-ukht! Wa an-nisaa' fil-islaam kaana lahunna huquuq qabla Uurubba bi-alf sana!",
+            "teachWord": "family_sister"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "family_father",
+              "family_mother",
+              "family_brother",
+              "family_sister"
+            ],
+            "quizType": "ar-to-en"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَحسَنتَ! تَعلَّمتَ العَائِلَة. بِدُونَ عَائِلَة لا حَضَارَة — تَذكَّر هَذا دَائِماً!",
+            "english": "Well done! You learned family. Without family there is no civilization — remember this always!",
+            "transliteration": "Ahsanta! Ta'allamta al-'aa'ila. Bi-duun 'aa'ila laa hadaara — tadhakkar haadha daa'iman!"
+          }
+        ]
+      },
+      {
+        "id": "aisha_her_studies",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَنا أَتَعَلَّم الرِّيَاضِيَّات والفَلسَفَة والشِّعر! لِمَاذَا تَتَعَجَّب؟",
+            "english": "I am studying mathematics, philosophy, and poetry! Why are you surprised?",
+            "transliteration": "Ana ata'allam ar-riyaadiyaat wal-falsafa wash-shi'r! Li-maadha tata'ajjab?"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "في زَمَن الحَضَارَة الإِسلَامِيَّة، النِّسَاء كُنَّ عَالِمَات وَشَاعِرَات وَطَبيبَات!",
+            "english": "In the age of Islamic civilization, women were scholars, poets, and physicians!",
+            "transliteration": "Fii zaman al-hadaara al-islaamiyya, an-nisaa' kunna 'aalimaat wa shaа'iraat wa tabibaat!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "العِلم لا جِنس لَه وَلا لَون. هَذَا ما أَقوله وَمَا تُؤكِّدُه التَّارِيخ!",
+            "english": "Knowledge has no gender and no color. This is what I say and what history confirms!",
+            "transliteration": "Al-'ilm laa jins lahu wa laa lawn. Haadha maa aquuluh wa maa tu'akkiduh at-taariikh!",
+            "culturalNote": "Lubna of Cordoba (d. 984 CE) was a renowned mathematician and librarian who managed the royal library of Caliph al-Hakam II — a collection of 400,000 volumes. She was his personal secretary and one of the leading intellectuals of 10th-century Spain."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعَلَّم: جَديد — لِأَنَّ كُلَّ فِكرَة جَديدَة تَفتَح بَاباً جَديداً!",
+            "english": "Learn: new — because every new idea opens a new door!",
+            "transliteration": "Ta'allam: jadiid — li-anna kull fikra jadiida taftah baaban jadiiidan!",
+            "teachWord": "new_1"
+          }
+        ]
+      },
+      {
+        "id": "aisha_women_scholars",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "هَل تَعرِف أَنَّ النِّساء العَرَبِيّات كُنَّ عالِمات كَبيرات؟",
+            "english": "Did you know that Arab women were great scholars?",
+            "transliteration": "hal ta'rif anna an-nisaa' al-arabiyyaat kunna 'aalimaat kabiraat?"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "خَيزُران — أُمّ هارون الرَّشيد — كانَت مِن أَقوَى النِّساء في التّاريخ",
+            "english": "Khayzuran — mother of Harun al-Rashid — was one of the most powerful women in history.",
+            "transliteration": "khayzuraan — umm haaroon ar-rashiid — kaanat min aqwaa an-nisaa' fit-taariikh",
+            "teachWord": "family_mother",
+            "culturalNote": "Khayzuran (d. 789 CE), mother of Harun al-Rashid, wielded enormous political power in the Abbasid caliphate. Lubna of Cordoba (d. 984) ran the royal library of 400,000 volumes. Fatima al-Fihri (d. 880) founded al-Qarawiyyin — the world's oldest continuously operating university."
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "النِّساء العالِمات! مُلهِم. شُكراً",
+                "english": "Women scholars! Inspiring. Thank you.",
+                "next": null
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vizier-interior",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "قِف! أَنتَ في قاعَة العَرش المَلَكِيَّة",
+            "english": "Halt! You are in the Royal Throne Room.",
+            "transliteration": "qif! anta fii qaa'at al-arsh al-malakiyya"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَنا الوَزير عَبّاس. هُنا نَتَكَلَّم بِالفُصحى فَقَط",
+            "english": "I am Vizier Abbas. Here we speak only in formal Arabic.",
+            "transliteration": "ana al-waziir abbaas. hunaa natakallam bil-fushaa faqat"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "إِذا كُنتَ تُريدُ البَقاء، تَعَلَّم كَيفَ تَتَكَلَّم أَمامَ المَلِك",
+            "english": "If you wish to stay, learn how to speak before the king.",
+            "transliteration": "idhaa kunta turiidu al-baqaa', ta'allam kayfa tatakallam amaama al-malik"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمني يا وَزير",
+                "english": "Teach me, Vizier",
+                "next": "teach_formal"
+              },
+              {
+                "arabic": "عَفْواً، سَأَخرُج",
+                "english": "Pardon me, I will leave",
+                "action": "end"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "default",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "عُدتَ مَرَّة أُخرى. أَرجو أَن تَكونَ قَد تَعَلَّمت",
+            "english": "You return again. I hope you have learned.",
+            "transliteration": "udta marratan ukhraa. arjuu an takuuna qad ta'allamta"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "المَلِك لا يُحِبّ الجَهل",
+            "english": "The king does not tolerate ignorance.",
+            "transliteration": "al-malik laa yuhibb al-jahl"
+          }
+        ]
+      },
+      {
+        "id": "teach_formal",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "حَضرَة — لَقَب اِحتِرام لِلمَلِك",
+            "english": "Hadra — a title of respect for the king (Your Majesty).",
+            "transliteration": "hadra — laqab ihtiraam lil-malik",
+            "teachWord": "p_0133"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَمَرَ — فِعل المَلِك: أَمَرَ وَأَطَعنا",
+            "english": "Amara — the king's verb: he commanded and we obeyed.",
+            "transliteration": "amara — fi'l al-malik: amara wa ata'naa",
+            "teachWord": "p_0407"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "عَدل — أَهَمّ صِفَة لِلحاكِم",
+            "english": "Adl — the most important quality for a ruler (justice).",
+            "transliteration": "'adl — ahamm sifa lil-haakim",
+            "teachWord": "right_1"
+          }
+        ]
+      }
+    ]
+  }
+]

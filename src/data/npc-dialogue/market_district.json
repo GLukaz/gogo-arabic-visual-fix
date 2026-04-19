@@ -1,0 +1,23 @@
+[
+  {
+    "id": "poet-market",
+    "dialogueTrees": [
+      {
+        "id": "poet-market-greeting",
+        "trigger": "interact",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أُلقي الشِّعرَ في كُلِّ زاوِيَة مِن هَذا السّوق!",
+            "english": "I recite poetry in every corner of this market!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَل تَسمَعُ؟ ابنُ زَيدون كانَ يَعِيشُ هُنا في قَلبِه — تَعال نَتَنافَس",
+            "english": "Do you hear? Ibn Zaydun lived here in his heart — come, let us compete"
+          }
+        ]
+      }
+    ]
+  }
+]

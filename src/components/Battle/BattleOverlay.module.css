@@ -1,0 +1,115 @@
+@import '../../styles/variables.css';
+
+.container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: var(--z-battle);
+}
+
+.pointerEventsAuto {
+  pointer-events: auto;
+}
+
+.enemyIntent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  color: #FF6666;
+  text-shadow: 0 0 8px rgba(255, 102, 102, 0.5);
+  pointer-events: none;
+  text-align: center;
+  direction: rtl;
+}
+
+.companionTurn {
+  position: absolute;
+  bottom: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(26, 26, 46, 0.95);
+  border: 2px solid #4A90D9;
+  border-radius: 8px;
+  padding: 12px 20px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.companionTurnLabel {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: #4A90D9;
+  margin-bottom: 6px;
+}
+
+.companionActionText {
+  font-size: 11px;
+  color: var(--color-white);
+}
+
+.companionHPPanel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(26, 26, 46, 0.9);
+  border: 2px solid #4A90D9;
+  border-radius: 8px;
+  padding: 12px;
+  min-width: 150px;
+  pointer-events: none;
+}
+
+.companionName {
+  font-size: 8px;
+  color: #4A90D9;
+  font-family: var(--font-pixel);
+  margin-bottom: 6px;
+}
+
+.barSection {
+  margin-bottom: 4px;
+}
+
+.barLabel {
+  font-size: 7px;
+  margin-bottom: 2px;
+}
+
+.barLabelHP {
+  color: #2ECC71;
+}
+
+.barLabelMP {
+  color: #2196F3;
+}
+
+.barTrack {
+  width: 120px;
+  height: 8px;
+  background: #333;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.barTrackSmall {
+  width: 120px;
+  height: 6px;
+  background: #333;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.barFillHP {
+  height: 100%;
+  background: #4CAF50;
+  transition: width 0.3s ease;
+}
+
+.barFillMP {
+  height: 100%;
+  background: #2196F3;
+  transition: width 0.3s ease;
+}

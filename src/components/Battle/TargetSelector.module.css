@@ -1,0 +1,166 @@
+/* TargetSelector — Enemy target selection for multi-enemy battles */
+@import '../../styles/variables.css';
+
+.targetList {
+  position: absolute;
+  bottom: 100px;
+  left: 20px;
+  direction: rtl;
+  z-index: 1001;
+  background: rgba(26, 26, 46, 0.95);
+  border: 2px solid rgba(226, 182, 89, 0.6);
+  padding: 12px;
+  min-width: 200px;
+  max-width: 280px;
+  box-sizing: border-box;
+}
+
+.selectorTitle {
+  font-family: var(--font-arabic-display);
+  font-size: 13px;
+  color: var(--color-xp-gold);
+  text-align: center;
+  margin: 0 0 10px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(226, 182, 89, 0.3);
+}
+
+.targetRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: background 0.1s, border-color 0.1s;
+  margin-bottom: 4px;
+}
+
+.targetRow:hover:not(.defeated) {
+  background: rgba(226, 182, 89, 0.12);
+  border-color: rgba(226, 182, 89, 0.3);
+}
+
+.targetRow.selected {
+  border-color: var(--color-xp-gold);
+  background: rgba(226, 182, 89, 0.15);
+}
+
+.targetRow.defeated {
+  opacity: 0.3;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.targetInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.targetName {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  color: #f5f0e8;
+  display: block;
+  line-height: 1.3;
+}
+
+/* HP bar */
+.hpBarWrap {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-top: 4px;
+  overflow: hidden;
+}
+
+.hpBar {
+  height: 100%;
+  background: linear-gradient(180deg, #f03131 0%, #a01010 100%);
+  transition: width 0.3s ease-out;
+}
+
+.hpBar.low {
+  background: linear-gradient(180deg, #CC4444 0%, #881111 100%);
+}
+
+/* Row badge */
+.rowBadge {
+  font-family: var(--font-arabic-display);
+  font-size: 10px;
+  color: rgba(245, 240, 232, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.rowBadge.front {
+  color: rgba(226, 182, 89, 0.8);
+  border: 1px solid rgba(226, 182, 89, 0.3);
+}
+
+.rowBadge.back {
+  color: rgba(150, 150, 200, 0.8);
+  border: 1px solid rgba(150, 150, 200, 0.3);
+}
+
+/* Damage preview */
+.damagePreview {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: rgba(245, 240, 232, 0.4);
+  text-align: center;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(226, 182, 89, 0.2);
+}
+
+/* Action row */
+.actionRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(226, 182, 89, 0.2);
+}
+
+.confirmBtn {
+  font-family: var(--font-arabic-display);
+  font-size: 12px;
+  color: #1A1A2E;
+  background: rgba(226, 182, 89, 0.8);
+  border: none;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+.confirmBtn:hover {
+  background: rgba(226, 182, 89, 1);
+}
+
+.confirmBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.cancelBtn {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: rgba(245, 240, 232, 0.5);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+.cancelBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hpBar {
+    transition: none;
+  }
+}

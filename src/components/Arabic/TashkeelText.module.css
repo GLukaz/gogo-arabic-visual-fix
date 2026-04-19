@@ -1,0 +1,51 @@
+/**
+ * TashkeelText.module.css
+ *
+ * Styles for progressive tashkeel (diacritics) fading component.
+ * Provides smooth opacity transitions as learners master vocabulary words.
+ */
+
+.wrapper {
+  /* Wrapper inherits font from parent (typically var(--font-arabic-body)) */
+  display: inline;
+  direction: rtl; /* Right-to-left for Arabic */
+  unicode-bidi: embed; /* Preserve bidirectional text behavior */
+}
+
+.tashkeel {
+  /* Tashkeel marks with smooth opacity transition */
+  display: inline;
+  transition: opacity 0.6s ease-in-out;
+  /* Opacity set via inline style based on mastery level */
+}
+
+/*
+ * TRANSITION TIMING:
+ * - 0.6s duration provides smooth, noticeable fade
+ * - ease-in-out creates natural acceleration/deceleration
+ * - Subtle enough not to distract during reading
+ *
+ * ACCESSIBILITY:
+ * - Visual change only; screen readers read full text
+ * - No reduced-motion query needed (opacity change is subtle)
+ * - Could add prefers-reduced-motion: reduce to instant transition if needed
+ */
+
+/* Optional: Reduce animation for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .tashkeel {
+    transition-duration: 0.1s;
+  }
+}
+
+/*
+ * RESPONSIVE CONSIDERATIONS:
+ * - Tashkeel size scales with parent font-size
+ * - No fixed dimensions; fully fluid
+ * - Works at any text size (small UI labels to large quiz words)
+ *
+ * INTEGRATION NOTES:
+ * - Parent component should set font-family (e.g., var(--font-arabic-body))
+ * - Parent component should set font-size and color
+ * - This component only handles tashkeel opacity logic
+ */

@@ -1,0 +1,333 @@
+/* WritingPracticeOverlay.module.css — Phase 83 */
+
+/* ─── Overlay backdrop ───────────────────────────────────────────────────── */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 20, 0.88);
+  backdrop-filter: blur(4px);
+}
+
+.panel {
+  background: #1a1a2e;
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 480px;
+  width: 92vw;
+  max-height: 92vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #FFD700;
+  font-weight: 700;
+}
+
+.titleArabic {
+  margin: 0;
+  font-size: 1rem;
+  color: rgba(255, 215, 0, 0.6);
+  direction: rtl;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  color: rgba(255, 215, 0, 0.5);
+  font-size: 1.6rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 4px;
+  transition: color 0.2s;
+}
+
+.closeBtn:hover {
+  color: #FFD700;
+}
+
+.backBtn {
+  background: none;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  color: #FFD700;
+  padding: 4px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s;
+}
+
+.backBtn:hover {
+  background: rgba(255, 215, 0, 0.1);
+}
+
+.levelTag {
+  color: rgba(255, 215, 0, 0.7);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ─── Level Select Grid ──────────────────────────────────────────────────── */
+
+.levelGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.levelCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 215, 0, 0.04);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.levelCard:hover {
+  background: rgba(255, 215, 0, 0.12);
+  border-color: #FFD700;
+  transform: translateY(-2px);
+}
+
+.levelLabel {
+  color: #FFD700;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.levelLabelAr {
+  color: rgba(255, 215, 0, 0.6);
+  font-size: 0.9rem;
+  direction: rtl;
+}
+
+.levelCount {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8rem;
+}
+
+/* ─── Stats bar ──────────────────────────────────────────────────────────── */
+
+.statsBar {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 14px;
+  border-top: 1px solid rgba(255, 215, 0, 0.1);
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.78rem;
+}
+
+/* ─── Progress Bar ───────────────────────────────────────────────────────── */
+
+.progressBarOuter {
+  position: relative;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 215, 0, 0.1);
+  overflow: hidden;
+}
+
+.progressBarInner {
+  height: 100%;
+  border-radius: 3px;
+  background: #FFD700;
+  transition: width 0.3s ease;
+}
+
+.progressLabel {
+  position: absolute;
+  top: -18px;
+  right: 0;
+  color: rgba(255, 215, 0, 0.5);
+  font-size: 0.72rem;
+}
+
+/* ─── Item Display ───────────────────────────────────────────────────────── */
+
+.itemDisplay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 0;
+}
+
+.arabicLarge {
+  font-size: 3.5rem;
+  color: #FFD700;
+  direction: rtl;
+  line-height: 1.2;
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+}
+
+.englishLabel {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.subLabel {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.speakBtn {
+  background: none;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  color: #FFD700;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+  margin-top: 4px;
+}
+
+.speakBtn:hover {
+  background: rgba(255, 215, 0, 0.15);
+}
+
+/* ─── Score Feedback ─────────────────────────────────────────────────────── */
+
+.scoreFeedback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.excellent {
+  background: rgba(76, 175, 80, 0.15);
+  border: 1px solid rgba(76, 175, 80, 0.4);
+  color: #4CAF50;
+}
+
+.good {
+  background: rgba(255, 215, 0, 0.12);
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  color: #FFD700;
+}
+
+.low {
+  background: rgba(244, 67, 54, 0.12);
+  border: 1px solid rgba(244, 67, 54, 0.3);
+  color: #f44336;
+}
+
+.scoreValue {
+  font-size: 1.6rem;
+}
+
+.scoreLabel {
+  font-size: 1rem;
+}
+
+.bestScore {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.78rem;
+}
+
+/* ─── Navigation ─────────────────────────────────────────────────────────── */
+
+.navRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.navBtn {
+  flex: 1;
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 215, 0, 0.35);
+  border-radius: 8px;
+  background: rgba(255, 215, 0, 0.08);
+  color: #FFD700;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.navBtn:hover:not(:disabled) {
+  background: rgba(255, 215, 0, 0.2);
+}
+
+.navBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* ─── Summary ────────────────────────────────────────────────────────────── */
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.summaryCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 12px;
+  border: 1px solid rgba(255, 215, 0, 0.15);
+  border-radius: 10px;
+  background: rgba(255, 215, 0, 0.04);
+}
+
+.summaryValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFD700;
+}
+
+.summaryLabel {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: center;
+}
+
+.summaryActions {
+  display: flex;
+  gap: 12px;
+}

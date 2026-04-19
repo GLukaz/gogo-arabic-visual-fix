@@ -1,0 +1,659 @@
+{
+  "meta": {
+    "totalLetters": 28,
+    "totalGroups": 13,
+    "description": "All 28 Arabic letters organized into 13 learning groups by visual similarity. Includes all four positional forms, audio references, and vowel combinations."
+  },
+  "letters": [
+    {
+      "id": "alif",
+      "letter": "\u0627",
+      "name": "Alif",
+      "transliteration": "a",
+      "group": 1,
+      "forms": {
+        "isolated": "\u0627",
+        "initial": "\u0627",
+        "medial": "\u0640\u0627",
+        "final": "\u0640\u0627"
+      },
+      "audioRef": "letters/alif.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u0623\u064e", "sound": "a" },
+        { "vowel": "kasra", "arabic": "\u0625\u0650", "sound": "i" },
+        { "vowel": "damma", "arabic": "\u0623\u064f", "sound": "u" }
+      ]
+    },
+    {
+      "id": "ba",
+      "letter": "\u0628",
+      "name": "Ba",
+      "transliteration": "b",
+      "group": 1,
+      "forms": {
+        "isolated": "\u0628",
+        "initial": "\u0628\u0640",
+        "medial": "\u0640\u0628\u0640",
+        "final": "\u0640\u0628"
+      },
+      "audioRef": "letters/ba.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u0628\u064e", "sound": "ba" },
+        { "vowel": "kasra", "arabic": "\u0628\u0650", "sound": "bi" },
+        { "vowel": "damma", "arabic": "\u0628\u064f", "sound": "bu" }
+      ]
+    },
+    {
+      "id": "ta",
+      "letter": "\u062a",
+      "name": "Ta",
+      "transliteration": "t",
+      "group": 1,
+      "forms": {
+        "isolated": "\u062a",
+        "initial": "\u062a\u0640",
+        "medial": "\u0640\u062a\u0640",
+        "final": "\u0640\u062a"
+      },
+      "audioRef": "letters/ta.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u062a\u064e", "sound": "ta" },
+        { "vowel": "kasra", "arabic": "\u062a\u0650", "sound": "ti" },
+        { "vowel": "damma", "arabic": "\u062a\u064f", "sound": "tu" }
+      ]
+    },
+    {
+      "id": "tha",
+      "letter": "\u062b",
+      "name": "Tha",
+      "transliteration": "th",
+      "group": 1,
+      "forms": {
+        "isolated": "\u062b",
+        "initial": "\u062b\u0640",
+        "medial": "\u0640\u062b\u0640",
+        "final": "\u0640\u062b"
+      },
+      "audioRef": "letters/tha.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u062b\u064e", "sound": "tha" },
+        { "vowel": "kasra", "arabic": "\u062b\u0650", "sound": "thi" },
+        { "vowel": "damma", "arabic": "\u062b\u064f", "sound": "thu" }
+      ]
+    },
+    {
+      "id": "jim",
+      "letter": "\u062c",
+      "name": "Jim",
+      "transliteration": "j",
+      "group": 2,
+      "forms": {
+        "isolated": "\u062c",
+        "initial": "\u062c\u0640",
+        "medial": "\u0640\u062c\u0640",
+        "final": "\u0640\u062c"
+      },
+      "audioRef": "letters/jim.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u062c\u064e", "sound": "ja" },
+        { "vowel": "kasra", "arabic": "\u062c\u0650", "sound": "ji" },
+        { "vowel": "damma", "arabic": "\u062c\u064f", "sound": "ju" }
+      ]
+    },
+    {
+      "id": "ha",
+      "letter": "\u062d",
+      "name": "Ha",
+      "transliteration": "h",
+      "group": 2,
+      "forms": {
+        "isolated": "\u062d",
+        "initial": "\u062d\u0640",
+        "medial": "\u0640\u062d\u0640",
+        "final": "\u0640\u062d"
+      },
+      "audioRef": "letters/ha.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u062d\u064e", "sound": "ha" },
+        { "vowel": "kasra", "arabic": "\u062d\u0650", "sound": "hi" },
+        { "vowel": "damma", "arabic": "\u062d\u064f", "sound": "hu" }
+      ]
+    },
+    {
+      "id": "kha",
+      "letter": "\u062e",
+      "name": "Kha",
+      "transliteration": "kh",
+      "group": 2,
+      "forms": {
+        "isolated": "\u062e",
+        "initial": "\u062e\u0640",
+        "medial": "\u0640\u062e\u0640",
+        "final": "\u0640\u062e"
+      },
+      "audioRef": "letters/kha.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u062e\u064e", "sound": "kha" },
+        { "vowel": "kasra", "arabic": "\u062e\u0650", "sound": "khi" },
+        { "vowel": "damma", "arabic": "\u062e\u064f", "sound": "khu" }
+      ]
+    },
+    {
+      "id": "dal",
+      "letter": "\u062f",
+      "name": "Dal",
+      "transliteration": "d",
+      "group": 3,
+      "forms": {
+        "isolated": "\u062f",
+        "initial": "\u062f",
+        "medial": "\u0640\u062f",
+        "final": "\u0640\u062f"
+      },
+      "audioRef": "letters/dal.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u062f\u064e", "sound": "da" },
+        { "vowel": "kasra", "arabic": "\u062f\u0650", "sound": "di" },
+        { "vowel": "damma", "arabic": "\u062f\u064f", "sound": "du" }
+      ]
+    },
+    {
+      "id": "dhal",
+      "letter": "\u0630",
+      "name": "Dhal",
+      "transliteration": "dh",
+      "group": 3,
+      "forms": {
+        "isolated": "\u0630",
+        "initial": "\u0630",
+        "medial": "\u0640\u0630",
+        "final": "\u0640\u0630"
+      },
+      "audioRef": "letters/dhal.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u0630\u064e", "sound": "dha" },
+        { "vowel": "kasra", "arabic": "\u0630\u0650", "sound": "dhi" },
+        { "vowel": "damma", "arabic": "\u0630\u064f", "sound": "dhu" }
+      ]
+    },
+    {
+      "id": "ra",
+      "letter": "\u0631",
+      "name": "Ra",
+      "transliteration": "r",
+      "group": 4,
+      "forms": {
+        "isolated": "\u0631",
+        "initial": "\u0631",
+        "medial": "\u0640\u0631",
+        "final": "\u0640\u0631"
+      },
+      "audioRef": "letters/ra.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u0631\u064e", "sound": "ra" },
+        { "vowel": "kasra", "arabic": "\u0631\u0650", "sound": "ri" },
+        { "vowel": "damma", "arabic": "\u0631\u064f", "sound": "ru" }
+      ]
+    },
+    {
+      "id": "zayn",
+      "letter": "\u0632",
+      "name": "Zayn",
+      "transliteration": "z",
+      "group": 4,
+      "forms": {
+        "isolated": "\u0632",
+        "initial": "\u0632",
+        "medial": "\u0640\u0632",
+        "final": "\u0640\u0632"
+      },
+      "audioRef": "letters/zayn.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u0632\u064e", "sound": "za" },
+        { "vowel": "kasra", "arabic": "\u0632\u0650", "sound": "zi" },
+        { "vowel": "damma", "arabic": "\u0632\u064f", "sound": "zu" }
+      ]
+    },
+    {
+      "id": "sin",
+      "letter": "\u0633",
+      "name": "Sin",
+      "transliteration": "s",
+      "group": 5,
+      "forms": {
+        "isolated": "\u0633",
+        "initial": "\u0633\u0640",
+        "medial": "\u0640\u0633\u0640",
+        "final": "\u0640\u0633"
+      },
+      "audioRef": "letters/sin.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u0633\u064e", "sound": "sa" },
+        { "vowel": "kasra", "arabic": "\u0633\u0650", "sound": "si" },
+        { "vowel": "damma", "arabic": "\u0633\u064f", "sound": "su" }
+      ]
+    },
+    {
+      "id": "shin",
+      "letter": "\u0634",
+      "name": "Shin",
+      "transliteration": "sh",
+      "group": 5,
+      "forms": {
+        "isolated": "\u0634",
+        "initial": "\u0634\u0640",
+        "medial": "\u0640\u0634\u0640",
+        "final": "\u0640\u0634"
+      },
+      "audioRef": "letters/shin.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u0634\u064e", "sound": "sha" },
+        { "vowel": "kasra", "arabic": "\u0634\u0650", "sound": "shi" },
+        { "vowel": "damma", "arabic": "\u0634\u064f", "sound": "shu" }
+      ]
+    },
+    {
+      "id": "sad",
+      "letter": "\u0635",
+      "name": "Sad",
+      "transliteration": "s",
+      "group": 6,
+      "forms": {
+        "isolated": "\u0635",
+        "initial": "\u0635\u0640",
+        "medial": "\u0640\u0635\u0640",
+        "final": "\u0640\u0635"
+      },
+      "audioRef": "letters/sad.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u0635\u064e", "sound": "sa" },
+        { "vowel": "kasra", "arabic": "\u0635\u0650", "sound": "si" },
+        { "vowel": "damma", "arabic": "\u0635\u064f", "sound": "su" }
+      ]
+    },
+    {
+      "id": "dad",
+      "letter": "\u0636",
+      "name": "Dad",
+      "transliteration": "d",
+      "group": 6,
+      "forms": {
+        "isolated": "\u0636",
+        "initial": "\u0636\u0640",
+        "medial": "\u0640\u0636\u0640",
+        "final": "\u0640\u0636"
+      },
+      "audioRef": "letters/dad.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u0636\u064e", "sound": "da" },
+        { "vowel": "kasra", "arabic": "\u0636\u0650", "sound": "di" },
+        { "vowel": "damma", "arabic": "\u0636\u064f", "sound": "du" }
+      ]
+    },
+    {
+      "id": "ta_m",
+      "letter": "\u0637",
+      "name": "Ta (emphatic)",
+      "transliteration": "t",
+      "group": 7,
+      "forms": {
+        "isolated": "\u0637",
+        "initial": "\u0637\u0640",
+        "medial": "\u0640\u0637\u0640",
+        "final": "\u0640\u0637"
+      },
+      "audioRef": "letters/ta_m.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u0637\u064e", "sound": "ta" },
+        { "vowel": "kasra", "arabic": "\u0637\u0650", "sound": "ti" },
+        { "vowel": "damma", "arabic": "\u0637\u064f", "sound": "tu" }
+      ]
+    },
+    {
+      "id": "dha_m",
+      "letter": "\u0638",
+      "name": "Dha (emphatic)",
+      "transliteration": "dh",
+      "group": 7,
+      "forms": {
+        "isolated": "\u0638",
+        "initial": "\u0638\u0640",
+        "medial": "\u0640\u0638\u0640",
+        "final": "\u0640\u0638"
+      },
+      "audioRef": "letters/dha_m.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u0638\u064e", "sound": "dha" },
+        { "vowel": "kasra", "arabic": "\u0638\u0650", "sound": "dhi" },
+        { "vowel": "damma", "arabic": "\u0638\u064f", "sound": "dhu" }
+      ]
+    },
+    {
+      "id": "ayn",
+      "letter": "\u0639",
+      "name": "Ayn",
+      "transliteration": "'",
+      "group": 8,
+      "forms": {
+        "isolated": "\u0639",
+        "initial": "\u0639\u0640",
+        "medial": "\u0640\u0639\u0640",
+        "final": "\u0640\u0639"
+      },
+      "audioRef": "letters/ayn.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u0639\u064e", "sound": "'a" },
+        { "vowel": "kasra", "arabic": "\u0639\u0650", "sound": "'i" },
+        { "vowel": "damma", "arabic": "\u0639\u064f", "sound": "'u" }
+      ]
+    },
+    {
+      "id": "ghayn",
+      "letter": "\u063a",
+      "name": "Ghayn",
+      "transliteration": "gh",
+      "group": 8,
+      "forms": {
+        "isolated": "\u063a",
+        "initial": "\u063a\u0640",
+        "medial": "\u0640\u063a\u0640",
+        "final": "\u0640\u063a"
+      },
+      "audioRef": "letters/ghayn.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u063a\u064e", "sound": "gha" },
+        { "vowel": "kasra", "arabic": "\u063a\u0650", "sound": "ghi" },
+        { "vowel": "damma", "arabic": "\u063a\u064f", "sound": "ghu" }
+      ]
+    },
+    {
+      "id": "fa",
+      "letter": "\u0641",
+      "name": "Fa",
+      "transliteration": "f",
+      "group": 9,
+      "forms": {
+        "isolated": "\u0641",
+        "initial": "\u0641\u0640",
+        "medial": "\u0640\u0641\u0640",
+        "final": "\u0640\u0641"
+      },
+      "audioRef": "letters/fa.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u0641\u064e", "sound": "fa" },
+        { "vowel": "kasra", "arabic": "\u0641\u0650", "sound": "fi" },
+        { "vowel": "damma", "arabic": "\u0641\u064f", "sound": "fu" }
+      ]
+    },
+    {
+      "id": "qaf",
+      "letter": "\u0642",
+      "name": "Qaf",
+      "transliteration": "q",
+      "group": 9,
+      "forms": {
+        "isolated": "\u0642",
+        "initial": "\u0642\u0640",
+        "medial": "\u0640\u0642\u0640",
+        "final": "\u0640\u0642"
+      },
+      "audioRef": "letters/qaf.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u0642\u064e", "sound": "qa" },
+        { "vowel": "kasra", "arabic": "\u0642\u0650", "sound": "qi" },
+        { "vowel": "damma", "arabic": "\u0642\u064f", "sound": "qu" }
+      ]
+    },
+    {
+      "id": "kaf",
+      "letter": "\u0643",
+      "name": "Kaf",
+      "transliteration": "k",
+      "group": 10,
+      "forms": {
+        "isolated": "\u0643",
+        "initial": "\u0643\u0640",
+        "medial": "\u0640\u0643\u0640",
+        "final": "\u0640\u0643"
+      },
+      "audioRef": "letters/kaf.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u0643\u064e", "sound": "ka" },
+        { "vowel": "kasra", "arabic": "\u0643\u0650", "sound": "ki" },
+        { "vowel": "damma", "arabic": "\u0643\u064f", "sound": "ku" }
+      ]
+    },
+    {
+      "id": "lam",
+      "letter": "\u0644",
+      "name": "Lam",
+      "transliteration": "l",
+      "group": 10,
+      "forms": {
+        "isolated": "\u0644",
+        "initial": "\u0644\u0640",
+        "medial": "\u0640\u0644\u0640",
+        "final": "\u0640\u0644"
+      },
+      "audioRef": "letters/lam.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u0644\u064e", "sound": "la" },
+        { "vowel": "kasra", "arabic": "\u0644\u0650", "sound": "li" },
+        { "vowel": "damma", "arabic": "\u0644\u064f", "sound": "lu" }
+      ]
+    },
+    {
+      "id": "mim",
+      "letter": "\u0645",
+      "name": "Mim",
+      "transliteration": "m",
+      "group": 11,
+      "forms": {
+        "isolated": "\u0645",
+        "initial": "\u0645\u0640",
+        "medial": "\u0640\u0645\u0640",
+        "final": "\u0640\u0645"
+      },
+      "audioRef": "letters/mim.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u0645\u064e", "sound": "ma" },
+        { "vowel": "kasra", "arabic": "\u0645\u0650", "sound": "mi" },
+        { "vowel": "damma", "arabic": "\u0645\u064f", "sound": "mu" }
+      ]
+    },
+    {
+      "id": "nun",
+      "letter": "\u0646",
+      "name": "Nun",
+      "transliteration": "n",
+      "group": 11,
+      "forms": {
+        "isolated": "\u0646",
+        "initial": "\u0646\u0640",
+        "medial": "\u0640\u0646\u0640",
+        "final": "\u0640\u0646"
+      },
+      "audioRef": "letters/nun.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u0646\u064e", "sound": "na" },
+        { "vowel": "kasra", "arabic": "\u0646\u0650", "sound": "ni" },
+        { "vowel": "damma", "arabic": "\u0646\u064f", "sound": "nu" }
+      ]
+    },
+    {
+      "id": "ha_e",
+      "letter": "\u0647",
+      "name": "Ha",
+      "transliteration": "h",
+      "group": 12,
+      "forms": {
+        "isolated": "\u0647",
+        "initial": "\u0647\u0640",
+        "medial": "\u0640\u0647\u0640",
+        "final": "\u0640\u0647"
+      },
+      "audioRef": "letters/ha_e.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u0647\u064e", "sound": "ha" },
+        { "vowel": "kasra", "arabic": "\u0647\u0650", "sound": "hi" },
+        { "vowel": "damma", "arabic": "\u0647\u064f", "sound": "hu" }
+      ]
+    },
+    {
+      "id": "waw",
+      "letter": "\u0648",
+      "name": "Waw",
+      "transliteration": "w",
+      "group": 12,
+      "forms": {
+        "isolated": "\u0648",
+        "initial": "\u0648",
+        "medial": "\u0640\u0648",
+        "final": "\u0640\u0648"
+      },
+      "audioRef": "letters/waw.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u0648\u064e", "sound": "wa" },
+        { "vowel": "kasra", "arabic": "\u0648\u0650", "sound": "wi" },
+        { "vowel": "damma", "arabic": "\u0648\u064f", "sound": "wu" }
+      ]
+    },
+    {
+      "id": "ya",
+      "letter": "\u064a",
+      "name": "Ya",
+      "transliteration": "y",
+      "group": 13,
+      "forms": {
+        "isolated": "\u064a",
+        "initial": "\u064a\u0640",
+        "medial": "\u0640\u064a\u0640",
+        "final": "\u0640\u064a"
+      },
+      "audioRef": "letters/ya.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u064a\u064e", "sound": "ya" },
+        { "vowel": "kasra", "arabic": "\u064a\u0650", "sound": "yi" },
+        { "vowel": "damma", "arabic": "\u064a\u064f", "sound": "yu" }
+      ]
+    },
+    {
+      "id": "ta_marbuta",
+      "letter": "\u0629",
+      "name": "Ta Marbuta",
+      "transliteration": "a/at",
+      "group": 13,
+      "forms": {
+        "isolated": "\u0629",
+        "initial": "\u0629",
+        "medial": "\u0640\u0629",
+        "final": "\u0640\u0629"
+      },
+      "audioRef": "letters/ta_marbuta.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u0629\u064e", "sound": "ta" },
+        { "vowel": "kasra", "arabic": "\u0629\u0650", "sound": "ti" },
+        { "vowel": "damma", "arabic": "\u0629\u064f", "sound": "tu" }
+      ]
+    },
+    {
+      "id": "hamza",
+      "letter": "\u0621",
+      "name": "Hamza",
+      "transliteration": "'",
+      "group": 13,
+      "forms": {
+        "isolated": "\u0621",
+        "initial": "\u0621",
+        "medial": "\u0621",
+        "final": "\u0621"
+      },
+      "audioRef": "letters/hamza.mp3",
+      "vowelCombinations": [
+        { "vowel": "fatha", "arabic": "\u0623\u064e", "sound": "'a" },
+        { "vowel": "kasra", "arabic": "\u0625\u0650", "sound": "'i" },
+        { "vowel": "damma", "arabic": "\u0623\u064f", "sound": "'u" }
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "name": "Alif Group",
+      "description": "Alif and the ba-shape family (ba, ta, tha) -- letters distinguished by dots",
+      "letterIds": ["alif", "ba", "ta", "tha"]
+    },
+    {
+      "id": 2,
+      "name": "Jim Group",
+      "description": "The jim-shape family (jim, ha, kha) -- cup-shaped letters distinguished by dots",
+      "letterIds": ["jim", "ha", "kha"]
+    },
+    {
+      "id": 3,
+      "name": "Dal Group",
+      "description": "The dal-shape family (dal, dhal) -- non-connecting angular letters",
+      "letterIds": ["dal", "dhal"]
+    },
+    {
+      "id": 4,
+      "name": "Ra Group",
+      "description": "The ra-shape family (ra, zayn) -- non-connecting curved letters",
+      "letterIds": ["ra", "zayn"]
+    },
+    {
+      "id": 5,
+      "name": "Sin Group",
+      "description": "The sin-shape family (sin, shin) -- teeth-shaped letters",
+      "letterIds": ["sin", "shin"]
+    },
+    {
+      "id": 6,
+      "name": "Sad Group",
+      "description": "The sad-shape family (sad, dad) -- wide looped letters",
+      "letterIds": ["sad", "dad"]
+    },
+    {
+      "id": 7,
+      "name": "Ta Emphatic Group",
+      "description": "The emphatic ta-shape family (ta, dha) -- tall looped letters with emphasis",
+      "letterIds": ["ta_m", "dha_m"]
+    },
+    {
+      "id": 8,
+      "name": "Ayn Group",
+      "description": "The ayn-shape family (ayn, ghayn) -- hook-shaped letters",
+      "letterIds": ["ayn", "ghayn"]
+    },
+    {
+      "id": 9,
+      "name": "Fa Group",
+      "description": "The fa-shape family (fa, qaf) -- loop-on-stick letters distinguished by dots",
+      "letterIds": ["fa", "qaf"]
+    },
+    {
+      "id": 10,
+      "name": "Kaf Group",
+      "description": "The kaf-lam pair (kaf, lam) -- tall connecting letters",
+      "letterIds": ["kaf", "lam"]
+    },
+    {
+      "id": 11,
+      "name": "Mim Group",
+      "description": "The mim-nun pair (mim, nun) -- round-bodied letters",
+      "letterIds": ["mim", "nun"]
+    },
+    {
+      "id": 12,
+      "name": "Ha-Waw Group",
+      "description": "Ha and waw -- unique shaped letters",
+      "letterIds": ["ha_e", "waw"]
+    },
+    {
+      "id": 13,
+      "name": "Ya Group",
+      "description": "Ya, ta marbuta, and hamza -- final letters and special characters",
+      "letterIds": ["ya", "ta_marbuta", "hamza"]
+    }
+  ]
+}

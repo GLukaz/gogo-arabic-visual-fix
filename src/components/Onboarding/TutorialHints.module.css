@@ -1,0 +1,307 @@
+@import '../../styles/variables.css';
+
+/* ===== Container ===== */
+.container {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-onboarding);
+  pointer-events: none;
+}
+
+/* ===== Top-center guidance banner ===== */
+.guidanceBanner {
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.80);
+  border: 2px solid #D4A843;
+  border-radius: 24px;
+  padding: 14px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  animation: bannerPulse 2s ease-in-out infinite, bannerFadeIn 0.4s ease-out;
+  pointer-events: none;
+  box-shadow: 0 0 20px rgba(212, 168, 67, 0.3), 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.guidanceText {
+  font-family: var(--font-pixel);
+  font-size: 13px;
+  color: #D4A843;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  text-shadow: 0 0 8px rgba(212, 168, 67, 0.4);
+}
+
+.guidanceArrow {
+  font-size: 20px;
+  color: #D4A843;
+  animation: arrowBounce 1s ease-in-out infinite;
+  line-height: 1;
+}
+
+.guidanceArrowLeft {
+  display: inline-block;
+  margin-right: 6px;
+}
+
+/* ===== Near-NPC proximity prompt ===== */
+.proximityPrompt {
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  border: 2px solid #D4A843;
+  border-radius: 24px;
+  padding: 14px 32px;
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  color: #D4A843;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  animation: bannerPulse 1.5s ease-in-out infinite, bannerFadeIn 0.3s ease-out;
+  pointer-events: none;
+  box-shadow: 0 0 24px rgba(212, 168, 67, 0.4), 0 4px 12px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 10px rgba(212, 168, 67, 0.5);
+}
+
+/* ===== Floating arrow pointing toward target ===== */
+.arrow {
+  position: fixed;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 16px solid #D4A843;
+  filter: drop-shadow(0 2px 6px rgba(212, 168, 67, 0.5));
+  animation: bounce 1s ease-in-out infinite;
+}
+
+/* ===== Controls hint bar (bottom of screen) ===== */
+.controlsHint {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(212, 168, 67, 0.3);
+  border-radius: 16px;
+  padding: 8px 20px;
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: rgba(245, 243, 218, 0.8);
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: 1px;
+  transition: opacity 1.5s ease-out;
+}
+
+.controlsHintFading {
+  opacity: 0;
+}
+
+/* ===== Skip button ===== */
+.skipBtn {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(212, 168, 67, 0.4);
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: #f5f3da;
+  cursor: pointer;
+  pointer-events: auto;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.skipBtn:hover {
+  opacity: 1;
+}
+
+/* ===== Welcome splash overlay ===== */
+.welcomeOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-onboarding) + 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.82);
+  pointer-events: none;
+  animation: welcomeFadeIn 0.6s ease-out;
+  transition: opacity 1s ease-out;
+}
+
+.welcomeOverlayFading {
+  opacity: 0;
+}
+
+.welcomeArabic {
+  font-family: var(--font-arabic-display);
+  font-size: 42px;
+  color: #D4A843;
+  direction: rtl;
+  text-shadow: 0 0 30px rgba(212, 168, 67, 0.5);
+  margin-bottom: 4px;
+  animation: welcomeTextGlow 2s ease-in-out infinite;
+}
+
+.welcomeTitle {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  color: rgba(245, 243, 218, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-top: 8px;
+}
+
+.welcomeSubtitle {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: rgba(245, 243, 218, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 12px;
+}
+
+/* ===== Keyframes ===== */
+
+@keyframes bannerPulse {
+  0%, 100% {
+    border-color: #D4A843;
+    box-shadow: 0 0 20px rgba(212, 168, 67, 0.3), 0 4px 12px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    border-color: rgba(212, 168, 67, 0.5);
+    box-shadow: 0 0 30px rgba(212, 168, 67, 0.5), 0 4px 12px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes bannerFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes arrowBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes welcomeFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes welcomeTextGlow {
+  0%, 100% {
+    text-shadow: 0 0 30px rgba(212, 168, 67, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 50px rgba(212, 168, 67, 0.8), 0 0 80px rgba(212, 168, 67, 0.3);
+  }
+}
+
+/* ===== Mobile responsive ===== */
+@media (max-width: 480px) {
+  .guidanceBanner {
+    padding: 10px 20px;
+    top: 52px;
+  }
+
+  .guidanceText {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .guidanceArrow {
+    font-size: 16px;
+  }
+
+  .proximityPrompt {
+    font-size: 10px;
+    padding: 10px 20px;
+    top: 52px;
+  }
+
+  .controlsHint {
+    font-size: 7px;
+    padding: 6px 14px;
+  }
+
+  .skipBtn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .welcomeArabic {
+    font-size: 30px;
+  }
+
+  .welcomeTitle {
+    font-size: 9px;
+  }
+
+  .welcomeSubtitle {
+    font-size: 7px;
+  }
+}
+
+/* WelcomeSplash overlay */
+.splashOverlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  pointer-events: none;
+  animation: fadeOut 1s ease-in 2s forwards;
+}
+
+.splashPanel {
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 24px 48px;
+  border-radius: 12px;
+  font-family: var(--font-pixel);
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; }
+}

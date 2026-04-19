@@ -1,0 +1,719 @@
+/**
+ * InventoryUI CSS Module
+ * Equipment and inventory interface with Islamic geometric patterns
+ */
+
+/* ──────────────────────────────────────────────── */
+/* Overlay and Card */
+/* ──────────────────────────────────────────────── */
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: #16213e;
+  background-image: radial-gradient(circle at 30% 40%, rgba(212, 168, 67, 0.1) 0%, transparent 50%), repeating-conic-gradient(rgba(212, 168, 67, 0.04) 0% 25%, transparent 0% 50%) 0 0 / 48px 48px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.card {
+  background: var(--color-beige);
+  opacity: 0.96;
+  border: 4px solid var(--color-dark);
+  padding: 20px;
+  color: var(--color-dark);
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  image-rendering: pixelated;
+  min-width: 800px;
+  max-width: 900px;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+/* ──────────────────────────────────────────────── */
+/* Header */
+/* ──────────────────────────────────────────────── */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 4px solid var(--color-dark);
+}
+
+.title {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.titleArabic {
+  font-family: var(--font-arabic);
+  font-size: 18px;
+  color: var(--color-xp-gold);
+  direction: rtl;
+}
+
+.titleEnglish {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  color: var(--color-brown);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.closeBtn {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  padding: 7px 13px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: var(--color-gray);
+  color: var(--color-white);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0,0,0,0.3),
+    inset 4px 4px 0px 0px rgba(255,255,255,0.1),
+    0 4px 0 0 #1a191b;
+  transition: transform 0.05s;
+}
+
+.closeBtn:hover {
+  transform: translateY(-2px);
+}
+
+/* ──────────────────────────────────────────────── */
+/* Main Layout */
+/* ──────────────────────────────────────────────── */
+
+.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 20px;
+  min-height: 500px;
+}
+
+/* ──────────────────────────────────────────────── */
+/* Equipment Panel (Left) */
+/* ──────────────────────────────────────────────── */
+
+.equipmentPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.equipmentSlots {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.equipmentSlot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border: 3px solid var(--color-dark);
+  background: var(--color-white);
+  cursor: pointer;
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  text-align: left;
+  transition: background 0.1s;
+  width: 100%;
+}
+
+.equipmentSlot:hover {
+  background: #f9f9f9;
+}
+
+.equipmentSlotEmpty {
+  border-style: dashed;
+  opacity: 0.6;
+}
+
+.equipmentSlotFilled {
+  border-color: var(--color-dark);
+}
+
+.slotLabel {
+  flex-shrink: 0;
+  width: 70px;
+}
+
+.slotLabelArabic {
+  font-family: var(--font-arabic);
+  font-size: 11px;
+  direction: rtl;
+  color: var(--color-brown);
+}
+
+.slotLabelEnglish {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: var(--color-gray);
+  text-transform: uppercase;
+}
+
+.slotItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+
+.slotItemIcon {
+  width: 24px;
+  height: 24px;
+  border: 2px solid;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slotItemIconPlaceholder {
+  width: 12px;
+  height: 12px;
+  background: currentColor;
+  opacity: 0.3;
+}
+
+.slotItemName {
+  flex: 1;
+  min-width: 0;
+}
+
+.slotItemNameArabic {
+  font-family: var(--font-arabic);
+  font-size: 10px;
+  direction: rtl;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.slotItemNameEnglish {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: var(--color-gray);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.slotEmpty {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-gray);
+  font-style: italic;
+}
+
+.slotAffixStatus {
+  flex-shrink: 0;
+  font-size: 12px;
+  margin-left: auto;
+}
+
+.affixLearned {
+  color: var(--color-green);
+}
+
+.affixPartial {
+  color: var(--color-xp-gold);
+}
+
+.affixUnlearned {
+  color: var(--color-gray);
+  opacity: 0.5;
+}
+
+/* Set Bonuses */
+.setBonusSection {
+  margin-top: 12px;
+  padding: 10px;
+  border: 3px solid var(--color-xp-gold);
+  background: rgba(255, 215, 0, 0.05);
+}
+
+.setBonusTitle {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--color-xp-gold);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.setBonus {
+  margin-bottom: 6px;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.setBonusName {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: var(--color-dark);
+  font-weight: bold;
+}
+
+.setBonusProgress {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-brown);
+}
+
+.setBonusDesc {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-gray);
+}
+
+/* ──────────────────────────────────────────────── */
+/* Grid Panel (Right) */
+/* ──────────────────────────────────────────────── */
+
+.gridPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Sort and Filter Bar */
+.sortBar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.sortButtons {
+  display: flex;
+  gap: 4px;
+}
+
+.sortBtn,
+.sortBtnActive,
+.filterBtn,
+.filterBtnActive {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: transform 0.05s;
+}
+
+.sortBtn,
+.filterBtn {
+  background: var(--color-gray);
+  color: var(--color-white);
+  box-shadow:
+    inset -2px -2px 0px 0px rgba(0,0,0,0.3),
+    inset 2px 2px 0px 0px rgba(255,255,255,0.1),
+    0 2px 0 0 #1a191b;
+}
+
+.sortBtnActive,
+.filterBtnActive {
+  background: var(--color-xp-gold);
+  color: var(--color-brown);
+  box-shadow:
+    inset -2px -2px 0px 0px rgba(0,0,0,0.2),
+    inset 2px 2px 0px 0px rgba(255,255,255,0.3),
+    0 2px 0 0 #a0842a;
+}
+
+.sortBtn:hover,
+.filterBtn:hover {
+  transform: translateY(-1px);
+}
+
+.filterButtons {
+  display: flex;
+  gap: 4px;
+}
+
+/* Item Grid */
+.itemGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  border: 3px solid var(--color-dark);
+}
+
+.itemCell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  border: 3px solid;
+  background: var(--color-white);
+  cursor: pointer;
+  transition: all 0.1s;
+  position: relative;
+}
+
+.itemCell:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.itemCellSelected {
+  background: rgba(255, 215, 0, 0.15);
+  box-shadow: 0 0 0 3px var(--color-xp-gold);
+}
+
+.itemIcon {
+  width: 40px;
+  height: 40px;
+  border: 3px solid;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemIconPlaceholder {
+  width: 20px;
+  height: 20px;
+  background: currentColor;
+  opacity: 0.3;
+}
+
+.itemName {
+  font-family: var(--font-arabic);
+  font-size: 9px;
+  direction: rtl;
+  text-align: center;
+  color: var(--color-dark);
+}
+
+.itemQuantity {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  background: var(--color-dark);
+  color: var(--color-white);
+  padding: 2px 4px;
+  border-radius: 2px;
+  font-weight: bold;
+}
+
+/* Rarity classes */
+.rarityCommon {
+  border-color: #FFFFFF;
+}
+
+.rarityUncommon {
+  border-color: #4CAF50;
+}
+
+.rarityRare {
+  border-color: #2196F3;
+}
+
+.rarityEpic {
+  border-color: #9C27B0;
+}
+
+.rarityLegendary {
+  border-color: #FFD700;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+/* Item Count */
+.itemCount {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: var(--color-brown);
+  text-align: right;
+  padding: 4px 8px;
+}
+
+.itemCountWarning {
+  color: var(--color-red);
+  font-weight: bold;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* ──────────────────────────────────────────────── */
+/* Tooltip */
+/* ──────────────────────────────────────────────── */
+
+.tooltip {
+  position: fixed;
+  background: var(--color-beige);
+  border: 4px solid var(--color-dark);
+  padding: 12px;
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  z-index: 300;
+  max-width: 300px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.tooltipClose {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: var(--color-red);
+  color: var(--color-white);
+  border: none;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tooltipHeader {
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--color-dark);
+}
+
+.tooltipNameArabic {
+  font-family: var(--font-arabic);
+  font-size: 14px;
+  direction: rtl;
+  color: var(--color-dark);
+  font-weight: bold;
+}
+
+.tooltipNameEnglish {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--color-brown);
+}
+
+.tooltipRarity {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  margin-top: 4px;
+  font-weight: bold;
+}
+
+.tooltipStats {
+  margin-bottom: 10px;
+}
+
+.tooltipSectionTitle {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: var(--color-brown);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.tooltipStatList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tooltipStat {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-dark);
+}
+
+.statPositive {
+  color: var(--color-green);
+  font-weight: bold;
+}
+
+.statNegative {
+  color: var(--color-red);
+  font-weight: bold;
+}
+
+.statNeutral {
+  color: var(--color-gray);
+}
+
+.tooltipAffixes {
+  margin-bottom: 10px;
+}
+
+.tooltipAffix {
+  padding: 4px;
+  margin-bottom: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  border-left: 3px solid;
+}
+
+.tooltipAffix.affixLearned {
+  border-color: var(--color-green);
+}
+
+.tooltipAffix.affixPartial {
+  border-color: var(--color-xp-gold);
+}
+
+.tooltipAffix.affixUnlearned {
+  border-color: var(--color-gray);
+}
+
+.affixName {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-dark);
+  font-weight: bold;
+}
+
+.affixBonus {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: var(--color-brown);
+}
+
+.affixStatus {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  margin-top: 2px;
+}
+
+.affixLearnedBadge {
+  color: var(--color-green);
+  font-weight: bold;
+}
+
+.affixUnlearnedBadge {
+  color: var(--color-xp-gold);
+  font-weight: bold;
+}
+
+.tooltipSet {
+  margin-bottom: 10px;
+  padding: 6px;
+  background: rgba(255, 215, 0, 0.1);
+  border: 2px solid var(--color-xp-gold);
+}
+
+.tooltipSetName {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-dark);
+  font-weight: bold;
+}
+
+.tooltipSetProgress {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: var(--color-brown);
+}
+
+.tooltipLore {
+  margin-bottom: 10px;
+}
+
+.tooltipLoreToggle {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  background: var(--color-gray);
+  color: var(--color-white);
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 4px;
+}
+
+.tooltipLoreToggle:hover {
+  background: var(--color-dark);
+}
+
+.tooltipLoreContent {
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.5);
+  border-left: 3px solid var(--color-brown);
+}
+
+.tooltipLoreArabic {
+  font-family: var(--font-arabic);
+  font-size: 10px;
+  direction: rtl;
+  color: var(--color-dark);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.tooltipLoreEnglish {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: var(--color-brown);
+  line-height: 1.5;
+}
+
+.tooltipActions {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.tooltipEquipBtn,
+.tooltipUnequipBtn {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  padding: 6px 12px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex: 1;
+}
+
+.tooltipEquipBtn {
+  background: var(--color-green);
+  color: var(--color-white);
+  box-shadow:
+    inset -2px -2px 0px 0px rgba(0,0,0,0.2),
+    inset 2px 2px 0px 0px rgba(255,255,255,0.2),
+    0 2px 0 0 #1fa855;
+}
+
+.tooltipUnequipBtn {
+  background: var(--color-red);
+  color: var(--color-white);
+  box-shadow:
+    inset -2px -2px 0px 0px rgba(0,0,0,0.2),
+    inset 2px 2px 0px 0px rgba(255,255,255,0.2),
+    0 2px 0 0 #c62828;
+}
+
+.tooltipEquipBtn:hover,
+.tooltipUnequipBtn:hover {
+  transform: translateY(-1px);
+}

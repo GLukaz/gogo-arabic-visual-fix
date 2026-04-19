@@ -1,0 +1,1363 @@
+[
+  {
+    "id": "librarian-ibrahim",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "السَّلامُ عَلَيْكُم! أَنا إِبراهيم، أَمينُ هَذِهِ المَكتَبَة",
+            "english": "Peace be upon you! I am Ibrahim, the keeper of this library.",
+            "transliteration": "as-salaamu alaykum! ana ibraahiim, amiinu haadhihi al-maktaba"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "في هَذِهِ المَكتَبَة آلافُ الكُتُب. كُلُّ كِتابٍ يَحمِلُ عِلماً",
+            "english": "In this library there are thousands of books. Every book carries knowledge.",
+            "transliteration": "fii haadhihi al-maktaba aalaaf al-kutub. kullu kitaabin yahmilu ilman"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "لِنَبدَأ بِأَساسِ كُلِّ عِلم — الأَعداد! الكَلِمَةُ الأولى: واحِد",
+            "english": "Let us begin with the foundation of all knowledge -- numbers! The first word: one.",
+            "transliteration": "linabda' bi-asaasi kulli ilm — al-a'daad! al-kalimatu al-uulaa: waahid",
+            "teachWord": "num_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "اِثنان — كَما في كِتابَين عَلى الطّاوِلَة",
+            "english": "Two -- like two books on the table.",
+            "transliteration": "ithnaan — kamaa fii kitaabayn ala at-taawila",
+            "teachWord": "num_2"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ثَلاثَة — عَدَدُ الرُّفوفِ أَمامَك",
+            "english": "Three -- the number of shelves in front of you.",
+            "transliteration": "thalaatha — adadur-rufuufi amaamak",
+            "teachWord": "num_3"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَحسَنت! لِنَرى كَم تَذكُر",
+            "english": "Well done! Let us see how much you remember.",
+            "transliteration": "ahsant! linara kam tadhkur"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "num_1",
+              "num_2",
+              "num_3"
+            ],
+            "quizType": "ar-to-en"
+          }
+        ]
+      },
+      {
+        "id": "teach_numbers_2",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَهْلاً بِعَودَتِك! لِنُكمِل العَدّ",
+            "english": "Welcome back! Let us continue counting.",
+            "transliteration": "ahlan bi-awdatik! linukmil al-add"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَربَعَة — مِثلُ أَربَعِ زَوايا الكِتاب",
+            "english": "Four -- like the four corners of a book.",
+            "transliteration": "arba'a — mithlu arba'i zawaaya al-kitaab",
+            "teachWord": "num_4"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "خَمسَة — عَدَدُ أَصابِعِ اليَد الواحِدَة",
+            "english": "Five -- the number of fingers on one hand.",
+            "transliteration": "khamsa — adadu asaabi'i al-yad al-waahida",
+            "teachWord": "num_5"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "سِتَّة — عَدَدُ أَيّامِ الدِّراسَة",
+            "english": "Six -- the number of study days.",
+            "transliteration": "sitta — adadu ayyaam ad-diraasa",
+            "teachWord": "num_6"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "سَبعَة — عَدَدُ أَيّامِ الأُسبوع",
+            "english": "Seven -- the number of days in a week.",
+            "transliteration": "sab'a — adadu ayyaam al-usbuu'",
+            "teachWord": "num_7"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَيّا نَمتَحِن ما تَعَلَّمت!",
+            "english": "Let us test what you have learned!",
+            "transliteration": "hayyaa namtahin maa ta'allamta!"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "num_4",
+              "num_5",
+              "num_6",
+              "num_7"
+            ],
+            "quizType": "en-to-ar"
+          }
+        ]
+      },
+      {
+        "id": "teach_numbers_3",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "ما شاءَ الله! أَنتَ تَتَقَدَّمُ بِسُرعَة",
+            "english": "Mashallah! You are progressing quickly.",
+            "transliteration": "maa shaa'allaah! anta tataqaddamu bisur'a"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ثَمانِيَة — رَقَمٌ جَميل",
+            "english": "Eight -- a beautiful number.",
+            "transliteration": "thamaaniya — raqamun jamiil",
+            "teachWord": "num_8"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تِسعَة — قَبلَ العَشَرَة مُباشَرَة",
+            "english": "Nine -- right before ten.",
+            "transliteration": "tis'a — qabla al-'ashara mubaashara",
+            "teachWord": "num_9"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "عَشَرَة! أَكمَلتَ العَدّ مِن واحِد إِلى عَشَرَة!",
+            "english": "Ten! You have completed counting from one to ten!",
+            "transliteration": "'ashara! akmalta al-add min waahid ilaa 'ashara!",
+            "teachWord": "num_10"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "اِمتِحانٌ أَخير لِلأَعداد",
+            "english": "One final test for the numbers.",
+            "transliteration": "imtihaanun akhiir lil-a'daad"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "num_8",
+              "num_9",
+              "num_10"
+            ],
+            "quizType": "random"
+          }
+        ]
+      },
+      {
+        "id": "hub",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَهْلاً بِكَ في المَكتَبَة. العِلْمُ نور",
+            "english": "Welcome to the library. Knowledge is light.",
+            "transliteration": "ahlan bika fil-maktaba. al-ilmu nuur"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "كَيْفَ يُمْكِنُني مُساعَدَتُك؟",
+            "english": "How can I help you?",
+            "transliteration": "kayfa yumkinunii musaa'adatuk?"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمْني الأَعْداد",
+                "english": "Teach me numbers",
+                "topic": "teaching"
+              },
+              {
+                "arabic": "تاريخُ المَكتَبَة",
+                "english": "Library history",
+                "topic": "lore"
+              },
+              {
+                "arabic": "مَهامُّ الكُتُب",
+                "english": "Book quests",
+                "topic": "quests"
+              },
+              {
+                "arabic": "شُكْراً",
+                "english": "Thank you",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hint_roots",
+        "trigger": "hint",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الكَلِماتُ العَرَبِيَّةُ تَأتي مِن جُذورٍ ثُلاثِيَّة",
+            "english": "Arabic words come from three-letter roots.",
+            "transliteration": "al-kalimāt al-ʿarabiyya taʾtī min judhūr thulāthiyya"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "عِنْدَنا أَداةٌ رائِعَة لِاسْتِكْشافِ الجُذورِ العَرَبِيَّة",
+            "english": "We have a wonderful tool for exploring Arabic roots.",
+            "transliteration": "ʿindanā adāt rāʾiʿa li-stikshāf al-judhūr al-ʿarabiyya"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "اِفْتَحْ قائِمَةَ الإيقافِ واخْتَرْ 'أَنْشِطَة' ثُمَّ 'جُذورُ الكَلِمات'",
+            "english": "Open the pause menu and choose 'Activities' then 'Word Roots'.",
+            "transliteration": "iftaḥ qāʾimat al-īqāf wa-khtar 'anshiṭa' thumma 'judhūr al-kalimāt'"
+          }
+        ]
+      },
+      {
+        "id": "topic_teaching_numbers",
+        "topic": "teaching",
+        "returnToHub": true,
+        "priority": 1,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الأَعْدادُ أَساسُ الرِّياضِيّات. لِنَبْدَأ",
+            "english": "Numbers are the foundation of mathematics. Let us begin.",
+            "transliteration": "al-a'daadu asaas ar-riyaadiyyaat. linabda'"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمْني",
+                "english": "Teach me",
+                "next": "teach_numbers_1"
+              },
+              {
+                "arabic": "عَوْدَة",
+                "english": "Return",
+                "next": "hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_lore_library",
+        "topic": "lore",
+        "returnToHub": true,
+        "priority": 2,
+        "condition": {
+          "quest": {
+            "id": "learn_first_letters",
+            "status": "completed"
+          }
+        },
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "هَذِهِ المَكتَبَةُ عُمْرُها أَكْثَر مِن أَلْف سَنَة",
+            "english": "This library is more than a thousand years old.",
+            "transliteration": "haadhihi al-maktaba umruhaa akthar min alf sana",
+            "inlineVocab": [
+              {
+                "wordId": "num_1000",
+                "arabicText": "أَلْف"
+              }
+            ]
+          },
+          {
+            "speaker": "npc",
+            "arabic": "فيها كُتُب نادِرَة جِدّاً عَن اللُّغَة العَرَبِيَّة",
+            "english": "It contains very rare books about the Arabic language.",
+            "transliteration": "fiihaa kutub naadira jiddan an al-lugha al-arabiyya"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "رائِع!",
+                "english": "Amazing!",
+                "next": "hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_quests_books",
+        "topic": "quests",
+        "returnToHub": true,
+        "priority": 3,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَحْتاجُ مُساعَدَةً في تَرتيبِ الكُتُب",
+            "english": "I need help organizing the books.",
+            "transliteration": "ahtaaju musaa'ada fii tartiib al-kutub"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَل يُمْكِنُكَ تَعَلُّم الأَرقام لِمُساعَدَتي؟",
+            "english": "Can you learn the numbers to help me?",
+            "transliteration": "hal yumkinuka ta'allum al-arqaam li-musaa'adatii?"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "نَعَم",
+                "english": "Yes",
+                "next": "hub",
+                "effects": [
+                  {
+                    "type": "quest_start",
+                    "questId": "library_numbers"
+                  }
+                ]
+              },
+              {
+                "arabic": "لا شُكْراً",
+                "english": "No thank you",
+                "next": "hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cultural_libraries",
+        "trigger": "relationship_level_2",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "مَكتَبَةُ قُرطُبَة كانَت تَحوي أَربَعمِئَةِ أَلفِ كِتاب",
+            "english": "The library of Cordoba held 400,000 books",
+            "transliteration": "maktabat qurtuba kanat tahwi arba'mi'at alf kitab",
+            "culturalNote": "In the 10th century, Cordoba's library was the largest in Europe. By comparison, the largest monastery library in Christian Europe held about 400 books."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "صِناعَةُ الوَرَقِ جاءَت مِن الصّينِ عَبرَ سَمَرقَند",
+            "english": "Papermaking came from China through Samarkand",
+            "transliteration": "sina'at al-waraq ja'at min as-sin 'abra samarqand",
+            "culturalNote": "After the Battle of Talas (751 CE), Arab forces captured Chinese papermakers. Within decades, paper mills spread across the Islamic world, enabling the translation movement."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "بَيتُ الحِكمَةِ في بَغداد تَرجَمَ كُنوزَ اليونان",
+            "english": "The House of Wisdom in Baghdad translated Greek treasures",
+            "transliteration": "bayt al-hikma fi baghdad tarjama kunuz al-yunan"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ابنُ الهَيثَم أَسَّسَ عِلمَ البَصَريّات — كِتابُ المَناظِر",
+            "english": "Ibn al-Haytham founded optics — the Book of Optics",
+            "transliteration": "ibn al-haytham assasa 'ilm al-basariyyat — kitab al-manazir",
+            "culturalNote": "Ibn al-Haytham (965-1040 CE) disproved the Greek theory that eyes emit light. His 'Kitab al-Manazir' influenced Roger Bacon and Kepler."
+          }
+        ]
+      },
+      {
+        "id": "teach_reading_words",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَهلاً بِكَ يا طالِبَ المَعرِفَة. العِلمُ نور! اليَومَ سَنَتَعَلَّمُ كَلِماتِ القِراءَة",
+            "english": "Welcome, seeker of knowledge. Knowledge is light! Today we will learn reading words.",
+            "transliteration": "ahlan bika ya taalib al-ma'rifa. al-ilmu nuur! al-yawma sanata'allamu kalimaat al-qiraa'a"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "كِتاب — هُوَ أَهَمُّ ما صَنَعَهُ الإِنسان. كَلِمَةُ 'كِتاب' مِن جَذرِ ك-ت-ب",
+            "english": "Kitab — it is the most important thing humanity made. The word 'kitab' from the root k-t-b.",
+            "transliteration": "kitaab — huwa ahamm maa sana'ahu al-insaan. kalimat 'kitaab' min jadr k-t-b",
+            "teachWord": "what_is_this_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "مِن نَفسِ الجَذر: كَتَبَ (كَتَبَ)، كاتِب (writer)، مَكتوب (written)، مَكتَبَة (library)",
+            "english": "From the same root: kataba (wrote), kaatib (writer), maktuub (written), maktaba (library).",
+            "transliteration": "min nafs al-jadr: kataba, kaatib, maktuub, maktaba",
+            "culturalNote": "Arabic root system (trilateral roots) means related concepts share the same three core letters. K-T-B produces: kitaab (book), kaatib (writer), maktaba (library), maktub (letter/written), muktatib (student of writing)."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَذا النِّظامُ العَبقَريُّ يَجعَلُ تَعَلُّمَ العَرَبِيَّةِ مَبنِيًّا على أُسُس",
+            "english": "This genius system makes learning Arabic built on foundations.",
+            "transliteration": "haadhaa an-nidhaam al-abqariyyu yaj'al ta'allum al-arabiyya mabniyyan ala usus"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمْني جَذراً آخَر",
+                "english": "Teach me another root",
+                "next": "teach_roots"
+              },
+              {
+                "arabic": "بَيتُ الحِكمَة",
+                "english": "Tell me about the House of Wisdom",
+                "next": "house_of_wisdom"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "teach_roots",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "ممتاز! الجَذرُ ع-ل-م: عِلم (knowledge)، عالِم (scholar)، مُعَلِّم (teacher)، تَعَلَّمَ (learned)",
+            "english": "Excellent! The root '-l-m: ilm (knowledge), aalim (scholar), mu'allim (teacher), ta'allama (learned).",
+            "transliteration": "mumtaaz! al-jadr '-l-m: ilm, aalim, mu'allim, ta'allama",
+            "culturalNote": "The root '-L-M appears in over 200 Arabic words. 'Alam' (world/universe), 'ilm' (knowledge), 'ta'lim' (education), 'ulama' (scholars) — all from three letters that suggest apprehension of reality."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَجَذرُ ق-ر-أ: قَرَأَ (read)، قِراءَة (reading)، قُرآن (Quran — that which is recited)",
+            "english": "And root q-r-': qara'a (read), qiraa'a (reading), Quran (that which is recited).",
+            "transliteration": "wa jadr q-r-': qara'a, qiraa'a, qur'aan"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "العِلمُ نور! كُلُّ جَذرٍ كَبَيتٍ مَليءٍ بِالأَثاث — تَعَلَّم البَيتَ تَعرِف الأَثاث",
+            "english": "Knowledge is light! Each root is like a house full of furniture — learn the house, know the furniture.",
+            "transliteration": "al-ilmu nuur! kullu jadr kabayt mali' bil-athath — ta'allam al-bayt ta'rif al-athath"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "num_1",
+              "num_2",
+              "num_3",
+              "num_4",
+              "num_5"
+            ],
+            "quizType": "en-to-ar"
+          }
+        ]
+      },
+      {
+        "id": "house_of_wisdom",
+        "trigger": "relationship_level_3",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "بَيتُ الحِكمَة — أَعظَمُ مُؤَسَّسَةٍ عِلمِيَّة في تاريخِ الإِسلام",
+            "english": "The House of Wisdom — the greatest scientific institution in Islamic history.",
+            "transliteration": "bayt al-hikma — a'dhamu mu'assasa ilmiyya fii taariikh al-islaam",
+            "culturalNote": "Bayt al-Hikma (founded c.830 CE in Baghdad) was the first research institution in history. Scholars from across the world — Muslim, Christian, Jewish, Zoroastrian — translated and created knowledge under one roof."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الخَليفَةُ المَأمونُ جَمَعَ فيها عُلَماءَ مِن كُلِّ الأَديانِ وَالأُمَم",
+            "english": "Caliph al-Ma'mun gathered scholars of all religions and nations within it.",
+            "transliteration": "al-khalifa al-ma'muun jama'a fiihaa ulamaa' min kull al-adyaan wal-umam"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَرجَمَ الحُنَينُ بنُ إِسحاق أَكثَرَ مِن مِئَةِ كِتابٍ يونانيٍّ",
+            "english": "Hunayn ibn Ishaq translated over 100 Greek books.",
+            "transliteration": "tarjama al-hunayn ibn ishaaq akthar min mi'at kitaabin yunaaniyy",
+            "culturalNote": "Hunayn ibn Ishaq (809-873 CE) was a Nestorian Christian who became the chief translator at Bayt al-Hikma. He translated Hippocrates, Galen, and Aristotle. The Abbasid caliphs paid translators by the weight of the books in gold."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "العِلمُ نور! وَكانَ بَغدادُ مَنارَةً تَشعُّ بِنورِ المَعرِفَة",
+            "english": "Knowledge is light! And Baghdad was a lighthouse shining with the light of knowledge.",
+            "transliteration": "al-ilmu nuur! wa kaana baghdaad manaara tasha'u bi-nuur al-ma'rifa"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "scribe-amina",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَهْلاً وَسَهْلاً! أَنا أَمينَة، الكاتِبَة",
+            "english": "Welcome! I am Amina, the scribe.",
+            "transliteration": "ahlan wa sahlan! ana amiina, al-kaatiba"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَكتُبُ كُلَّ يَومٍ بِأَحبارٍ مُلَوَّنَة. هَل تَعرِفُ الأَلوان بِالعَرَبِيَّة؟",
+            "english": "I write every day with colored inks. Do you know the colors in Arabic?",
+            "transliteration": "aktubu kulla yawmin bi-ahbaarin mulawwana. hal ta'rifu al-alwaan bil-arabiyya?"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَحمَر — لَونُ الحِبرِ الأَوَّل",
+            "english": "Red -- the color of the first ink.",
+            "transliteration": "ahmar — lawnu al-hibri al-awwal",
+            "teachWord": "color_red"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَزرَق — كَلَونِ السَّماء",
+            "english": "Blue -- like the color of the sky.",
+            "transliteration": "azraq — kalawni as-samaa'",
+            "teachWord": "color_blue"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَخضَر — كَأَوراقِ الشَّجَر",
+            "english": "Green -- like tree leaves.",
+            "transliteration": "akhdar — ka-awraaqi ash-shajar",
+            "teachWord": "color_green"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "جَميل! لِنَرى إِن كُنتَ تَذكُر",
+            "english": "Beautiful! Let us see if you remember.",
+            "transliteration": "jamiil! linara in kunta tadhkur"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "color_red",
+              "color_blue",
+              "color_green"
+            ],
+            "quizType": "ar-to-en"
+          }
+        ]
+      },
+      {
+        "id": "teach_colors_2",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "عُدتَ! عِندي أَلوانٌ جَديدَة لَك",
+            "english": "You are back! I have new colors for you.",
+            "transliteration": "udta! indii alwaanun jadiida lak"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَصفَر — كَلَونِ الشَّمسِ المُشرِقَة",
+            "english": "Yellow -- like the color of the rising sun.",
+            "transliteration": "asfar — kalawni ash-shamsi al-mushriqa",
+            "teachWord": "color_yellow"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَبيَض — لَونُ الوَرَقِ النَّظيف",
+            "english": "White -- the color of clean paper.",
+            "transliteration": "abyad — lawnu al-waraqi an-nadhiif",
+            "teachWord": "color_white"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَسوَد — لَونُ حِبرِ الكِتابَة",
+            "english": "Black -- the color of writing ink.",
+            "transliteration": "aswad — lawnu hibri al-kitaaba",
+            "teachWord": "color_black"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ذَهَبِيّ — لَونُ الزَّخارِف عَلى الكُتُب",
+            "english": "Golden -- the color of decorations on books.",
+            "transliteration": "dhahabii — lawnu az-zakhaarif ala al-kutub",
+            "teachWord": "color_golden"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الآن اِمتِحانُ الأَلوان!",
+            "english": "Now the color test!",
+            "transliteration": "al-aan imtihaanu al-alwaan!"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "color_yellow",
+              "color_white",
+              "color_black",
+              "color_golden"
+            ],
+            "quizType": "en-to-ar"
+          }
+        ]
+      },
+      {
+        "id": "teach_phrases_1",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الآن سَأُعَلِّمُكَ جُمَلاً مُفيدَة لِلحَياةِ اليَومِيَّة",
+            "english": "Now I will teach you useful phrases for daily life.",
+            "transliteration": "al-aan sa-u'allimuka jumalan mufiida lil-hayaati al-yawmiyya"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ما اسمُك — لِلتَّعارُف",
+            "english": "What is your name -- for introductions.",
+            "transliteration": "ma ismuk — lit-ta'aaruf",
+            "teachWord": "what_is_your_name_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "اِسمي — عِندَما تُريدُ أَن تُعَرِّف عَن نَفسِك",
+            "english": "My name is -- when you want to introduce yourself.",
+            "transliteration": "ismii — indamaa turiidu an tu'arrif an nafsik",
+            "teachWord": "my_name_is_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "كَيفَ حالُك — لِلسُّؤال عَن الحال",
+            "english": "How are you -- to ask about someone's state.",
+            "transliteration": "kayfa haaluk — lis-su'aal an al-haal",
+            "teachWord": "how_are_you_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "مُمتاز! لِنَختَبِر هَذِهِ العِبارات",
+            "english": "Excellent! Let us test these phrases.",
+            "transliteration": "mumtaaz! linakhtabir haadhihi al-ibaaraat"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "what_is_your_name_1",
+              "my_name_is_1",
+              "how_are_you_1"
+            ],
+            "quizType": "random"
+          }
+        ]
+      },
+      {
+        "id": "hub",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَهْلاً. الخَطُّ الجَميلُ فَنّ",
+            "english": "Welcome. Beautiful writing is art.",
+            "transliteration": "ahlan. al-khat al-jamiil fann"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ماذا تُريد؟",
+            "english": "What do you want?",
+            "transliteration": "maadha turiid?"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمْني الكِتابَة",
+                "english": "Teach me writing",
+                "topic": "teaching"
+              },
+              {
+                "arabic": "فَنُّ الخَطّ",
+                "english": "Calligraphy art",
+                "topic": "lore"
+              },
+              {
+                "arabic": "مَهامُّ النَّسْخ",
+                "english": "Copying tasks",
+                "topic": "quests"
+              },
+              {
+                "arabic": "شُكْراً",
+                "english": "Thank you",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_teaching_writing",
+        "topic": "teaching",
+        "returnToHub": true,
+        "priority": 1,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الكِتابَةُ تَحْتاجُ صَبْراً وَدِقَّة",
+            "english": "Writing requires patience and precision.",
+            "transliteration": "al-kitaaba tahtaaju sabran wa diqqah",
+            "teachWord": "beautiful_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "كُلُّ حَرْف لَهُ شَكْلٌ خاصّ",
+            "english": "Each letter has its own special form.",
+            "transliteration": "kull harf lahu shaklun khaass"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمْني المَزيد",
+                "english": "Teach me more",
+                "next": "teach_writing_1"
+              },
+              {
+                "arabic": "عَوْدَة",
+                "english": "Return",
+                "next": "hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_lore_calligraphy",
+        "topic": "lore",
+        "returnToHub": true,
+        "priority": 2,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الخَطُّ العَرَبيُّ لَهُ أَنواعٌ كَثيرَة",
+            "english": "Arabic calligraphy has many types.",
+            "transliteration": "al-khat al-arabii lahu anwaa' kathiira",
+            "inlineVocab": [
+              {
+                "wordId": "many",
+                "arabicText": "كَثيرَة"
+              }
+            ]
+          },
+          {
+            "speaker": "npc",
+            "arabic": "النَّسْخ، الثُّلُث، الكوفيّ — كُلُّها جَميلَة",
+            "english": "Naskh, Thuluth, Kufic — all are beautiful.",
+            "transliteration": "an-naskh, ath-thuluth, al-kuufii — kulluhaa jamiila",
+            "inlineVocab": [
+              {
+                "wordId": "beautiful",
+                "arabicText": "جَميلَة"
+              }
+            ]
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "رائِع!",
+                "english": "Wonderful!",
+                "next": "hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_quests_copying",
+        "topic": "quests",
+        "returnToHub": true,
+        "priority": 3,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَحْتاجُ مَن يَنْسَخُ هَذِهِ العِبارات",
+            "english": "I need someone to copy these phrases.",
+            "transliteration": "ahtaaju man yansakh haadhihi al-ibaaraat"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعَلَّم عَشْرَ عِبارات وَعُدْ إِلَيّ",
+            "english": "Learn ten phrases and return to me.",
+            "transliteration": "ta'allam ashr ibaaraat wa ud ilayya"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "حاضِر",
+                "english": "Alright",
+                "next": "hub",
+                "effects": [
+                  {
+                    "type": "quest_start",
+                    "questId": "scribe_phrases"
+                  }
+                ]
+              },
+              {
+                "arabic": "لاحِقاً",
+                "english": "Later",
+                "next": "hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "teach_six_scripts",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الخَطُّ الجَميلُ فَنّ! اليَوم سَأُريكَ أَنواعَ الخُطوطِ السِّتَّة الأَصيلَة",
+            "english": "Beautiful writing is art! Today I will show you the six authentic calligraphy scripts.",
+            "transliteration": "al-khat al-jamiil fann! al-yawm sa-uriika anwaa' al-khutut as-sitta al-asiila"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "النَّسخُ — الخَطُّ الذي تَقرَأُهُ في القُرآن. واضِحٌ وَمُستَديم",
+            "english": "Naskh — the script you read in the Quran. Clear and enduring.",
+            "transliteration": "an-naskhu — al-khat alladhii taqra'uhu fil-qur'aan. waadihun wa mustadiim",
+            "culturalNote": "Naskh script was standardized in the 10th century and became the basis for modern Arabic printing. Its rounded, connected letters made it ideal for Quran manuscripts."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الثُّلُثُ — الخَطُّ المَلَكيُّ. يُزَيَّنُ بِهِ القِباب وَالمَساجِد",
+            "english": "Thuluth — the royal script. It decorates domes and mosques.",
+            "transliteration": "ath-thuluthu — al-khat al-malakiyyu. yuzayyan bihi al-qibab wal-masaajid",
+            "culturalNote": "Thuluth ('one third') script got its name because one third of each letter slopes. It is the most prestigious script for architectural and ceremonial use, seen on mosques from Istanbul to Cairo."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ابنُ مُقلَة — رَحِمَهُ اللَّه — وَضَعَ قانونَ الحَرفِ المُتَناسِب. مَجدٌ أَبَديّ",
+            "english": "Ibn Muqla — may God have mercy on him — established the law of the proportionate letter. Eternal glory.",
+            "transliteration": "ibn muqla — rahimahu allaah — wada'a qaanoon al-harf al-mutanaasib. majd abadii"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "مُدهِش! أَخبِرني عَن الكوفي",
+                "english": "Amazing! Tell me about Kufic",
+                "next": "teach_kufic"
+              },
+              {
+                "arabic": "عَلِّمْني كَلِماتِ الكِتابَة",
+                "english": "Teach me writing words",
+                "next": "teach_writing_1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "teach_kufic",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الكوفيُّ! الخَطُّ الأَقدَم — مِن مَدينَةِ الكوفَة في العِراق",
+            "english": "Kufic! The oldest script — from the city of Kufa in Iraq.",
+            "transliteration": "al-kuufiyyu! al-khat al-aqdam — min madinat al-kuufa fil-iraaq"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الخُطوطُ الكوفِيَّةُ كالرِّياضِيّات — زَوايا حادَّة وَخُطوطٌ مُستَقيمَة",
+            "english": "Kufic scripts are like mathematics — sharp angles and straight lines.",
+            "transliteration": "al-khutut al-kuufiyya kar-riyaadiyyaat — zawaaya haadda wa khutut mustaqiima",
+            "culturalNote": "Kufic script (7th-11th century CE) is the oldest Arabic calligraphy style. The angular geometric designs were perfect for carving into stone and stamping coins. Early Quran manuscripts used Kufic."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الأَنماطُ الهَندَسِيَّةُ الإِسلامِيَّةُ تَتَجَنَّبُ تَصويرَ الكائِناتِ الحَيَّة",
+            "english": "Islamic geometric patterns avoid depicting living beings.",
+            "transliteration": "al-anmaat al-handasiyya al-islamiyya tatajannab tasweer al-kaa'inaat al-hayya",
+            "culturalNote": "Islamic art uses geometric patterns, arabesque, and calligraphy instead of figurative art. This led to extraordinary mathematical sophistication — Islamic geometers discovered quasi-crystalline patterns 500 years before Western mathematics."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الخَطُّ الجَميلُ فَنّ! تَعَلَّم اللَّونَ وَالخَطَّ مَعاً",
+            "english": "Beautiful writing is art! Learn color and script together.",
+            "transliteration": "al-khat al-jamiil fann! ta'allam al-lawn wal-khat ma'an"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "color_red",
+              "color_blue",
+              "color_green",
+              "color_black",
+              "color_golden"
+            ],
+            "quizType": "en-to-ar"
+          }
+        ]
+      },
+      {
+        "id": "amina_ibn_muqla",
+        "trigger": "relationship_level_2",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الخَطُّ الجَميلُ فَنّ! أُريدُ أَن تَعرِفَ ابنَ مُقلَة",
+            "english": "Beautiful writing is art! I want you to know Ibn Muqla.",
+            "transliteration": "al-khat al-jamiil fann! uriidu an ta'rifa ibn muqla"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ابنُ مُقلَة (٨٨٦-٩٤٠م) كانَ وَزيرَ الخَليفَة — وَأَعظَمَ خَطّاطٍ في التّاريخ",
+            "english": "Ibn Muqla (886-940 CE) was the Caliph's vizier — and the greatest calligrapher in history.",
+            "transliteration": "ibn muqla (886-940m) kaana waziir al-khaliifa — wa a'dhama khattaat fis-taariikh",
+            "culturalNote": "Ibn Muqla served as vizier three times under different Abbasid caliphs. He invented the system of proportional measurement for Arabic letters — using the rhombic dot as the basic unit. Every letter is measured by dots relative to the alif height."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "طَوَّرَ نِظامَ النِّقطَة المُعَيَّنَة — وَحَدَّدَ نِسَبَ كُلِّ حَرفٍ بِدِقَّة",
+            "english": "He developed the rhombic dot system — precisely defining the proportions of each letter.",
+            "transliteration": "tawwara nidhaam an-niqta al-mu'ayyina — wa haddada nisab kull harf bi-diqqa"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "قَطَعوا يَدَهُ بِسَبَبِ المَؤامَرات — فَكَتَبَ بِيَدِهِ الأُخرى! هَذا هُوَ الفَنّ",
+            "english": "They cut off his hand due to politics — so he wrote with his other hand! This is art.",
+            "transliteration": "qata'uu yadahu bisabab al-mu'aamaraat — fa kataba bi-yadihi al-ukhraa! haadhaa huwa al-fann"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "astronomer-zain",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَنا زَين. أَدرُسُ النُّجوم مُنذُ عِشرين سَنَة",
+            "english": "I am Zain. I have studied the stars for twenty years.",
+            "transliteration": "ana zayn. adrusu an-nujuum mundhu 'ishriina sana"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "العَرَبُ أَعطَوا النُّجومَ أَسماءَها",
+            "english": "The Arabs gave the stars their names.",
+            "transliteration": "al-'arabu a'taw an-nujuuma asmaa'ahaa"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمني",
+                "english": "Teach me",
+                "next": "hub"
+              },
+              {
+                "arabic": "إِلى اللِّقاء",
+                "english": "Goodbye",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hub",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "النُّجومُ لا تَكذِب! ماذا نَدرُس؟",
+            "english": "The stars do not lie! What shall we study?",
+            "transliteration": "an-nujuumu laa takdhib! maadha nadrus?"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "الأَرقام",
+                "english": "Numbers",
+                "topic": "teaching"
+              },
+              {
+                "arabic": "تاريخ الفَلَك",
+                "english": "Astronomy history",
+                "topic": "lore"
+              },
+              {
+                "arabic": "مَهَمَّة فَلَكِيَّة",
+                "english": "Stargazing mission",
+                "topic": "quests"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_teaching_numbers",
+        "topic": "teaching",
+        "label": "Number & Sky Words",
+        "returnToHub": true,
+        "priority": 1,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الأَرقامُ أَساسُ الفَلَك",
+            "english": "Numbers are the foundation of astronomy.",
+            "transliteration": "al-arqaamu asaas al-falak"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "نَجْم — كُلّ نَجم لَهُ اِسم عَرَبي",
+            "english": "Star — every star has an Arabic name.",
+            "transliteration": "najm — kullu najm lahu ism 'arabii",
+            "teachWord": "star_w16",
+            "inlineVocab": [
+              {
+                "wordId": "star_w16",
+                "arabicText": "نَجْم"
+              }
+            ]
+          },
+          {
+            "speaker": "npc",
+            "arabic": "قَمَر — القَمَرُ يُنير لَيالينا",
+            "english": "Moon — the moon illuminates our nights.",
+            "transliteration": "qamar — al-qamaru yuniir layaaliinaa",
+            "teachWord": "moon_w15",
+            "inlineVocab": [
+              {
+                "wordId": "moon_w15",
+                "arabicText": "قَمَر"
+              }
+            ]
+          },
+          {
+            "speaker": "npc",
+            "arabic": "شَمْس — مَركَزُ كُلّ شَيء",
+            "english": "Sun — the center of everything.",
+            "transliteration": "shams — markazu kulli shay'",
+            "teachWord": "sun_w14",
+            "inlineVocab": [
+              {
+                "wordId": "sun_w14",
+                "arabicText": "شَمْس"
+              }
+            ]
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "رائِع!",
+                "english": "Wonderful!",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_lore_astronomy",
+        "topic": "lore",
+        "label": "Astronomy History",
+        "returnToHub": true,
+        "priority": 2,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الخوارِزمي اِبتَكَر الجَبر",
+            "english": "Al-Khwarizmi invented algebra.",
+            "transliteration": "al-khwaarizmii ibtakara al-jabr"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَكَلِمَة \"algorithm\" جاءَت مِن اِسمِه",
+            "english": "And the word \"algorithm\" came from his name.",
+            "transliteration": "wa kalimat algorithm jaa'at min ismihi"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "العَرَبُ حَفِظوا عِلمَ اليونان وَزادوا عَلَيه",
+            "english": "The Arabs preserved Greek science and added to it.",
+            "transliteration": "al-'arabu hafizuu 'ilm al-yuunaan wa zaaduu 'alayhi"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَوْدَة",
+                "english": "Return",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_quests_star",
+        "topic": "quests",
+        "label": "Stargazing Mission",
+        "returnToHub": true,
+        "priority": 3,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "اللَّيلَة القَمَر مُكتَمِل!",
+            "english": "Tonight the moon is full!",
+            "transliteration": "al-layla al-qamar muktamil!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَحتاجُ مَن يُساعِدُني في رَصد النُّجوم",
+            "english": "I need someone to help me observe the stars.",
+            "transliteration": "ahtaaju man yusaa'idunii fii rasd an-nujuum",
+            "effects": [
+              {
+                "type": "quest_start",
+                "questId": "library_numbers"
+              }
+            ]
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "بِكُلّ سُرور",
+                "english": "With pleasure",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_return_star_names",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "عُدتَ! هُنا أَسماء النُّجوم العَرَبِيَّة",
+            "english": "You're back! Here are Arabic star names.",
+            "transliteration": "'udta! hunaa asmaa' an-nujoom al-arabiyya"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الدَّبَران — النَّجم البُرتُقالي في الثَّور. بِالإنجليزِيَّة \"Aldebaran\"",
+            "english": "Al-Dabaraan — the orange star in Taurus. In English: \"Aldebaran\".",
+            "transliteration": "ad-dabaraan — an-najm al-burtuqaalii fit-thawr. bil-injliiziyya \"Aldebaran\"",
+            "teachWord": "star_w16",
+            "culturalNote": "Over 200 star names in modern astronomy come from Arabic: Aldebaran (الدَّبَران), Betelgeuse (يَد الجَوزاء), Rigel (رِجْل الجَبّار), Deneb (ذَنَب), Altair (الطّائِر). Arab astronomers mapped and named the sky from the 8th century onward."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَ\"Betelgeuse\" جاءَت مِن \"يَد الجَوزاء\" — يَد الجَبّار",
+            "english": "And \"Betelgeuse\" came from \"yad al-jawzaa'\" — the giant's hand.",
+            "transliteration": "wa \"Betelgeuse\" jaa'at min \"yad al-jawzaa'\" — yad al-jabbaar"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "النُّجوم تَتَكَلَّم عَرَبي! شُكراً زَين",
+                "english": "The stars speak Arabic! Thank you, Zain.",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_return_math",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "عُدتَ يا طالِب! النُّجوم تَنتَظِر دَراسَتَنا",
+            "english": "You returned, student! The stars await our study.",
+            "transliteration": "'udta yaa taalib! an-nujoom tantazir diraasatanaa"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "جَبر — اِبتَكَرَه الخَوارِزمي في بَغداد سَنَة ٨٣٠ مِيلادِيَّة",
+            "english": "Jabr — algebra, invented by al-Khwarizmi in Baghdad in 830 CE.",
+            "transliteration": "jabr — ibtakarahu al-khawaarizmi fii baghdaad sana 830 miilaadiyya",
+            "teachWord": "num_2",
+            "culturalNote": "Al-Khwarizmi's book \"Al-Kitab al-Mukhtasar fi Hisab al-Jabr wal-Muqabala\" (830 CE) gave us both \"algebra\" (from al-jabr) and the word \"algorithm\" (from his Latinized name Algoritmi). His work formed the basis of all modern mathematics."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَكَلِمَة \"algorithm\" جاءَت مِن اِسمِه — الخَوارِزمي يُلفَظ بِاللّاتينِيَّة \"Algoritmi\"",
+            "english": "\"Algorithm\" came from his name — al-Khwarizmi was pronounced \"Algoritmi\" in Latin.",
+            "transliteration": "wa kalima \"algorithm\" jaa'at min ismihi — al-khawaarizmi yulafaz bil-laatiiniyya \"Algoritmi\""
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "الجَبر وَالخَوارِزمِيَّات! شُكراً زَين",
+                "english": "Algebra and algorithms! Thank you, Zain.",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_return_navigation",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الإِسطِرلاب — أَداة المُنَجِّمين العَرَب لِقياس النُّجوم",
+            "english": "Al-Istirllab — the astrolabe, the Arab astronomers' tool for measuring stars.",
+            "transliteration": "al-istirllab — adaatu al-munajjimiin al-arab liqiyaas an-nujoom",
+            "teachWord": "star_w16",
+            "culturalNote": "The astrolabe (الإِسطِرلاب, from Greek) was perfected by Arab astronomers. By the 9th century, Muslim scholars had built astrolabes with 1,000+ star positions. It solved problems of time, prayer direction (qibla), and navigation — a pocket-sized computer of the medieval world."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "بِالإِسطِرلاب يُمكِنُك مَعرِفَة وَقت الصَّلاة أَينَما كُنتَ في العالَم",
+            "english": "With the astrolabe you can know prayer time wherever you are in the world.",
+            "transliteration": "bil-istirllab yumkinuka ma'rifat waqt as-salaa aynamaa kunta fil-'aalam"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عِلم وَدين في آنٍ مَعاً! شُكراً زَين",
+                "english": "Science and faith together! Thank you, Zain.",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_return_time",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "وَقت — هَذِهِ الكَلِمَة مُهِمَّة لِلفَلَكي",
+            "english": "Waqt — time. This word is essential for the astronomer.",
+            "transliteration": "waqt — haadhihi al-kalima muhimma lil-falakii",
+            "teachWord": "day_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "العَرَب قَسَّموا اللَّيل إلى سَاعات وَالسّاعَة إلى دَقائِق — قَبلَ أَوروبّا بِقُرون",
+            "english": "Arabs divided the night into hours and the hour into minutes — centuries before Europe.",
+            "transliteration": "al-arab qassamuu al-layl ilaa saa'aat was-saa'a ilaa daqaa'iq — qabl urubbaa bi-quroon"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "الوَقت عِلم! شُكراً زَين",
+                "english": "Time is a science! Thank you, Zain.",
+                "next": null
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "librarian-interior",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَنتَ هُنا أَخيراً! قَليلونَ يَصِلونَ إلى هَذا المَكان",
+            "english": "You are here at last! Few reach this place.",
+            "transliteration": "anta hunaa akhiiran! qaliiluna yasiluuna ilaa haadha al-makaan"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الأَرشيف يَحتَوي عَلى عُلومِ الأَرقام",
+            "english": "The archives contain the science of numbers.",
+            "transliteration": "al-arshiif yahtawii alaa 'uluumi al-arqaam"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَل تُريدُ أَن تَتَعَلَّمَ العَدّ؟",
+            "english": "Do you want to learn counting?",
+            "transliteration": "hal turiidu an tata'allama al-'add?"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "طَبعاً!",
+                "english": "Of course!",
+                "next": "teach_numbers"
+              },
+              {
+                "arabic": "لَيسَ الآن",
+                "english": "Not now",
+                "action": "end"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "default",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الأَرشيف يَنتَظِرُكَ دائِماً",
+            "english": "The archives always await you.",
+            "transliteration": "al-arshiif yantaziruka daa'iman"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "كُلّ رَقم لَهُ قِصَّة",
+            "english": "Every number has a story.",
+            "transliteration": "kullu raqam lahu qissa"
+          }
+        ]
+      },
+      {
+        "id": "teach_numbers",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "واحِد — الرَّقم الأَوَّل",
+            "english": "Waahid — the first number (one).",
+            "transliteration": "waahid — ar-raqam al-awwal",
+            "teachWord": "num_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "اِثنان — بَعدَ الواحِد",
+            "english": "Ithnaan — after one (two).",
+            "transliteration": "ithnaan — ba'da al-waahid",
+            "teachWord": "num_2"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ثَلاثَة — رَقمٌ مُبارَك",
+            "english": "Thalaatha — a blessed number (three).",
+            "transliteration": "thalaatha — raqmun mubaarak",
+            "teachWord": "num_3"
+          }
+        ]
+      }
+    ]
+  }
+]

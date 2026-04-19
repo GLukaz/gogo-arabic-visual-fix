@@ -1,0 +1,23 @@
+[
+  {
+    "id": "poet-caves",
+    "dialogueTrees": [
+      {
+        "id": "poet-caves-greeting",
+        "trigger": "interact",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "في عُزلَتي هَذِه أَحفَظُ أَشعارَ العَرَب وأَتَأَمَّلُها",
+            "english": "In my solitude I memorise and contemplate the poetry of the Arabs"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "السَّيفُ أَصدَقُ إِنباءً مِن الكُتُب — هَل تُحِبُّ أبا تَمّام؟",
+            "english": "The sword is more truthful than books — do you appreciate Abu Tammam?"
+          }
+        ]
+      }
+    ]
+  }
+]

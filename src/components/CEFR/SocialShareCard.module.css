@@ -1,0 +1,76 @@
+/* SocialShareCard.module.css — Social sharing overlay for CEFR milestone card */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1100; /* above CefrProgressReport at z-index 1000 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panel {
+  max-width: 440px;
+  width: 90%;
+  background: #1a1a2e;
+  border: 2px solid #e2b659;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.cardSvg {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin-bottom: 16px;
+  border-radius: 8px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.shareBtn {
+  background: #e2b659;
+  color: #1a1a2e;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.15s;
+}
+
+.shareBtn:hover {
+  background: #d4a843;
+}
+
+.shareBtn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.closeBtn {
+  background: transparent;
+  color: #c8c8c8;
+  border: 1px solid #555;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: border-color 0.15s;
+}
+
+.closeBtn:hover {
+  border-color: #888;
+}
+
+.closeBtn:focus-visible {
+  outline: 2px solid #e2b659;
+  outline-offset: 2px;
+}

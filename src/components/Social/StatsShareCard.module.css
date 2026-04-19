@@ -1,0 +1,255 @@
+/* StatsShareCard.module.css — Phase 91 */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.panel {
+  max-width: 440px;
+  width: 90%;
+  max-height: 85vh;
+  background: #1a1a2e;
+  border: 2px solid #FFD700;
+  border-radius: 14px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #333 transparent;
+}
+
+.panel::-webkit-scrollbar {
+  width: 4px;
+}
+
+.panel::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 2px;
+}
+
+/* Card visual */
+.card {
+  padding: 24px 20px 16px;
+  text-align: center;
+}
+
+.cardHeader {
+  margin-bottom: 16px;
+}
+
+.cardArabic {
+  font-size: 1.4rem;
+  color: #FFD700;
+  font-weight: 700;
+  direction: rtl;
+  margin-bottom: 4px;
+}
+
+.cardTitle {
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* CEFR badge */
+.cefrBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px auto;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 215, 0, 0.05));
+  border: 3px solid #FFD700;
+}
+
+.cefrLevel {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #FFD700;
+}
+
+.cefrLabel {
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* Stats grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.statItem {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  padding: 12px 10px;
+  text-align: center;
+}
+
+.statIcon {
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.statValue {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #e0e0e0;
+  display: block;
+}
+
+.statLabel {
+  font-size: 0.68rem;
+  color: #777;
+  display: block;
+  margin-top: 2px;
+}
+
+/* Achievement badges */
+.badgesSection {
+  margin: 16px 0 8px;
+}
+
+.badgesTitle {
+  font-size: 0.78rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.badgesRow {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 215, 0, 0.08);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 16px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  color: #c8c8c8;
+}
+
+.badgeIcon {
+  font-size: 0.85rem;
+}
+
+/* Fun facts */
+.funFacts {
+  margin: 16px 0 8px;
+  padding: 12px;
+  background: rgba(255, 215, 0, 0.04);
+  border-radius: 10px;
+}
+
+.funFact {
+  color: #b0b0b0;
+  font-size: 0.8rem;
+  font-style: italic;
+  margin: 4px 0;
+  line-height: 1.4;
+}
+
+/* Footer */
+.cardFooter {
+  font-size: 0.7rem;
+  color: #555;
+  margin-top: 12px;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: 10px;
+  padding: 12px 20px 20px;
+  justify-content: center;
+}
+
+.shareBtn {
+  background: #FFD700;
+  color: #1a1a2e;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.15s;
+}
+
+.shareBtn:hover {
+  background: #e6c200;
+}
+
+.shareBtn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.copyBtn {
+  background: transparent;
+  border: 1px solid #555;
+  color: #c8c8c8;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: border-color 0.15s;
+}
+
+.copyBtn:hover {
+  border-color: #FFD700;
+  color: #FFD700;
+}
+
+.copyBtn:focus-visible {
+  outline: 2px solid #FFD700;
+  outline-offset: 2px;
+}
+
+.closeBtn {
+  background: transparent;
+  border: 1px solid #555;
+  color: #c8c8c8;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: border-color 0.15s;
+}
+
+.closeBtn:hover {
+  border-color: #888;
+}
+
+.closeBtn:focus-visible {
+  outline: 2px solid #FFD700;
+  outline-offset: 2px;
+}
+
+/* Copied confirmation */
+.copiedToast {
+  color: #4caf50;
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 4px 0;
+}

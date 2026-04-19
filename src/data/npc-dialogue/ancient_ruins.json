@@ -1,0 +1,23 @@
+[
+  {
+    "id": "poet-ruins",
+    "dialogueTrees": [
+      {
+        "id": "poet-ruins-greeting",
+        "trigger": "interact",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "مِن هَذِه الأَطلال يُنادينا امرُؤُ القَيس عَبرَ الزَّمان",
+            "english": "From these ruins, Imru al-Qais calls to us across time"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "قِفا نَبكِ — هَل تَعرِفُ مَعنى هَذِه الكَلِمات العَتيقَة؟",
+            "english": "Halt, let us weep — do you know the meaning of these ancient words?"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,146 @@
+/* CefrProgressReport.module.css — Dark-themed CEFR progress overlay */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panel {
+  max-width: 520px;
+  width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: #1a1a2e;
+  border: 2px solid #e2b659;
+  border-radius: 12px;
+  padding: 24px;
+  position: relative;
+}
+
+/* Scrollbar styling for dark theme */
+.panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.panel::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+.panel::-webkit-scrollbar-thumb {
+  background: #e2b659;
+  border-radius: 3px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-right: 28px; /* space for close button */
+}
+
+.title {
+  color: #e2b659;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.levelBadge {
+  background: #e2b659;
+  color: #1a1a2e;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  color: #c8c8c8;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 8px 0;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: #c8c8c8;
+  font-size: 1.4rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 6px;
+  transition: color 0.15s;
+}
+
+.closeBtn:hover {
+  color: #e2b659;
+}
+
+.closeBtn:focus-visible {
+  outline: 2px solid #e2b659;
+  outline-offset: 2px;
+}
+
+.emptyState {
+  text-align: center;
+  color: #888;
+  padding: 40px 20px;
+  font-size: 0.95rem;
+}
+
+/* Share Progress button row */
+.shareRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #3a373b;
+}
+
+.shareBtn {
+  background: #e2b659;
+  color: #1a1a2e;
+  border: none;
+  padding: 10px 28px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.15s;
+}
+
+.shareBtn:hover {
+  background: #d4a843;
+}
+
+.shareBtn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Responsive — smaller screens */
+@media (max-width: 480px) {
+  .panel {
+    padding: 16px;
+    border-radius: 8px;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+}

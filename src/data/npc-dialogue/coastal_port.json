@@ -1,0 +1,2133 @@
+[
+  {
+    "id": "captain-rashid",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَنا القُبطان رَشيد! أُبحِرُ في هَذا البَحر مُنذُ عِشرين سَنَة",
+            "english": "I am Captain Rashid! I've sailed this sea for twenty years.",
+            "transliteration": "ana al-qubtaan rashiid! ubhiru fii haadha al-bahr mundhu ishriina sana"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "البَحّار الحَقيقِيّ يَعرِف الاِتِّجاهات. بِدون ذَلِك تَضيع",
+            "english": "A true sailor knows directions. Without that, you get lost.",
+            "transliteration": "al-bahhaar al-haqiiqiyy ya'rif al-ittijaahaat. biduun dhaalik tadii'"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمْني الاِتِّجاهات",
+                "english": "Teach me the directions",
+                "next": "teach_directions_1"
+              },
+              {
+                "arabic": "أَخبِرْني عَن البَحر",
+                "english": "Tell me about the sea",
+                "next": "about_sea"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "teach_directions_1",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "اِسمَع جَيِّداً! هَذِهِ أَهَمّ الاِتِّجاهات",
+            "english": "Listen well! These are the most important directions.",
+            "transliteration": "isma' jayyidan! haadhihi ahamm al-ittijaahaat"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "شَمَال — حَيثُ يُشيرُ نَجم القُطب",
+            "english": "North — where the North Star points.",
+            "transliteration": "shamaal — haythu yushiiru najm al-qutb",
+            "teachWord": "north_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "جَنُوب — عَكس الشَّمال، حَيثُ المِياه الدّافِئَة",
+            "english": "South — opposite of north, where the warm waters are.",
+            "transliteration": "januub — aks ash-shamaal, haythu al-miyaah ad-daafi'a",
+            "teachWord": "south_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "شَرْق — حَيثُ تَطلُع الشَّمس",
+            "english": "East — where the sun rises.",
+            "transliteration": "sharq — haythu tatlu' ash-shams",
+            "teachWord": "east_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ثَلاث اِتِّجاهات. هَل تَستَطيع أَن تَتَذَكَّرها؟",
+            "english": "Three directions. Can you remember them?",
+            "transliteration": "thalaath ittijaahaat. hal tastatii' an tatadhaakkarahaa?"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "north_1",
+              "south_1",
+              "east_1"
+            ],
+            "quizType": "ar-to-en"
+          }
+        ]
+      },
+      {
+        "id": "teach_directions_2",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "عُدتَ يا بَحّار! لِنُكمِل خَريطَتَنا",
+            "english": "You're back, sailor! Let's complete our map.",
+            "transliteration": "udta ya bahhaar! linukmil khariitanaa"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "غَرْب — حَيثُ تَغرُب الشَّمس",
+            "english": "West — where the sun sets.",
+            "transliteration": "gharb — haythu taghrubu ash-shams",
+            "teachWord": "west_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "يَمِين — أَدِر الدَّفَّة يَمين!",
+            "english": "Right — turn the rudder right!",
+            "transliteration": "yamiin — adir ad-daffa yamiin!",
+            "teachWord": "right_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "يَسَار — أَدِر الدَّفَّة يَسار!",
+            "english": "Left — turn the rudder left!",
+            "transliteration": "yasaar — adir ad-daffa yasaar!",
+            "teachWord": "left_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "فَوْق — اُنظُر فَوق إِلى الشِّراع",
+            "english": "Up/Above — look up at the sail.",
+            "transliteration": "fawq — unzur fawq ila ash-shiraa'",
+            "teachWord": "above_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَربَعَة كَلِمات! اِختَبِر نَفسَك",
+            "english": "Four words! Test yourself.",
+            "transliteration": "arba'at kalimaat! ikhtabir nafsak"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "west_1",
+              "right_1",
+              "left_1",
+              "above_1"
+            ],
+            "quizType": "en-to-ar"
+          }
+        ]
+      },
+      {
+        "id": "teach_directions_3",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "ما شاءَ الله! أَنتَ مَلّاح مُمتاز",
+            "english": "Mashallah! You are an excellent navigator.",
+            "transliteration": "maa shaa'allaah! anta mallaah mumtaaz"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَحْت — الكَنز تَحت الماء",
+            "english": "Below/Under — the treasure is under the water.",
+            "transliteration": "taht — al-kanz taht al-maa'",
+            "teachWord": "below_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "قَرِيب — الميناء قَريب! أَستَطيع أَن أَراه",
+            "english": "Near — the port is near! I can see it.",
+            "transliteration": "qariib — al-miinaa' qariib! astatii' an araahu",
+            "teachWord": "near_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "بَعِيد — الجَزيرَة بَعيدَة، نَحتاج يَومَين",
+            "english": "Far — the island is far, we need two days.",
+            "transliteration": "ba'iid — al-jaziira ba'iida, nahtaaj yawmayn",
+            "teachWord": "far_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الآن تَعرِف كُلّ الاِتِّجاهات! اِختِبار أَخير",
+            "english": "Now you know all the directions! One final test.",
+            "transliteration": "al-aan ta'rif kull al-ittijaahaat! ikhtibaar akhiir"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "below_1",
+              "near_1",
+              "far_1"
+            ],
+            "quizType": "random"
+          }
+        ]
+      },
+      {
+        "id": "about_sea",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "البَحر مِثل الحَياة — أَحياناً هادِئ وَأَحياناً عاصِف",
+            "english": "The sea is like life — sometimes calm and sometimes stormy.",
+            "transliteration": "al-bahr mithl al-hayaah — ahyaanan haadi' wa ahyaanan aasif"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَنا في الميناء تَجِد سَمَكاً طازَجاً عِند هَنا",
+            "english": "Here at the port you'll find fresh fish at Hana's stall.",
+            "transliteration": "hunaa fil-miinaa' tajid samakan taazajan inda hanaa"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَداوُد الحَدّاد يَصنَع أَفضَل المَراسي",
+            "english": "And Daud the blacksmith makes the best anchors.",
+            "transliteration": "wa daawuud al-haddaad yasna' afdal al-maraasii"
+          }
+        ]
+      },
+      {
+        "id": "hub",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "ماذا تُريد؟ يا لَلبَحر، الوَقتُ ضَيِّق",
+            "english": "What do you want? By the sea, time is short.",
+            "transliteration": "maadha turiid? ya lal-bahr, al-waqtu dayyiq"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "الاتِّجاهات",
+                "english": "Teach me directions",
+                "topic": "teaching"
+              },
+              {
+                "arabic": "تاريخ البَحر",
+                "english": "Naval history",
+                "topic": "lore"
+              },
+              {
+                "arabic": "مَهامّ بَحرِيَّة",
+                "english": "Sea missions",
+                "topic": "quests"
+              },
+              {
+                "arabic": "أَخبار المِيناء",
+                "english": "Port news",
+                "topic": "gossip"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_teaching_directions",
+        "topic": "teaching",
+        "label": "Direction Words",
+        "returnToHub": true,
+        "priority": 1,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "البَحّار يَحتاج يَعرِف الاتِّجاهات",
+            "english": "A sailor needs to know directions.",
+            "transliteration": "al-bahhaar yahtaaj ya'rif al-ittijaahaat"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "شَمال — نَحوَ النَّجم القُطبي",
+            "english": "North — toward the pole star.",
+            "transliteration": "shamaal — nahwa an-najm al-qutbii",
+            "teachWord": "north_1",
+            "inlineVocab": [
+              {
+                "wordId": "north_1",
+                "arabicText": "شَمال"
+              }
+            ]
+          },
+          {
+            "speaker": "npc",
+            "arabic": "يَمين — الجانِب الأَيمَن مِن السَّفينَة",
+            "english": "Right — the starboard side of the ship.",
+            "transliteration": "yamiin — al-jaanib al-ayman min as-safiina",
+            "teachWord": "right_1",
+            "inlineVocab": [
+              {
+                "wordId": "right_1",
+                "arabicText": "يَمين"
+              }
+            ]
+          },
+          {
+            "speaker": "npc",
+            "arabic": "يَسار — الجانِب الأَيسَر",
+            "english": "Left — the port side.",
+            "transliteration": "yasaar — al-jaanib al-aysar",
+            "teachWord": "left_1",
+            "inlineVocab": [
+              {
+                "wordId": "left_1",
+                "arabicText": "يَسار"
+              }
+            ]
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "فَهِمت",
+                "english": "Understood",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_lore_naval",
+        "topic": "lore",
+        "label": "Naval History",
+        "returnToHub": true,
+        "priority": 2,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "العَرَبُ كانوا سادَة البِحار",
+            "english": "The Arabs were masters of the seas.",
+            "transliteration": "al-'arabu kaanuu saadat al-bihaar"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "اِبنُ ماجِد كانَ أَعظَم مَلّاح عَرَبي",
+            "english": "Ibn Majid was the greatest Arab navigator.",
+            "transliteration": "ibnu maajid kaana a'zam mallaah 'arabii"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هُوَ الَّذي أَرشَدَ فاسكو دي غاما إِلى الهِند",
+            "english": "He is the one who guided Vasco da Gama to India.",
+            "transliteration": "huwa alladhii arshada faaskuu dii ghaamaa ilaa al-hind"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَوْدَة",
+                "english": "Return",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_quests_sea",
+        "topic": "quests",
+        "label": "Sea Missions",
+        "returnToHub": true,
+        "priority": 3,
+        "conditions": [
+          {
+            "type": "relationship",
+            "npcId": "captain-rashid",
+            "min": 2
+          }
+        ],
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "هُناكَ شُحنَة فُقِدَت قُربَ المَرفَأ",
+            "english": "There is a shipment lost near the harbor.",
+            "transliteration": "hunaaka shuhna fuqidat qurba al-marfa'"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَحتاجُ شَخصاً يَعرِف الاتِّجاهات لِيَجِدَها",
+            "english": "I need someone who knows directions to find it.",
+            "transliteration": "ahtaaju shakhsan ya'rif al-ittijaahaat liyajidahaa"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَل أَنتَ مُستَعِدّ؟",
+            "english": "Are you ready?",
+            "transliteration": "hal anta musta'idd?",
+            "effects": [
+              {
+                "type": "quest_start",
+                "questId": "port_navigation"
+              }
+            ]
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "نَعَم",
+                "english": "Yes, captain!",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_gossip_port",
+        "topic": "gossip",
+        "label": "Port News",
+        "returnToHub": true,
+        "priority": 4,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "سَفينَة جَديدَة وَصَلَت مِن المَغرِب",
+            "english": "A new ship arrived from Morocco.",
+            "transliteration": "safiina jadiida wasalat min al-maghrib"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَنادِيَة رَئيسَة المِيناء تَشكو مِن التُّجّار",
+            "english": "And Nadia the dockmaster complains about the merchants.",
+            "transliteration": "wa naadiya ra'iisat al-miinaa' tashkuu min at-tujjaar"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَوْدَة",
+                "english": "Return",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cultural_navigation",
+        "trigger": "relationship_level_2",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "كَلِمَةُ 'أَميرال' جاءَت مِن 'أَمير البَحر'",
+            "english": "The word 'admiral' came from 'amir al-bahr'",
+            "transliteration": "kalimat 'admiral' ja'at min 'amir al-bahr'",
+            "culturalNote": "Admiral comes from Arabic 'amir al-bahr' (أمير البحر), meaning 'commander of the sea'. Other nautical terms from Arabic include monsoon (mawsim) and cable (habl)."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "المَلّاحونَ العَرَبُ اختَرَعوا الإسطُرلاب البَحري",
+            "english": "Arab sailors invented the maritime astrolabe",
+            "transliteration": "al-mallahun al-arab ikhtara'u al-isturlab al-bahri"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ابنُ ماجِد — أُسطورَةُ المُحيطِ الهِندي",
+            "english": "Ibn Majid — legend of the Indian Ocean",
+            "transliteration": "ibn majid — usturat al-muhit al-hindi",
+            "culturalNote": "Ahmad ibn Majid (1421-1500 CE) wrote over 40 works on navigation. He is said to have guided Vasco da Gama's fleet from East Africa to India in 1498."
+          }
+        ]
+      },
+      {
+        "id": "rashid_monsoon_story",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "يَا رَفِيقي! هَل تَعرِف سِرَّ البَحَّارَة العَرَب؟ الرِّيح! المَوسِم!",
+            "english": "My companion! Do you know the secret of Arab sailors? The wind! The monsoon!",
+            "transliteration": "Yaa rafiiq! Hal ta'rif sirr al-bahhaara al-'Arab? Ar-riyaah! Al-mawsim!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "كَلِمَة \"monsoon\" الإِنجليزِيَّة مِن العَرَبِيَّة \"مَوسِم\" — أَي الوَقت المُحَدَّد لِلرِّيح!",
+            "english": "The English word \"monsoon\" comes from Arabic \"mawsim\" — the fixed season of the wind!",
+            "transliteration": "Kalima 'monsoon' al-injliiziyya min al-'arabiyya 'mawsim' — ay al-waqt al-muhaddad lir-riyaah!",
+            "culturalNote": "\"Monsoon\" comes from Arabic \"mawsim\" (مَوسِم, season/time). Arab sailors were the first to systematically chart monsoon winds, enabling reliable trade routes across the Indian Ocean from East Africa to India and China from the 8th century CE."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "نَحنُ العَرَب عَرَفنَا المَوسِم قَبلَ كُلِّ أُمَّة — لِذَلِكَ أَبحَرنَا مِن أَفريقيا إِلى الصِّين!",
+            "english": "We Arabs knew the monsoon before every nation — that is why we sailed from Africa to China!",
+            "transliteration": "Nahnu al-'Arab 'arafnaa al-mawsim qabla kulli umma — li-dhaalik abharnaaa min Afriqiyaa ilaa as-Siin!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعَلَّم: البَحر! لِأَنَّ البَحر هُوَ طَريق التِّجَارَة والمَعرِفَة!",
+            "english": "Learn: the sea! Because the sea is the road of trade and knowledge!",
+            "transliteration": "Ta'allam: al-bahr! Li-anna al-bahr huwa tariiq at-tijaara wal-ma'rifa!",
+            "teachWord": "sea_w23"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمني مُفرَدَات البَحر",
+                "english": "Teach me sea vocabulary",
+                "next": "rashid_sea_lesson"
+              },
+              {
+                "arabic": "أَخبِرني عَن أَخطَر رِحلَة",
+                "english": "Tell me about your most dangerous journey",
+                "next": "rashid_dangerous_voyage"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rashid_sea_lesson",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "هَيَّا! كَلِمَات البَحر! أَولاً: الرِّيح — صَدِيقُ البَحَّار أَو عَدُوُّه!",
+            "english": "Let us go! Sea words! First: wind — the sailor's friend or enemy!",
+            "transliteration": "Hayya! Kalimaat al-bahr! Awwalan: ar-riyaah — sadiiq al-bahhaar aw 'aduwwuh!",
+            "teachWord": "wind_w26"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ثَانِياً: المَطَر — نِعمَة في الصَّحرَاء، لَكِن في البَحر؟ يَجلِب العَواصِف!",
+            "english": "Second: rain — a blessing in the desert, but at sea? It brings storms!",
+            "transliteration": "Thaaniyan: al-matar — ni'ma fis-sahraa', laakin fil-bahr? Yajilib al-'awaasif!",
+            "teachWord": "rain_w25"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ثَالِثاً: النَّجم — البَحَّار يَسير بِالنُّجوم! بِدُون نُجوم، ضَاع البَحَّار!",
+            "english": "Third: star — the sailor navigates by stars! Without stars, the sailor is lost!",
+            "transliteration": "Thaalithan: an-najm — al-bahhaar yasiir bin-nujuum! Bi-duun nujuum, daa' al-bahhaar!",
+            "teachWord": "star_w16"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "لِنَختَبِر! مَن يَعرِف هَذِهِ الكَلِمَات يَستَطيع الإِبحَار في أَيِّ بَحر!",
+            "english": "Let's test! One who knows these words can sail any sea!",
+            "transliteration": "Li-nakhtabir! Man ya'rif haadhihi al-kalimaat yastatiiu al-ibhaar fii ayyi bahr!"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "sea_w23",
+              "wind_w26",
+              "rain_w25",
+              "star_w16"
+            ],
+            "quizType": "ar-to-en"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "عَظيم! أَنتَ الآن بَحَّار بِالكَلِمَات. بَقِيَ أَن تَصبَح بَحَّاراً بِالسَّفينَة!",
+            "english": "Magnificent! You are now a sailor in words. It remains for you to become a sailor on a ship!",
+            "transliteration": "Aziim! Anta al-aan bahhaar bil-kalimaat. Baqiya an tasbaha bahhaar bis-safiina!"
+          }
+        ]
+      },
+      {
+        "id": "rashid_dangerous_voyage",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَخطَر رِحلَة؟ كانَت قُرب خَليج عَدَن. العَاصِفَة جَاءَت مِن لا مَكَان!",
+            "english": "Most dangerous journey? It was near the Gulf of Aden. The storm came from nowhere!",
+            "transliteration": "Aktar rihla? Kaanat qurb Khaliij Adan. Al-'aasifa jaa'at min laa makaan!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "لَكِن القُبَّان كَانَ يَعرِف النُّجوم. نَظَرنَا إِلى السَّمَاء وَنَجَونَا!",
+            "english": "But the captain knew the stars. We looked to the sky and survived!",
+            "transliteration": "Laakin al-qubban kaana ya'rif an-nujuum. Nazarnaa ilaa as-samaa' wa najaynaa!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "السَّفينَة العَرَبِيَّة \"الدَّاو\" أَبحَرَت مِن شَرق أَفريقيا إِلى الصِّين. بَحَّارَة عَظماء!",
+            "english": "The Arab \"dhow\" ship sailed from East Africa to China. Great sailors!",
+            "transliteration": "As-safiina al-'arabiyya 'ad-daaw' abhaarat min sharq Afriqiyaa ilaa as-Siin. Bahhaara 'uzamaa'!",
+            "culturalNote": "Arab dhow ships (داو) sailed monsoon routes from East Africa to India and China from the 8th century. Arab sailors used celestial navigation and seasonal monsoon winds to create reliable trade routes 700 years before European explorers."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعَلَّم: النَّجم — لِأَنَّ البَحَّار بِدون نُجوم كَالأَعمى!",
+            "english": "Learn: star — because a sailor without stars is like a blind man!",
+            "transliteration": "Ta'allam: an-najm — li-anna al-bahhaar bi-duun nujuum kal-a'maa!",
+            "teachWord": "star_w16"
+          }
+        ]
+      },
+      {
+        "id": "rashid_sea_proverbs",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "البَحر يُعَلِّم الصَّبر — لا يَمكُنُك إِجبارُ الرِّيح",
+            "english": "The sea teaches patience — you cannot force the wind.",
+            "transliteration": "al-bahr yu'allim as-sabr — laa yumkinuk ijbaar ar-riih"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "مَثَل: \"سافِر تَجِد خَلَفاً عَمَّن تُفارِق\" — السَّفَر يُعَوِّض",
+            "english": "Proverb: \"Travel and you will find a substitute for those you leave\" — travel compensates.",
+            "transliteration": "mathal: 'saafir tajid khalafan 'amman tufaariq' — as-safar yu'awwid",
+            "teachWord": "moon_w15"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَ\"دَلتا\" النِّيل جاءَت مِن الحَرف اليوناني \"دِلتا\" — لَكِن العَرَب طَوَّروا الجُغرافِيا",
+            "english": "The Nile delta got its name from the Greek letter \"delta\" — but Arabs developed geography.",
+            "transliteration": "wa \"delta\" an-niil jaa'at min al-harf al-yunaani \"delta\""
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "شُكراً يا رَبّان!",
+                "english": "Thank you, captain!",
+                "next": null
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fishmonger-hana",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَهْلاً! أَنا هَنا، أَبيع أَطيَب سَمَك في الميناء!",
+            "english": "Hello! I'm Hana, I sell the tastiest fish in the port!",
+            "transliteration": "ahlan! ana hanaa, abii' atyab samak fil-miinaa'!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "عِندي سَمَك وَمَشروبات. هَل تُريد أَن تَعرِف أَسماءَها؟",
+            "english": "I have fish and drinks. Do you want to know their names?",
+            "transliteration": "indii samak wa mashruubaat. hal turiid an ta'rif asmaa'ahaa?"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "نَعَم، عَلِّميني!",
+                "english": "Yes, teach me!",
+                "next": "teach_food_1"
+              },
+              {
+                "arabic": "ما هَذِهِ الرّائِحَة الطَّيِّبَة؟",
+                "english": "What is that wonderful smell?",
+                "next": "about_stall"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "teach_food_1",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "يَلّا بِسم الله! أَوَّل شَيء — سَمَكٌ!",
+            "english": "Let's go, bismillah! First thing — fish!",
+            "transliteration": "yallaa bismillaah! awwal shay' — samakun!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "سَمَكٌ — طازَج مِن البَحر هَذا الصَّباح!",
+            "english": "Fish — fresh from the sea this morning!",
+            "transliteration": "samakun — taazaj min al-bahr haadha as-sabaah!",
+            "teachWord": "fish_food_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَبَعد السَّمَك، شَايٌ ساخِن!",
+            "english": "And after the fish, hot tea!",
+            "transliteration": "wa ba'd as-samak, shaayun saakhin!",
+            "teachWord": "tea_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَو قَهْوَةٌ عَرَبِيَّة — أَحلى قَهوَة في المِنطَقَة!",
+            "english": "Or Arabic coffee — the best coffee in the area!",
+            "transliteration": "aw qahwatun arabiyya — ahlaa qahwa fil-mintaqa!",
+            "teachWord": "coffee_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ثَلاث كَلِمات لَذيذَة! يَلّا اِختِبار!",
+            "english": "Three delicious words! Come on, quiz time!",
+            "transliteration": "thalaath kalimaat ladhiidha! yallaa ikhtibaar!"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "fish_food_1",
+              "tea_1",
+              "coffee_1"
+            ],
+            "quizType": "ar-to-en"
+          }
+        ]
+      },
+      {
+        "id": "teach_food_2",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "رَجَعتَ! الحَمدُ لِلَّه. عِندي أَكل وَشُرب أَكثَر!",
+            "english": "You came back! Alhamdulillah. I have more food and drink!",
+            "transliteration": "raja'ta! al-hamdu lillaah. indii akl wa shurb akthar!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "شُرْبَةٌ — شُربَة سَمَك ساخِنَة لِلبَحّارَة",
+            "english": "Soup — hot fish soup for the sailors.",
+            "transliteration": "shurbatun — shurbat samak saakhina lil-bahhaara",
+            "teachWord": "soup_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "عَصِيرٌ — عَصير بُرتُقال طازَج!",
+            "english": "Juice — fresh orange juice!",
+            "transliteration": "asiirun — asiir burtuqaal taazaj!",
+            "teachWord": "juice_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "فَاكِهَةٌ — عِندي فَواكِه مِن كُلّ الأَنواع",
+            "english": "Fruit — I have fruits of all kinds.",
+            "transliteration": "faakihatun — indii fawaakiih min kull al-anwaa'",
+            "teachWord": "fruit_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "سُكَّرٌ — هَل تُريد سُكَّر في الشّاي؟",
+            "english": "Sugar — do you want sugar in your tea?",
+            "transliteration": "sukkarun — hal turiid sukkar fish-shaay?",
+            "teachWord": "sugar_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَربَع كَلِمات! يَلّا نَشوف!",
+            "english": "Four words! Let's see!",
+            "transliteration": "arba' kalimaat! yallaa nshuuf!"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "soup_1",
+              "juice_1",
+              "fruit_1",
+              "sugar_1"
+            ],
+            "quizType": "en-to-ar"
+          }
+        ]
+      },
+      {
+        "id": "teach_food_3",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "يا سَلام! أَحسَن زَبون عِندي! كَلِمات أَخيرَة",
+            "english": "Wonderful! My best customer! Last words.",
+            "transliteration": "yaa salaam! ahsan zabuun indii! kalimaat akhiira"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "مِلْحٌ — السَّمَك بِدون مِلح ما لَهُ طَعم!",
+            "english": "Salt — fish without salt has no taste!",
+            "transliteration": "milhun — as-samak biduun milh maa lahuu ta'm!",
+            "teachWord": "salt_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "بَحْر — هَذا البَحر يُعطينا السَّمَك كُلّ يَوم",
+            "english": "Sea — this sea gives us fish every day.",
+            "transliteration": "bahr — haadha al-bahr yu'tiinaa as-samak kull yawm",
+            "teachWord": "sea_w23"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "نَهْر — المِياه العَذبَة تَأتي مِن النَّهر",
+            "english": "River — the fresh water comes from the river.",
+            "transliteration": "nahr — al-miyaah al-adhba ta'tii min an-nahr",
+            "teachWord": "river_w24"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "اِختِبار أَخير! بِسم الله!",
+            "english": "Final quiz! Bismillah!",
+            "transliteration": "ikhtibaar akhiir! bismillaah!"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "salt_1",
+              "sea_w23",
+              "river_w24"
+            ],
+            "quizType": "random"
+          }
+        ]
+      },
+      {
+        "id": "about_stall",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "هَذا مَحَلّي! أَبيع هُنا كُلّ يَوم مِن الفَجر",
+            "english": "This is my stall! I sell here every day from dawn.",
+            "transliteration": "haadha mahallii! abii' hunaa kull yawm min al-fajr"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "البَحّارَة يَجلِبون السَّمَك وَأَنا أَبيعُه لِلنّاس",
+            "english": "The sailors bring the fish and I sell it to the people.",
+            "transliteration": "al-bahhaara yajlibuun as-samak wa ana abii'uhu lin-naas"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعال تَعَلَّم أَسماء الأَكل وَالشُّرب!",
+            "english": "Come learn the names of food and drink!",
+            "transliteration": "ta'aal ta'allam asmaa' al-akl wash-shurb!"
+          }
+        ]
+      },
+      {
+        "id": "hub",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "طازَج! طازَج! أَهلاً يا حَبيبي",
+            "english": "Fresh! Fresh! Welcome, my dear!",
+            "transliteration": "taazaj! taazaj! ahlan ya habiibi"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "كَلِمات الطَّعام",
+                "english": "Food words",
+                "topic": "teaching"
+              },
+              {
+                "arabic": "تَقاليد الصَّيد",
+                "english": "Fishing traditions",
+                "topic": "lore"
+              },
+              {
+                "arabic": "أَخبار",
+                "english": "Port gossip",
+                "topic": "gossip"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_teaching_food",
+        "topic": "teaching",
+        "label": "Food & Fish Words",
+        "returnToHub": true,
+        "priority": 1,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الأَكلُ نِصفُ الحَياة! تَعال نَتَعَلَّم",
+            "english": "Food is half of life! Come, let us learn.",
+            "transliteration": "al-aklu nisf al-hayaah! ta'aal nata'allam"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "سَمَك — هَذا ما أَبيع",
+            "english": "Fish — this is what I sell.",
+            "transliteration": "samak — haadha maa abii'",
+            "teachWord": "fish_food_1",
+            "inlineVocab": [
+              {
+                "wordId": "fish_1",
+                "arabicText": "سَمَك"
+              }
+            ]
+          },
+          {
+            "speaker": "npc",
+            "arabic": "خُبْز — كُلّ وَجبَة تَحتاج خُبز",
+            "english": "Bread — every meal needs bread.",
+            "transliteration": "khubz — kullu wajba tahtaaj khubz",
+            "teachWord": "bread_1",
+            "inlineVocab": [
+              {
+                "wordId": "bread_1",
+                "arabicText": "خُبْز"
+              }
+            ]
+          },
+          {
+            "speaker": "npc",
+            "arabic": "مَاء — بِدونِ الماء لا حَياة",
+            "english": "Water — without water there is no life.",
+            "transliteration": "maa' — biduuni al-maa' laa hayaah",
+            "teachWord": "water_1",
+            "inlineVocab": [
+              {
+                "wordId": "water_1",
+                "arabicText": "مَاء"
+              }
+            ]
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "شُكراً",
+                "english": "Thanks!",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_lore_fishing",
+        "topic": "lore",
+        "label": "Fishing Traditions",
+        "returnToHub": true,
+        "priority": 2,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَبي عَلَّمَني الصَّيد وَأَنا صَغيرَة",
+            "english": "My father taught me fishing when I was little.",
+            "transliteration": "abii 'allamanii as-sayd wa ana saghiira"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "نَخرُج مَع الفَجر وَنَعود مَع الشَّمس",
+            "english": "We go out at dawn and return with the sun.",
+            "transliteration": "nakhruj ma' al-fajr wa na'uud ma' ash-shams"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَطيَبُ سَمَك هُوَ سَمَكُ الصُّبح",
+            "english": "The tastiest fish is the morning fish.",
+            "transliteration": "atyabu samak huwa samaku as-subh"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَوْدَة",
+                "english": "Return",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_gossip_port",
+        "topic": "gossip",
+        "label": "Port Gossip",
+        "returnToHub": true,
+        "priority": 3,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "القُبطان رَشيد زَعلان اليَوم — سَفينَة تَأَخَّرَت",
+            "english": "Captain Rashid is angry today — a ship was late.",
+            "transliteration": "al-qubtaan rashiid za'laan al-yawm — safiina ta'akhkharat"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَالتاجِر حَسَن يَبحَث عَن تَوابِل جَديدَة",
+            "english": "And Trader Hassan is looking for new spices.",
+            "transliteration": "wat-taajir hasan yabhath 'an tawaabil jadiida"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَوْدَة",
+                "english": "Return",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hana_gulf_traditions",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "تَعَال تَعَال! اليَوم عِندي أَجمَل السَّمَك! وَعِندي أَيضاً قِصَّة جَميلَة!",
+            "english": "Come come! Today I have the most beautiful fish! And I also have a beautiful story!",
+            "transliteration": "Ta'aal ta'aal! Al-yawm 'indii ajmal as-samak! Wa 'indii aydan qissa jamiila!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "قَبلَ النَّفط، كَانَ الخَليج يَعيش على الغَوص! صَيد اللُّؤلُؤ!",
+            "english": "Before oil, the Gulf lived on diving! Pearl fishing!",
+            "transliteration": "Qabla an-naft, kaana al-khaliij ya'iish 'alaa al-ghaws! Sayd al-lu'lu'!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَجدَادي كَانوا غَوَّاصِين! يَغوصون إِلى قَاع البَحر بِيَدَيهِم — بِدون أَي آلَة!",
+            "english": "My ancestors were divers! They dove to the sea floor with their hands — without any equipment!",
+            "transliteration": "Ajdaadii kaanuu ghawwaasiin! Yaghuusuun ilaa qaa' al-bahr bi-yadayhim — bi-duun ayyi aala!",
+            "culturalNote": "Pearl diving (الغَوص, al-ghaws) was the primary industry of the Arabian Gulf for centuries before oil. Divers could reach depths of 40 meters on a single breath, and Qatar, Bahrain, and Kuwait built entire economies on pearls sold to India and Europe."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعَلَّم: السَّمَك — أَهَمُّ كَلِمَة في السّوق الساحِلِيّ!",
+            "english": "Learn: fish — the most important word in the coastal market!",
+            "transliteration": "Ta'allam: as-samak — ahamm kalima fis-suuq as-saahiliyy!",
+            "teachWord": "fish_food_1"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمني أَسمَاء الطَّعام",
+                "english": "Teach me food names",
+                "next": "hana_food_lesson"
+              },
+              {
+                "arabic": "أَخبِرني المَزيد عَن صَيد اللُّؤلُؤ",
+                "english": "Tell me more about pearl diving",
+                "next": "hana_pearl_diving"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hana_food_lesson",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الطَّعَام! أَعظَم الكَلِمَات! اِستَمِع! الخُبز — أَسَاس كُلِّ وَجبَة!",
+            "english": "Food! The greatest words! Listen! Bread — the foundation of every meal!",
+            "transliteration": "At-ta'aam! A'zam al-kalimaat! Istami'! Al-khubz — asaas kulli wajba!",
+            "teachWord": "bread_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "التَّمر! غِذَاء الصَّحرَاء. العَرَب عَاشوا على التَّمر لِآلاف السِّنين!",
+            "english": "Dates! Food of the desert. Arabs lived on dates for thousands of years!",
+            "transliteration": "At-tamr! Ghidhaa' as-sahraa'. Al-'Arab 'aashuu 'alaa at-tamr li-aalaaf as-sinin!",
+            "teachWord": "dates_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "العَسَل! دَوَاء وَغِذَاء في آنٍ وَاحِد. النَّحل يَعمَل وَنَحنُ نَستَفيد!",
+            "english": "Honey! Medicine and food at the same time. Bees work and we benefit!",
+            "transliteration": "Al-'asal! Dawaa' wa ghidhaa' fii aanin waahid. An-nahl ya'mal wa nahnu nastafid!",
+            "teachWord": "honey_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "القَهوَة! شَرَاب العَرَب المَقدَّس! مِن اليَمَن انتَشَرَت إِلى العَالَم كُلِّه!",
+            "english": "Coffee! The sacred Arab drink! From Yemen it spread to the whole world!",
+            "transliteration": "Al-qahwa! Sharaab al-'Arab al-muqaddas! Min al-Yaman intatarat ilaa al-'aalam kullih!",
+            "teachWord": "coffee_1"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "fish_food_1",
+              "bread_1",
+              "dates_1",
+              "honey_1",
+              "coffee_1"
+            ],
+            "quizType": "ar-to-en"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "مُمتاز! الآن تَعرِف مَا يَكفيكَ لِلعَيش. تَعَال كُلَّ يَوم وَسَأُعَلِّمُكَ المَزيد!",
+            "english": "Excellent! Now you know enough to live on. Come every day and I will teach you more!",
+            "transliteration": "Mumtaaz! Al-aan ta'rif maa yakfiik lil-'aysh. Ta'aal kull yawm wa sa-u'allimuka al-maziid!"
+          }
+        ]
+      },
+      {
+        "id": "hana_pearl_diving",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "اللُّؤلُؤ! كَانَ يُسَاوي الذَّهَب في الهِند وَأُوروبَّا. كَانَ كَنز الخَليج!",
+            "english": "Pearls! They were worth gold in India and Europe. They were the treasure of the Gulf!",
+            "transliteration": "Al-lu'lu'! Kaana yusaawii adh-dhahab fil-Hind wa Uurubba. Kaana kanz al-khaliij!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الغَوَّاص يَحمِل حَجَراً ثَقِيلاً لِيَنزِل سَريعاً. ثُمَّ يَلتَقِط الأَصداف بِيَدَيه!",
+            "english": "The diver carries a heavy stone to descend quickly. Then he collects shells with his hands!",
+            "transliteration": "Al-ghawwaas yahmil hajaran thaqiilan li-yanzil sarii'an. Thumma yaltaqit al-asdaaf bi-yadaih!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ثُمَّ جَاءَ النَّفط — وَانتَهى زَمَن الغَوص. لَكِن القِصَص بَقِيَت!",
+            "english": "Then oil came — and the age of diving ended. But the stories remained!",
+            "transliteration": "Thumma jaa' an-naft — wa intahaa zaman al-ghaws. Laakin al-qisas baqiyat!",
+            "culturalNote": "Before oil was discovered in Bahrain (1932) and Kuwait (1938), pearl diving was the backbone of Gulf economies. Bahrain alone exported 3-4 million pearls per year by the early 20th century. Japanese cultured pearls destroyed the industry in the 1920s-30s."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعَلَّم: الماء — لِأَنَّ بِدُون الماء لا بَحر وَلا حَيَاة!",
+            "english": "Learn: water — because without water there is no sea and no life!",
+            "transliteration": "Ta'allam: al-maa' — li-anna bi-duun al-maa' laa bahr wa laa hayaah!",
+            "teachWord": "water_w13"
+          }
+        ]
+      },
+      {
+        "id": "hana_market_chatter",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَي، أَنتَ! تَعَال! البِضَاعَة اليَوم طَازَجَة! صِيدَت هَذَا الصَّبَاح!",
+            "english": "Hey, you! Come! The goods today are fresh! Caught this morning!",
+            "transliteration": "Ay, anta! Ta'aal! Al-bidaa'a al-yawm taazija! Siidat haadha as-sabaah!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَل تَعرِف أَنَّ كَلِمَة \"tuna\" رُبَّما مِن العَرَبِيَّة \"تُنَّ\"؟ العَرَب صَادوا التُّنَّ قَديماً!",
+            "english": "Did you know the word \"tuna\" may come from Arabic \"tunn\"? Arabs fished tuna in ancient times!",
+            "transliteration": "Hal ta'rif anna kalima 'tuna' rubbama min al-'arabiyya 'tunn'? Al-'Arab saaduu at-tunn qadiiman!",
+            "culturalNote": "The word \"tuna\" may derive from Arabic \"tunn\" (تُنّ) via Medieval Latin \"thunnus.\" Arab fishermen in the Mediterranean and Gulf developed sophisticated nets and seasonal fishing knowledge that influenced global fishing traditions."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "اِشتَرِ مِنّي! تَعَلَّم: السُّوق — أَجمَل مَكان في أَيِّ مَدينَة!",
+            "english": "Buy from me! Learn: the market — the most beautiful place in any city!",
+            "transliteration": "Ishtari minni! Ta'allam: as-suuq — ajmal makaan fii ayyi madiina!",
+            "teachWord": "market_w29"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَالسَّمَكَة هَذِه؟ بِثَمَن زَهيد! تَعَلَّم: رَخيص — كَلِمَة مُهِمَّة في السُّوق!",
+            "english": "And this fish? At a cheap price! Learn: cheap — an important word in the market!",
+            "transliteration": "Wa as-samaka haadhihi? Bi-thaman zahiid! Ta'allam: rakhiis — kalima muhimma fis-suuq!",
+            "teachWord": "cheap_w32"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "أُرِيد أَن أَشتَري",
+                "english": "I want to buy",
+                "next": "hana_buying_lesson"
+              },
+              {
+                "arabic": "شُكراً يا هَناء",
+                "english": "Thank you, Hana",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hana_buying_lesson",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "مُمتاز! المُشتَري الذَّكِيّ يَعرِف الكَلِمَات! كَم يُكَلِّف؟ — تَسأَل هَكَذا!",
+            "english": "Excellent! The clever buyer knows the words! How much does it cost? — you ask like this!",
+            "transliteration": "Mumtaaz! Al-mushtari adh-dhakii ya'rif al-kalimaat! Kam yukallif? — tas'al hakadhaa!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعَلَّم: السِّعر — لِأَنَّ في كُلِّ سُوق يَسأَل الجَميع عَنه!",
+            "english": "Learn: the price — because in every market everyone asks about it!",
+            "transliteration": "Ta'allam: as-si'r — li-anna fii kulli suuq yas'al al-jamii' 'anh!",
+            "teachWord": "price_w31"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَالمَال! لا سُوق بِدون مَال! لَكِن بِدون مَعرِفَة، المَال لا يَنفَع!",
+            "english": "And money! No market without money! But without knowledge, money is useless!",
+            "transliteration": "Wa al-maal! Laa suuq bi-duun maal! Laakin bi-duun ma'rifa, al-maal laa yanfa'!",
+            "teachWord": "money_w30"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "blacksmith-daud",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَنا داوُد الحَدّاد. أَصنَعُ مِن الحَديد ما يَحتاجُه النّاس",
+            "english": "I am Daud the blacksmith. I craft from iron what people need.",
+            "transliteration": "ana daawuud al-haddaad. asna'u min al-hadiid maa yahtaajuhu an-naas"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "التِّجارَة وَالطَّبيعَة — كِلاهُما يُعَلِّمان الصَّبر",
+            "english": "Trade and nature — both teach patience.",
+            "transliteration": "at-tijaara wat-tabii'a — kilaahumaa yu'allimaani as-sabr"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمْني عَن التِّجارَة",
+                "english": "Teach me about trade",
+                "next": "teach_trade_1"
+              },
+              {
+                "arabic": "أَخبِرْني عَن عَمَلِك",
+                "english": "Tell me about your work",
+                "next": "about_forge"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "teach_trade_1",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "التِّجارَة تَحتاج أَدَوات. لِنَبدَأ",
+            "english": "Trade needs tools. Let's begin.",
+            "transliteration": "at-tijaara tahtaaj adawaat. linabda'"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "مِيزَان — أَصنَعُهُ بِيَدَيَّ. يَزِنُ الذَّهَب وَالفِضَّة",
+            "english": "Scale — I make it with my hands. It weighs gold and silver.",
+            "transliteration": "miizaan — asna'uhu biyadayya. yazinu adh-dhahab wal-fidda",
+            "teachWord": "scale_w46"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "دِرْهَم — العُملَة الَّتي يَستَخدِمُها التُّجّار",
+            "english": "Dirham — the coin that merchants use.",
+            "transliteration": "dirham — al-umla allatii yastakhdimuha at-tujjaar",
+            "teachWord": "coin_w47"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "جَبَل — الحَديد يَأتي مِن الجَبَل",
+            "english": "Mountain — the iron comes from the mountain.",
+            "transliteration": "jabal — al-hadiid ya'tii min al-jabal",
+            "teachWord": "mountain_w21"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ثَلاث كَلِمات. بَسيطَة لَكِن مُهِمَّة",
+            "english": "Three words. Simple but important.",
+            "transliteration": "thalaath kalimaat. basiita laakin muhimma"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "scale_w46",
+              "coin_w47",
+              "mountain_w21"
+            ],
+            "quizType": "ar-to-en"
+          }
+        ]
+      },
+      {
+        "id": "teach_nature_2",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "عُدتَ. جَيِّد. الحَدّاد يُلاحِظ الطَّبيعَة",
+            "english": "You returned. Good. A blacksmith observes nature.",
+            "transliteration": "udta. jayyid. al-haddaad yulaahiz at-tabii'a"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "رِيح — الرّيح تُشعِل النّار في الكِير",
+            "english": "Wind — the wind lights the fire in the furnace.",
+            "transliteration": "riih — ar-riih tush'il an-naar fil-kiir",
+            "teachWord": "wind_w26"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "سَمَاء — أَنظُرُ إِلى السَّماء لِأَعرِف الطَّقس",
+            "english": "Sky — I look at the sky to know the weather.",
+            "transliteration": "samaa' — anzuru ila as-samaa' li-a'rif at-taqs",
+            "teachWord": "sky_w22"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "نَجْم — في اللَّيل، النُّجوم تُنير الطَّريق",
+            "english": "Star — at night, the stars light the path.",
+            "transliteration": "najm — fil-layl, an-nujuum tuniir at-tariiq",
+            "teachWord": "star_w16"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الطَّبيعَة مُعَلِّمَة عَظيمَة. هَل تَتَذَكَّر؟",
+            "english": "Nature is a great teacher. Do you remember?",
+            "transliteration": "at-tabii'a mu'allima aziima. hal tatadhaakkar?"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "wind_w26",
+              "sky_w22",
+              "star_w16"
+            ],
+            "quizType": "en-to-ar"
+          }
+        ]
+      },
+      {
+        "id": "teach_trade_3",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَنتَ صَبور مِثل الحَدّاد. هَذا جَيِّد",
+            "english": "You are patient like a blacksmith. That is good.",
+            "transliteration": "anta sabuur mithl al-haddaad. haadha jayyid"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "سَجَّادَة — التُّجّار يَبيعون سَجّاجيد مِن كُلّ مَكان",
+            "english": "Carpet — merchants sell carpets from everywhere.",
+            "transliteration": "sajjaada — at-tujjaar yabii'uun sajaajiid min kull makaan",
+            "teachWord": "carpet_w38"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَاجِر — الَّذي يَشتَري وَيَبيع",
+            "english": "Merchant — the one who buys and sells.",
+            "transliteration": "taajir — alladhii yashtarii wa yabii'",
+            "teachWord": "merchant_w44"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "بَهَار — البَهارات تُعطي الأَكل نَكهَة",
+            "english": "Spice — spices give food flavor.",
+            "transliteration": "bahaar — al-bahaaraat tu'tii al-akl nakha",
+            "teachWord": "spice_w39"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "اِختِبار أَخير. أَثبِت أَنَّك تَعَلَّمت",
+            "english": "A final test. Prove that you have learned.",
+            "transliteration": "ikhtibaar akhiir. athbit annaka ta'allamta"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "carpet_w38",
+              "merchant_w44",
+              "spice_w39"
+            ],
+            "quizType": "random"
+          }
+        ]
+      },
+      {
+        "id": "about_forge",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَعمَل هُنا كُلّ يَوم مِن الفَجر إِلى المَغرِب",
+            "english": "I work here every day from dawn to dusk.",
+            "transliteration": "a'mal hunaa kull yawm min al-fajr ila al-maghrib"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الحَديد يُعَلِّمُك الصَّبر. إِذا اِستَعجَلتَ، يَنكَسِر",
+            "english": "Iron teaches you patience. If you rush, it breaks.",
+            "transliteration": "al-hadiid yu'allimuk as-sabr. idha ista'jalta, yankasir"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَاللُّغَة مِثل الحَديد. تَحتاج وَقتاً وَصَبراً",
+            "english": "And language is like iron. It needs time and patience.",
+            "transliteration": "wal-lugha mithl al-hadiid. tahtaaj waqtan wa sabran"
+          }
+        ]
+      },
+      {
+        "id": "hub",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الحَديدُ لا يَكذِب. ماذا تُريد؟",
+            "english": "Iron does not lie. What do you want?",
+            "transliteration": "al-hadiidu laa yakdhib. maadha turiid?"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "كَلِمات الأَدَوات",
+                "english": "Tool words",
+                "topic": "teaching"
+              },
+              {
+                "arabic": "تَقاليد الحِدادَة",
+                "english": "Forging traditions",
+                "topic": "lore"
+              },
+              {
+                "arabic": "أَخبار",
+                "english": "News",
+                "topic": "gossip"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_teaching_tools",
+        "topic": "teaching",
+        "label": "Tool & Trade Words",
+        "returnToHub": true,
+        "priority": 1,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الأَدَواتُ لُغَة الحَدّاد",
+            "english": "Tools are the blacksmith's language.",
+            "transliteration": "al-adawaatu lughat al-haddaad"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "لَحْم — المَعدِن يُشبِه اللَّحم عِندَ الصَّهر",
+            "english": "Meat — metal resembles meat when melting.",
+            "transliteration": "lahm — al-ma'din yushbihu al-lahm 'inda as-sahr",
+            "teachWord": "meat_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "فَوْق — ضَع المِطرَقَة فَوقَ السِّندان",
+            "english": "Above — place the hammer above the anvil.",
+            "transliteration": "fawq — da' al-mitraqa fawqa as-sindaan",
+            "teachWord": "above_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَحْت — النّار تَحتَ المَعدِن",
+            "english": "Below — the fire below the metal.",
+            "transliteration": "taht — an-naar tahta al-ma'din",
+            "teachWord": "below_1"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "شُكراً",
+                "english": "Thanks",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_lore_forging",
+        "topic": "lore",
+        "label": "Forging Traditions",
+        "returnToHub": true,
+        "priority": 2,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَبي وَجَدّي كانا حَدّادَين",
+            "english": "My father and grandfather were blacksmiths.",
+            "transliteration": "abii wa jaddii kaanaa haddaadayn"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "السَّيف العَرَبي — أَجمَل ما صَنَعَت يَدُ إِنسان",
+            "english": "The Arab sword — the most beautiful thing a hand ever made.",
+            "transliteration": "as-sayf al-'arabii — ajmal maa sana'at yadu insaan"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الصَّبرُ هُوَ سِرّ الحِدادَة الجَيِّدَة",
+            "english": "Patience is the secret of good smithing.",
+            "transliteration": "as-sabru huwa sirr al-hidaada al-jayyida"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَوْدَة",
+                "english": "Return",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_gossip_smith",
+        "topic": "gossip",
+        "label": "Workshop News",
+        "returnToHub": true,
+        "priority": 3,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "ظَهري يُؤلِمُني. خَديجَة أَعطَتني شاي زَنجَبيل",
+            "english": "My back hurts. Khadija gave me ginger tea.",
+            "transliteration": "zahrii yu'limunii. khadiija a'tatnii shaay zanjabiil"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "القُبطان يُريد سَيفاً جَديداً. كَثير العَمَل",
+            "english": "The captain wants a new sword. Lots of work.",
+            "transliteration": "al-qubtaan yuriid sayfan jadiidan. kathiir al-'amal"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَوْدَة",
+                "english": "Return",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cultural_metallurgy",
+        "trigger": "relationship_level_2",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الفولاذُ الدِّمَشقي كانَ أَقوى مَعدِنٍ في العالَم",
+            "english": "Damascus steel was the strongest metal in the world",
+            "transliteration": "al-fulath ad-dimashqi kan aqwa ma'din fil-'alam",
+            "culturalNote": "Damascus steel swords were famous for their distinctive wavy pattern (damask). The technique was lost around 1750 CE and has never been fully replicated."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الأَنماطُ الهَندَسيَّة في الفَنِّ الإسلامي تَعتَمِدُ على الرِّياضيّات",
+            "english": "Geometric patterns in Islamic art are based on mathematics",
+            "transliteration": "al-anmat al-handasiyya fil-fann al-islami ta'tamid 'ala ar-riyadiyyat"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "كُلُّ نَمَطٍ يَبدَأُ مِن دائِرَة — الكَمالُ الإلهي",
+            "english": "Every pattern begins from a circle — divine perfection",
+            "transliteration": "kullu namat yabda' min da'ira — al-kamal al-ilahi",
+            "culturalNote": "Islamic geometric art avoids depicting living beings. Instead, artists used pure geometry and mathematical ratios, creating infinitely repeating patterns that suggest the infinite nature of God."
+          }
+        ]
+      },
+      {
+        "id": "daud_damascus_steel",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "اِنظُر إِلى هَذِه السَّيف! يَرى الطَّيف فِيها! هَذِهِ هِيَ فُولاذ دِمَشق الأَصيل!",
+            "english": "Look at this sword! You can see your reflection in it! This is genuine Damascus steel!",
+            "transliteration": "Unzur ilaa haadha as-sayf! Yaraa at-tayf fiihaa! Haadhihi hiya fuulaadh Dimashq al-asiil!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "فُولاذ دِمَشق! أَسطورَة الحَدَّادِين. نَمط مَوجِيّ كَالماء. لا يُنسى!",
+            "english": "Damascus steel! The legend of blacksmiths. A wavy pattern like water. Unforgettable!",
+            "transliteration": "Fuulaadh Dimashq! Ustuuratu al-haddaadin. Namat mawjiyy kal-maa'. Laa yunsaa!",
+            "culturalNote": "Damascus steel (فُولاذ دِمَشق) had a distinctive wavy \"damask\" pattern caused by carbon nanotubes. Modern science only confirmed this in 2006. The technique was perfected in Damascus around 1000 CE and was LOST around 1750 CE — it has never been fully replicated."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الوَصفَة ضَاعَت حَوالي عَام 1750. لا يَستَطيع أَحَد صُنعَها الآن تَماماً!",
+            "english": "The recipe was lost around 1750. Nobody can make it exactly the same now!",
+            "transliteration": "Al-wasfa daa'at hawaalii 'aam 1750. Laa yastatiiu ahadun sun'ahaa al-aan tamaaман!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعَلَّم: الذَّهَب — الحَدَّاد يَعرِف قِيمَة المَعدَن كَمَا يَعرِفُ قِيمَة المَعرِفَة!",
+            "english": "Learn: gold — a blacksmith knows the value of metal as he knows the value of knowledge!",
+            "transliteration": "Ta'allam: adh-dhahab — al-haddaad ya'rif qiimat al-ma'din kamaa ya'rif qiimat al-ma'rifa!",
+            "teachWord": "gold_w36"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمني أَسمَاء أَدوَات الحِدَادَة",
+                "english": "Teach me blacksmithing tool names",
+                "next": "daud_craft_lesson"
+              },
+              {
+                "arabic": "كَيفَ صَنَعتَ هَذَا السَّيف؟",
+                "english": "How did you make this sword?",
+                "next": "daud_forging_process"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "daud_craft_lesson",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "المَهارَة! التِّجَارَة! تَعَلَّم كَلِمَات العَمَل يَا صَاحِبي!",
+            "english": "Craft! Trade! Learn the words of work, my companion!",
+            "transliteration": "Al-mahaara! At-tijaara! Ta'allam kalimaat al-'amal yaa saahib!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الفِضَّة! بَعدَ الذَّهَب، أَجمَل مَعدِن. وَأَنَا الحَدَّاد أَعرِف كِلَيهِمَا!",
+            "english": "Silver! After gold, the most beautiful metal. And I the blacksmith know both!",
+            "transliteration": "Al-fidda! Ba'da adh-dhahab, ajmal ma'din. Wa ana al-haddaad a'rif kilayhima!",
+            "teachWord": "silver_w37"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "العَمَل! هَذِه الكَلِمَة أَعظَم كَلِمَة في لُغَة الحَدَّادِين!",
+            "english": "Work! This word is the greatest word in the language of blacksmiths!",
+            "transliteration": "Al-'amal! Haadhihi al-kalima a'zam kalima fii lughat al-haddaadin!",
+            "teachWord": "work_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَعطِ — لِأَنَّ الحَدَّاد يَصنَع وَيُعطِي لِلمُجتَمَع. العَطَاء عِبَادَة!",
+            "english": "Give — because the blacksmith makes and gives to the community. Giving is worship!",
+            "transliteration": "A'ti — li-anna al-haddaad yasna' wa yu'tii lil-mujtama'. Al-'ataa' 'ibaada!",
+            "teachWord": "give_1"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "gold_w36",
+              "silver_w37",
+              "work_1",
+              "give_1"
+            ],
+            "quizType": "ar-to-en"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "مُمتاز! الآن أَنتَ تَتَكَلَّم مِثلَ تَاجِر. عُد وَسَأُعَلِّمُكَ كَلِمَات المَعدِن الأُخرى!",
+            "english": "Excellent! Now you speak like a merchant. Come back and I will teach you more metal words!",
+            "transliteration": "Mumtaaz! Al-aan anta tatakallam mithla taajir. 'Ud wa sa-u'allimuka kalimaat al-ma'din al-ukhraa!"
+          }
+        ]
+      },
+      {
+        "id": "daud_forging_process",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَولاً: النَّار! بِدُون نَار لا حِدَادَة. الحَرَارَة تُحَوِّل الحَجَر إِلى أَدَاة!",
+            "english": "First: fire! Without fire there is no blacksmithing. Heat transforms stone into tool!",
+            "transliteration": "Awwalan: an-naar! Bi-duun naar laa hidaada. Al-haraara tuhawwil al-hajar ilaa adaa!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ثَانِياً: المَطرَقَة والسِّنديان. الحَدَّاد يَضرِب، ويَشكِّل، وَيُعِيد الضَّرب حَتَّى يَكتَمِل الشَّكل!",
+            "english": "Second: the hammer and anvil. The blacksmith strikes, shapes, and re-strikes until the form is complete!",
+            "transliteration": "Thaaniyan: al-matраqa was-sindiyaan. Al-haddaad yadrib, wa yushakkil, wa yu'iid ad-darb hattaa yaktamil ash-shakl!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ثَالِثاً: الماء البَارِد! التَّبريد السَّريع يُقَسِّي المَعدِن. هَذَا سِرُّ الفُولاذ!",
+            "english": "Third: cold water! Rapid cooling hardens the metal. This is the secret of steel!",
+            "transliteration": "Thaalithan: al-maa' al-baarid! At-tabriid as-sarii' yuqassii al-ma'din. Haadha sirr al-fuulaadh!",
+            "culturalNote": "Islamic geometric metalwork, featuring intricate arabesque patterns, influenced European decorative arts from the Crusades onward. The word \"steel\" itself derives from Proto-Germanic, but Arab metalworkers preserved and advanced Roman techniques during Europe's Dark Ages."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعَلَّم: قَوِيّ — لِأَنَّ الفُولاذ الجَيِّد قَوِيٌّ، وَكَذَلِك الإِنسَان الجَيِّد!",
+            "english": "Learn: strong — because good steel is strong, and so is a good person!",
+            "transliteration": "Ta'allam: qawiyy — li-anna al-fuulaadh al-jayyid qawiyy, wa kadhalik al-insaan al-jayyid!",
+            "teachWord": "strong_1"
+          }
+        ]
+      },
+      {
+        "id": "daud_geometric_art",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "يَا صَاحِب! اِنظُر إِلى هَذَا الزَّخرَف! الهَندَسَة الإِسلَامِيَّة في المَعدِن!",
+            "english": "My companion! Look at this decoration! Islamic geometry in metal!",
+            "transliteration": "Yaa saahib! Unzur ilaa haadha az-zakhraf! Al-handasa al-islaamiyya fil-ma'din!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "النُّجوم السِّتُّ، الأَنماط المُتَشَابِكَة — كُلُّها لا تَنتَهي وَلا تَبتَدِئ. كَمِثل الله!",
+            "english": "Six-pointed stars, interlocking patterns — they never end and never begin. Like God!",
+            "transliteration": "An-nujuum as-sitt, al-anmaat al-mutashaabika — kulluhaa laa tantahii wa laa tabтadi'. Ka-mithli Allaah!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "العَمَل الجَيِّد يَجمَع الجَمَال والفَائِدَة. تَعَلَّم: جَميل — لِأَنَّ الأَدَاة الجَمِيلَة تُكرِّمُها!",
+            "english": "Good work combines beauty and utility. Learn: beautiful — because you honor a beautiful tool!",
+            "transliteration": "Al-'amal al-jayyid yajma' al-jamaal wal-faa'ida. Ta'allam: jamiil — li-anna al-adaa al-jamiila tukarrimuhaa!",
+            "teachWord": "beautiful_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "اِعمَل بِإِتقَان — هَذَا هُوَ الإِحسَان. وَهَذِه وَصِيَّة النَّبي صَلَّى الله عَلَيه وَسَلَّم.",
+            "english": "Work with excellence — this is ihsan. And this is the advice of the Prophet, peace be upon him.",
+            "transliteration": "I'mal bi-itqaan — haadha huwa al-ihsaan. Wa haadhihi wasiyyat an-Nabiyy sallaa Allaahu 'alayhi wa sallam."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dockmaster-nadia",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَنا نادِيَة، رَئيسَة المِيناء. كُلّ شَيء يَمُرّ عَبري",
+            "english": "I am Nadia, dockmaster. Everything passes through me.",
+            "transliteration": "ana naadiya, ra'iisat al-miinaa'. kullu shay' yamurr 'abrii"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "أُريد أَن أَتَعَلَّم",
+                "english": "I want to learn",
+                "next": "hub"
+              },
+              {
+                "arabic": "عَفواً",
+                "english": "Excuse me",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hub",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "بِنِظام! عِندي وَقت قَليل",
+            "english": "In order! I have little time.",
+            "transliteration": "bi-nizaam! 'indii waqt qaliil"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "الاتِّجاهات",
+                "english": "Direction words",
+                "topic": "teaching"
+              },
+              {
+                "arabic": "تاريخ المِيناء",
+                "english": "Port history",
+                "topic": "lore"
+              },
+              {
+                "arabic": "تَصاريح",
+                "english": "Docking permits",
+                "topic": "quests"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_teaching_directions",
+        "topic": "teaching",
+        "label": "Direction Words",
+        "returnToHub": true,
+        "priority": 1,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "في المِيناء يَجِب أَن تَعرِف الاتِّجاهات",
+            "english": "In the port you must know directions.",
+            "transliteration": "fii al-miinaa' yajib an ta'rif al-ittijaahaat"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "فَوْق — البِضاعَة فَوقَ السَّفينَة",
+            "english": "Above — the cargo above the ship.",
+            "transliteration": "fawq — al-bidaa'a fawqa as-safiina",
+            "teachWord": "above_1",
+            "inlineVocab": [
+              {
+                "wordId": "above_1",
+                "arabicText": "فَوْق"
+              }
+            ]
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَحْت — المَخزَن تَحتَ الأَرض",
+            "english": "Below — the warehouse below ground.",
+            "transliteration": "taht — al-makhzan tahta al-ard",
+            "teachWord": "below_1",
+            "inlineVocab": [
+              {
+                "wordId": "below_1",
+                "arabicText": "تَحْت"
+              }
+            ]
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "فَهِمت",
+                "english": "Understood",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_lore_port",
+        "topic": "lore",
+        "label": "Port History",
+        "returnToHub": true,
+        "priority": 2,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "هَذا المِيناء عُمرُه ثَلاثمائَة سَنَة",
+            "english": "This port is three hundred years old.",
+            "transliteration": "haadha al-miinaa' 'umruhu thalaathmi'at sana"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "مِن هُنا خَرَجَت سُفُن إِلى الهِند وَالصّين",
+            "english": "From here ships departed to India and China.",
+            "transliteration": "min hunaa kharajat sufun ilaa al-hind was-siin"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَوْدَة",
+                "english": "Return",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_quests_permits",
+        "topic": "quests",
+        "label": "Docking Permits",
+        "returnToHub": true,
+        "priority": 3,
+        "conditions": [
+          {
+            "type": "relationship",
+            "npcId": "dockmaster-nadia",
+            "min": 1
+          }
+        ],
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "هُناكَ سَفينَة بِدون تَصريح. اِذهَب وَتَحَقَّق",
+            "english": "There is a ship without a permit. Go and check.",
+            "transliteration": "hunaaka safiina biduun tasriih. idhhab wa tahaqqaq",
+            "effects": [
+              {
+                "type": "quest_start",
+                "questId": "port_market"
+              }
+            ]
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "حاضِر",
+                "english": "Right away",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_return_sea_vocab",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "عُدتَ! هُنا دَرس جَديد عَن البَحر",
+            "english": "You're back! Here's a new lesson about the sea.",
+            "transliteration": "'udta! hunaa dars jadiid 'an al-bahr"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "بَحْر — هُوَ المَعنى الأَصلي لِكَلِمَة \"الجَوف\"",
+            "english": "Bahr — the sea. The word also gives us \"bahrain\" (two seas).",
+            "transliteration": "bahr — huwa al-ma'naa al-aslii. \"al-bahrayn\" ta'nii al-bahrayn",
+            "teachWord": "water_w13",
+            "culturalNote": "\"Bahrain\" (البَحرَيْن) literally means \"two seas\" in Arabic — referring to the freshwater springs that well up through the Gulf's saltwater floor. Arab merchants knew this geography precisely for navigation."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَكَلِمَة \"admiral\" الإنجليزِيَّة جاءَت مِن \"أَمير البَحر\"",
+            "english": "And the English word \"admiral\" came from Arabic \"amir al-bahr\" (prince of the sea).",
+            "transliteration": "wa kalima \"admiral\" al-injliiziyya jaa'at min \"amiir al-bahr\""
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "مُذهِل! شُكراً نادِيَة",
+                "english": "Astonishing! Thank you Nadia.",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_return_numbers_port",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "مَرحَباً مَرَّة ثانِيَة! مِيناؤنا مَشغول اليَوم",
+            "english": "Welcome again! Our port is busy today.",
+            "transliteration": "marhaban marra thaaniya! miinaau'naa mashghool al-yawm"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "عَشَرَة سُفُن في المِيناء — عَشَرَة هُوَ رَقم مُهِمّ في التِّجارَة",
+            "english": "Ten ships in the port — ten is an important number in trade.",
+            "transliteration": "'ashara sufun fil-miinaaa' — 'ashara huwa raqm muhimm fit-tijaara",
+            "teachWord": "num_3"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الأَرقامُ العَرَبِيَّة التي تَستَخدِمُها أَوروبّا جاءَت مِن العَرَب",
+            "english": "The Arabic numerals Europe uses came from the Arabs.",
+            "transliteration": "al-arqaamu al-arabiyya allati tastakhdimuha urubbaa jaa'at min al-arab",
+            "culturalNote": "Arabic numerals (١٢٣...) were adopted by Europe in the 10th-12th centuries through Arab scholars in Andalusia, particularly Al-Khwarizmi's \"On Hindu-Arabic Numerals.\" Before this, Europe used Roman numerals (I, V, X...) — nearly impossible for complex calculation."
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "الأَرقامُ العَرَبِيَّة! شُكراً نادِيَة",
+                "english": "Arabic numerals! Thank you, Nadia.",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_return_ships",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "سَفينَة — أَجمَل كَلِمَة في المِيناء. كَم سَفينَة تَرى؟",
+            "english": "Safiina — the most beautiful word in the port. How many ships do you see?",
+            "transliteration": "safiina — ajmal kalima fil-miinaaa. kam safiina taraa?",
+            "teachWord": "water_w13"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "المَركَب العَرَبي \"الدّاو\" أَبحَرَ مِن أَفريقيا إلى الصّين وَعادَ — ١٠٠٠ سَنَة قَبلَ كولومبوس",
+            "english": "The Arab \"dhow\" ship sailed from Africa to China and back — 1,000 years before Columbus.",
+            "transliteration": "al-markab al-arabii \"ad-daaw\" abhara min afriqia ilaa as-siin wa 'aada",
+            "culturalNote": "The Arab dhow (داو) was the dominant vessel of the Indian Ocean trade network from the 8th-19th centuries. Arab navigator Ahmad ibn Majid (15th c.) wrote 40+ navigation treatises — and guided Vasco da Gama to India in 1498."
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "العَرَب بَحّارَة عُظَماء! شُكراً",
+                "english": "Arabs were great sailors! Thank you.",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_return_greetings_port",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "آخِر دَرس! كَيف تُحَيِّي البَحّارَة؟",
+            "english": "Final lesson! How do you greet sailors?",
+            "transliteration": "aakhir dars! kayf tuhayiii al-bahhaarah?"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "مَرحَباً — أَصلُها \"رَحب\" أَي سَعَة وَفُسحَة — أَهلاً بِك",
+            "english": "Marhaban — from rahb, meaning wide space — you are welcome here.",
+            "transliteration": "marhaban — asluha \"rahb\" ay sa'a wa fusha — ahlan bik",
+            "teachWord": "salaam"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "مَرحَباً يا نادِيَة!",
+                "english": "Marhaban, Nadia!",
+                "next": null
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tavern-keeper-interior",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَهْلاً! اِجلِس وَكُل! البَحر يَفتَح الشَّهِيَّة",
+            "english": "Welcome! Sit and eat! The sea opens the appetite.",
+            "transliteration": "ahlan! ijlis wa kul! al-bahr yaftah ash-shahiyya"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَنا رَشيد، كُنتُ قُبطاناً والآن أُطعِم البَحّارَة",
+            "english": "I am Rashid, I was a captain and now I feed the sailors.",
+            "transliteration": "ana rashiid, kuntu qubtaanan wal-aan ut'im al-bahhaara"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَل تَعرِف أَسماء الأَطعِمَة؟",
+            "english": "Do you know the names of foods?",
+            "transliteration": "hal ta'rif asmaa' al-at'ima?"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمني!",
+                "english": "Teach me!",
+                "next": "teach_food"
+              },
+              {
+                "arabic": "أُريدُ أَن آكُل فَقَط",
+                "english": "I just want to eat",
+                "action": "end"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "default",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "عُدتَ لِلحانَة! هَل البَطن فارِغ؟",
+            "english": "Back at the tavern! Is the belly empty?",
+            "transliteration": "udta lil-haana! hal al-batn faarigh?"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "اِجلِس، الطَّعام جاهِز",
+            "english": "Sit down, the food is ready.",
+            "transliteration": "ijlis, at-ta'aam jaahiz"
+          }
+        ]
+      },
+      {
+        "id": "teach_food",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "سَمَك — مِنَ البَحر مُباشَرَة",
+            "english": "Samak — straight from the sea (fish).",
+            "transliteration": "samak — mina al-bahr mubaashara",
+            "teachWord": "fish_food_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَرُزّ — أَساس كُلّ وَجبَة",
+            "english": "Aruzz — the base of every meal (rice).",
+            "transliteration": "aruzz — asaas kulli wajba",
+            "teachWord": "rice_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "شاي — نَشرَبُهُ بَعدَ الأَكل",
+            "english": "Shaay — we drink it after eating (tea).",
+            "transliteration": "shaay — nashrabuhu ba'da al-akl",
+            "teachWord": "tea_1"
+          }
+        ]
+      }
+    ]
+  }
+]

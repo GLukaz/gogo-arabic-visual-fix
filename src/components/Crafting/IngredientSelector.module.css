@@ -1,0 +1,282 @@
+/* IngredientSelector.module.css - Recipe ingredient selection and crafting */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 1px solid #d4a843;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 400px;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #333;
+}
+
+.recipeNameArabic {
+  font-family: 'Amiri', serif;
+  font-size: 22px;
+  color: #d4a843;
+  direction: rtl;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.recipeNameEnglish {
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Error state */
+.error {
+  text-align: center;
+  padding: 40px 20px;
+  color: #f44336;
+  font-size: 14px;
+}
+
+/* Ingredients section */
+.ingredientsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ingredientsTitle {
+  font-size: 14px;
+  color: #d4a843;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ingredient {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: #222;
+  border: 1px solid #333;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.ingredientUnlocked {
+  border-color: #4caf50;
+}
+
+.ingredientLocked {
+  border-color: #f44336;
+  opacity: 0.7;
+}
+
+.ingredientIcon {
+  font-size: 18px;
+  min-width: 24px;
+  text-align: center;
+}
+
+.ingredientNames {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ingredientNameArabic {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  color: #d4a843;
+  direction: rtl;
+}
+
+.ingredientNameEnglish {
+  font-size: 11px;
+  color: #aaa;
+}
+
+.ingredientHint {
+  font-size: 10px;
+  color: #ff9800;
+  font-style: italic;
+}
+
+.ingredientQuantity {
+  min-width: 60px;
+  text-align: right;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.quantityOk {
+  color: #4caf50;
+}
+
+.quantityLow {
+  color: #ff9800;
+}
+
+.quantityLocked {
+  color: #888;
+}
+
+.learnButton {
+  padding: 6px 12px;
+  background: #ff9800;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-transform: uppercase;
+}
+
+.learnButton:hover {
+  background: #fb8c00;
+}
+
+/* Result section */
+.resultSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid #333;
+}
+
+.resultTitle {
+  font-size: 14px;
+  color: #d4a843;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(212, 168, 67, 0.1);
+  border: 1px solid #d4a843;
+  border-radius: 6px;
+}
+
+.resultIcon {
+  font-size: 24px;
+}
+
+.resultNames {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.resultNameArabic {
+  font-family: 'Amiri', serif;
+  font-size: 16px;
+  color: #d4a843;
+  direction: rtl;
+  font-weight: 600;
+}
+
+.resultQuantity {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.resultQuality {
+  font-size: 11px;
+  color: #aaa;
+  text-transform: capitalize;
+  padding: 4px 8px;
+  background: #333;
+  border-radius: 4px;
+}
+
+/* XP gain */
+.xpGain {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background: rgba(76, 175, 80, 0.1);
+  border: 1px solid #4caf50;
+  border-radius: 6px;
+}
+
+.xpLabel {
+  font-size: 13px;
+  color: #aaa;
+}
+
+.xpValue {
+  font-size: 16px;
+  color: #4caf50;
+  font-weight: 700;
+}
+
+/* Actions section */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.craftButton {
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #d4a843 0%, #f4c563 100%);
+  border: none;
+  border-radius: 6px;
+  color: #1a1a2e;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.craftButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 168, 67, 0.4);
+}
+
+.craftButton:disabled {
+  background: #333;
+  color: #666;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.missingHint {
+  font-size: 11px;
+  color: #ff9800;
+  text-align: center;
+  padding: 8px;
+  background: rgba(255, 152, 0, 0.1);
+  border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+  }
+
+  .ingredient {
+    flex-wrap: wrap;
+  }
+
+  .learnButton {
+    width: 100%;
+  }
+}

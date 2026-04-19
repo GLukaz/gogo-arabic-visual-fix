@@ -1,0 +1,80 @@
+@import '../../styles/variables.css';
+
+.container {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.micButton {
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--color-dark);
+  background: var(--color-gray);
+  color: var(--color-white);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s, background 0.2s;
+  box-shadow:
+    inset -2px -2px 0px 0px rgba(0, 0, 0, 0.3),
+    inset 2px 2px 0px 0px rgba(255, 255, 255, 0.1);
+}
+
+.micButton:hover {
+  transform: translateY(-1px);
+}
+
+.micButton:active {
+  transform: translateY(1px);
+}
+
+.micButton:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* State-specific backgrounds */
+.idle {
+  background: var(--color-gray);
+}
+
+.listening {
+  background: var(--color-fire, #f03131);
+}
+
+.correct {
+  background: var(--color-green);
+}
+
+.incorrect {
+  background: var(--color-fire, #f03131);
+}
+
+/* Pulsing animation while listening */
+.pulse {
+  animation: micPulse 1s ease-in-out infinite;
+}
+
+@keyframes micPulse {
+  0%, 100% {
+    box-shadow:
+      inset -2px -2px 0px 0px rgba(0, 0, 0, 0.3),
+      inset 2px 2px 0px 0px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow:
+      inset -2px -2px 0px 0px rgba(0, 0, 0, 0.3),
+      inset 2px 2px 0px 0px rgba(255, 255, 255, 0.1),
+      0 0 16px rgba(240, 49, 49, 0.6);
+  }
+}
+
+.recognized {
+  font-family: var(--font-arabic);
+  font-size: 14px;
+  color: var(--color-xp-gold);
+  direction: rtl;
+}

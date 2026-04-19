@@ -1,0 +1,216 @@
+@import '../../styles/variables.css';
+
+/* ===== Container ===== */
+.container {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: calc(var(--z-onboarding) - 1);
+  background: #1a1a2e;
+  border: 1px solid rgba(255, 215, 0, 0.35);
+  border-radius: 12px;
+  padding: 16px 18px 10px;
+  max-width: 340px;
+  width: max-content;
+  box-shadow:
+    0 0 20px rgba(255, 215, 0, 0.1),
+    0 4px 20px rgba(0, 0, 0, 0.5);
+  animation: tipSlideIn 0.35s ease-out;
+  pointer-events: auto;
+}
+
+.exiting {
+  animation: tipSlideOut 0.3s ease-in forwards;
+}
+
+/* ===== Arrow variants ===== */
+.container::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #1a1a2e;
+  border: 1px solid rgba(255, 215, 0, 0.35);
+  transform: rotate(45deg);
+}
+
+.arrow_bottom::after {
+  top: -6px;
+  left: 50%;
+  margin-left: -5px;
+  border-bottom: none;
+  border-right: none;
+}
+
+.arrow_top::after {
+  bottom: -6px;
+  left: 50%;
+  margin-left: -5px;
+  border-top: none;
+  border-left: none;
+}
+
+.arrow_left::after {
+  right: -6px;
+  top: 50%;
+  margin-top: -5px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.arrow_right::after {
+  left: -6px;
+  top: 50%;
+  margin-top: -5px;
+  border-right: none;
+  border-top: none;
+}
+
+/* ===== Content ===== */
+.content {
+  margin-bottom: 10px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 8px;
+}
+
+.titleArabic {
+  font-family: var(--font-arabic-display);
+  font-size: 15px;
+  color: #FFD700;
+  direction: rtl;
+  text-align: right;
+}
+
+.title {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: #D4A843;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.messageArabic {
+  font-family: var(--font-arabic-body);
+  font-size: 14px;
+  color: rgba(245, 243, 218, 0.85);
+  direction: rtl;
+  text-align: right;
+  line-height: 1.5;
+  margin: 0 0 6px;
+}
+
+.message {
+  font-family: var(--font-pixeloid);
+  font-size: 11px;
+  color: rgba(245, 243, 218, 0.65);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ===== Dismiss button ===== */
+.dismissBtn {
+  display: block;
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  border-radius: 4px;
+  padding: 5px 14px;
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: #D4A843;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-height: var(--touch-target-min);
+  min-width: var(--touch-target-min);
+}
+
+.dismissBtn:hover {
+  background: rgba(255, 215, 0, 0.08);
+  border-color: rgba(255, 215, 0, 0.45);
+  color: #FFD700;
+}
+
+/* ===== Auto-dismiss progress bar ===== */
+.progressBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 215, 0, 0.1);
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #FFD700, #D4A843);
+  animation: progressCountdown 10s linear forwards;
+}
+
+/* ===== Keyframes ===== */
+@keyframes tipSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tipSlideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes progressCountdown {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+/* ===== Mobile responsive ===== */
+@media (max-width: 480px) {
+  .container {
+    right: 10px;
+    left: 10px;
+    bottom: 70px;
+    max-width: none;
+    width: auto;
+  }
+
+  .titleArabic {
+    font-size: 14px;
+  }
+
+  .messageArabic {
+    font-size: 13px;
+  }
+
+  .message {
+    font-size: 10px;
+  }
+
+  .dismissBtn {
+    min-height: var(--touch-target-comfortable);
+    min-width: var(--touch-target-comfortable);
+  }
+}

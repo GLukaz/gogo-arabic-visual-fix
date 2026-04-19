@@ -1,0 +1,64 @@
+.cinematic {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 1s ease-out;
+}
+
+.fadeOut {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.crawlContainer {
+  max-width: 600px;
+  text-align: center;
+  padding: 2rem;
+}
+
+.line {
+  color: #d4a843;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 14px;
+  line-height: 2;
+  margin: 0;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.arabic {
+  font-family: 'PixelAE', 'Amiri', serif;
+  font-size: 28px;
+  direction: rtl;
+  color: #f0d060;
+}
+
+.skipBtn {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  background: transparent;
+  border: 1px solid rgba(212, 168, 67, 0.4);
+  color: rgba(212, 168, 67, 0.6);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.skipBtn:hover {
+  color: #d4a843;
+  border-color: #d4a843;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}

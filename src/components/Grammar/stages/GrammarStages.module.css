@@ -1,0 +1,459 @@
+@import '../../../styles/variables.css';
+
+/* ── Shared layout ────────────────────────────────────────────── */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-beige);
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: var(--color-brown);
+  border-bottom: 4px solid var(--color-dark-brown);
+}
+
+.title {
+  font-family: var(--font-pixel);
+  font-size: 16px;
+  color: var(--color-xp-gold);
+  text-align: center;
+  flex: 1;
+}
+
+.spacer {
+  width: 80px;
+}
+
+.body {
+  flex: 1;
+  padding: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.bodyCenter {
+  composes: body;
+  text-align: center;
+}
+
+/* ── Section titles & text ────────────────────────────────────── */
+.sectionTitle {
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  color: var(--color-brown);
+  margin-bottom: 20px;
+}
+
+.arabicText {
+  font-family: var(--font-arabic-display);
+  font-size: 18px;
+  color: var(--color-brown2);
+  margin-bottom: 10px;
+}
+
+.text {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--color-dark);
+  margin-bottom: 20px;
+}
+
+.textPreLine {
+  composes: text;
+  white-space: pre-line;
+}
+
+/* ── Example & Rule boxes ─────────────────────────────────────── */
+.exampleBox {
+  background: var(--color-white);
+  border: 3px solid var(--color-brown);
+  padding: 20px;
+  margin-bottom: 15px;
+}
+
+.exampleArabic {
+  font-family: var(--font-arabic-display);
+  font-size: 24px;
+  color: var(--color-brown);
+  margin-bottom: 10px;
+}
+
+.exampleEnglish {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  color: var(--color-dark);
+  margin-bottom: 5px;
+}
+
+.exampleTranslit {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--color-gray);
+  margin-bottom: 5px;
+}
+
+.exampleBreakdown {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--color-dark-gold);
+}
+
+.ruleText {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  color: var(--color-brown);
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.ruleExample {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  color: var(--color-dark);
+}
+
+/* ── Score display ────────────────────────────────────────────── */
+.scoreDisplay {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  color: var(--color-xp-gold);
+}
+
+/* ── Exercise & Quiz prompt ───────────────────────────────────── */
+.promptCenter {
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  color: var(--color-dark);
+  line-height: 1.8;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.promptCenterSmall {
+  composes: promptCenter;
+  margin-bottom: 10px;
+}
+
+.hintText {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  font-style: italic;
+  text-align: center;
+  color: var(--color-brown);
+  margin-bottom: 20px;
+}
+
+.arabicSentence {
+  font-family: var(--font-arabic-display);
+  font-size: 18px;
+  text-align: center;
+  color: var(--color-dark);
+  margin-bottom: 20px;
+}
+
+.arabicSentenceLarge {
+  font-family: var(--font-arabic-display);
+  font-size: 20px;
+  text-align: center;
+  color: var(--color-dark);
+  margin-bottom: 10px;
+}
+
+.classifyCounter {
+  text-align: center;
+  color: var(--color-brown);
+  margin-bottom: 20px;
+}
+
+.errorLabel {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  text-align: center;
+  color: var(--color-brown);
+  margin-bottom: 8px;
+}
+
+.correctionNote {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* ── Choices layout ───────────────────────────────────────────── */
+.choicesWrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.choicesWrapGap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.multiSelectSubmit {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* ── Conjugation verb label ───────────────────────────────────── */
+.verbLabel {
+  font-family: var(--font-arabic-display);
+  font-size: 20px;
+}
+
+.rootNote {
+  color: var(--color-brown);
+  margin-left: 8px;
+}
+
+.paradigmNote {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* ── Feedback ─────────────────────────────────────────────────── */
+.feedbackCorrect {
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  color: var(--color-green);
+  margin-top: 20px;
+  padding: 15px;
+  background: var(--color-white);
+  border: 3px solid var(--color-green);
+}
+
+.feedbackWrong {
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  color: var(--color-red);
+  margin-top: 20px;
+  padding: 15px;
+  background: var(--color-white);
+  border: 3px solid var(--color-red);
+}
+
+.quizExplanation {
+  margin-top: 10px;
+  font-size: 11px;
+}
+
+/* ── Complete stage ───────────────────────────────────────────── */
+.completeEmoji {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.completeHeading {
+  font-family: var(--font-pixel);
+  font-size: 18px;
+  color: var(--color-brown);
+  margin-bottom: 20px;
+}
+
+.completeScore {
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  color: var(--color-dark);
+  margin-bottom: 30px;
+}
+
+.completeXp {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  color: var(--color-dark-gold);
+  margin-bottom: 40px;
+}
+
+/* ── Not-found state ──────────────────────────────────────────── */
+.notFound {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-beige);
+  font-family: var(--font-pixel);
+  color: var(--color-dark);
+}
+
+.notFoundBack {
+  margin-left: 20px;
+}
+
+/* ── Pixel button styles (migrated from inline pixelBtnDark/pixelBtnGold) ── */
+.pixelBtnDark {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  padding: 14px 28px;
+  border: none;
+  cursor: pointer;
+  image-rendering: pixelated;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  background: var(--color-gray);
+  color: var(--color-white);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.3),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.1),
+    0 4px 0 0 #1a191b;
+  transition: transform 0.05s;
+}
+
+.pixelBtnGold {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  padding: 14px 28px;
+  border: none;
+  cursor: pointer;
+  image-rendering: pixelated;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  background: var(--color-xp-gold);
+  color: var(--color-brown);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.3),
+    0 4px 0 0 #a0842a;
+  transition: transform 0.05s;
+}
+
+.pixelBtnGoldMt {
+  composes: pixelBtnGold;
+  margin-top: 20px;
+}
+
+.pixelBtnGoldSmall {
+  composes: pixelBtnGold;
+  font-size: 14px;
+}
+
+/* ── Choice button styles (migrated from inline choiceBase/Correct/Wrong) ── */
+.choiceBase {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  padding: 14px 28px;
+  border: none;
+  cursor: pointer;
+  image-rendering: pixelated;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  background: var(--color-gray);
+  color: var(--color-white);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.3),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.1),
+    0 4px 0 0 #1a191b;
+  transition: transform 0.05s;
+  margin: 10px;
+  min-width: 200px;
+}
+
+.choiceCorrect {
+  composes: choiceBase;
+  background: var(--color-green);
+  color: var(--color-white);
+}
+
+.choiceWrong {
+  composes: choiceBase;
+  background: var(--color-red);
+  color: var(--color-white);
+}
+
+.choiceSelected {
+  composes: choiceBase;
+  background: var(--color-cyan);
+  color: var(--color-white);
+}
+
+.choiceArabic {
+  composes: choiceBase;
+  font-family: var(--font-arabic-display);
+  font-size: 16px;
+}
+
+.choiceArabicCorrect {
+  composes: choiceArabic;
+  background: var(--color-green);
+  color: var(--color-white);
+}
+
+.choiceArabicWrong {
+  composes: choiceArabic;
+  background: var(--color-red);
+  color: var(--color-white);
+}
+
+.choiceArabicLarge {
+  composes: choiceBase;
+  font-family: var(--font-arabic-display);
+  font-size: 18px;
+}
+
+.choiceArabicLargeCorrect {
+  composes: choiceArabicLarge;
+  background: var(--color-green);
+  color: var(--color-white);
+}
+
+.choiceArabicLargeWrong {
+  composes: choiceArabicLarge;
+  background: var(--color-red);
+  color: var(--color-white);
+}
+
+/* ── Match exercise dynamic styles ── */
+.matchBtnArabic {
+  composes: choiceBase;
+  font-family: var(--font-arabic-display);
+  font-size: 16px;
+}
+
+.matchBtnArabicMatched {
+  composes: matchBtnArabic;
+  background: var(--color-green);
+  color: var(--color-white);
+}
+
+.matchBtnArabicSelected {
+  composes: matchBtnArabic;
+  background: var(--color-cyan);
+  color: var(--color-white);
+}
+
+.matchBtnEnglish {
+  composes: choiceBase;
+}
+
+.matchBtnEnglishMatched {
+  composes: matchBtnEnglish;
+  background: var(--color-green);
+  color: var(--color-white);
+}
+
+.matchBtnEnglishSelected {
+  composes: matchBtnEnglish;
+  background: var(--color-cyan);
+  color: var(--color-white);
+}
+
+/* ── True-false arabic sentence variant ── */
+.arabicSentenceSmall {
+  composes: arabicSentence;
+  font-size: 14px;
+  margin-bottom: 30px;
+}

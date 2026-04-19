@@ -1,0 +1,192 @@
+@import '../../styles/variables.css';
+
+/* ============================================================
+   PIXEL BUTTON — base styles
+   Double-border with drop-shadow gives the classic pixel look.
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  font-family: var(--font-pixel);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+
+  border: none;
+  outline: none;
+  position: relative;
+
+  /* Press animation vars — overridden by variant */
+  --btn-bg: #d4a843;
+  --btn-fg: #1a0a00;
+  --btn-border-light: rgba(255, 255, 255, 0.4);
+  --btn-border-dark: rgba(0, 0, 0, 0.6);
+  --btn-shadow: #8a6c1e;
+  --btn-shadow-pressed: #5a4510;
+  --btn-glow: rgba(212, 168, 67, 0.6);
+
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+
+  /* Pixel-art double border: inner highlight + outer shadow */
+  box-shadow:
+    inset -3px -3px 0 0 var(--btn-border-dark),
+    inset 3px 3px 0 0 var(--btn-border-light),
+    0 5px 0 0 var(--btn-shadow);
+
+  transition:
+    transform 0.05s ease,
+    box-shadow 0.05s ease,
+    filter 0.15s ease;
+}
+
+/* ── Icon ── */
+.icon {
+  font-size: 1.1em;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* ── Label ── */
+.label {
+  line-height: 1;
+}
+
+/* ============================================================
+   SIZES
+   ============================================================ */
+
+.size--sm {
+  font-size: 8px;
+  padding: 8px 14px;
+  min-height: var(--touch-target-min);
+}
+
+.size--md {
+  font-size: 10px;
+  padding: 12px 20px;
+  min-height: var(--touch-target-min);
+}
+
+.size--lg {
+  font-size: 13px;
+  padding: 16px 28px;
+  min-height: 52px;
+}
+
+/* ============================================================
+   VARIANTS
+   ============================================================ */
+
+/* Primary — gold */
+.variant--primary {
+  --btn-bg: #d4a843;
+  --btn-fg: #1a0a00;
+  --btn-border-light: rgba(255, 230, 140, 0.5);
+  --btn-border-dark: rgba(0, 0, 0, 0.5);
+  --btn-shadow: #8a6c1e;
+  --btn-shadow-pressed: #5a4510;
+  --btn-glow: rgba(212, 168, 67, 0.65);
+}
+
+/* Secondary — slate grey */
+.variant--secondary {
+  --btn-bg: #4b484d;
+  --btn-fg: #f4fefa;
+  --btn-border-light: rgba(255, 255, 255, 0.25);
+  --btn-border-dark: rgba(0, 0, 0, 0.6);
+  --btn-shadow: #2b292c;
+  --btn-shadow-pressed: #111;
+  --btn-glow: rgba(200, 200, 200, 0.4);
+}
+
+/* Danger — red */
+.variant--danger {
+  --btn-bg: #e63946;
+  --btn-fg: #fff;
+  --btn-border-light: rgba(255, 160, 160, 0.4);
+  --btn-border-dark: rgba(0, 0, 0, 0.55);
+  --btn-shadow: #8b1a22;
+  --btn-shadow-pressed: #5a0f15;
+  --btn-glow: rgba(230, 57, 70, 0.65);
+}
+
+/* ============================================================
+   HOVER — glow effect
+   ============================================================ */
+
+.btn:not(.disabled):hover {
+  filter: brightness(1.12);
+  box-shadow:
+    inset -3px -3px 0 0 var(--btn-border-dark),
+    inset 3px 3px 0 0 var(--btn-border-light),
+    0 5px 0 0 var(--btn-shadow),
+    0 0 14px 4px var(--btn-glow);
+}
+
+/* ============================================================
+   ACTIVE / PRESS — shifts 2px down (classic pixel press)
+   ============================================================ */
+
+.btn:not(.disabled):active {
+  transform: translateY(3px);
+  box-shadow:
+    inset -3px -3px 0 0 var(--btn-border-dark),
+    inset 3px 3px 0 0 var(--btn-border-light),
+    0 2px 0 0 var(--btn-shadow-pressed);
+}
+
+/* ============================================================
+   FOCUS VISIBLE — accessibility ring
+   ============================================================ */
+
+.btn:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* ============================================================
+   DISABLED
+   ============================================================ */
+
+.disabled {
+  --btn-bg: #3a373b;
+  --btn-fg: #6e6b70;
+  --btn-border-light: rgba(255, 255, 255, 0.1);
+  --btn-border-dark: rgba(0, 0, 0, 0.4);
+  --btn-shadow: #1e1c1f;
+
+  cursor: not-allowed;
+  opacity: 0.55;
+  filter: grayscale(0.4);
+}
+
+.disabled:hover,
+.disabled:active {
+  filter: grayscale(0.4);
+  transform: none;
+  box-shadow:
+    inset -3px -3px 0 0 var(--btn-border-dark),
+    inset 3px 3px 0 0 var(--btn-border-light),
+    0 5px 0 0 var(--btn-shadow);
+}
+
+/* ============================================================
+   REDUCED MOTION — disable transitions and press animation
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+
+  .btn:not(.disabled):active {
+    transform: none;
+  }
+}

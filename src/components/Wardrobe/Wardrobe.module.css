@@ -1,0 +1,424 @@
+/**
+ * Wardrobe overlay styles
+ * Full-screen wardrobe UI for outfit selection and purchase
+ */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-overlay);
+  padding: 16px;
+}
+
+.container {
+  width: 100%;
+  max-width: 720px;
+  max-height: 90vh;
+  background: var(--color-beige);
+  border: 4px solid var(--color-dark);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 4px solid var(--color-dark);
+  background: var(--color-creamy-beige);
+}
+
+.titleSection {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  color: var(--color-dark);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-brown);
+}
+
+.balance {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  color: var(--color-xp-gold);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Content area */
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+/* Outfit card */
+.card {
+  background: var(--color-white);
+  border: 4px solid var(--color-dark);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.15s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card.owned {
+  border-color: var(--color-green);
+  background: #eafaf1;
+}
+
+.card.equipped {
+  border-color: var(--color-cyan);
+  background: #e6f7ff;
+  box-shadow: 0 0 0 2px var(--color-cyan);
+}
+
+.card.locked {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.card.locked:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Rarity badge */
+.rarityBadge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  padding: 3px 6px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  z-index: 1;
+}
+
+.rarityCommon {
+  background: #9e9e9e;
+  color: var(--color-white);
+}
+
+.rarityUncommon {
+  background: var(--color-green);
+  color: var(--color-white);
+}
+
+.rarityRare {
+  background: #3498db;
+  color: var(--color-white);
+}
+
+.rarityLegendary {
+  background: #f39c12;
+  color: var(--color-dark);
+}
+
+/* Icon */
+.icon {
+  font-size: 48px;
+  text-align: center;
+  margin: 8px 0;
+}
+
+/* Text */
+.nameArabic {
+  font-family: var(--font-arabic-display);
+  font-size: 16px;
+  direction: rtl;
+  color: var(--color-brown);
+  font-weight: bold;
+  text-align: center;
+}
+
+.name {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--color-dark);
+  font-weight: bold;
+  text-align: center;
+}
+
+.description {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-brown);
+  line-height: 1.5;
+  text-align: center;
+  min-height: 36px;
+}
+
+.price {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--color-xp-gold);
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Status indicators */
+.statusBadge {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  padding: 4px 8px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid;
+}
+
+.equippedBadge {
+  composes: statusBadge;
+  background: var(--color-cyan);
+  color: var(--color-dark);
+  border-color: #048a9e;
+}
+
+.ownedBadge {
+  composes: statusBadge;
+  background: var(--color-green);
+  color: var(--color-white);
+  border-color: #1fa855;
+}
+
+.lockedBadge {
+  composes: statusBadge;
+  background: var(--color-red);
+  color: var(--color-white);
+  border-color: #c0392b;
+}
+
+/* Buttons */
+.button {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-height: var(--touch-target-min);
+  transition: all 0.15s ease;
+}
+
+.button:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.equipButton {
+  composes: button;
+  background: var(--color-cyan);
+  color: var(--color-dark);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.2),
+    0 4px 0 0 #048a9e;
+}
+
+.equipButton:hover {
+  background: var(--color-cyan-hover);
+  transform: translateY(1px);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.2),
+    0 2px 0 0 #048a9e;
+}
+
+.equipButton:active {
+  transform: translateY(2px);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.2);
+}
+
+.purchaseButton {
+  composes: button;
+  background: var(--color-xp-gold);
+  color: var(--color-dark);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.2),
+    0 4px 0 0 #a68935;
+}
+
+.purchaseButton:hover {
+  background: #e2b659;
+  transform: translateY(1px);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.2),
+    0 2px 0 0 #a68935;
+}
+
+.purchaseButton:active {
+  transform: translateY(2px);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.2);
+}
+
+.purchaseButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.purchaseButton:disabled:hover {
+  transform: none;
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.2),
+    0 4px 0 0 #a68935;
+}
+
+/* Footer */
+.footer {
+  padding: 12px 16px;
+  border-top: 4px solid var(--color-dark);
+  background: var(--color-creamy-beige);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.closeButton {
+  composes: button;
+  background: var(--color-dark);
+  color: var(--color-white);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.2),
+    0 4px 0 0 var(--color-brown);
+}
+
+.closeButton:hover {
+  background: var(--color-gray);
+  transform: translateY(1px);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.2),
+    0 2px 0 0 var(--color-brown);
+}
+
+.closeButton:active {
+  transform: translateY(2px);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.2);
+}
+
+/* Toast notification */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-green);
+  color: var(--color-white);
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  padding: 12px 24px;
+  border: 4px solid #1fa855;
+  font-weight: bold;
+  z-index: var(--z-toast);
+  text-transform: uppercase;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+  }
+
+  .icon {
+    font-size: 40px;
+  }
+
+  .nameArabic {
+    font-size: 14px;
+  }
+
+  .name {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    max-height: 95vh;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .title {
+    font-size: 12px;
+  }
+
+  .balance {
+    font-size: 10px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  .icon {
+    font-size: 36px;
+  }
+
+  .description {
+    min-height: 42px;
+  }
+}

@@ -1,0 +1,290 @@
+@import '../../styles/variables.css';
+
+/* ─── Full-screen overlay ──────────────────────────────────────────────────── */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+/* ─── Centered panel ────────────────────────────────────────────────────────── */
+
+.panel {
+  background: var(--color-beige);
+  border: 4px solid var(--color-dark);
+  padding: 28px 32px;
+  color: var(--color-dark);
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.08),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.4),
+    8px 8px 0px 0px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── Header row (testing phase) ────────────────────────────────────────────── */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--color-brown);
+}
+
+/* ─── Typography ─────────────────────────────────────────────────────────────── */
+
+.title {
+  font-family: var(--font-pixel);
+  font-size: 13px;
+  color: var(--color-brown);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.titleArabic {
+  font-family: var(--font-arabic);
+  font-size: 28px;
+  color: var(--color-xp-gold);
+  direction: rtl;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 0px var(--color-brown);
+}
+
+.progress {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--color-brown);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.arabicText {
+  font-size: 36px;
+  direction: rtl;
+  margin: 12px 0 8px;
+  text-shadow: 1px 1px 0px var(--color-brown);
+  line-height: 1.4;
+}
+
+.prompt {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  color: var(--color-brown);
+  margin: 12px 0 20px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.explanation {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--color-brown);
+  line-height: 1.8;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+/* ─── Score display ─────────────────────────────────────────────────────────── */
+
+.score {
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  color: var(--color-gold);
+  margin: 16px 0;
+  text-shadow: 1px 1px 0px var(--color-brown);
+}
+
+/* ─── Result badge ──────────────────────────────────────────────────────────── */
+
+.resultBadge {
+  font-size: 52px;
+  margin: 16px 0;
+  text-shadow:
+    3px 3px 0px var(--color-brown),
+    -1px -1px 0px var(--color-brown);
+  letter-spacing: 4px;
+}
+
+/* ─── Choice buttons ────────────────────────────────────────────────────────── */
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+/* Choice, correct, wrong, selected — handled via inline styles in component
+   (same pattern as ArabicToEnglish.jsx) so they inherit COLORS/FONTS from theme.js */
+
+/* ─── Button group ──────────────────────────────────────────────────────────── */
+
+.btnGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+/* ─── Gold primary button (matches MainMenu.module.css btnGold) ─────────────── */
+
+.btnGold {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  padding: 16px 28px;
+  border: none;
+  cursor: pointer;
+  image-rendering: pixelated;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: var(--color-xp-gold);
+  color: var(--color-brown);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.3),
+    0 4px 0 0 #a0842a;
+  transition: transform 0.05s;
+  width: 100%;
+}
+
+.btnGold:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.4),
+    0 6px 0 0 #a0842a;
+}
+
+.btnGold:active {
+  transform: translateY(2px);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.25),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.2),
+    0 2px 0 0 #a0842a;
+}
+
+.btnGold:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}
+
+/* ─── Secondary button ──────────────────────────────────────────────────────── */
+
+.btnSecondary {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  padding: 14px 28px;
+  border: none;
+  cursor: pointer;
+  image-rendering: pixelated;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: var(--color-gray);
+  color: var(--color-white);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.3),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.1),
+    0 4px 0 0 #1a191b;
+  transition: transform 0.05s;
+  width: 100%;
+}
+
+.btnSecondary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.3),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.15),
+    0 6px 0 0 #1a191b;
+}
+
+.btnSecondary:active {
+  transform: translateY(2px);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.4),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.05),
+    0 2px 0 0 #1a191b;
+}
+
+.btnSecondary:focus-visible {
+  outline: 2px solid var(--color-xp-gold);
+  outline-offset: 2px;
+}
+
+/* ─── Quit link (testing phase corner) ─────────────────────────────────────── */
+
+.quitLink {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  padding: 6px 12px;
+  background: transparent;
+  border: 2px solid var(--color-brown);
+  color: var(--color-brown);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.7;
+  transition: opacity 0.1s;
+}
+
+.quitLink:hover {
+  opacity: 1;
+}
+
+.quitLink:focus-visible {
+  outline: 2px solid var(--color-xp-gold);
+  outline-offset: 2px;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .panel {
+    max-width: 100%;
+    padding: 20px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay {
+    padding: 10px;
+  }
+
+  .panel {
+    padding: 16px 18px;
+  }
+
+  .title {
+    font-size: 11px;
+  }
+
+  .arabicText {
+    font-size: 28px;
+  }
+
+  .resultBadge {
+    font-size: 40px;
+  }
+
+  .btnGold,
+  .btnSecondary {
+    font-size: 10px;
+    padding: 14px 20px;
+    min-height: 52px;
+  }
+
+  .quitLink {
+    min-height: 44px;
+  }
+}

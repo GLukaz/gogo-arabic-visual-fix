@@ -1,0 +1,214 @@
+/* NumberChallengeGame — Phase 85 Arabic numeral challenge */
+@import '../../styles/variables.css';
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background: var(--color-beige);
+  overflow: auto;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: var(--font-pixel);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Header ── */
+.header { text-align: center; margin-bottom: 32px; }
+.title { font-size: 20px; color: var(--color-brown); margin: 0 0 8px 0; }
+.titleArabic { font-family: var(--font-arabic-display); font-size: 28px; color: var(--color-dark-gold); direction: rtl; margin: 0 0 12px 0; }
+.subtitle { font-size: 9px; color: var(--color-brown); max-width: 500px; margin: 0 auto; line-height: 1.6; }
+
+/* ── Difficulty grid ── */
+.difficultyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  max-width: 700px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.difficultyCard {
+  font-family: var(--font-pixel);
+  background: var(--color-white);
+  border: 4px solid var(--color-brown);
+  padding: 24px 16px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.1s;
+  text-align: center;
+}
+.difficultyCard:hover { transform: translateY(-3px); }
+.diffLabel { font-size: 14px; color: var(--color-brown); }
+.diffDesc { font-size: 8px; color: var(--color-dark-gold); }
+
+/* ── Progress bar ── */
+.progressBar {
+  width: 100%;
+  max-width: 600px;
+  height: 8px;
+  background: var(--color-brown);
+  margin-bottom: 12px;
+  border: 2px solid var(--color-brown);
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--color-xp-gold);
+  transition: width 0.3s;
+}
+
+/* ── Info bar ── */
+.infoBar {
+  display: flex;
+  gap: 24px;
+  background: var(--color-white);
+  border: 3px solid var(--color-brown);
+  padding: 10px 24px;
+  margin-bottom: 24px;
+}
+.infoPiece { font-size: 10px; color: var(--color-brown); }
+
+/* ── Question area ── */
+.questionArea {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.promptLabel {
+  font-size: 11px;
+  color: var(--color-brown);
+  margin-bottom: 16px;
+}
+
+.prompt {
+  font-family: var(--font-arabic-display);
+  font-size: 48px;
+  color: var(--color-dark-gold);
+  direction: rtl;
+  background: var(--color-white);
+  border: 4px solid var(--color-brown);
+  padding: 24px 48px;
+  display: inline-block;
+  min-width: 160px;
+}
+
+/* ── Choices grid ── */
+.choicesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.choiceBtn {
+  font-family: var(--font-pixel);
+  font-size: 16px;
+  padding: 20px 16px;
+  background: var(--color-white);
+  color: var(--color-brown);
+  border: 4px solid var(--color-brown);
+  cursor: pointer;
+  transition: transform 0.1s, background 0.1s;
+  min-height: var(--touch-target-comfortable);
+  text-align: center;
+  word-break: break-word;
+}
+
+.choiceBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: var(--color-beige);
+}
+
+.choiceBtn:disabled { cursor: default; }
+
+.choiceCorrect {
+  background: var(--color-green) !important;
+  color: var(--color-white) !important;
+  border-color: var(--color-green) !important;
+}
+
+.choiceWrong {
+  background: var(--color-red) !important;
+  color: var(--color-white) !important;
+  border-color: var(--color-red) !important;
+}
+
+/* ── Result panel ── */
+.resultPanel {
+  background: var(--color-white);
+  border: 6px solid var(--color-xp-gold);
+  padding: 40px;
+  text-align: center;
+  max-width: 500px;
+  margin-top: 40px;
+}
+
+.resultTitle { font-size: 18px; color: var(--color-xp-gold); margin-bottom: 24px; }
+
+.resultStats {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.resultStat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.resultNum { font-size: 20px; color: var(--color-dark-gold); }
+.resultLabel { font-size: 8px; color: var(--color-brown); text-transform: uppercase; }
+
+.resultActions { display: flex; gap: 12px; justify-content: center; }
+
+/* ── Buttons ── */
+.goldBtn {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  background: var(--color-xp-gold);
+  color: var(--color-brown);
+  box-shadow: inset -4px -4px 0px 0px rgba(0, 0, 0, 0.2), inset 4px 4px 0px 0px rgba(255, 255, 255, 0.3), 0 4px 0 0 #a0842a;
+}
+
+.darkBtn {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  background: var(--color-gray);
+  color: var(--color-white);
+  box-shadow: inset -4px -4px 0px 0px rgba(0, 0, 0, 0.3), inset 4px 4px 0px 0px rgba(255, 255, 255, 0.1), 0 4px 0 0 #1a191b;
+}
+
+.backBtn {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  padding: 10px 20px;
+  background: var(--color-gray);
+  color: var(--color-white);
+  border: 4px solid var(--color-dark);
+  cursor: pointer;
+  box-shadow: inset -3px -3px 0px 0px rgba(0, 0, 0, 0.3), inset 3px 3px 0px 0px rgba(255, 255, 255, 0.05), 0 3px 0 0 #1a191b;
+}
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+  .prompt { font-size: 36px; padding: 18px 32px; }
+  .choicesGrid { grid-template-columns: 1fr 1fr; }
+  .choiceBtn { font-size: 14px; padding: 16px 12px; }
+}

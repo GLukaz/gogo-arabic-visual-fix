@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gogo Arabic — Map Builder Preview</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0A0A0A;
+      color: #e0e0e0;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      height: 100vh;
+    }
+
+    /* Left panel - tileset browser */
+    #tileset-panel {
+      width: 320px;
+      min-width: 320px;
+      background: #111;
+      border-right: 2px solid #333;
+      overflow-y: auto;
+      padding: 12px;
+    }
+    #tileset-panel h2 {
+      color: #E63946;
+      font-size: 14px;
+      margin-bottom: 8px;
+      position: sticky;
+      top: 0;
+      background: #111;
+      padding: 4px 0;
+      z-index: 10;
+    }
+    .tileset-section {
+      margin-bottom: 16px;
+    }
+    .tileset-section h3 {
+      color: #888;
+      font-size: 11px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      cursor: pointer;
+    }
+    .tileset-section h3:hover { color: #E63946; }
+    .tileset-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1px;
+      background: #222;
+      padding: 2px;
+      border-radius: 4px;
+    }
+    .tile-cell {
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      image-rendering: pixelated;
+      border: 1px solid transparent;
+      position: relative;
+    }
+    .tile-cell:hover { border-color: #E63946; }
+    .tile-cell.selected { border-color: #4CAF50; box-shadow: 0 0 4px #4CAF50; }
+    .tile-cell canvas {
+      width: 32px;
+      height: 32px;
+      image-rendering: pixelated;
+    }
+
+    /* Center - map canvas */
+    #map-panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    #toolbar {
+      background: #1a1a1a;
+      border-bottom: 2px solid #333;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    #toolbar button {
+      background: #333;
+      color: #e0e0e0;
+      border: 1px solid #555;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 12px;
+      border-radius: 4px;
+    }
+    #toolbar button:hover { background: #444; border-color: #E63946; }
+    #toolbar button.active { background: #E63946; border-color: #E63946; }
+    #toolbar label { font-size: 12px; color: #888; }
+    #toolbar select, #toolbar input {
+      background: #222;
+      color: #e0e0e0;
+      border: 1px solid #555;
+      padding: 4px 8px;
+      font-family: inherit;
+      font-size: 12px;
+      border-radius: 4px;
+    }
+
+    #canvas-container {
+      flex: 1;
+      overflow: auto;
+      position: relative;
+      background: #080808;
+      background-image:
+        linear-gradient(45deg, #0f0f0f 25%, transparent 25%),
+        linear-gradient(-45deg, #0f0f0f 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #0f0f0f 75%),
+        linear-gradient(-45deg, transparent 75%, #0f0f0f 75%);
+      background-size: 32px 32px;
+      background-position: 0 0, 0 16px, 16px -16px, -16px 0px;
+    }
+    #map-canvas {
+      image-rendering: pixelated;
+      cursor: crosshair;
+    }
+
+    /* Right panel - layers & info */
+    #info-panel {
+      width: 260px;
+      min-width: 260px;
+      background: #111;
+      border-left: 2px solid #333;
+      padding: 12px;
+      overflow-y: auto;
+    }
+    #info-panel h2 {
+      color: #E63946;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .layer-item {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      padding: 8px;
+      margin-bottom: 4px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+    }
+    .layer-item.active { border-color: #E63946; background: #1f1010; }
+    .layer-item .visibility {
+      cursor: pointer;
+      opacity: 0.6;
+    }
+    .layer-item .visibility:hover { opacity: 1; }
+
+    #status-bar {
+      background: #1a1a1a;
+      border-top: 1px solid #333;
+      padding: 4px 16px;
+      font-size: 11px;
+      color: #666;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #generation-log {
+      margin-top: 16px;
+    }
+    #generation-log h3 {
+      color: #888;
+      font-size: 11px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    #log-output {
+      background: #0a0a0a;
+      border: 1px solid #333;
+      border-radius: 4px;
+      padding: 8px;
+      font-size: 10px;
+      max-height: 300px;
+      overflow-y: auto;
+      color: #4CAF50;
+      line-height: 1.4;
+    }
+    .log-step { color: #E63946; }
+    .log-tile { color: #888; }
+    .log-done { color: #4CAF50; font-weight: bold; }
+
+    #zone-selector {
+      margin-bottom: 12px;
+    }
+    #zone-selector select {
+      width: 100%;
+      background: #222;
+      color: #e0e0e0;
+      border: 1px solid #555;
+      padding: 6px;
+      font-family: inherit;
+      border-radius: 4px;
+    }
+
+    .coords-display {
+      position: fixed;
+      bottom: 30px;
+      right: 270px;
+      background: rgba(0,0,0,0.8);
+      color: #E63946;
+      padding: 4px 8px;
+      font-size: 11px;
+      border-radius: 4px;
+      pointer-events: none;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+
+<!-- LEFT: Tileset Browser -->
+<div id="tileset-panel">
+  <h2>TILESET BROWSER</h2>
+  <div id="tileset-sections"></div>
+</div>
+
+<!-- CENTER: Map Canvas -->
+<div id="map-panel">
+  <div id="toolbar">
+    <button id="btn-generate" class="active">Generate Zone</button>
+    <button id="btn-step">Step-by-Step</button>
+    <button id="btn-pause">Pause</button>
+    <button id="btn-clear">Clear</button>
+    <button id="btn-export">Export JSON</button>
+    <span style="color:#333">|</span>
+    <label>Zone:
+      <select id="zone-type">
+        <option value="oasis-village">Oasis Village (40x30)</option>
+        <option value="desert-marketplace">Desert Marketplace (38x28)</option>
+        <option value="ancient-library">Ancient Library (35x30)</option>
+        <option value="bedouin-camp">Bedouin Camp (40x30)</option>
+        <option value="farmland">Farmland (36x26)</option>
+        <option value="mountain-village">Mountain Village (42x32)</option>
+        <option value="coastal-port">Coastal Port (38x28)</option>
+        <option value="royal-palace">Royal Palace (44x32)</option>
+      </select>
+    </label>
+    <label>Speed:
+      <input type="range" id="speed-slider" min="1" max="100" value="50" style="width:80px">
+    </label>
+    <label>Zoom:
+      <select id="zoom-level">
+        <option value="1">1x</option>
+        <option value="2" selected>2x</option>
+        <option value="3">3x</option>
+        <option value="4">4x</option>
+      </select>
+    </label>
+    <label><input type="checkbox" id="show-grid" checked> Grid</label>
+  </div>
+  <div id="canvas-container">
+    <canvas id="map-canvas"></canvas>
+  </div>
+  <div id="status-bar">
+    <span id="status-text">Ready — select a zone and click Generate</span>
+    <span id="status-coords">0, 0</span>
+  </div>
+</div>
+
+<!-- RIGHT: Layers & Log -->
+<div id="info-panel">
+  <h2>LAYERS</h2>
+  <div id="layers-list">
+    <div class="layer-item active" data-layer="0">
+      <span class="visibility">&#128065;</span>
+      <span>Layer 0: Terrain</span>
+    </div>
+    <div class="layer-item" data-layer="1">
+      <span class="visibility">&#128065;</span>
+      <span>Layer 1: Buildings</span>
+    </div>
+    <div class="layer-item" data-layer="2">
+      <span class="visibility">&#128065;</span>
+      <span>Layer 2: Decorations</span>
+    </div>
+    <div class="layer-item" data-layer="3">
+      <span class="visibility">&#128065;</span>
+      <span>Layer 3: Collision</span>
+    </div>
+    <div class="layer-item" data-layer="4">
+      <span class="visibility">&#128065;</span>
+      <span>Layer 4: Objects/NPCs</span>
+    </div>
+  </div>
+
+  <div id="generation-log">
+    <h3>Generation Log</h3>
+    <div id="log-output">
+      Waiting for generation...<br>
+    </div>
+  </div>
+</div>
+
+<div class="coords-display" id="coords-display" style="display:none">0, 0</div>
+
+<script>
+// ============================================================
+// GOGO ARABIC MAP BUILDER — Visual Preview Tool
+// ============================================================
+
+const TILE_SIZE = 16;
+const KENMI_BASE = '/public/assets/kenmi';
+
+// ---- Tileset Registry ----
+// Maps spritesheet paths to their tile grid dimensions and categories
+const TILESETS = {
+  // Desert terrain
+  'desert/tiles/desert-grass.png':          { cols: 3, rows: 5, category: 'desert-terrain', name: 'Desert Grass' },
+  'desert/tiles/desert-water-tiles-1.png':  { cols: 6, rows: 3, category: 'desert-water', name: 'Desert Water 1' },
+  'desert/tiles/desert-water-tiles-2.png':  { cols: 6, rows: 3, category: 'desert-water', name: 'Desert Water 2' },
+  'desert/tiles/desert-water-tiles-3.png':  { cols: 6, rows: 3, category: 'desert-water', name: 'Desert Water 3' },
+  'desert/tiles/desert-beach-tiles-1.png':  { cols: 5, rows: 3, category: 'desert-beach', name: 'Desert Beach 1' },
+  'desert/tiles/desert-beach-tiles-2.png':  { cols: 5, rows: 3, category: 'desert-beach', name: 'Desert Beach 2' },
+  'desert/tiles/desert-beach-tiles-3.png':  { cols: 5, rows: 3, category: 'desert-beach', name: 'Desert Beach 3' },
+  'desert/tiles/desert-cliff-tiles-1.png':  { cols: 13, rows: 11, category: 'desert-cliff', name: 'Desert Cliff 1' },
+  'desert/tiles/desert-cliff-tiles-2.png':  { cols: 13, rows: 11, category: 'desert-cliff', name: 'Desert Cliff 2' },
+  'desert/tiles/desert-cliff-tiles-3.png':  { cols: 13, rows: 11, category: 'desert-cliff', name: 'Desert Cliff 3' },
+  'desert/tiles/desert-bridge.png':         { cols: 9, rows: 4, category: 'desert-structure', name: 'Desert Bridge' },
+
+  // Base terrain
+  'base/tiles/grass/grass-tiles-1.png':     { cols: 16, rows: 10, category: 'grass', name: 'Grass Terrain 1' },
+  'base/tiles/grass/grass-tiles-2.png':     { cols: 16, rows: 10, category: 'grass', name: 'Grass Terrain 2' },
+  'base/tiles/grass/grass-tiles-3.png':     { cols: 16, rows: 10, category: 'grass', name: 'Grass Terrain 3' },
+  'base/tiles/grass/grass-tiles-4.png':     { cols: 16, rows: 10, category: 'grass', name: 'Grass Terrain 4' },
+  'base/tiles/cobble-road/cobble-road-1.png': { cols: 3, rows: 5, category: 'road', name: 'Cobble Road 1' },
+  'base/tiles/cobble-road/cobble-road-2.png': { cols: 3, rows: 5, category: 'road', name: 'Cobble Road 2' },
+
+  // Desert props (these are multi-tile objects, not terrain tiles)
+  'desert/props/cactus.png':                { cols: 14, rows: 16, category: 'desert-props', name: 'Cacti' },
+  'desert/props/palm-tree-1.png':           { cols: 9, rows: 4, category: 'desert-props', name: 'Palm Tree 1' },
+  'desert/props/palm-tree-2.png':           { cols: 9, rows: 4, category: 'desert-props', name: 'Palm Tree 2' },
+  'desert/props/desert-rocks.png':          { cols: -1, rows: -1, category: 'desert-props', name: 'Desert Rocks' },
+  'desert/props/desert-pots-sacks.png':     { cols: -1, rows: -1, category: 'desert-props', name: 'Pots & Sacks' },
+  'desert/props/desert-rugs.png':           { cols: -1, rows: -1, category: 'desert-props', name: 'Rugs' },
+  'desert/props/desert-campfire.png':       { cols: -1, rows: -1, category: 'desert-props', name: 'Campfire' },
+  'desert/props/desert-bones.png':          { cols: -1, rows: -1, category: 'desert-props', name: 'Bones' },
+  'desert/props/desert-fencewall.png':      { cols: -1, rows: -1, category: 'desert-props', name: 'Fence/Wall' },
+};
+
+// ---- State ----
+let mapWidth = 40;
+let mapHeight = 30;
+let zoom = 2;
+let showGrid = true;
+let activeLayer = 0;
+let layerVisibility = [true, true, true, true, true];
+let isGenerating = false;
+let isPaused = false;
+let generationSpeed = 50;
+
+// Map data: layers[layerIndex][y][x] = { tilesetKey, tileX, tileY } or null
+let layers = [];
+const loadedImages = {};
+
+// ---- Canvas Setup ----
+const canvas = document.getElementById('map-canvas');
+const ctx = canvas.getContext('2d');
+
+function resizeCanvas() {
+  canvas.width = mapWidth * TILE_SIZE * zoom;
+  canvas.height = mapHeight * TILE_SIZE * zoom;
+  ctx.imageSmoothingEnabled = false;
+  render();
+}
+
+// ---- Image Loading ----
+function loadImage(path) {
+  return new Promise((resolve, reject) => {
+    if (loadedImages[path]) { resolve(loadedImages[path]); return; }
+    const img = new Image();
+    img.onload = () => { loadedImages[path] = img; resolve(img); };
+    img.onerror = () => {
+      log(`Failed to load: ${path}`, 'log-step');
+      resolve(null);
+    };
+    img.src = `${KENMI_BASE}/${path}`;
+  });
+}
+
+async function loadAllTilesets() {
+  log('Loading tilesets...', 'log-step');
+  const promises = Object.keys(TILESETS).map(path => loadImage(path));
+  await Promise.all(promises);
+  log(`Loaded ${Object.keys(loadedImages).length} tileset images`, 'log-done');
+  buildTilesetPanel();
+}
+
+// ---- Tileset Panel ----
+function buildTilesetPanel() {
+  const container = document.getElementById('tileset-sections');
+  container.innerHTML = '';
+
+  const categories = {};
+  for (const [path, info] of Object.entries(TILESETS)) {
+    if (!categories[info.category]) categories[info.category] = [];
+    categories[info.category].push({ path, ...info });
+  }
+
+  for (const [cat, items] of Object.entries(categories)) {
+    const section = document.createElement('div');
+    section.className = 'tileset-section';
+
+    const h3 = document.createElement('h3');
+    h3.textContent = cat.replace(/-/g, ' ').toUpperCase();
+    section.appendChild(h3);
+
+    for (const item of items) {
+      const img = loadedImages[item.path];
+      if (!img) continue;
+
+      const label = document.createElement('div');
+      label.style.cssText = 'font-size:10px;color:#666;margin:2px 0;';
+      label.textContent = item.name;
+      section.appendChild(label);
+
+      const grid = document.createElement('div');
+      grid.className = 'tileset-grid';
+
+      const cols = item.cols > 0 ? item.cols : Math.floor(img.width / TILE_SIZE);
+      const rows = item.rows > 0 ? item.rows : Math.floor(img.height / TILE_SIZE);
+
+      // Show up to 50 tiles per tileset to keep panel manageable
+      const maxTiles = Math.min(cols * rows, 50);
+      for (let i = 0; i < maxTiles; i++) {
+        const tx = i % cols;
+        const ty = Math.floor(i / cols);
+
+        const cell = document.createElement('div');
+        cell.className = 'tile-cell';
+
+        const tileCanvas = document.createElement('canvas');
+        tileCanvas.width = TILE_SIZE;
+        tileCanvas.height = TILE_SIZE;
+        const tileCtx = tileCanvas.getContext('2d');
+        tileCtx.imageSmoothingEnabled = false;
+        tileCtx.drawImage(img, tx * TILE_SIZE, ty * TILE_SIZE, TILE_SIZE, TILE_SIZE, 0, 0, TILE_SIZE, TILE_SIZE);
+
+        cell.appendChild(tileCanvas);
+        cell.title = `${item.name} [${tx},${ty}]`;
+        grid.appendChild(cell);
+      }
+
+      if (cols * rows > 50) {
+        const more = document.createElement('div');
+        more.style.cssText = 'font-size:9px;color:#555;padding:2px;';
+        more.textContent = `+${cols * rows - 50} more tiles`;
+        section.appendChild(grid);
+        section.appendChild(more);
+      } else {
+        section.appendChild(grid);
+      }
+    }
+
+    container.appendChild(section);
+  }
+}
+
+// ---- Rendering ----
+function render() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Draw each visible layer
+  for (let l = 0; l < layers.length; l++) {
+    if (!layerVisibility[l]) continue;
+    const layer = layers[l];
+    if (!layer) continue;
+
+    for (let y = 0; y < mapHeight; y++) {
+      for (let x = 0; x < mapWidth; x++) {
+        const tile = layer[y]?.[x];
+        if (!tile) continue;
+
+        const img = loadedImages[tile.tilesetKey];
+        if (!img) continue;
+
+        // Special rendering for collision layer
+        if (l === 3 && tile.collision) {
+          ctx.fillStyle = 'rgba(230, 57, 70, 0.3)';
+          ctx.fillRect(x * TILE_SIZE * zoom, y * TILE_SIZE * zoom, TILE_SIZE * zoom, TILE_SIZE * zoom);
+          continue;
+        }
+
+        // Special rendering for object/NPC layer
+        if (l === 4 && tile.objectType) {
+          ctx.fillStyle = tile.objectType === 'npc' ? 'rgba(76, 175, 80, 0.5)' : 'rgba(255, 193, 7, 0.5)';
+          ctx.fillRect(x * TILE_SIZE * zoom, y * TILE_SIZE * zoom, TILE_SIZE * zoom, TILE_SIZE * zoom);
+          ctx.fillStyle = '#fff';
+          ctx.font = `${8 * zoom}px monospace`;
+          ctx.fillText(tile.label || '?', x * TILE_SIZE * zoom + 2, y * TILE_SIZE * zoom + TILE_SIZE * zoom - 2);
+          continue;
+        }
+
+        ctx.drawImage(
+          img,
+          tile.tileX * TILE_SIZE, tile.tileY * TILE_SIZE, TILE_SIZE, TILE_SIZE,
+          x * TILE_SIZE * zoom, y * TILE_SIZE * zoom, TILE_SIZE * zoom, TILE_SIZE * zoom
+        );
+      }
+    }
+  }
+
+  // Grid overlay
+  if (showGrid) {
+    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+    ctx.lineWidth = 1;
+    for (let x = 0; x <= mapWidth; x++) {
+      ctx.beginPath();
+      ctx.moveTo(x * TILE_SIZE * zoom + 0.5, 0);
+      ctx.lineTo(x * TILE_SIZE * zoom + 0.5, canvas.height);
+      ctx.stroke();
+    }
+    for (let y = 0; y <= mapHeight; y++) {
+      ctx.beginPath();
+      ctx.moveTo(0, y * TILE_SIZE * zoom + 0.5);
+      ctx.lineTo(canvas.width, y * TILE_SIZE * zoom + 0.5);
+      ctx.stroke();
+    }
+  }
+}
+
+// ---- Logging ----
+function log(msg, cls = '') {
+  const output = document.getElementById('log-output');
+  const line = document.createElement('div');
+  if (cls) line.className = cls;
+  line.textContent = msg;
+  output.appendChild(line);
+  output.scrollTop = output.scrollHeight;
+}
+
+function setStatus(text) {
+  document.getElementById('status-text').textContent = text;
+}
+
+// ---- Map Initialization ----
+function initLayers() {
+  layers = [];
+  for (let l = 0; l < 5; l++) {
+    const layer = [];
+    for (let y = 0; y < mapHeight; y++) {
+      layer.push(new Array(mapWidth).fill(null));
+    }
+    layers.push(layer);
+  }
+}
+
+// ---- Zone Definitions ----
+const ZONE_CONFIGS = {
+  'oasis-village': {
+    width: 40, height: 30,
+    description: 'Central oasis with water, surrounded by sand, 4 desert houses, dirt paths, palm trees, market corner',
+    terrain: {
+      base: 'desert-grass',       // main ground
+      water: 'desert-water',      // oasis water
+      beach: 'desert-beach',      // water edges
+      path: 'cobble-road',        // dirt paths
+    },
+    features: [
+      { type: 'oasis', x: 16, y: 12, w: 8, h: 6 },
+      { type: 'house', x: 5, y: 4, variant: 1 },
+      { type: 'house', x: 30, y: 4, variant: 2 },
+      { type: 'house', x: 5, y: 22, variant: 3 },
+      { type: 'house', x: 30, y: 22, variant: 4 },
+      { type: 'path', from: [20, 0], to: [20, 29] },    // N-S main road
+      { type: 'path', from: [0, 15], to: [39, 15] },    // E-W main road
+    ],
+    npcs: [
+      { name: 'Guide Amira', x: 18, y: 14 },
+      { name: 'Merchant Fatima', x: 32, y: 14 },
+      { name: 'Scholar Yusuf', x: 7, y: 6 },
+      { name: 'Elder Tariq', x: 7, y: 24 },
+    ],
+    decorations: ['palm-tree', 'cactus', 'rocks', 'pots', 'rugs', 'campfire'],
+  },
+  'desert-marketplace': { width: 38, height: 28, description: 'Bustling market with stalls' },
+  'ancient-library':    { width: 35, height: 30, description: 'Interior library with bookshelves' },
+  'bedouin-camp':       { width: 40, height: 30, description: 'Tents and campfires in desert' },
+  'farmland':           { width: 36, height: 26, description: 'Green fields with crops' },
+  'mountain-village':   { width: 42, height: 32, description: 'Snow-covered mountain settlement' },
+  'coastal-port':       { width: 38, height: 28, description: 'Harbor with boats and water' },
+  'royal-palace':       { width: 44, height: 32, description: 'Grand palace interior/exterior' },
+};
+
+// ---- Generation Engine ----
+// This places tiles with visual delay so you can watch it build
+
+async function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function getDelay() {
+  // Speed slider: 1 = slow (200ms), 100 = instant (0ms)
+  return Math.max(0, 200 - (generationSpeed * 2));
+}
+
+async function waitIfPaused() {
+  while (isPaused) {
+    await sleep(100);
+  }
+}
+
+function setTile(layer, x, y, tilesetKey, tileX, tileY, extra = {}) {
+  if (x < 0 || x >= mapWidth || y < 0 || y >= mapHeight) return;
+  layers[layer][y][x] = { tilesetKey, tileX, tileY, ...extra };
+}
+
+function setCollision(x, y) {
+  if (x < 0 || x >= mapWidth || y < 0 || y >= mapHeight) return;
+  layers[3][y][x] = { collision: true };
+}
+
+function setObject(x, y, objectType, label) {
+  if (x < 0 || x >= mapWidth || y < 0 || y >= mapHeight) return;
+  layers[4][y][x] = { objectType, label };
+}
+
+async function generateOasisVillage() {
+  const config = ZONE_CONFIGS['oasis-village'];
+  const delay = getDelay;
+
+  // ===== STEP 1: Fill base terrain (desert sand) =====
+  log('Step 1: Filling base desert terrain...', 'log-step');
+  setStatus('Generating terrain...');
+
+  for (let y = 0; y < mapHeight; y++) {
+    for (let x = 0; x < mapWidth; x++) {
+      await waitIfPaused();
+      // Use desert grass tile — center tile (1,2) is solid sand
+      setTile(0, x, y, 'desert/tiles/desert-grass.png', 1, 2);
+
+      if (getDelay() > 0 && x % 4 === 0) {
+        render();
+        await sleep(getDelay());
+      }
+    }
+  }
+  render();
+  log(`  Filled ${mapWidth}x${mapHeight} = ${mapWidth * mapHeight} sand tiles`, 'log-tile');
+
+  // ===== STEP 2: Carve oasis water =====
+  log('Step 2: Carving oasis water pool...', 'log-step');
+  setStatus('Adding oasis water...');
+
+  const oasis = config.features[0]; // { x:16, y:12, w:8, h:6 }
+
+  // Water interior
+  for (let y = oasis.y + 1; y < oasis.y + oasis.h - 1; y++) {
+    for (let x = oasis.x + 1; x < oasis.x + oasis.w - 1; x++) {
+      await waitIfPaused();
+      setTile(0, x, y, 'desert/tiles/desert-water-tiles-1.png', 1, 1);
+      setCollision(x, y);
+      render();
+      await sleep(getDelay());
+    }
+  }
+
+  // Water edges — top row
+  for (let x = oasis.x + 1; x < oasis.x + oasis.w - 1; x++) {
+    setTile(0, x, oasis.y, 'desert/tiles/desert-water-tiles-1.png', 1, 0);
+    setCollision(x, oasis.y);
+  }
+  // Bottom row
+  for (let x = oasis.x + 1; x < oasis.x + oasis.w - 1; x++) {
+    setTile(0, x, oasis.y + oasis.h - 1, 'desert/tiles/desert-water-tiles-1.png', 1, 2);
+    setCollision(x, oasis.y + oasis.h - 1);
+  }
+  // Left column
+  for (let y = oasis.y + 1; y < oasis.y + oasis.h - 1; y++) {
+    setTile(0, y === oasis.y ? oasis.y : y, oasis.x, 'desert/tiles/desert-water-tiles-1.png', 0, 1);
+    layers[0][y][oasis.x] = { tilesetKey: 'desert/tiles/desert-water-tiles-1.png', tileX: 0, tileY: 1 };
+    setCollision(oasis.x, y);
+  }
+  // Right column
+  for (let y = oasis.y + 1; y < oasis.y + oasis.h - 1; y++) {
+    layers[0][y][oasis.x + oasis.w - 1] = { tilesetKey: 'desert/tiles/desert-water-tiles-1.png', tileX: 2, tileY: 1 };
+    setCollision(oasis.x + oasis.w - 1, y);
+  }
+  // Corners
+  setTile(0, oasis.x, oasis.y, 'desert/tiles/desert-water-tiles-1.png', 0, 0);
+  setTile(0, oasis.x + oasis.w - 1, oasis.y, 'desert/tiles/desert-water-tiles-1.png', 2, 0);
+  setTile(0, oasis.x, oasis.y + oasis.h - 1, 'desert/tiles/desert-water-tiles-1.png', 0, 2);
+  setTile(0, oasis.x + oasis.w - 1, oasis.y + oasis.h - 1, 'desert/tiles/desert-water-tiles-1.png', 2, 2);
+
+  render();
+  log(`  Oasis: ${oasis.w}x${oasis.h} water pool at (${oasis.x},${oasis.y})`, 'log-tile');
+
+  // ===== STEP 3: Lay paths =====
+  log('Step 3: Laying dirt paths...', 'log-step');
+  setStatus('Building paths...');
+
+  // N-S main road (x=20, full height)
+  for (let y = 0; y < mapHeight; y++) {
+    await waitIfPaused();
+    // Skip if it's in the oasis
+    if (y >= oasis.y && y < oasis.y + oasis.h && 20 >= oasis.x && 20 < oasis.x + oasis.w) continue;
+    setTile(0, 19, y, 'base/tiles/cobble-road/cobble-road-1.png', 0, 2);
+    setTile(0, 20, y, 'base/tiles/cobble-road/cobble-road-1.png', 1, 2);
+    setTile(0, 21, y, 'base/tiles/cobble-road/cobble-road-1.png', 2, 2);
+    if (getDelay() > 0) { render(); await sleep(getDelay()); }
+  }
+
+  // E-W road (y=15, full width)
+  for (let x = 0; x < mapWidth; x++) {
+    await waitIfPaused();
+    if (x >= oasis.x && x < oasis.x + oasis.w && 15 >= oasis.y && 15 < oasis.y + oasis.h) continue;
+    setTile(0, x, 14, 'base/tiles/cobble-road/cobble-road-1.png', 1, 0);
+    setTile(0, x, 15, 'base/tiles/cobble-road/cobble-road-1.png', 1, 2);
+    setTile(0, x, 16, 'base/tiles/cobble-road/cobble-road-1.png', 1, 4);
+    if (getDelay() > 0) { render(); await sleep(getDelay()); }
+  }
+
+  render();
+  log('  2 main roads laid (N-S and E-W crossroads)', 'log-tile');
+
+  // ===== STEP 4: Place houses =====
+  log('Step 4: Placing desert houses...', 'log-step');
+  setStatus('Placing buildings...');
+
+  const houses = config.features.filter(f => f.type === 'house');
+  for (const house of houses) {
+    await waitIfPaused();
+    const key = `desert/houses/desert-house-${house.variant}.1.png`;
+    const img = loadedImages[key];
+    if (img) {
+      const tilesW = Math.ceil(img.width / TILE_SIZE);
+      const tilesH = Math.ceil(img.height / TILE_SIZE);
+      for (let dy = 0; dy < tilesH; dy++) {
+        for (let dx = 0; dx < tilesW; dx++) {
+          setTile(1, house.x + dx, house.y + dy, key, dx, dy);
+          setCollision(house.x + dx, house.y + dy);
+        }
+      }
+      log(`  House ${house.variant} at (${house.x},${house.y}) — ${tilesW}x${tilesH} tiles`, 'log-tile');
+    } else {
+      // Fallback: draw placeholder
+      for (let dy = 0; dy < 5; dy++) {
+        for (let dx = 0; dx < 5; dx++) {
+          setCollision(house.x + dx, house.y + dy);
+        }
+      }
+      log(`  House ${house.variant} at (${house.x},${house.y}) — placeholder (image not loaded)`, 'log-tile');
+    }
+    render();
+    await sleep(getDelay() * 3);
+  }
+
+  // ===== STEP 5: Scatter decorations =====
+  log('Step 5: Scattering decorations...', 'log-step');
+  setStatus('Adding decorations...');
+
+  // Palm trees around the oasis
+  const palmPositions = [
+    [oasis.x - 2, oasis.y - 1], [oasis.x + oasis.w + 1, oasis.y - 1],
+    [oasis.x - 2, oasis.y + oasis.h], [oasis.x + oasis.w + 1, oasis.y + oasis.h],
+    [oasis.x + 2, oasis.y - 2], [oasis.x + oasis.w - 3, oasis.y - 2],
+  ];
+
+  for (const [px, py] of palmPositions) {
+    await waitIfPaused();
+    const palmKey = 'desert/props/palm-tree-1.png';
+    if (loadedImages[palmKey]) {
+      // Palm trees are multi-tile — place trunk area
+      for (let dy = 0; dy < 4; dy++) {
+        for (let dx = 0; dx < 3; dx++) {
+          setTile(2, px + dx, py + dy, palmKey, dx, dy);
+        }
+      }
+    }
+    render();
+    await sleep(getDelay() * 2);
+  }
+  log(`  ${palmPositions.length} palm trees placed around oasis`, 'log-tile');
+
+  // Random cacti in empty desert areas
+  const rng = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+  let cactiCount = 0;
+  for (let i = 0; i < 15; i++) {
+    const cx = rng(1, mapWidth - 3);
+    const cy = rng(1, mapHeight - 3);
+    // Don't place on roads, oasis, or houses
+    if (cx >= 18 && cx <= 22) continue;
+    if (cy >= 13 && cy <= 17) continue;
+    if (cx >= oasis.x - 1 && cx <= oasis.x + oasis.w && cy >= oasis.y - 1 && cy <= oasis.y + oasis.h) continue;
+
+    const cactusKey = 'desert/props/cactus.png';
+    if (loadedImages[cactusKey]) {
+      // Pick a random cactus from the spritesheet (different varieties)
+      const variety = rng(0, 5);
+      setTile(2, cx, cy, cactusKey, variety * 2, 0);
+      setTile(2, cx, cy + 1, cactusKey, variety * 2, 1);
+      cactiCount++;
+    }
+    render();
+    await sleep(getDelay());
+  }
+  log(`  ${cactiCount} cacti scattered in desert`, 'log-tile');
+
+  // ===== STEP 6: Place NPCs =====
+  log('Step 6: Placing NPC spawn points...', 'log-step');
+  setStatus('Placing NPCs...');
+
+  for (const npc of config.npcs) {
+    await waitIfPaused();
+    setObject(npc.x, npc.y, 'npc', npc.name.split(' ')[1] || npc.name);
+    log(`  NPC: ${npc.name} at (${npc.x},${npc.y})`, 'log-tile');
+    render();
+    await sleep(getDelay() * 3);
+  }
+
+  // ===== DONE =====
+  log('Generation complete!', 'log-done');
+  setStatus(`Done — Oasis Village ${mapWidth}x${mapHeight} (${mapWidth * mapHeight} tiles, ${config.npcs.length} NPCs)`);
+}
+
+async function generateZone(zoneType) {
+  if (isGenerating) return;
+  isGenerating = true;
+
+  const config = ZONE_CONFIGS[zoneType];
+  if (!config) { log(`Unknown zone: ${zoneType}`, 'log-step'); return; }
+
+  mapWidth = config.width;
+  mapHeight = config.height;
+  initLayers();
+  resizeCanvas();
+
+  document.getElementById('log-output').innerHTML = '';
+  log(`Generating: ${zoneType} (${mapWidth}x${mapHeight})`, 'log-step');
+  log(`Description: ${config.description}`, 'log-tile');
+  log('---', '');
+
+  if (zoneType === 'oasis-village') {
+    await generateOasisVillage();
+  } else {
+    log('Zone generation not yet implemented — Oasis Village is the demo', 'log-step');
+    // Fill with base terrain as placeholder
+    for (let y = 0; y < mapHeight; y++) {
+      for (let x = 0; x < mapWidth; x++) {
+        setTile(0, x, y, 'desert/tiles/desert-grass.png', 1, 2);
+      }
+    }
+    render();
+  }
+
+  isGenerating = false;
+}
+
+// ---- Export to Tiled JSON ----
+function exportTiledJSON() {
+  const tiledMap = {
+    compressionlevel: -1,
+    height: mapHeight,
+    width: mapWidth,
+    infinite: false,
+    orientation: 'orthogonal',
+    renderorder: 'right-down',
+    tiledversion: '1.10.1',
+    tilewidth: TILE_SIZE,
+    tileheight: TILE_SIZE,
+    type: 'map',
+    version: '1.10',
+    layers: [],
+    tilesets: [],
+  };
+
+  const layerNames = ['Terrain', 'Buildings', 'Decorations', 'Collision', 'Objects'];
+
+  for (let l = 0; l < layers.length; l++) {
+    if (l === 4) {
+      // Object layer
+      const objects = [];
+      for (let y = 0; y < mapHeight; y++) {
+        for (let x = 0; x < mapWidth; x++) {
+          const tile = layers[l][y][x];
+          if (tile) {
+            objects.push({
+              id: objects.length + 1,
+              name: tile.label || '',
+              type: tile.objectType || 'unknown',
+              x: x * TILE_SIZE,
+              y: y * TILE_SIZE,
+              width: TILE_SIZE,
+              height: TILE_SIZE,
+              visible: true,
+            });
+          }
+        }
+      }
+      tiledMap.layers.push({
+        id: l + 1,
+        name: layerNames[l],
+        type: 'objectgroup',
+        objects,
+        visible: true,
+      });
+    } else {
+      // Tile layer — for now export as placeholder GIDs
+      const data = [];
+      for (let y = 0; y < mapHeight; y++) {
+        for (let x = 0; x < mapWidth; x++) {
+          const tile = layers[l][y][x];
+          data.push(tile ? 1 : 0); // Simplified — real export maps tilesetKey+coords to GIDs
+        }
+      }
+      tiledMap.layers.push({
+        id: l + 1,
+        name: layerNames[l],
+        type: 'tilelayer',
+        data,
+        width: mapWidth,
+        height: mapHeight,
+        x: 0, y: 0,
+        opacity: 1,
+        visible: true,
+      });
+    }
+  }
+
+  const json = JSON.stringify(tiledMap, null, 2);
+  const blob = new Blob([json], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${document.getElementById('zone-type').value}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  log('Exported Tiled JSON!', 'log-done');
+}
+
+// ---- Event Handlers ----
+document.getElementById('btn-generate').addEventListener('click', () => {
+  const zoneType = document.getElementById('zone-type').value;
+  isPaused = false;
+  generateZone(zoneType);
+});
+
+document.getElementById('btn-step').addEventListener('click', () => {
+  // Step mode: set speed to slowest
+  generationSpeed = 1;
+  document.getElementById('speed-slider').value = 1;
+  const zoneType = document.getElementById('zone-type').value;
+  isPaused = false;
+  if (!isGenerating) generateZone(zoneType);
+});
+
+document.getElementById('btn-pause').addEventListener('click', () => {
+  isPaused = !isPaused;
+  document.getElementById('btn-pause').textContent = isPaused ? 'Resume' : 'Pause';
+  document.getElementById('btn-pause').classList.toggle('active', isPaused);
+  log(isPaused ? 'Paused' : 'Resumed', 'log-step');
+});
+
+document.getElementById('btn-clear').addEventListener('click', () => {
+  isGenerating = false;
+  isPaused = false;
+  initLayers();
+  render();
+  document.getElementById('log-output').innerHTML = '';
+  log('Cleared', 'log-step');
+  setStatus('Ready');
+});
+
+document.getElementById('btn-export').addEventListener('click', exportTiledJSON);
+
+document.getElementById('speed-slider').addEventListener('input', (e) => {
+  generationSpeed = parseInt(e.target.value);
+});
+
+document.getElementById('zoom-level').addEventListener('change', (e) => {
+  zoom = parseInt(e.target.value);
+  resizeCanvas();
+});
+
+document.getElementById('show-grid').addEventListener('change', (e) => {
+  showGrid = e.target.checked;
+  render();
+});
+
+// Layer selection
+document.querySelectorAll('.layer-item').forEach(el => {
+  el.addEventListener('click', () => {
+    document.querySelectorAll('.layer-item').forEach(e => e.classList.remove('active'));
+    el.classList.add('active');
+    activeLayer = parseInt(el.dataset.layer);
+  });
+
+  el.querySelector('.visibility').addEventListener('click', (e) => {
+    e.stopPropagation();
+    const layer = parseInt(el.dataset.layer);
+    layerVisibility[layer] = !layerVisibility[layer];
+    el.querySelector('.visibility').style.opacity = layerVisibility[layer] ? 0.6 : 0.15;
+    render();
+  });
+});
+
+// Mouse coords
+canvas.addEventListener('mousemove', (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const x = Math.floor((e.clientX - rect.left) / (TILE_SIZE * zoom));
+  const y = Math.floor((e.clientY - rect.top) / (TILE_SIZE * zoom));
+  document.getElementById('status-coords').textContent = `${x}, ${y}`;
+
+  const coordsEl = document.getElementById('coords-display');
+  coordsEl.style.display = 'block';
+  coordsEl.textContent = `Tile: ${x}, ${y}`;
+});
+
+canvas.addEventListener('mouseleave', () => {
+  document.getElementById('coords-display').style.display = 'none';
+});
+
+// ---- Init ----
+initLayers();
+resizeCanvas();
+loadAllTilesets();
+</script>
+</body>
+</html>

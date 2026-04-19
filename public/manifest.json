@@ -1,0 +1,29 @@
+{
+  "name": "Gogo Arabic - يلا عربي",
+  "short_name": "Gogo Arabic",
+  "description": "Learn Arabic through an RPG adventure",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#1A1A2E",
+  "theme_color": "#1A1A2E",
+  "icons": [
+    {
+      "src": "/assets/icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/assets/icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/assets/icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["education", "games"]
+}

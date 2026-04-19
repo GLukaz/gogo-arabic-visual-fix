@@ -1,0 +1,286 @@
+/**
+ * AccessibilityPanel.module.css
+ * Dark game theme (#0A0A0A bg, #d4a843 gold accents) matching the rest of Gogo Arabic.
+ */
+
+/* ── Layout ── */
+
+.container {
+  width: 100%;
+  min-height: 100%;
+  background-color: #0A0A0A;
+  background-image:
+    radial-gradient(circle at 60% 30%, rgba(212, 168, 67, 0.06) 0%, transparent 55%),
+    repeating-linear-gradient(
+      60deg,
+      rgba(212, 168, 67, 0.025) 0px,
+      rgba(212, 168, 67, 0.025) 1px,
+      transparent 1px,
+      transparent 40px
+    );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 12px 48px;
+  font-family: var(--font-pixel, monospace);
+}
+
+.panel {
+  background: #111118;
+  border: 3px solid #d4a843;
+  border-radius: 4px;
+  padding: 28px 32px;
+  color: #f0e6d3;
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 0 24px rgba(212, 168, 67, 0.12), 0 4px 0 0 #9a7820;
+}
+
+/* ── Title ── */
+
+.title {
+  font-family: var(--font-pixel, monospace);
+  font-size: 16px;
+  color: #d4a843;
+  margin: 0 0 24px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* ── Sections ── */
+
+.section {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.sectionHeading {
+  font-family: var(--font-pixel, monospace);
+  font-size: 10px;
+  color: #d4a843;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(212, 168, 67, 0.3);
+  opacity: 0.85;
+}
+
+/* ── Setting rows ── */
+
+.settingRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 14px;
+  gap: 12px;
+}
+
+.label {
+  font-family: var(--font-pixel, monospace);
+  font-size: 10px;
+  color: #c8b99a;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  flex: 1;
+}
+
+/* ── Select ── */
+
+.select {
+  font-family: var(--font-pixel, monospace);
+  font-size: 9px;
+  background: #1e1e2e;
+  color: #f0e6d3;
+  border: 2px solid #d4a843;
+  padding: 6px 10px;
+  cursor: pointer;
+  outline: none;
+  max-width: 200px;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23d4a843'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  padding-right: 28px;
+}
+
+.select:focus {
+  border-color: #f0c860;
+  box-shadow: 0 0 0 2px rgba(212, 168, 67, 0.35);
+}
+
+/* ── Slider ── */
+
+.sliderGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.slider {
+  width: 130px;
+  cursor: pointer;
+  accent-color: #d4a843;
+}
+
+.scaleValue {
+  font-family: var(--font-pixel, monospace);
+  font-size: 9px;
+  color: #d4a843;
+  min-width: 30px;
+  text-align: right;
+}
+
+/* ── Font preview ── */
+
+.fontPreview {
+  background: #1a1a2e;
+  border: 1px solid rgba(212, 168, 67, 0.2);
+  border-radius: 3px;
+  padding: 10px 14px;
+  color: #f0e6d3;
+  font-family: var(--font-arabic, serif);
+  text-align: center;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  transition: font-size 0.15s ease;
+}
+
+/* ── Toggle buttons ── */
+
+.toggleOn,
+.toggleOff {
+  font-family: var(--font-pixel, monospace);
+  font-size: 10px;
+  padding: 8px 18px;
+  border: 3px solid #0A0A0A;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-width: 60px;
+  transition: transform 0.05s;
+}
+
+.toggleOn {
+  background: #d4a843;
+  color: #1a1200;
+  box-shadow:
+    inset -3px -3px 0px 0px rgba(0,0,0,0.25),
+    inset 3px 3px 0px 0px rgba(255,255,255,0.2),
+    0 3px 0 0 #9a7820;
+}
+
+.toggleOn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 0 #9a7820;
+}
+
+.toggleOff {
+  background: #2a2a3a;
+  color: #6e6a7a;
+  box-shadow:
+    inset -3px -3px 0px 0px rgba(0,0,0,0.3),
+    inset 3px 3px 0px 0px rgba(255,255,255,0.05),
+    0 3px 0 0 #111118;
+}
+
+.toggleOff:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 0 #111118;
+}
+
+.toggleOn:focus-visible,
+.toggleOff:focus-visible {
+  outline: 2px solid #f0c860;
+  outline-offset: 3px;
+}
+
+/* ── Color swatch preview ── */
+
+.swatchRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 6px;
+  padding: 12px;
+  background: #0A0A0A;
+  border: 1px solid rgba(212, 168, 67, 0.15);
+  border-radius: 3px;
+}
+
+.swatchItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.swatch {
+  width: 32px;
+  height: 32px;
+  border: 2px solid rgba(255,255,255,0.12);
+  border-radius: 3px;
+}
+
+.swatchLabel {
+  font-family: var(--font-pixel, monospace);
+  font-size: 7px;
+  color: #6e6a7a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ── Hint text ── */
+
+.hint {
+  font-family: var(--font-pixel, monospace);
+  font-size: 8px;
+  color: #5a5670;
+  margin: 0 0 6px;
+  line-height: 1.6;
+}
+
+/* ── Back button ── */
+
+.backBtn {
+  font-family: var(--font-pixel, monospace);
+  font-size: 10px;
+  padding: 12px 28px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: #2a2a3a;
+  color: #c8b99a;
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0,0,0,0.3),
+    inset 4px 4px 0px 0px rgba(255,255,255,0.06),
+    0 4px 0 0 #111118;
+  transition: transform 0.05s;
+  margin-top: 16px;
+  align-self: center;
+}
+
+.backBtn:hover {
+  background: #353550;
+  color: #d4a843;
+}
+
+.backBtn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 0 #111118;
+}
+
+.backBtn:focus-visible {
+  outline: 2px solid #f0c860;
+  outline-offset: 3px;
+}

@@ -1,0 +1,112 @@
+/* Sync Indicator - Shows cloud sync status */
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+}
+
+.indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: help;
+}
+
+.label {
+  color: var(--color-text-primary, #fff);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Status dot */
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: block;
+}
+
+/* Syncing state - pulsing yellow dot */
+.syncing .dot {
+  background-color: var(--color-warning, #fbbf24);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Synced state - green dot */
+.synced .dot {
+  background-color: var(--color-success, #22c55e);
+  animation: flash 0.5s ease-out;
+}
+
+/* Conflict state - blue pulsing dot */
+.conflict .dot {
+  background-color: var(--color-info, #3b82f6);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+/* Error state - red dot */
+.error .dot {
+  background-color: var(--color-error, #ef4444);
+}
+
+/* Retry button */
+.retryButton {
+  padding: 2px 8px;
+  font-size: 11px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  color: var(--color-text-primary, #fff);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 600;
+}
+
+.retryButton:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.retryButton:active {
+  transform: scale(0.95);
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes flash {
+  0% {
+    opacity: 0.3;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Hide on very small screens */
+@media (max-width: 480px) {
+  .label {
+    display: none;
+  }
+
+  .container {
+    padding: 4px;
+  }
+}

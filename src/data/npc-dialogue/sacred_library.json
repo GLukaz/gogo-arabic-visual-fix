@@ -1,0 +1,28 @@
+[
+  {
+    "id": "poet-library",
+    "dialogueTrees": [
+      {
+        "id": "poet-library-greeting",
+        "trigger": "interact",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "قَرَأتُ كُلَّ الدَّواوين — هَل تَجرُؤُ عَلى مُنافَستي؟",
+            "english": "I have read every divan — do you dare to compete with me?"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "المُتَنَبّي قالَ: عَلى قَدرِ أَهلِ العَزم تَأتي العَزائِم",
+            "english": "Al-Mutanabbi said: According to the people of resolve, so come the great deeds"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَل أَنتَ مِن أَهلِ العَزم؟ أَثبِت ذَلِك!",
+            "english": "Are you among the people of resolve? Prove it!"
+          }
+        ]
+      }
+    ]
+  }
+]

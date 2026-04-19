@@ -1,0 +1,1632 @@
+{
+  "verbs": [
+    {
+      "arabic": "قَالَ",
+      "english": "to say",
+      "transliteration": "KaaLa",
+      "rootLetters": "قول",
+      "rootLettersSpaced": "ق و ل",
+      "frequency": 1618,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "كَانَ",
+      "english": "to be",
+      "transliteration": "KaNaa",
+      "rootLetters": "كون",
+      "rootLettersSpaced": "ك و ن",
+      "frequency": 1358,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "ءَامَنَ",
+      "english": "to believe",
+      "transliteration": "AaMaNa",
+      "rootLetters": "امن",
+      "rootLettersSpaced": "ا م ن",
+      "frequency": 537,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "عَلِمَ",
+      "english": "to know",
+      "transliteration": "AaLeMa",
+      "rootLetters": "علم",
+      "rootLettersSpaced": "ع ل م",
+      "frequency": 382,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "جَعَلَ",
+      "english": "to make",
+      "transliteration": "JaAaLa",
+      "rootLetters": "جعل",
+      "rootLettersSpaced": "ج ع ل",
+      "frequency": 340,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "كَفَرَ",
+      "english": "to disbelieve",
+      "transliteration": "KaFaRa",
+      "rootLetters": "كفر",
+      "rootLettersSpaced": "ك ف ر",
+      "frequency": 289,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "جَآءَ",
+      "english": "to come",
+      "transliteration": "JaAa",
+      "rootLetters": "جيا",
+      "rootLettersSpaced": "ج ي ا",
+      "frequency": 278,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "عَمِلَ",
+      "english": "to do, to work",
+      "transliteration": "AaMaLa",
+      "rootLetters": "عمل",
+      "rootLettersSpaced": "ع م ل",
+      "frequency": 276,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "آتَى",
+      "english": "to give",
+      "transliteration": "AaThay",
+      "rootLetters": "اتي",
+      "rootLettersSpaced": "ا ت ي",
+      "frequency": 271,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "رَءَا",
+      "english": "to see",
+      "transliteration": "RaAa",
+      "rootLetters": "راي",
+      "rootLettersSpaced": "ر ا ي",
+      "frequency": 271,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "أَتَى",
+      "english": "to come, to bring",
+      "transliteration": "AaThay",
+      "rootLetters": "اتي",
+      "rootLettersSpaced": "ا ت ي",
+      "frequency": 264,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "شَآءَ",
+      "english": "to will, to wish",
+      "transliteration": "ShaAa",
+      "rootLetters": "شيا",
+      "rootLettersSpaced": "ش ي ا",
+      "frequency": 236,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "خَلَقَ",
+      "english": "to create",
+      "transliteration": "KahLaKa",
+      "rootLetters": "خلق",
+      "rootLettersSpaced": "خ ل ق",
+      "frequency": 184,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "أَنزَلَ",
+      "english": "to send down, to reveal",
+      "transliteration": "UnZaLa",
+      "rootLetters": "نزل",
+      "rootLettersSpaced": "ن ز ل",
+      "frequency": 183,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "كَذَّبَ",
+      "english": "to deny, to reject",
+      "transliteration": "KaDhaBa",
+      "rootLetters": "كذب",
+      "rootLettersSpaced": "ك ذ ب",
+      "frequency": 176,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "دَعَا",
+      "english": "to call, to invite, to pray",
+      "transliteration": "DhaAa",
+      "rootLetters": "دعو",
+      "rootLettersSpaced": "د ع و",
+      "frequency": 170,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "ٱتَّقَىٰ",
+      "english": "to be righteous, to fear (Allah)",
+      "transliteration": "ItTaQaa",
+      "rootLetters": "وقي",
+      "rootLettersSpaced": "و ق ي",
+      "frequency": 166,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "هَدَى",
+      "english": "to guide",
+      "transliteration": "HaDa",
+      "rootLetters": "هدي",
+      "rootLettersSpaced": "ه د ي",
+      "frequency": 144,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "أَرَادَ",
+      "english": "to intend, to desire, to want, to wish",
+      "transliteration": "AraaDa",
+      "rootLetters": "رود",
+      "rootLettersSpaced": "ر و د",
+      "frequency": 139,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "ٱتَّبَعَ",
+      "english": "to follow",
+      "transliteration": "ItTaBaAa",
+      "rootLetters": "تبع",
+      "rootLettersSpaced": "ت ب ع",
+      "frequency": 136,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "أَرْسَلَ",
+      "english": "to send",
+      "transliteration": "ArSaLa",
+      "rootLetters": "رسل",
+      "rootLettersSpaced": "ر س ل",
+      "frequency": 130,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "أَخَذَ",
+      "english": "to take, to seize",
+      "transliteration": "AaKhaDha",
+      "rootLetters": "اخذ",
+      "rootLettersSpaced": "ا خ ذ",
+      "frequency": 127,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "ٱتَّخَذَ",
+      "english": "to take",
+      "transliteration": "UtaKhaDza",
+      "rootLetters": "اخذ",
+      "rootLettersSpaced": "ا خ ذ",
+      "frequency": 124,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "عَبَدَ",
+      "english": "to worship",
+      "transliteration": "AaBaTha",
+      "rootLetters": "عبد",
+      "rootLettersSpaced": "ع ب د",
+      "frequency": 122,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "ظَلَمَ",
+      "english": "to oppress, to wrong",
+      "transliteration": "ZaLaMa",
+      "rootLetters": "ظلم",
+      "rootLettersSpaced": "ظ ل م",
+      "frequency": 110,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "سَأَلَ",
+      "english": "to ask",
+      "transliteration": "SaAaLa",
+      "rootLetters": "سال",
+      "rootLettersSpaced": "س ا ل",
+      "frequency": 106,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "وَجَدَ",
+      "english": "to find",
+      "transliteration": "WaJaTha",
+      "rootLetters": "وجد",
+      "rootLettersSpaced": "و ج د",
+      "frequency": 106,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "أَخْرَجَ",
+      "english": "to bring forth, to drive out",
+      "transliteration": "AkhRaJa",
+      "rootLetters": "خرج",
+      "rootLettersSpaced": "خ ر ج",
+      "frequency": 99,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "أَكَلَ",
+      "english": "to eat, to consume",
+      "transliteration": "AaKaLa",
+      "rootLetters": "اكل",
+      "rootLettersSpaced": "ا ك ل",
+      "frequency": 93,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "لَّيْسَ",
+      "english": "to not be",
+      "transliteration": "LaySa",
+      "rootLetters": "ليس",
+      "rootLettersSpaced": "ل ي س",
+      "frequency": 89,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "فَعَلَ",
+      "english": "to do",
+      "transliteration": "FaAaLa",
+      "rootLetters": "فعل",
+      "rootLettersSpaced": "ف ع ل",
+      "frequency": 88,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "نَّظَرَ",
+      "english": "to look, to see",
+      "transliteration": "NaZaRa",
+      "rootLetters": "نظر",
+      "rootLettersSpaced": "ن ظ ر",
+      "frequency": 87,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "ذَكَرَ",
+      "english": "to remember, to mention",
+      "transliteration": "ZaKaRa",
+      "rootLetters": "ذكر",
+      "rootLettersSpaced": "ذ ك ر",
+      "frequency": 84,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "خَافَ",
+      "english": "to fear, to be afraid",
+      "transliteration": "KhaFa",
+      "rootLetters": "خوف",
+      "rootLettersSpaced": "خ و ف",
+      "frequency": 83,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "قَتَلَ",
+      "english": "to kill",
+      "transliteration": "KaThaLa",
+      "rootLetters": "قتل",
+      "rootLettersSpaced": "ق ت ل",
+      "frequency": 83,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "رَجَعَ",
+      "english": "to return",
+      "transliteration": "RaJaAa",
+      "rootLetters": "رجع",
+      "rootLettersSpaced": "ر ج ع",
+      "frequency": 79,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "سَمِعَ",
+      "english": "to hear, to listen",
+      "transliteration": "SaMaAa",
+      "rootLetters": "سمع",
+      "rootLettersSpaced": "س م ع",
+      "frequency": 78,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "تَوَلَّىٰ",
+      "english": "to turn",
+      "transliteration": "TaWaLay",
+      "rootLetters": "ولي",
+      "rootLettersSpaced": "و ل ي",
+      "frequency": 78,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "أَمَرَ",
+      "english": "to order, to command",
+      "transliteration": "AaMaRa",
+      "rootLetters": "امر",
+      "rootLettersSpaced": "ا م ر",
+      "frequency": 77,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "دَخَلَ",
+      "english": "to enter",
+      "transliteration": "DaKhaLa",
+      "rootLetters": "دخل",
+      "rootLettersSpaced": "د خ ل",
+      "frequency": 76,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "جَزَىٰ",
+      "english": "to reward, to recompense",
+      "transliteration": "JaZaAa",
+      "rootLetters": "جزي",
+      "rootLettersSpaced": "ج ز ي",
+      "frequency": 73,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "أَطَاعَ",
+      "english": "to obey",
+      "transliteration": "AaTaAa",
+      "rootLetters": "طوع",
+      "rootLettersSpaced": "ط و ع",
+      "frequency": 72,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "أَوْحَىٰٓ",
+      "english": "to reveal, to inspire",
+      "transliteration": "UHiYa",
+      "rootLetters": "وحي",
+      "rootLettersSpaced": "و ح ي",
+      "frequency": 72,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "أَشْرَكَ",
+      "english": "to associate partners",
+      "transliteration": "UshRaKa",
+      "rootLetters": "شرك",
+      "rootLettersSpaced": "ش ر ك",
+      "frequency": 71,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "أَلْقَىٰٓ",
+      "english": "to cast, to throw, to meet, to offer",
+      "transliteration": "AlQaa",
+      "rootLetters": "لقي",
+      "rootLettersSpaced": "ل ق ي",
+      "frequency": 71,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "وَعَدَ",
+      "english": "to promise",
+      "transliteration": "VaAaTha",
+      "rootLetters": "وعد",
+      "rootLettersSpaced": "و ع د",
+      "frequency": 70,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "أَنفَقَ",
+      "english": "to spend",
+      "transliteration": "UnFaKa",
+      "rootLetters": "نفق",
+      "rootLettersSpaced": "ن ف ق",
+      "frequency": 68,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "غَفَرَ",
+      "english": "to forgive",
+      "transliteration": "GhaFaRa",
+      "rootLetters": "غفر",
+      "rootLettersSpaced": "غ ف ر",
+      "frequency": 65,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "أَحْبَبْ",
+      "english": "to love, to like",
+      "transliteration": "AḥBa",
+      "rootLetters": "حبب",
+      "rootLettersSpaced": "ح ب ب",
+      "frequency": 64,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "أَصَابَ",
+      "english": "to strike, to befall, to bestow",
+      "transliteration": "AaSaBa",
+      "rootLetters": "صوب",
+      "rootLettersSpaced": "ص و ب",
+      "frequency": 64,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "أَضَلَّ",
+      "english": "to let go astray, to mislead",
+      "transliteration": "AaDaLa",
+      "rootLetters": "ضلل",
+      "rootLettersSpaced": "ض ل ل",
+      "frequency": 64,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "تَابَ",
+      "english": "to repent, to turn",
+      "transliteration": "THaBa",
+      "rootLetters": "توب",
+      "rootLettersSpaced": "ت و ب",
+      "frequency": 63,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "كَسَبَ",
+      "english": "to earn",
+      "transliteration": "KaSaBa",
+      "rootLetters": "كسب",
+      "rootLettersSpaced": "ك س ب",
+      "frequency": 62,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "نَزَّلَ",
+      "english": "to send down, to reveal",
+      "transliteration": "NaZaLa",
+      "rootLetters": "نزل",
+      "rootLettersSpaced": "ن ز ل",
+      "frequency": 62,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "تَلَىٰ",
+      "english": "to recite",
+      "transliteration": "TaLaa",
+      "rootLetters": "تلو",
+      "rootLettersSpaced": "ت ل و",
+      "frequency": 61,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "رَزَقَ",
+      "english": "to provide",
+      "transliteration": "RaZaKa",
+      "rootLetters": "رزق",
+      "rootLettersSpaced": "ر ز ق",
+      "frequency": 61,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "قَضَىٰٓ",
+      "english": "to decree, to decide, to judge",
+      "transliteration": "QaDaa",
+      "rootLetters": "قضي",
+      "rootLettersSpaced": "ق ض ي",
+      "frequency": 59,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "نَصَرَ",
+      "english": "to help",
+      "transliteration": "NaSaRa",
+      "rootLetters": "نصر",
+      "rootLettersSpaced": "ن ص ر",
+      "frequency": 59,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "صَبَرَ",
+      "english": "to be patient",
+      "transliteration": "SaBaRa",
+      "rootLetters": "صبر",
+      "rootLettersSpaced": "ص ب ر",
+      "frequency": 58,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "جَرَيْ",
+      "english": "to flow, to run",
+      "transliteration": "JaRaa",
+      "rootLetters": "جري",
+      "rootLettersSpaced": "ج ر ي",
+      "frequency": 57,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "مَسَّ",
+      "english": "to touch",
+      "transliteration": "MaSsa",
+      "rootLetters": "مسس",
+      "rootLettersSpaced": "م س س",
+      "frequency": 56,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "ضَرَبَ",
+      "english": "to strike, to set forth",
+      "transliteration": "DhaRaBa",
+      "rootLetters": "ضرب",
+      "rootLettersSpaced": "ض ر ب",
+      "frequency": 55,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "قَٰتَلَ",
+      "english": "to fight",
+      "transliteration": "QaThaLa",
+      "rootLetters": "قتل",
+      "rootLettersSpaced": "ق ت ل",
+      "frequency": 54,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "أَقَامَ",
+      "english": "to establish",
+      "transliteration": "AqAaMa",
+      "rootLetters": "قوم",
+      "rootLettersSpaced": "ق و م",
+      "frequency": 54,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "خَرَجَ",
+      "english": "to go out, to come out, to depart, to leave",
+      "transliteration": "KhaRaJa",
+      "rootLetters": "خرج",
+      "rootLettersSpaced": "خ ر ج",
+      "frequency": 53,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "ضَلَّ",
+      "english": "to go astray, to err, to lose",
+      "transliteration": "DalLa",
+      "rootLetters": "ضلل",
+      "rootLettersSpaced": "ض ل ل",
+      "frequency": 53,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "بَعَثَ",
+      "english": "to raise, to resurrect, to send",
+      "transliteration": "BaAaTha",
+      "rootLetters": "بعث",
+      "rootLettersSpaced": "ب ع ث",
+      "frequency": 52,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "أَحْيَا",
+      "english": "to give life",
+      "transliteration": "AḥYaa",
+      "rootLetters": "حيي",
+      "rootLettersSpaced": "ح ي ي",
+      "frequency": 51,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "تَذَكَّرَ",
+      "english": "to receive admonition",
+      "transliteration": "TaDhakKaRa",
+      "rootLetters": "ذكر",
+      "rootLettersSpaced": "ذ ك ر",
+      "frequency": 51,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "أَهْلَكَ",
+      "english": "to destroy",
+      "transliteration": "AhLaKa",
+      "rootLetters": "هلك",
+      "rootLettersSpaced": "ه ل ك",
+      "frequency": 51,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "ٱفْتَرَىٰ",
+      "english": "to invent",
+      "transliteration": "",
+      "rootLetters": "فري",
+      "rootLettersSpaced": "ف ر ي",
+      "frequency": 50,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "زَادَ",
+      "english": "to increase",
+      "transliteration": "ZaDa",
+      "rootLetters": "زيد",
+      "rootLettersSpaced": "ز ي د",
+      "frequency": 49,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "عَقَلُ",
+      "english": "to understand, to reason",
+      "transliteration": "",
+      "rootLetters": "عقل",
+      "rootLettersSpaced": "ع ق ل",
+      "frequency": 49,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "كَتَبَ",
+      "english": "to write, to prescribe, to ordain",
+      "transliteration": "KaThaBa",
+      "rootLetters": "كتب",
+      "rootLettersSpaced": "ك ت ب",
+      "frequency": 49,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "ظَنَّ",
+      "english": "to think, to assume, to guess",
+      "transliteration": "ZanNa",
+      "rootLetters": "ظنن",
+      "rootLettersSpaced": "ظ ن ن",
+      "frequency": 47,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "شَكَرَ",
+      "english": "to be grateful, to give thanks",
+      "transliteration": "ShaKaRa",
+      "rootLetters": "شكر",
+      "rootLettersSpaced": "ش ك ر",
+      "frequency": 46,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "نَبَّأَ",
+      "english": "to inform",
+      "transliteration": "NabBa",
+      "rootLetters": "نبا",
+      "rootLettersSpaced": "ن ب ا",
+      "frequency": 46,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "حَكَمَ",
+      "english": "to judge",
+      "transliteration": "HaKaMa",
+      "rootLetters": "حكم",
+      "rootLettersSpaced": "ح ك م",
+      "frequency": 45,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "يَذَرَ",
+      "english": "to leave, to forsake",
+      "transliteration": "YaDhaRa",
+      "rootLetters": "وذر",
+      "rootLettersSpaced": "و ذ ر",
+      "frequency": 45,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "حَسِبَ",
+      "english": "to think",
+      "transliteration": "HaSehBa",
+      "rootLetters": "حسب",
+      "rootLettersSpaced": "ح س ب",
+      "frequency": 44,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "شَهِدَ",
+      "english": "to testify, to bear witness",
+      "transliteration": "ShaHiDa",
+      "rootLetters": "شهد",
+      "rootLettersSpaced": "ش ه د",
+      "frequency": 44,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "مَلَكَتْ",
+      "english": "to possess, to have power",
+      "transliteration": "MaLaKaTha",
+      "rootLetters": "ملك",
+      "rootLettersSpaced": "م ل ك",
+      "frequency": 44,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "نَادَىٰ",
+      "english": "to call",
+      "transliteration": "Naadaa",
+      "rootLetters": "ندو",
+      "rootLettersSpaced": "ن د و",
+      "frequency": 44,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "أَنذَرَ",
+      "english": "to warn",
+      "transliteration": "UnDhaRa",
+      "rootLetters": "نذر",
+      "rootLettersSpaced": "ن ذ ر",
+      "frequency": 44,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "أُدْخِلَ",
+      "english": "to admit",
+      "transliteration": "UthKhiLa",
+      "rootLetters": "دخل",
+      "rootLettersSpaced": "د خ ل",
+      "frequency": 42,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "سَبَّحَ",
+      "english": "to glorify, to praise",
+      "transliteration": "SaBaAa",
+      "rootLetters": "سبح",
+      "rootLettersSpaced": "س ب ح",
+      "frequency": 42,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "ٱسْتَطَاعَ",
+      "english": "to be able to, to be capable",
+      "transliteration": "IsTaThaAa",
+      "rootLetters": "طوع",
+      "rootLettersSpaced": "ط و ع",
+      "frequency": 42,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "حَمَلَ",
+      "english": "to carry, to bear",
+      "transliteration": "HaMaLa",
+      "rootLetters": "حمل",
+      "rootLettersSpaced": "ح م ل",
+      "frequency": 41,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "عَذَّبَ",
+      "english": "to punish",
+      "transliteration": "AaZaBa",
+      "rootLetters": "عذب",
+      "rootLettersSpaced": "ع ذ ب",
+      "frequency": 41,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "عَلَّمَ",
+      "english": "to teach",
+      "transliteration": "AaLaMa",
+      "rootLetters": "علم",
+      "rootLettersSpaced": "ع ل م",
+      "frequency": 41,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "بِئْسَ",
+      "english": "to be wretched, to be evil",
+      "transliteration": "BiSa",
+      "rootLetters": "باس",
+      "rootLettersSpaced": "ب ا س",
+      "frequency": 40,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "بَلَغَ",
+      "english": "to reach",
+      "transliteration": "BaLaGha",
+      "rootLetters": "بلغ",
+      "rootLettersSpaced": "ب ل غ",
+      "frequency": 40,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "تَرَكَ",
+      "english": "to leave",
+      "transliteration": "ThRaKa",
+      "rootLetters": "ترك",
+      "rootLettersSpaced": "ت ر ك",
+      "frequency": 40,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "خَشِىَ",
+      "english": "to fear",
+      "transliteration": "KhaShiYa",
+      "rootLetters": "خشي",
+      "rootLettersSpaced": "خ ش ي",
+      "frequency": 40,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "أَرَيْ",
+      "english": "to show",
+      "transliteration": "UuRi",
+      "rootLetters": "راي",
+      "rootLettersSpaced": "ر ا ي",
+      "frequency": 40,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "ٱسْتَغْفَرَ",
+      "english": "to ask forgiveness",
+      "transliteration": "IsTaghFaRa",
+      "rootLetters": "غفر",
+      "rootLettersSpaced": "غ ف ر",
+      "frequency": 40,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "ٱسْتَكْبَرَ",
+      "english": "to be arrogant",
+      "transliteration": "IsTakBaRa",
+      "rootLetters": "كبر",
+      "rootLettersSpaced": "ك ب ر",
+      "frequency": 40,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "ٱهْتَدَىٰ",
+      "english": "to be guided",
+      "transliteration": "IhTaDay",
+      "rootLetters": "هدي",
+      "rootLettersSpaced": "ه د ي",
+      "frequency": 40,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "تَوَكَّلْ",
+      "english": "to put trust",
+      "transliteration": "ThWaKal",
+      "rootLetters": "وكل",
+      "rootLettersSpaced": "و ك ل",
+      "frequency": 40,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "حَرَّمَ",
+      "english": "to forbid, to make unlawful",
+      "transliteration": "HaRaMa",
+      "rootLetters": "حرم",
+      "rootLettersSpaced": "ح ر م",
+      "frequency": 39,
+      "partOfSpeech": "verb"
+    },
+    {
+      "arabic": "مَّاتَ",
+      "english": "to die",
+      "transliteration": "MauTha",
+      "rootLetters": "موت",
+      "rootLettersSpaced": "م و ت",
+      "frequency": 39,
+      "partOfSpeech": "verb"
+    }
+  ],
+  "rootMap": {
+    "قول": {
+      "root": "قول",
+      "rootSpaced": "ق و ل",
+      "words": [
+        "قَالَ"
+      ],
+      "meaning": "related to say"
+    },
+    "كون": {
+      "root": "كون",
+      "rootSpaced": "ك و ن",
+      "words": [
+        "كَانَ"
+      ],
+      "meaning": "related to be"
+    },
+    "امن": {
+      "root": "امن",
+      "rootSpaced": "ا م ن",
+      "words": [
+        "ءَامَنَ"
+      ],
+      "meaning": "related to believe"
+    },
+    "علم": {
+      "root": "علم",
+      "rootSpaced": "ع ل م",
+      "words": [
+        "عَلِمَ",
+        "عَلَّمَ"
+      ],
+      "meaning": "related to know, teach"
+    },
+    "جعل": {
+      "root": "جعل",
+      "rootSpaced": "ج ع ل",
+      "words": [
+        "جَعَلَ"
+      ],
+      "meaning": "related to make"
+    },
+    "كفر": {
+      "root": "كفر",
+      "rootSpaced": "ك ف ر",
+      "words": [
+        "كَفَرَ"
+      ],
+      "meaning": "related to disbelieve"
+    },
+    "جيا": {
+      "root": "جيا",
+      "rootSpaced": "ج ي ا",
+      "words": [
+        "جَآءَ"
+      ],
+      "meaning": "related to come"
+    },
+    "عمل": {
+      "root": "عمل",
+      "rootSpaced": "ع م ل",
+      "words": [
+        "عَمِلَ"
+      ],
+      "meaning": "related to do, work"
+    },
+    "اتي": {
+      "root": "اتي",
+      "rootSpaced": "ا ت ي",
+      "words": [
+        "آتَى",
+        "أَتَى"
+      ],
+      "meaning": "related to give, come, bring"
+    },
+    "راي": {
+      "root": "راي",
+      "rootSpaced": "ر ا ي",
+      "words": [
+        "رَءَا",
+        "أَرَيْ"
+      ],
+      "meaning": "related to see, show"
+    },
+    "شيا": {
+      "root": "شيا",
+      "rootSpaced": "ش ي ا",
+      "words": [
+        "شَآءَ"
+      ],
+      "meaning": "related to will, wish"
+    },
+    "خلق": {
+      "root": "خلق",
+      "rootSpaced": "خ ل ق",
+      "words": [
+        "خَلَقَ"
+      ],
+      "meaning": "related to create"
+    },
+    "نزل": {
+      "root": "نزل",
+      "rootSpaced": "ن ز ل",
+      "words": [
+        "أَنزَلَ",
+        "نَزَّلَ"
+      ],
+      "meaning": "related to send down, reveal"
+    },
+    "كذب": {
+      "root": "كذب",
+      "rootSpaced": "ك ذ ب",
+      "words": [
+        "كَذَّبَ"
+      ],
+      "meaning": "related to deny, reject"
+    },
+    "دعو": {
+      "root": "دعو",
+      "rootSpaced": "د ع و",
+      "words": [
+        "دَعَا"
+      ],
+      "meaning": "related to call, invite, pray"
+    },
+    "وقي": {
+      "root": "وقي",
+      "rootSpaced": "و ق ي",
+      "words": [
+        "ٱتَّقَىٰ"
+      ],
+      "meaning": "related to be righteous, fear (Allah)"
+    },
+    "هدي": {
+      "root": "هدي",
+      "rootSpaced": "ه د ي",
+      "words": [
+        "هَدَى",
+        "ٱهْتَدَىٰ"
+      ],
+      "meaning": "related to guide, be guided"
+    },
+    "رود": {
+      "root": "رود",
+      "rootSpaced": "ر و د",
+      "words": [
+        "أَرَادَ"
+      ],
+      "meaning": "related to intend, desire, want, etc."
+    },
+    "تبع": {
+      "root": "تبع",
+      "rootSpaced": "ت ب ع",
+      "words": [
+        "ٱتَّبَعَ"
+      ],
+      "meaning": "related to follow"
+    },
+    "رسل": {
+      "root": "رسل",
+      "rootSpaced": "ر س ل",
+      "words": [
+        "أَرْسَلَ"
+      ],
+      "meaning": "related to send"
+    },
+    "اخذ": {
+      "root": "اخذ",
+      "rootSpaced": "ا خ ذ",
+      "words": [
+        "أَخَذَ",
+        "ٱتَّخَذَ"
+      ],
+      "meaning": "related to take, seize"
+    },
+    "عبد": {
+      "root": "عبد",
+      "rootSpaced": "ع ب د",
+      "words": [
+        "عَبَدَ"
+      ],
+      "meaning": "related to worship"
+    },
+    "ظلم": {
+      "root": "ظلم",
+      "rootSpaced": "ظ ل م",
+      "words": [
+        "ظَلَمَ"
+      ],
+      "meaning": "related to oppress, wrong"
+    },
+    "سال": {
+      "root": "سال",
+      "rootSpaced": "س ا ل",
+      "words": [
+        "سَأَلَ"
+      ],
+      "meaning": "related to ask"
+    },
+    "وجد": {
+      "root": "وجد",
+      "rootSpaced": "و ج د",
+      "words": [
+        "وَجَدَ"
+      ],
+      "meaning": "related to find"
+    },
+    "خرج": {
+      "root": "خرج",
+      "rootSpaced": "خ ر ج",
+      "words": [
+        "أَخْرَجَ",
+        "خَرَجَ"
+      ],
+      "meaning": "related to bring forth, drive out, go out, etc."
+    },
+    "اكل": {
+      "root": "اكل",
+      "rootSpaced": "ا ك ل",
+      "words": [
+        "أَكَلَ"
+      ],
+      "meaning": "related to eat, consume"
+    },
+    "ليس": {
+      "root": "ليس",
+      "rootSpaced": "ل ي س",
+      "words": [
+        "لَّيْسَ"
+      ],
+      "meaning": "related to not be"
+    },
+    "فعل": {
+      "root": "فعل",
+      "rootSpaced": "ف ع ل",
+      "words": [
+        "فَعَلَ"
+      ],
+      "meaning": "related to do"
+    },
+    "نظر": {
+      "root": "نظر",
+      "rootSpaced": "ن ظ ر",
+      "words": [
+        "نَّظَرَ"
+      ],
+      "meaning": "related to look, see"
+    },
+    "ذكر": {
+      "root": "ذكر",
+      "rootSpaced": "ذ ك ر",
+      "words": [
+        "ذَكَرَ",
+        "تَذَكَّرَ"
+      ],
+      "meaning": "related to remember, mention, receive admonition"
+    },
+    "خوف": {
+      "root": "خوف",
+      "rootSpaced": "خ و ف",
+      "words": [
+        "خَافَ"
+      ],
+      "meaning": "related to fear, be afraid"
+    },
+    "قتل": {
+      "root": "قتل",
+      "rootSpaced": "ق ت ل",
+      "words": [
+        "قَتَلَ",
+        "قَٰتَلَ"
+      ],
+      "meaning": "related to kill, fight"
+    },
+    "رجع": {
+      "root": "رجع",
+      "rootSpaced": "ر ج ع",
+      "words": [
+        "رَجَعَ"
+      ],
+      "meaning": "related to return"
+    },
+    "سمع": {
+      "root": "سمع",
+      "rootSpaced": "س م ع",
+      "words": [
+        "سَمِعَ"
+      ],
+      "meaning": "related to hear, listen"
+    },
+    "ولي": {
+      "root": "ولي",
+      "rootSpaced": "و ل ي",
+      "words": [
+        "تَوَلَّىٰ"
+      ],
+      "meaning": "related to turn"
+    },
+    "امر": {
+      "root": "امر",
+      "rootSpaced": "ا م ر",
+      "words": [
+        "أَمَرَ"
+      ],
+      "meaning": "related to order, command"
+    },
+    "دخل": {
+      "root": "دخل",
+      "rootSpaced": "د خ ل",
+      "words": [
+        "دَخَلَ",
+        "أُدْخِلَ"
+      ],
+      "meaning": "related to enter, admit"
+    },
+    "جزي": {
+      "root": "جزي",
+      "rootSpaced": "ج ز ي",
+      "words": [
+        "جَزَىٰ"
+      ],
+      "meaning": "related to reward, recompense"
+    },
+    "طوع": {
+      "root": "طوع",
+      "rootSpaced": "ط و ع",
+      "words": [
+        "أَطَاعَ",
+        "ٱسْتَطَاعَ"
+      ],
+      "meaning": "related to obey, be able to, be capable"
+    },
+    "وحي": {
+      "root": "وحي",
+      "rootSpaced": "و ح ي",
+      "words": [
+        "أَوْحَىٰٓ"
+      ],
+      "meaning": "related to reveal, inspire"
+    },
+    "شرك": {
+      "root": "شرك",
+      "rootSpaced": "ش ر ك",
+      "words": [
+        "أَشْرَكَ"
+      ],
+      "meaning": "related to associate partners"
+    },
+    "لقي": {
+      "root": "لقي",
+      "rootSpaced": "ل ق ي",
+      "words": [
+        "أَلْقَىٰٓ"
+      ],
+      "meaning": "related to cast, throw, meet, etc."
+    },
+    "وعد": {
+      "root": "وعد",
+      "rootSpaced": "و ع د",
+      "words": [
+        "وَعَدَ"
+      ],
+      "meaning": "related to promise"
+    },
+    "نفق": {
+      "root": "نفق",
+      "rootSpaced": "ن ف ق",
+      "words": [
+        "أَنفَقَ"
+      ],
+      "meaning": "related to spend"
+    },
+    "غفر": {
+      "root": "غفر",
+      "rootSpaced": "غ ف ر",
+      "words": [
+        "غَفَرَ",
+        "ٱسْتَغْفَرَ"
+      ],
+      "meaning": "related to forgive, ask forgiveness"
+    },
+    "حبب": {
+      "root": "حبب",
+      "rootSpaced": "ح ب ب",
+      "words": [
+        "أَحْبَبْ"
+      ],
+      "meaning": "related to love, like"
+    },
+    "صوب": {
+      "root": "صوب",
+      "rootSpaced": "ص و ب",
+      "words": [
+        "أَصَابَ"
+      ],
+      "meaning": "related to strike, befall, bestow"
+    },
+    "ضلل": {
+      "root": "ضلل",
+      "rootSpaced": "ض ل ل",
+      "words": [
+        "أَضَلَّ",
+        "ضَلَّ"
+      ],
+      "meaning": "related to let go astray, mislead, go astray, etc."
+    },
+    "توب": {
+      "root": "توب",
+      "rootSpaced": "ت و ب",
+      "words": [
+        "تَابَ"
+      ],
+      "meaning": "related to repent, turn"
+    },
+    "كسب": {
+      "root": "كسب",
+      "rootSpaced": "ك س ب",
+      "words": [
+        "كَسَبَ"
+      ],
+      "meaning": "related to earn"
+    },
+    "تلو": {
+      "root": "تلو",
+      "rootSpaced": "ت ل و",
+      "words": [
+        "تَلَىٰ"
+      ],
+      "meaning": "related to recite"
+    },
+    "رزق": {
+      "root": "رزق",
+      "rootSpaced": "ر ز ق",
+      "words": [
+        "رَزَقَ"
+      ],
+      "meaning": "related to provide"
+    },
+    "قضي": {
+      "root": "قضي",
+      "rootSpaced": "ق ض ي",
+      "words": [
+        "قَضَىٰٓ"
+      ],
+      "meaning": "related to decree, decide, judge"
+    },
+    "نصر": {
+      "root": "نصر",
+      "rootSpaced": "ن ص ر",
+      "words": [
+        "نَصَرَ"
+      ],
+      "meaning": "related to help"
+    },
+    "صبر": {
+      "root": "صبر",
+      "rootSpaced": "ص ب ر",
+      "words": [
+        "صَبَرَ"
+      ],
+      "meaning": "related to be patient"
+    },
+    "جري": {
+      "root": "جري",
+      "rootSpaced": "ج ر ي",
+      "words": [
+        "جَرَيْ"
+      ],
+      "meaning": "related to flow, run"
+    },
+    "مسس": {
+      "root": "مسس",
+      "rootSpaced": "م س س",
+      "words": [
+        "مَسَّ"
+      ],
+      "meaning": "related to touch"
+    },
+    "ضرب": {
+      "root": "ضرب",
+      "rootSpaced": "ض ر ب",
+      "words": [
+        "ضَرَبَ"
+      ],
+      "meaning": "related to strike, set forth"
+    },
+    "قوم": {
+      "root": "قوم",
+      "rootSpaced": "ق و م",
+      "words": [
+        "أَقَامَ"
+      ],
+      "meaning": "related to establish"
+    },
+    "بعث": {
+      "root": "بعث",
+      "rootSpaced": "ب ع ث",
+      "words": [
+        "بَعَثَ"
+      ],
+      "meaning": "related to raise, resurrect, send"
+    },
+    "حيي": {
+      "root": "حيي",
+      "rootSpaced": "ح ي ي",
+      "words": [
+        "أَحْيَا"
+      ],
+      "meaning": "related to give life"
+    },
+    "هلك": {
+      "root": "هلك",
+      "rootSpaced": "ه ل ك",
+      "words": [
+        "أَهْلَكَ"
+      ],
+      "meaning": "related to destroy"
+    },
+    "فري": {
+      "root": "فري",
+      "rootSpaced": "ف ر ي",
+      "words": [
+        "ٱفْتَرَىٰ"
+      ],
+      "meaning": "related to invent"
+    },
+    "زيد": {
+      "root": "زيد",
+      "rootSpaced": "ز ي د",
+      "words": [
+        "زَادَ"
+      ],
+      "meaning": "related to increase"
+    },
+    "عقل": {
+      "root": "عقل",
+      "rootSpaced": "ع ق ل",
+      "words": [
+        "عَقَلُ"
+      ],
+      "meaning": "related to understand, reason"
+    },
+    "كتب": {
+      "root": "كتب",
+      "rootSpaced": "ك ت ب",
+      "words": [
+        "كَتَبَ"
+      ],
+      "meaning": "related to write, prescribe, ordain"
+    },
+    "ظنن": {
+      "root": "ظنن",
+      "rootSpaced": "ظ ن ن",
+      "words": [
+        "ظَنَّ"
+      ],
+      "meaning": "related to think, assume, guess"
+    },
+    "شكر": {
+      "root": "شكر",
+      "rootSpaced": "ش ك ر",
+      "words": [
+        "شَكَرَ"
+      ],
+      "meaning": "related to be grateful, give thanks"
+    },
+    "نبا": {
+      "root": "نبا",
+      "rootSpaced": "ن ب ا",
+      "words": [
+        "نَبَّأَ"
+      ],
+      "meaning": "related to inform"
+    },
+    "حكم": {
+      "root": "حكم",
+      "rootSpaced": "ح ك م",
+      "words": [
+        "حَكَمَ"
+      ],
+      "meaning": "related to judge"
+    },
+    "وذر": {
+      "root": "وذر",
+      "rootSpaced": "و ذ ر",
+      "words": [
+        "يَذَرَ"
+      ],
+      "meaning": "related to leave, forsake"
+    },
+    "حسب": {
+      "root": "حسب",
+      "rootSpaced": "ح س ب",
+      "words": [
+        "حَسِبَ"
+      ],
+      "meaning": "related to think"
+    },
+    "شهد": {
+      "root": "شهد",
+      "rootSpaced": "ش ه د",
+      "words": [
+        "شَهِدَ"
+      ],
+      "meaning": "related to testify, bear witness"
+    },
+    "ملك": {
+      "root": "ملك",
+      "rootSpaced": "م ل ك",
+      "words": [
+        "مَلَكَتْ"
+      ],
+      "meaning": "related to possess, have power"
+    },
+    "ندو": {
+      "root": "ندو",
+      "rootSpaced": "ن د و",
+      "words": [
+        "نَادَىٰ"
+      ],
+      "meaning": "related to call"
+    },
+    "نذر": {
+      "root": "نذر",
+      "rootSpaced": "ن ذ ر",
+      "words": [
+        "أَنذَرَ"
+      ],
+      "meaning": "related to warn"
+    },
+    "سبح": {
+      "root": "سبح",
+      "rootSpaced": "س ب ح",
+      "words": [
+        "سَبَّحَ"
+      ],
+      "meaning": "related to glorify, praise"
+    },
+    "حمل": {
+      "root": "حمل",
+      "rootSpaced": "ح م ل",
+      "words": [
+        "حَمَلَ"
+      ],
+      "meaning": "related to carry, bear"
+    },
+    "عذب": {
+      "root": "عذب",
+      "rootSpaced": "ع ذ ب",
+      "words": [
+        "عَذَّبَ"
+      ],
+      "meaning": "related to punish"
+    },
+    "باس": {
+      "root": "باس",
+      "rootSpaced": "ب ا س",
+      "words": [
+        "بِئْسَ"
+      ],
+      "meaning": "related to be wretched, be evil"
+    },
+    "بلغ": {
+      "root": "بلغ",
+      "rootSpaced": "ب ل غ",
+      "words": [
+        "بَلَغَ"
+      ],
+      "meaning": "related to reach"
+    },
+    "ترك": {
+      "root": "ترك",
+      "rootSpaced": "ت ر ك",
+      "words": [
+        "تَرَكَ"
+      ],
+      "meaning": "related to leave"
+    },
+    "خشي": {
+      "root": "خشي",
+      "rootSpaced": "خ ش ي",
+      "words": [
+        "خَشِىَ"
+      ],
+      "meaning": "related to fear"
+    },
+    "كبر": {
+      "root": "كبر",
+      "rootSpaced": "ك ب ر",
+      "words": [
+        "ٱسْتَكْبَرَ"
+      ],
+      "meaning": "related to be arrogant"
+    },
+    "وكل": {
+      "root": "وكل",
+      "rootSpaced": "و ك ل",
+      "words": [
+        "تَوَكَّلْ"
+      ],
+      "meaning": "related to put trust"
+    },
+    "حرم": {
+      "root": "حرم",
+      "rootSpaced": "ح ر م",
+      "words": [
+        "حَرَّمَ"
+      ],
+      "meaning": "related to forbid, make unlawful"
+    },
+    "موت": {
+      "root": "موت",
+      "rootSpaced": "م و ت",
+      "words": [
+        "مَّاتَ"
+      ],
+      "meaning": "related to die"
+    }
+  }
+}

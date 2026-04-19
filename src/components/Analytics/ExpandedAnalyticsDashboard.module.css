@@ -1,0 +1,526 @@
+/* ExpandedAnalyticsDashboard.module.css — Comprehensive analytics */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panel {
+  max-width: 780px;
+  width: 94%;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #1a1a2e;
+  border: 2px solid #FFD700;
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+}
+
+.panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.panel::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+.panel::-webkit-scrollbar-thumb {
+  background: #FFD700;
+  border-radius: 3px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-right: 32px;
+}
+
+.title {
+  color: #FFD700;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.titleArabic {
+  color: #c8c8c8;
+  font-size: 0.8rem;
+  direction: rtl;
+  margin: 2px 0 0 0;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: #c8c8c8;
+  font-size: 1.4rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 6px;
+  transition: color 0.15s;
+}
+
+.closeBtn:hover {
+  color: #FFD700;
+}
+
+.closeBtn:focus-visible {
+  outline: 2px solid #FFD700;
+  outline-offset: 2px;
+}
+
+/* Tabs */
+.tabBar {
+  display: flex;
+  gap: 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #3a373b;
+  overflow-x: auto;
+}
+
+.tabBar::-webkit-scrollbar {
+  height: 0;
+}
+
+.tab {
+  background: transparent;
+  border: none;
+  color: #888;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.tab:hover {
+  color: #c8c8c8;
+}
+
+.tabActive {
+  color: #FFD700;
+  border-bottom-color: #FFD700;
+}
+
+/* Tab Content */
+.tabContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Section card */
+.section {
+  background: #16162a;
+  border: 2px solid #3a373b;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.sectionTitle {
+  color: #FFD700;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 12px 0;
+}
+
+.sectionTitleArabic {
+  color: #888;
+  font-size: 0.65rem;
+  direction: rtl;
+  display: block;
+  margin-top: 2px;
+}
+
+/* Quick Stats Row */
+.quickStats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.statCard {
+  background: #16162a;
+  border: 2px solid #3a373b;
+  border-radius: 8px;
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.statValue {
+  color: #FFD700;
+  font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.statLabel {
+  color: #c8c8c8;
+  font-size: 0.65rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Struggling words table */
+.wordTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.wordTable th {
+  color: #888;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 6px 8px;
+  border-bottom: 1px solid #3a373b;
+}
+
+.wordTable td {
+  color: #f4fefa;
+  font-size: 0.8rem;
+  padding: 8px;
+  border-bottom: 1px solid #2a2a3e;
+}
+
+.wordAccuracyLow {
+  color: #f03131;
+}
+
+.wordAccuracyMed {
+  color: #f8a060;
+}
+
+.wordAccuracyHigh {
+  color: #4ade80;
+}
+
+.practiceBtn {
+  background: #FFD700;
+  color: #1a1a2e;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.practiceBtn:hover {
+  background: #d4a843;
+}
+
+/* Progress bars for grammar */
+.progressBarContainer {
+  margin-bottom: 10px;
+}
+
+.progressBarLabel {
+  display: flex;
+  justify-content: space-between;
+  color: #c8c8c8;
+  font-size: 0.75rem;
+  margin-bottom: 4px;
+}
+
+.progressBarTrack {
+  height: 8px;
+  background: #2a2a3e;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+/* CEFR estimation card */
+.cefrCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  background: #1a1a2e;
+  border-radius: 6px;
+  border: 1px solid #3a373b;
+}
+
+.cefrBadge {
+  background: #FFD700;
+  color: #1a1a2e;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.cefrInfo {
+  flex: 1;
+}
+
+.cefrNext {
+  color: #c8c8c8;
+  font-size: 0.8rem;
+  margin: 0 0 4px 0;
+}
+
+.cefrEstimate {
+  color: #FFD700;
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+.cefrConfidence {
+  color: #888;
+  font-size: 0.6rem;
+  font-style: italic;
+}
+
+/* Report cards */
+.reportCard {
+  background: #1a1a2e;
+  border: 1px solid #3a373b;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.reportHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.reportPeriod {
+  color: #FFD700;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.reportDate {
+  color: #888;
+  font-size: 0.65rem;
+}
+
+.reportStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.reportStatItem {
+  text-align: center;
+}
+
+.reportStatValue {
+  color: #f4fefa;
+  font-size: 1rem;
+  font-weight: bold;
+  display: block;
+}
+
+.reportStatLabel {
+  color: #888;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+}
+
+.reportHighlights {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0;
+}
+
+.reportHighlights li {
+  color: #4ade80;
+  font-size: 0.75rem;
+  padding: 2px 0;
+}
+
+.reportHighlights li::before {
+  content: '\2605  ';
+  color: #FFD700;
+}
+
+/* Export button */
+.exportBtn {
+  background: transparent;
+  border: 1px solid #FFD700;
+  color: #FFD700;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.exportBtn:hover {
+  background: #FFD700;
+  color: #1a1a2e;
+}
+
+.exportBtn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.copiedMsg {
+  color: #4ade80;
+  font-size: 0.7rem;
+  margin-left: 8px;
+}
+
+/* Recommendations */
+.recommendationList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.recommendationCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+  background: #1a1a2e;
+  border-radius: 6px;
+  border: 1px solid #2a2a3e;
+}
+
+.recommendationIcon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.recommendationText {
+  color: #f4fefa;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.recommendationArabic {
+  color: #888;
+  font-size: 0.7rem;
+  direction: rtl;
+  margin: 2px 0 0 0;
+}
+
+.recommendationType {
+  color: #888;
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Empty state */
+.emptyState {
+  text-align: center;
+  color: #888;
+  padding: 40px 20px;
+  font-size: 0.9rem;
+}
+
+.emptySubtext {
+  color: #666;
+  font-size: 0.75rem;
+  margin-top: 8px;
+}
+
+/* Session timeline */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.timelineItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  background: #1a1a2e;
+  border-radius: 4px;
+  border-left: 3px solid #FFD700;
+}
+
+.timelineDate {
+  color: #888;
+  font-size: 0.65rem;
+  min-width: 65px;
+}
+
+.timelineActivity {
+  color: #c8c8c8;
+  font-size: 0.75rem;
+  text-transform: capitalize;
+}
+
+.timelineDuration {
+  color: #FFD700;
+  font-size: 0.7rem;
+  margin-left: auto;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .panel {
+    padding: 14px;
+    width: 98%;
+  }
+
+  .quickStats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reportStats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tab {
+    padding: 8px 10px;
+    font-size: 0.7rem;
+  }
+
+  .statValue {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .title {
+    font-size: 1rem;
+  }
+
+  .ringsRow {
+    flex-wrap: wrap;
+  }
+}

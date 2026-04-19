@@ -1,0 +1,1058 @@
+@import '../../styles/variables.css';
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  z-index: var(--z-overlay);
+  pointer-events: none;
+  font-family: var(--font-pixel);
+  image-rendering: pixelated;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.dialogueBox {
+  position: relative;
+  background: var(--color-dark);
+  border-top: 4px solid var(--color-xp-gold);
+  padding: 16px 20px;
+  color: var(--color-white);
+  min-height: 180px;
+  pointer-events: auto;
+  display: flex;
+  gap: 16px;
+  font-family: var(--font-pixel);
+  box-shadow:
+    inset 0 -4px 0 0 rgba(0, 0, 0, 0.3),
+    inset 0 4px 0 0 rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  overflow: hidden;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.portraitWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.portrait {
+  width: 96px;
+  height: 96px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-gray);
+  border: 4px solid var(--color-dark);
+  box-shadow:
+    inset -3px -3px 0px 0px rgba(0, 0, 0, 0.4),
+    inset 3px 3px 0px 0px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  image-rendering: pixelated;
+}
+
+.portraitImg {
+  width: 96px;
+  height: 96px;
+  image-rendering: pixelated;
+  object-fit: cover;
+}
+
+.portraitName {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  text-align: center;
+  margin-top: 6px;
+  color: var(--color-xp-gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  max-width: 96px;
+  line-height: 1.4;
+}
+
+.portraitNameArabic {
+  font-family: var(--font-arabic-display), var(--font-arabic), sans-serif;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 2px;
+  color: var(--color-xp-gold);
+  direction: rtl;
+  unicode-bidi: isolate;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.speakerName {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  color: var(--color-xp-gold);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.arabicLine {
+  font-size: 28px;
+  font-family: var(--font-arabic-body), var(--font-arabic), sans-serif;
+  direction: rtl;
+  unicode-bidi: isolate;
+  text-align: right;
+  line-height: 1.8;
+  margin-bottom: 6px;
+  color: var(--color-xp-gold);
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+  /* Prevent diacritics (tashkeel) from causing overflow */
+  padding-top: 4px;
+  padding-bottom: 2px;
+}
+
+.englishLine {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  color: var(--color-white);
+  margin-bottom: 4px;
+  line-height: 1.8;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+.translitLine {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  color: var(--color-light);
+  font-style: italic;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+/* Cultural note */
+.culturalNote {
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: rgba(230, 57, 70, 0.08);
+  border-left: 3px solid #E63946;
+  border-radius: 4px;
+}
+
+.culturalNoteLabel {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #E63946;
+  margin-bottom: 4px;
+  font-family: var(--font-pixel);
+}
+
+.culturalNoteText {
+  font-size: 0.85rem;
+  color: #ccc;
+  line-height: 1.4;
+  font-family: var(--font-pixel);
+}
+
+/* Teach word badge and card */
+.teachContainer {
+  margin-top: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.teachBadge {
+  display: inline-block;
+  background: var(--color-xp-gold);
+  border: 4px solid var(--color-dark);
+  padding: 5px 12px;
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--color-dark);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+  box-shadow:
+    inset -2px -2px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 0px 0px rgba(255, 255, 255, 0.3);
+}
+
+.wordCard {
+  background: var(--color-gray);
+  border: 3px solid var(--color-xp-gold);
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.wordCardArabic {
+  font-family: var(--font-arabic-body), var(--font-arabic), sans-serif;
+  font-size: 24px;
+  direction: rtl;
+  unicode-bidi: isolate;
+  text-align: right;
+  color: var(--color-xp-gold);
+  line-height: 1.6;
+  padding-top: 2px;
+}
+
+.wordCardEnglish {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  color: var(--color-white);
+}
+
+.wordCardTranslit {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  color: var(--color-light);
+  font-style: italic;
+}
+
+/* CEFR Level Badge */
+.cefrBadge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: bold;
+  margin-top: 4px;
+  letter-spacing: 1px;
+  font-family: var(--font-pixel);
+}
+.cefrBadge[data-level="A1"] { background: #4caf50; color: #fff; }
+.cefrBadge[data-level="A2"] { background: #2196f3; color: #fff; }
+.cefrBadge[data-level="B1"] { background: #ff9800; color: #fff; }
+.cefrBadge[data-level="B2"] { background: #e63946; color: #fff; }
+
+/* Choices */
+.choices {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.choiceBtn {
+  padding: 12px 18px;
+  background: var(--color-beige);
+  border: 4px solid var(--color-dark);
+  color: var(--color-dark);
+  cursor: pointer;
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  flex: 1;
+  text-align: center;
+  min-width: 100px;
+  /* UXPL-06: WCAG 2.1 minimum touch target */
+  min-height: 44px;
+  box-shadow:
+    inset -3px -3px 0px 0px rgba(0, 0, 0, 0.15),
+    inset 3px 3px 0px 0px rgba(255, 255, 255, 0.4),
+    0 4px 0 0 var(--color-brown);
+  transition: transform 0.05s;
+  image-rendering: pixelated;
+}
+
+.choiceBtn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset -3px -3px 0px 0px rgba(0, 0, 0, 0.15),
+    inset 3px 3px 0px 0px rgba(255, 255, 255, 0.5),
+    0 6px 0 0 var(--color-brown);
+}
+
+.choiceBtn:active {
+  transform: translateY(2px);
+  box-shadow:
+    inset -3px -3px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 3px 3px 0px 0px rgba(255, 255, 255, 0.3),
+    0 2px 0 0 var(--color-brown);
+}
+
+.choiceBtn:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.backdrop:focus-visible,
+.dialogueBox:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: -4px;
+}
+
+.continueHint {
+  position: absolute;
+  bottom: 10px;
+  right: 16px;
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.continueIndicator {
+  display: inline-block;
+  animation: blink 1.2s infinite;
+  margin-left: 4px;
+}
+
+@keyframes blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .continueIndicator {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* Topic Selection Menu */
+.topicGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.topicBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  background: var(--color-beige);
+  border: 4px solid var(--color-dark);
+  color: var(--color-dark);
+  cursor: pointer;
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  text-align: left;
+  /* UXPL-06: WCAG 2.1 minimum touch target */
+  min-height: 44px;
+  box-shadow:
+    inset -3px -3px 0px 0px rgba(0, 0, 0, 0.15),
+    inset 3px 3px 0px 0px rgba(255, 255, 255, 0.4),
+    0 4px 0 0 var(--color-brown);
+  transition: transform 0.05s;
+  image-rendering: pixelated;
+}
+
+.topicBtn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset -3px -3px 0px 0px rgba(0, 0, 0, 0.15),
+    inset 3px 3px 0px 0px rgba(255, 255, 255, 0.5),
+    0 6px 0 0 var(--color-brown);
+}
+
+.topicBtn:active {
+  transform: translateY(2px);
+  box-shadow:
+    inset -3px -3px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 3px 3px 0px 0px rgba(255, 255, 255, 0.3),
+    0 2px 0 0 var(--color-brown);
+}
+
+.topicBtn:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.topicBtnVisited {
+  opacity: 0.65;
+}
+
+.topicIcon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.topicLabel {
+  flex: 1;
+}
+
+.topicCheck {
+  color: var(--color-xp-gold);
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+/* Relationship Indicator */
+.relationshipBar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.trustIcon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.trustFilled {
+  color: var(--color-xp-gold);
+}
+
+.trustEmpty {
+  color: var(--color-gray);
+  opacity: 0.4;
+}
+
+.trustLabel {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-light);
+  margin-left: 8px;
+}
+
+.trustPulse {
+  animation: trustPulse 0.4s ease-out;
+}
+
+@keyframes trustPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* Conversation History */
+.historyPanel {
+  position: relative;
+  background: var(--color-dark);
+  border-top: 4px solid var(--color-xp-gold);
+  padding: 16px 20px;
+  color: var(--color-white);
+  min-height: 180px;
+  pointer-events: auto;
+  font-family: var(--font-pixel);
+}
+
+.historyList {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+}
+
+.historyItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 4px;
+  font-size: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.historyDiscussed {
+  color: var(--color-xp-gold);
+}
+
+.historyLocked {
+  color: var(--color-light);
+  opacity: 0.5;
+}
+
+/* Vocabulary Highlight */
+.vocabHighlight {
+  color: var(--color-xp-gold);
+  background: transparent;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 4px;
+  cursor: help;
+  position: relative;
+}
+
+.vocabTooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-dark);
+  border: 2px solid var(--color-xp-gold);
+  padding: 6px 10px;
+  font-size: 11px;
+  white-space: nowrap;
+  z-index: 10;
+  pointer-events: none;
+  margin-bottom: 4px;
+}
+
+.vocabTooltipEnglish {
+  color: var(--color-white);
+  font-family: var(--font-pixel);
+  font-size: 10px;
+}
+
+.vocabTooltipTranslit {
+  color: var(--color-light);
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  font-style: italic;
+}
+
+/* NPC Header (mood + name + relationship) */
+.npcHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.npcMood {
+  font-size: 18px;
+}
+
+/* End Conversation button */
+.endConversationBtn {
+  margin-top: 12px;
+  width: 100%;
+  padding: 10px;
+  background: var(--color-gray);
+  border: 3px solid var(--color-dark);
+  color: var(--color-light);
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  /* UXPL-06: WCAG 2.1 minimum touch target */
+  min-height: 44px;
+}
+
+.endConversationBtn:hover {
+  background: var(--color-dark);
+  color: var(--color-white);
+}
+
+.endConversationBtn:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* History button (small) */
+.historyBtn {
+  font-size: 8px;
+  color: var(--color-light);
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: var(--font-pixel);
+  margin-top: 8px;
+  padding: 4px;
+  /* UXPL-06: WCAG 2.1 minimum touch target */
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.historyBtn:hover {
+  color: var(--color-xp-gold);
+}
+
+.historyBtn:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.choiceHint {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: var(--color-light-gray);
+  margin-top: 8px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.choiceNumber {
+  display: inline-block;
+  min-width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  background: var(--color-dark);
+  color: var(--color-xp-gold);
+  border-radius: 2px;
+  margin-right: 6px;
+  font-size: 8px;
+  font-weight: bold;
+}
+
+.choiceArabic {
+  font-size: 18px;
+  font-family: var(--font-arabic-body), var(--font-arabic), sans-serif;
+  direction: rtl;
+  unicode-bidi: isolate;
+  text-align: right;
+  margin-top: 6px;
+  color: var(--color-brown);
+  line-height: 1.6;
+  padding-top: 2px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .dialogueBox {
+    padding: 14px 18px;
+    min-height: 180px;
+    gap: 12px;
+  }
+
+  .portrait {
+    width: 80px;
+    height: 80px;
+  }
+
+  .portraitImg {
+    width: 80px;
+    height: 80px;
+  }
+
+  .portraitName {
+    font-size: 8px;
+    max-width: 80px;
+  }
+
+  .portraitNameArabic {
+    font-size: 14px;
+  }
+
+  .speakerName {
+    font-size: 10px;
+  }
+
+  .arabicLine {
+    font-size: 24px;
+  }
+
+  .englishLine {
+    font-size: 10px;
+  }
+
+  .translitLine {
+    font-size: 9px;
+  }
+
+  .teachBadge {
+    font-size: 9px;
+    padding: 4px 10px;
+  }
+
+  .wordCardArabic {
+    font-size: 20px;
+  }
+
+  .wordCardEnglish {
+    font-size: 10px;
+  }
+
+  .wordCardTranslit {
+    font-size: 9px;
+  }
+
+  .choices {
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .choiceBtn {
+    font-size: 10px;
+    padding: 14px 16px;
+    /* Touch-friendly target */
+    min-height: 48px;
+    min-width: 100px;
+  }
+
+  .choiceHint {
+    font-size: 6px;
+  }
+
+  .continueHint {
+    font-size: 8px;
+  }
+
+  .topicGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .topicBtn {
+    font-size: 9px;
+    padding: 14px 14px;
+    min-height: 48px;
+  }
+
+  .trustIcon {
+    font-size: 12px;
+  }
+
+  .vocabTooltip {
+    font-size: 9px;
+    max-width: 200px;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 480px) {
+  .dialogueBox {
+    flex-direction: column;
+    padding: 12px 14px;
+    min-height: 160px;
+    gap: 10px;
+  }
+
+  .portraitWrap {
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .portrait {
+    width: 64px;
+    height: 64px;
+  }
+
+  .portraitImg {
+    width: 64px;
+    height: 64px;
+  }
+
+  .portraitName {
+    font-size: 7px;
+    margin-top: 0;
+  }
+
+  .portraitNameArabic {
+    font-size: 12px;
+    margin-top: 0;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .speakerName {
+    font-size: 9px;
+  }
+
+  .arabicLine {
+    font-size: 20px;
+    line-height: 1.6;
+  }
+
+  .englishLine {
+    font-size: 9px;
+    line-height: 1.7;
+  }
+
+  .translitLine {
+    font-size: 8px;
+    line-height: 1.5;
+  }
+
+  .teachContainer {
+    margin-top: 8px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .teachBadge {
+    font-size: 8px;
+    padding: 4px 8px;
+  }
+
+  .wordCard {
+    padding: 6px 10px;
+    width: 100%;
+  }
+
+  .wordCardArabic {
+    font-size: 18px;
+  }
+
+  .wordCardEnglish {
+    font-size: 9px;
+  }
+
+  .wordCardTranslit {
+    font-size: 8px;
+  }
+
+  .choices {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .choiceBtn {
+    font-size: 9px;
+    padding: 14px 14px;
+    /* WCAG compliant touch target */
+    min-height: 48px;
+    min-width: 100%;
+  }
+
+  .choiceNumber {
+    font-size: 7px;
+    min-width: 14px;
+    height: 14px;
+    line-height: 14px;
+  }
+
+  .choiceArabic {
+    font-size: 16px;
+    margin-top: 4px;
+  }
+
+  .choiceHint {
+    font-size: 6px;
+    margin-top: 6px;
+  }
+
+  .continueHint {
+    font-size: 7px;
+    bottom: 8px;
+    right: 12px;
+  }
+
+  .topicGrid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .topicBtn {
+    font-size: 8px;
+    padding: 12px 10px;
+    min-height: 44px;
+  }
+
+  .trustIcon {
+    font-size: 10px;
+  }
+
+  .trustLabel {
+    font-size: 7px;
+  }
+
+  .vocabTooltip {
+    font-size: 8px;
+    max-width: 160px;
+    white-space: normal;
+  }
+
+  .vocabTooltipEnglish {
+    font-size: 8px;
+  }
+
+  .vocabTooltipTranslit {
+    font-size: 7px;
+  }
+
+  .npcMood {
+    font-size: 14px;
+  }
+
+  .historyPanel {
+    padding: 12px 14px;
+    min-height: 140px;
+  }
+
+  .historyItem {
+    font-size: 8px;
+    padding: 6px 4px;
+  }
+
+  .endConversationBtn {
+    font-size: 8px;
+    padding: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trustPulse {
+    animation: none;
+  }
+}
+
+/* TopicSelectionMenu bottom row */
+.bottomRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ──────────────────────────────────────────────── */
+/* Ink Dialogue (PATH-01 / PATH-02)                */
+/* ──────────────────────────────────────────────── */
+
+.inkMotionWrap {
+  width: 100%;
+}
+
+.inkNpcHeader {
+  margin-bottom: 8px;
+}
+
+.inkNpcName {
+  color: #D4A843;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.inkLine {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #fff;
+  margin-bottom: 12px;
+  min-height: 48px;
+}
+
+.inkChoicesWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.inkChoiceBtn {
+  background: rgba(212, 168, 67, 0.12);
+  border: 1px solid #D4A843;
+  border-radius: 6px;
+  color: #D4A843;
+  padding: 10px 16px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: right;
+  transition: background 0.15s;
+}
+
+.inkChoiceBtn:hover {
+  background: rgba(212, 168, 67, 0.25);
+}
+
+.inkContinueHint {
+  color: #888;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* Hub-and-spoke choice line header (no border-top, compact) */
+.hubChoiceDialogueBox {
+  min-height: auto;
+  padding-bottom: 0;
+  border-top: none;
+}
+
+/* ──────────────────────────────────────────────── */
+/* Gift Panel                                       */
+/* ──────────────────────────────────────────────── */
+
+.giftBtnWrap {
+  display: flex;
+  justify-content: flex-end;
+  padding: 4px 8px;
+}
+
+.giftBtn {
+  background: transparent;
+  border: 1px solid #D4A843;
+  color: #D4A843;
+  border-radius: 4px;
+  padding: 4px 12px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.giftPanel {
+  background: #1a1a2e;
+  border: 1px solid #D4A843;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 4px 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.giftPanelTitle {
+  color: #D4A843;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.giftPanelEmpty {
+  color: #888;
+  font-size: 12px;
+}
+
+.giftItemBtn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 1px solid #333;
+  border-radius: 4px;
+  color: #fff;
+  padding: 6px 8px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.giftItemArabic {
+  color: #888;
+  margin-left: 8px;
+  font-size: 11px;
+}
+
+.giftItemQty {
+  color: #555;
+  margin-left: 8px;
+  font-size: 11px;
+}
+
+.giftCancelBtn {
+  color: #888;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-top: 4px;
+  font-size: 12px;
+}

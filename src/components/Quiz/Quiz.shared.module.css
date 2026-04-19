@@ -1,0 +1,36 @@
+@import '../../styles/variables.css';
+
+.quizPanel {
+  background: #1a1a2e;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.optionButton {
+  background: #2a2a4e;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.optionButton:hover {
+  border-color: #E63946;
+}
+
+.correct {
+  border-color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+}
+
+.incorrect {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.arabicText {
+  direction: rtl;
+  text-align: right;
+  font-size: 1.5rem;
+}

@@ -1,0 +1,107 @@
+/* ReadingExercise — Reading comprehension exercises */
+@import '../../styles/variables.css';
+
+.container { width: 100vw; height: 100vh; background: var(--color-beige); overflow: auto; padding: 20px; box-sizing: border-box; font-family: var(--font-pixel); }
+.header { text-align: center; margin-bottom: 30px; }
+.title { font-family: var(--font-pixel); font-size: 20px; color: var(--color-brown); margin: 0 0 10px 0; }
+.titleArabic { font-family: var(--font-arabic-display); font-size: 28px; color: var(--color-dark-gold); margin: 0 0 10px 0; direction: rtl; }
+.subtitle { font-size: 10px; color: var(--color-brown); max-width: 600px; margin: 0 auto; }
+.difficultySelector { text-align: center; max-width: 600px; margin: 0 auto; }
+.difficultyLabel { font-size: 12px; margin-bottom: 20px; }
+
+.progressBar { background: var(--color-white); border: 3px solid var(--color-brown); padding: 12px; margin-bottom: 20px; text-align: center; }
+.progressText { font-size: 10px; color: var(--color-brown); }
+
+.passageHeader { text-align: center; margin-bottom: 20px; }
+.passageTitle { font-size: 16px; color: var(--color-brown); margin: 0 0 8px 0; }
+.passageTitleArabic { font-family: var(--font-arabic-display); font-size: 22px; color: var(--color-dark-gold); margin: 0 0 8px 0; direction: rtl; }
+.difficultyBadge { display: inline-block; background: var(--color-xp-gold); color: var(--color-brown); padding: 6px 12px; font-size: 8px; border: 2px solid var(--color-brown); }
+
+.passageBox { background: var(--color-white); border: 4px solid var(--color-brown); padding: 24px; margin-bottom: 20px; max-width: 800px; margin: 0 auto 20px; }
+.arabicText { font-family: var(--font-arabic-body); font-size: 20px; line-height: 1.8; color: var(--color-brown); direction: rtl; text-align: right; margin: 0 0 16px 0; }
+.toggleButtons { text-align: center; margin-top: 16px; }
+.translationText { font-size: 12px; line-height: 1.6; color: var(--color-dark-gold); margin-top: 16px; padding: 12px; background: var(--color-creamy-beige); border: 2px solid var(--color-olive-green); }
+.transliterationText { font-size: 11px; line-height: 1.6; color: var(--color-gray); margin-top: 12px; font-style: italic; }
+
+.questionBox { background: var(--color-creamy-beige); border: 4px solid var(--color-brown); padding: 24px; max-width: 800px; margin: 0 auto; }
+.questionText { font-size: 12px; color: var(--color-brown); margin-bottom: 8px; font-weight: bold; }
+.questionArabic { font-family: var(--font-arabic-display); font-size: 16px; color: var(--color-dark-gold); direction: rtl; margin-bottom: 16px; }
+.optionsGrid { display: flex; flex-direction: column; gap: 8px; }
+.optionNumber { display: inline-block; min-width: 20px; }
+
+.resultsPanel { max-width: 800px; margin: 0 auto; background: var(--color-white); border: 4px solid var(--color-brown); padding: 30px; }
+.resultsTitle { font-size: 18px; text-align: center; color: var(--color-brown); margin-bottom: 20px; }
+.scoreDisplay { text-align: center; margin-bottom: 30px; }
+.scoreNumber { font-size: 48px; color: var(--color-xp-gold); font-family: var(--font-pixel); }
+.scoreDetails { font-size: 12px; color: var(--color-brown); margin-top: 8px; }
+.answerReview { margin-bottom: 30px; }
+.reviewItem { margin-bottom: 16px; padding: 12px; background: var(--color-beige); border: 2px solid var(--color-brown); }
+.reviewQuestion { font-size: 10px; color: var(--color-brown); margin-bottom: 6px; }
+.correctAnswer { font-size: 10px; color: var(--color-green); }
+.wrongAnswer { font-size: 10px; color: var(--color-red); }
+.correctAnswerHint { font-size: 9px; color: var(--color-dark-gold); margin-top: 4px; }
+.resultsActions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.errorText { text-align: center; font-size: 12px; color: var(--color-red); margin-bottom: 20px; }
+
+/* Pixel-art button styles (migrated from theme.js inline styles) */
+.pixelBtnGold {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  padding: 14px 28px;
+  border: none;
+  cursor: pointer;
+  image-rendering: pixelated;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  background: var(--color-xp-gold);
+  color: var(--color-brown);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.3),
+    0 4px 0 0 #a0842a;
+  transition: transform 0.05s;
+}
+
+.pixelBtnDark {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  padding: 14px 28px;
+  border: none;
+  cursor: pointer;
+  image-rendering: pixelated;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  background: var(--color-gray);
+  color: var(--color-white);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.3),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.1),
+    0 4px 0 0 #1a191b;
+  transition: transform 0.05s;
+}
+
+.submitBtn {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  padding: 14px 28px;
+  border: none;
+  cursor: pointer;
+  image-rendering: pixelated;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  background: var(--color-xp-gold);
+  color: var(--color-brown);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.3),
+    0 4px 0 0 #a0842a;
+  transition: transform 0.05s;
+}
+
+.submitBtnDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

@@ -1,0 +1,212 @@
+/**
+ * ShopInventory CSS Module
+ * Grid component for shop buy/sell interface
+ */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.emptyMessage {
+  text-align: center;
+  padding: 40px 20px;
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--color-brown);
+}
+
+.itemCard {
+  padding: 12px;
+  border: 4px solid var(--color-dark);
+  background: var(--color-white);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.itemHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.itemNameArabic {
+  font-family: var(--font-arabic);
+  font-size: 14px;
+  direction: rtl;
+  color: var(--color-xp-gold);
+  font-weight: bold;
+}
+
+.itemName {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--color-dark);
+}
+
+.quantity {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-brown);
+  font-weight: bold;
+}
+
+.affixRow {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.affixLearned,
+.affixUnlearned {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-family: var(--font-pixel);
+  font-size: 7px;
+}
+
+.affixDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.affixLearned .affixDot {
+  background: var(--color-green);
+}
+
+.affixUnlearned .affixDot {
+  background: var(--color-xp-gold);
+}
+
+.affixBadge {
+  background: var(--color-xp-gold);
+  color: var(--color-dark);
+  padding: 2px 4px;
+  border-radius: 2px;
+  font-weight: bold;
+}
+
+.priceRow {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 4px 0;
+}
+
+.priceArabic {
+  font-family: var(--font-arabic);
+  font-size: 13px;
+  direction: rtl;
+  color: var(--color-xp-gold);
+  font-weight: bold;
+}
+
+.priceWestern {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: var(--color-brown);
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+}
+
+.buyBtn,
+.sellBtn {
+  /* pixelBtnGold */
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  padding: 6px 15px;
+  border: none;
+  cursor: pointer;
+  image-rendering: pixelated;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: var(--color-xp-gold);
+  color: var(--color-brown);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0,0,0,0.2),
+    inset 4px 4px 0px 0px rgba(255,255,255,0.3),
+    0 4px 0 0 #a0842a;
+  transition: transform 0.05s;
+  flex: 1;
+}
+
+.buyBtn:hover:not(:disabled),
+.sellBtn:hover {
+  transform: translateY(-2px);
+}
+
+.buyBtn:active:not(:disabled),
+.sellBtn:active {
+  transform: translateY(2px);
+  box-shadow:
+    inset -2px -2px 0px 0px rgba(0,0,0,0.2),
+    inset 2px 2px 0px 0px rgba(255,255,255,0.3);
+}
+
+.btnDisabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.haggleBtn {
+  /* pixelBtn (cyan) */
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  padding: 6px 10px;
+  border: none;
+  cursor: pointer;
+  background: var(--color-cyan);
+  color: var(--color-dark);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0,0,0,0.2),
+    inset 4px 4px 0px 0px rgba(255,255,255,0.2),
+    0 4px 0 0 #048a9e;
+  transition: transform 0.05s;
+}
+
+.haggleBtn:hover {
+  transform: translateY(-2px);
+}
+
+.haggleBtn:active {
+  transform: translateY(2px);
+}
+
+.lockedBadge {
+  font-size: 16px;
+  opacity: 0.5;
+}
+
+/* ECON-04: Price direction indicators */
+.priceUp {
+  color: #E63946;
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+.priceDown {
+  color: #2A9D8F;
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+.outOfStock {
+  color: #E63946;
+  font-size: 11px;
+  font-style: italic;
+  margin-left: 6px;
+}

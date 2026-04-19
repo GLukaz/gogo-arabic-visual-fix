@@ -1,0 +1,131 @@
+/**
+ * Global CSS custom properties from theme.js
+ * Shared pixel-art theme constants
+ */
+
+:root {
+  /* Warm backgrounds (from SimpleLuke) */
+  --color-beige: #f5f3da;
+  --color-brown: #391D23;
+  --color-dark-brown: #1f0c10;
+  --color-brown2: #2e1700;
+  --color-burgundy: #800200;
+  --color-pastel-red: #C1311C;
+  --color-olive-green: #BAB86C;
+  --color-dark-gold: #A26B35;
+  --color-creamy-beige: #F3EAD7;
+
+  /* Monster-quest palette */
+  --color-white: #f4fefa;
+  --color-pure-white: #ffffff;
+  --color-dark: #2b292c;
+  --color-light: #c8c8c8;
+  --color-gray: #3a373b;
+  --color-gold: #bfa100;
+  --color-light-gray: #4b484d;
+  --color-black: #000000;
+
+  /* Accent colors */
+  --color-cyan: #06c1de;
+  --color-cyan-hover: #06b6d1;
+  --color-fire: #f8a060;
+  --color-water: #50b0d8;
+  --color-plant: #64a990;
+  --color-red: #f03131;
+  --color-blue: #66d7ee;
+  --color-green: #2ecc71;
+
+  /* Game-specific */
+  --color-xp-gold: #e2b659;
+  --color-panel: #1e1e2e;
+  --color-panel-border: rgba(255, 255, 255, 0.15);
+  --color-overlay: rgba(0, 0, 0, 0.85);
+
+  /* Fonts */
+  --font-pixel: 'Press Start 2P', cursive;
+  --font-pixel-arabic: 'PixelAE', 'Amiri', 'Noto Naskh Arabic', serif;
+  --font-ui: 'Noto Kufi Arabic', sans-serif;
+  /* NEW: Primary UI font */
+  --font-arabic: 'Noto Kufi Arabic', sans-serif;
+  /* Legacy */
+  --font-arabic-display: 'Noto Kufi Arabic', sans-serif;
+  /* For headings, labels, decorative text */
+  --font-arabic-body: 'Noto Naskh Arabic', serif;
+  /* For body text, readability focus */
+  --font-pixeloid: 'PixeloidSans', sans-serif;
+
+  /* Responsive Breakpoints */
+  --breakpoint-mobile: 480px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 769px;
+
+  /* Touch Targets (WCAG minimum) */
+  --touch-target-min: 44px;
+  --touch-target-comfortable: 48px;
+
+  /* Accessibility */
+  --focus-ring: 2px solid var(--color-cyan);
+  --focus-ring-offset: 2px;
+  --focus-ring-inset: 0 0 0 3px var(--color-cyan);
+
+  /* Z-Index Tokens (top-level layers) */
+  --z-phaser-overlay: 10;
+  --z-minimap: 90;
+  --z-hud: 100;
+  --z-toast: 150;
+  --z-overlay: 200;
+  --z-pause-menu: 200;
+  --z-battle: 250;
+  --z-level-up: 300;
+  --z-error: 9999;
+  --z-onboarding: 10000;
+}
+
+/* ── High Contrast Mode ── */
+/* Applied via data-high-contrast attribute on <html> */
+[data-high-contrast="true"] {
+  --color-beige: #ffffff;
+  --color-brown: #000000;
+  --color-dark-brown: #000000;
+  --color-brown2: #000000;
+  --color-burgundy: #cc0000;
+  --color-pastel-red: #cc0000;
+  --color-olive-green: #008800;
+  --color-dark-gold: #aa6600;
+  --color-creamy-beige: #ffffff;
+
+  --color-white: #ffffff;
+  --color-pure-white: #ffffff;
+  --color-dark: #000000;
+  --color-light: #ffffff;
+  --color-gray: #333333;
+  --color-gold: #ffcc00;
+  --color-light-gray: #666666;
+  --color-black: #000000;
+
+  --color-cyan: #00ccff;
+  --color-cyan-hover: #00aadd;
+  --color-fire: #ff8800;
+  --color-water: #0088ff;
+  --color-plant: #00aa66;
+  --color-red: #ff0000;
+  --color-blue: #0088ff;
+  --color-green: #00cc00;
+
+  --color-xp-gold: #ffcc00;
+  --color-panel: #000000;
+  --color-panel-border: rgba(255, 255, 255, 0.6);
+  --color-overlay: rgba(0, 0, 0, 0.95);
+
+  --focus-ring: 3px solid #ffcc00;
+  --focus-ring-offset: 3px;
+  --focus-ring-inset: 0 0 0 4px #ffcc00;
+}
+
+/* ── Dyslexia-Friendly Font Mode ── */
+/* Applied via data-dyslexia-font attribute on <html> */
+[data-dyslexia-font="true"] {
+  --font-pixel: 'OpenDyslexic', 'Comic Sans MS', sans-serif;
+  --font-ui: 'OpenDyslexic', 'Comic Sans MS', sans-serif;
+  --font-pixeloid: 'OpenDyslexic', 'Comic Sans MS', sans-serif;
+}

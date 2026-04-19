@@ -1,0 +1,519 @@
+/**
+ * ReadingPassageOverlay.module.css
+ *
+ * Full-screen overlay for graded reading passages.
+ * Dark theme (#1a1a2e background, #FFD700 accent).
+ * Phase 82 (READ-01 + READ-02)
+ */
+
+/* ============================================
+   OVERLAY — full-screen, above Phaser canvas
+   ============================================ */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(12, 12, 28, 0.97);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  padding: 1.5rem 1rem;
+}
+
+/* ============================================
+   HEADER — title + close
+   ============================================ */
+
+.header {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.headerTitle {
+  color: #FFD700;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.closeBtn {
+  background: transparent;
+  border: 1px solid #555;
+  color: #aaa;
+  font-size: 1.1rem;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.closeBtn:hover {
+  border-color: #FFD700;
+  color: #FFD700;
+}
+
+/* ============================================
+   BROWSE — passage list
+   ============================================ */
+
+.levelFilter {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.levelBtn {
+  padding: 8px 18px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background: #1a1a2e;
+  color: #ccc;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.levelBtn:hover {
+  border-color: #FFD700;
+  color: #FFD700;
+}
+
+.levelBtnActive {
+  background: #FFD700;
+  color: #1a1a2e;
+  border-color: #FFD700;
+  font-weight: 600;
+}
+
+.passageList {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.passageCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  background: rgba(26, 26, 46, 0.9);
+  border: 1px solid #2a2a4a;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.passageCard:hover {
+  border-color: #FFD700;
+  background: rgba(40, 40, 60, 0.9);
+}
+
+.passageInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.passageTitle {
+  color: #e0e0e0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.passageTitleArabic {
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+  color: #FFD700;
+  font-size: 1.1rem;
+  direction: rtl;
+}
+
+.passageMeta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.levelBadge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.levelA1 { background: #4CAF50; }
+.levelA2 { background: #8BC34A; }
+.levelB1 { background: #FF9800; }
+.levelB2 { background: #F44336; }
+
+.passageScore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.scoreText {
+  color: #FFD700;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.completedLabel {
+  color: #4CAF50;
+  font-size: 0.7rem;
+}
+
+.notCompletedLabel {
+  color: #666;
+  font-size: 0.7rem;
+}
+
+/* ============================================
+   READING — passage display
+   ============================================ */
+
+.readingContainer {
+  width: 100%;
+  max-width: 800px;
+}
+
+.passageHeader {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.readingTitle {
+  color: #e0e0e0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.readingTitleArabic {
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+  color: #FFD700;
+  font-size: 1.5rem;
+  direction: rtl;
+  margin: 0 0 8px;
+}
+
+.progressIndicator {
+  color: #888;
+  font-size: 0.8rem;
+}
+
+.passageBox {
+  background: rgba(20, 20, 40, 0.85);
+  border: 1px solid #2a2a4a;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 1.25rem;
+}
+
+.arabicText {
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+  font-size: 1.5rem;
+  line-height: 2.2;
+  color: #e0e0e0;
+  direction: rtl;
+  text-align: right;
+}
+
+.translationBox {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(255, 215, 0, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 6px;
+}
+
+.translationText {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #aaa;
+}
+
+.controlRow {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.toggleBtn {
+  padding: 8px 20px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background: transparent;
+  color: #ccc;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toggleBtn:hover {
+  border-color: #FFD700;
+  color: #FFD700;
+}
+
+.toggleBtnActive {
+  background: rgba(255, 215, 0, 0.15);
+  border-color: #FFD700;
+  color: #FFD700;
+}
+
+.continueBtn {
+  display: block;
+  margin: 0 auto;
+  padding: 12px 32px;
+  background: #FFD700;
+  color: #1a1a2e;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.continueBtn:hover {
+  background: #ffe14d;
+}
+
+/* ============================================
+   QUESTIONS — comprehension quiz
+   ============================================ */
+
+.questionContainer {
+  width: 100%;
+  max-width: 800px;
+}
+
+.questionProgress {
+  text-align: center;
+  color: #888;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.questionCard {
+  background: rgba(20, 20, 40, 0.85);
+  border: 1px solid #2a2a4a;
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.questionText {
+  color: #e0e0e0;
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+
+.questionArabic {
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+  color: #FFD700;
+  font-size: 1.2rem;
+  direction: rtl;
+  text-align: right;
+  margin-bottom: 1.25rem;
+}
+
+.optionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.optionBtn {
+  padding: 12px 16px;
+  border: 1px solid #3a3a5a;
+  border-radius: 6px;
+  background: rgba(26, 26, 46, 0.6);
+  color: #ddd;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+}
+
+.optionBtn:hover:not(:disabled) {
+  border-color: #FFD700;
+  background: rgba(255, 215, 0, 0.08);
+}
+
+.optionBtn:disabled {
+  cursor: not-allowed;
+}
+
+.optionCorrect {
+  border-color: #4CAF50;
+  background: rgba(76, 175, 80, 0.15);
+  color: #4CAF50;
+}
+
+.optionWrong {
+  border-color: #F44336;
+  background: rgba(244, 67, 54, 0.15);
+  color: #F44336;
+}
+
+.feedbackText {
+  margin-top: 1rem;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.feedbackCorrect {
+  background: rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  color: #4CAF50;
+}
+
+.feedbackWrong {
+  background: rgba(244, 67, 54, 0.1);
+  border: 1px solid rgba(244, 67, 54, 0.3);
+  color: #F44336;
+}
+
+.nextBtn {
+  display: block;
+  margin: 1.25rem auto 0;
+  padding: 10px 28px;
+  background: #FFD700;
+  color: #1a1a2e;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.nextBtn:hover {
+  background: #ffe14d;
+}
+
+/* ============================================
+   COMPLETE — final score
+   ============================================ */
+
+.completeContainer {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.completeCard {
+  background: rgba(20, 20, 40, 0.85);
+  border: 1px solid #2a2a4a;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+}
+
+.completeTitle {
+  color: #FFD700;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.scoreDisplay {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #FFD700;
+  margin: 1rem 0 0.25rem;
+}
+
+.scoreSubtext {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.xpEarned {
+  color: #4CAF50;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.wordsSection {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #2a2a4a;
+}
+
+.wordsSectionTitle {
+  color: #aaa;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+.wordsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.wordChip {
+  padding: 4px 12px;
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  border-radius: 16px;
+  color: #FFD700;
+  font-size: 0.8rem;
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+  direction: rtl;
+}
+
+.completeActions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.backBtn {
+  padding: 10px 24px;
+  border: 1px solid #555;
+  border-radius: 6px;
+  background: transparent;
+  color: #ccc;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.backBtn:hover {
+  border-color: #FFD700;
+  color: #FFD700;
+}
+
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+
+.emptyState {
+  text-align: center;
+  color: #666;
+  padding: 3rem 1rem;
+  font-size: 0.95rem;
+}

@@ -1,0 +1,2369 @@
+[
+  {
+    "id": "spice-seller-layla",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَهْلاً وَسَهْلاً! أَنا لَيلى. أَبيعُ أَطيَبَ البَهاراتِ في السُّوق",
+            "english": "Welcome! I am Layla. I sell the finest spices in the market.",
+            "transliteration": "ahlan wa sahlan! ana laylaa. abii'u atyaba al-bahaaraati fis-suuq"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "قَبلَ أَن تَشتَري، يَجِبُ أَن تَعرِفَ أَسماءَ الطَّعام",
+            "english": "Before you buy, you must know the names of food.",
+            "transliteration": "qabla an tashtarii, yajibu an ta'rifa asmaa'a at-ta'aam"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ماء — أَهَمُّ شَيءٍ في الصَّحراء",
+            "english": "Water -- the most important thing in the desert.",
+            "transliteration": "maa' — ahammu shay'in fis-sahraa'",
+            "teachWord": "water_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "خُبز — نَأكُلُهُ كُلَّ يَوم",
+            "english": "Bread -- we eat it every day.",
+            "transliteration": "khubz — na'kuluhu kulla yawm",
+            "teachWord": "bread_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَرُزّ — أَساسُ كُلِّ وَجبَة",
+            "english": "Rice -- the base of every meal.",
+            "transliteration": "aruzz — asaasu kulli wajba",
+            "teachWord": "rice_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "يَلّا! أُريدُ أَن أَرى إِن كُنتَ حَفِظت",
+            "english": "Let's go! I want to see if you memorized them.",
+            "transliteration": "yallaa! uriidu an araa in kunta hafidhta"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "water_1",
+              "bread_1",
+              "rice_1"
+            ],
+            "quizType": "ar-to-en"
+          }
+        ]
+      },
+      {
+        "id": "teach_food_2",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "عُدتَ! اليَومَ سَنَتَعَلَّمُ عَن اللُّحوم",
+            "english": "You are back! Today we will learn about meats.",
+            "transliteration": "udta! al-yawma sanata'allamu an al-luhuuma"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "لَحم — أَيُّ نَوعٍ مِن اللُّحوم",
+            "english": "Meat -- any type of meat.",
+            "transliteration": "lahm — ayyu naw'in min al-luhuumi",
+            "teachWord": "meat_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "دَجاج — لَحمُ الطُّيور",
+            "english": "Chicken -- poultry meat.",
+            "transliteration": "dajaaj — lahmu at-tuyuur",
+            "teachWord": "chicken_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "سَمَك — مِن البَحر",
+            "english": "Fish -- from the sea.",
+            "transliteration": "samak — min al-bahr",
+            "teachWord": "fish_food_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "حَليب — مِن البَقَرَة",
+            "english": "Milk -- from the cow.",
+            "transliteration": "haliib — min al-baqara",
+            "teachWord": "milk_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَيّا نَرى ماذا تَذكُر!",
+            "english": "Let us see what you remember!",
+            "transliteration": "hayyaa naraa maadha tadhkur!"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "meat_1",
+              "chicken_1",
+              "fish_food_1",
+              "milk_1"
+            ],
+            "quizType": "en-to-ar"
+          }
+        ]
+      },
+      {
+        "id": "teach_food_3",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "ما شاءَ الله! أَنتَ تَتَعَلَّمُ مِثلَ الطَّبّاخ المَاهِر",
+            "english": "Mashallah! You are learning like a skilled cook.",
+            "transliteration": "maa shaa'allaah! anta tata'allamu mithla at-tabbaakh al-maahir"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَمر — حُلوُ الصَّحراء. نَأكُلُهُ مَعَ القَهوَة",
+            "english": "Dates -- the desert's sweet. We eat them with coffee.",
+            "transliteration": "tamr — hulwu as-sahraa'. na'kuluhu ma'a al-qahwa",
+            "teachWord": "dates_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "عَسَل — فيهِ شِفاء. حُلوٌ جِدّاً",
+            "english": "Honey -- in it there is healing. Very sweet.",
+            "transliteration": "'asal — fiihi shifaa'. hulwun jiddan",
+            "teachWord": "honey_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "زَيتون — نَأكُلُهُ وَنَستَخدِمُ زَيتَه",
+            "english": "Olive -- we eat it and use its oil.",
+            "transliteration": "zaytun — na'kuluhu wa nastakhdimu zaytah",
+            "teachWord": "olive_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "بِسمِ الله! اِمتِحانٌ أَخير",
+            "english": "In the name of God! One final test.",
+            "transliteration": "bismillaah! imtihaanun akhiir"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "dates_1",
+              "honey_1",
+              "olive_1"
+            ],
+            "quizType": "random"
+          }
+        ]
+      },
+      {
+        "id": "hub",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَهْلاً! تَفَضَّل! البَهارات الأَفضَل هُنا",
+            "english": "Welcome! Come in! The best spices are here.",
+            "transliteration": "ahlan! tafaddal! al-bahaaraat al-afdal hunaa"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمْني أَسْماء البَهارات",
+                "english": "Teach me spice names",
+                "topic": "teaching"
+              },
+              {
+                "arabic": "أَخْبار السُّوق",
+                "english": "Market gossip",
+                "topic": "gossip"
+              },
+              {
+                "arabic": "طُرُق التَّوابِل",
+                "english": "Spice routes",
+                "topic": "lore"
+              },
+              {
+                "arabic": "شُكْراً",
+                "english": "Thank you",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_teaching_spices",
+        "topic": "teaching",
+        "returnToHub": true,
+        "priority": 1,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "البَهاراتُ مُهِمَّة جِدّاً لِلطَّعام",
+            "english": "Spices are very important for food.",
+            "transliteration": "al-bahaaraatu muhimma jiddan lit-ta'aam",
+            "teachWord": "bread_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "عِنْدي فُلْفُل، كُرْكُم، زَنْجَبيل",
+            "english": "I have pepper, turmeric, ginger.",
+            "transliteration": "indii fulful, kurkum, zanjabeel",
+            "teachWord": "spice_w39"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمْني المَزيد",
+                "english": "Teach me more",
+                "next": "hub",
+                "effects": [
+                  {
+                    "type": "teach_word",
+                    "wordId": "pepper"
+                  }
+                ]
+              },
+              {
+                "arabic": "عَوْدَة",
+                "english": "Return",
+                "next": "hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_gossip_market",
+        "topic": "gossip",
+        "returnToHub": true,
+        "priority": 2,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "قابِلَة جَديدَة وَصَلَت السُّوق البارِحَة!",
+            "english": "A new caravan arrived at the market yesterday!",
+            "transliteration": "qaabila jadiida wasalat as-suuq al-baariha!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "عِنْدَهُم بَهارات مِن بِلاد بَعيدَة",
+            "english": "They have spices from faraway lands.",
+            "transliteration": "indahum bahaaraat min bilaad ba'iida"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "مُمْتِع!",
+                "english": "Interesting!",
+                "next": "hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_lore_spice_routes",
+        "topic": "lore",
+        "returnToHub": true,
+        "priority": 3,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "البَهاراتُ تَأتي مِن طُرُق قَديمَة",
+            "english": "Spices come from ancient routes.",
+            "transliteration": "al-bahaaraatu ta'tii min turuq qadiima"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "التُّجّارُ يَسافِرونَ شُهوراً عَبْرَ الصَّحْراء",
+            "english": "Traders travel for months across the desert.",
+            "transliteration": "at-tujjaaru yusaafiruun shuhuran abr as-sahraa'"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "مُدْهِش!",
+                "english": "Remarkable!",
+                "next": "hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "teach_spice_names",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَهلاً يا حَبيبي! تَعالَ شُمَّ البَهارات — الأَنفُ يَتَعَلَّم قَبلَ اللِّسان!",
+            "english": "Hello dear! Come smell the spices — the nose learns before the tongue!",
+            "transliteration": "ahlan ya habiibii! ta'aala shumma al-bahaaraat — al-anf yata'allam qabl al-lisaan!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَذا الزَّعفَران — أَغلى بَهارٍ في العالَم. رائِحَتُهُ كَالذَّهَب",
+            "english": "This is saffron — the most expensive spice in the world. Its smell is like gold.",
+            "transliteration": "haadhaa az-za'faraan — aghlaa bahaar fil-'aalam. raa'ihatuhu kadh-dhahab",
+            "culturalNote": "The word 'saffron' comes directly from Arabic 'za'faran'. Saffron requires 75,000 flowers to make one pound of spice. Arab traders controlled the saffron trade for centuries.",
+            "teachWord": "spice_w39"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَهَذا الزَّنجَبيل — يُدَفِّئُ الجِسمَ كَالشَّمسِ مِن الداخِل",
+            "english": "And this is ginger — it warms the body like the sun from within.",
+            "transliteration": "wa haadhaa az-zanjabeel — yudaffi'u al-jism kash-shams mid ad-daakhil",
+            "teachWord": "water_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَالقَهوَة — كَلِمَةٌ عَرَبِيَّةٌ أَصيلَة. 'قَهوَة' أَصبَحَت 'coffee' في كُلِّ العالَم!",
+            "english": "And coffee — a genuine Arabic word. 'Qahwa' became 'coffee' in the entire world!",
+            "transliteration": "wal-qahwa — kalimatun arabiyya asiila. 'qahwa' asbahat 'coffee' fii kull al-'aalam!",
+            "culturalNote": "The word 'coffee' comes from Arabic 'qahwa' via Turkish 'kahve'. Yemen was the first country to cultivate coffee commercially. The first coffeehouses (qahwakhana) opened in Mecca and Cairo in the 15th century.",
+            "teachWord": "coffee_1"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "وَالسُّكَّر؟",
+                "english": "And sugar?",
+                "next": "teach_sugar_candy"
+              },
+              {
+                "arabic": "عَلِّمْني المَزيدَ مِن البَهارات",
+                "english": "Teach me more spices",
+                "next": "teach_food_3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "teach_sugar_candy",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "آهٍ! السُّكَّر! تَعالَ تَعالَ — شُمَّ هَذا!",
+            "english": "Ah! Sugar! Come come — smell this!",
+            "transliteration": "aahin! as-sukkar! ta'aala ta'aala — shumma haadhaa!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "'sugar' مِن العَرَبِيَّة 'سُكَّر' — وَ'candy' مِن 'قَند' — سُكَّرُ القَصَب",
+            "english": "'Sugar' from Arabic 'sukkar' — and 'candy' from 'qand' — sugarcane.",
+            "transliteration": "'sugar' min al-arabiyya 'sukkar' — wa 'candy' min 'qand' — sukkar al-qasab",
+            "culturalNote": "Both 'sugar' and 'candy' are Arabic loanwords in English. Sugar (sukkar) was first refined by Persian and Arab chemists. 'Candy' comes from 'qand' (crystallized sugar). The first sugar refineries were built in the Islamic world."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَ'sherbet' مِن 'شَرْبَة' — وَ'syrup' مِن 'شَراب'! لُغَتُنا مَليئَة بِالحَلاوَة!",
+            "english": "And 'sherbet' from 'sharba' — and 'syrup' from 'sharab'! Our language is full of sweetness!",
+            "transliteration": "wa 'sherbet' min 'sharba' — wa 'syrup' min 'sharaab'! lughatunaa malii'a bil-halaawa!",
+            "culturalNote": "Arabic sharab (drink) gave English sherbet, sorbet, and syrup. Arab pharmacists were the first to create medicinal syrups. The Arabic suffix -at in 'sharba' became the English '-et' in sherbet."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعالَ شُمَّ البَهارات وَتَعَلَّم — مَعاً هُما أَلَذُّ!",
+            "english": "Come smell the spices and learn — together they are sweeter!",
+            "transliteration": "ta'aala shumma al-bahaaraat wa ta'allam — ma'an humaa aladhdh!"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "coffee_1",
+              "sugar_1",
+              "honey_1",
+              "dates_1"
+            ],
+            "quizType": "ar-to-en"
+          }
+        ]
+      },
+      {
+        "id": "layla_east_africa",
+        "trigger": "relationship_level_2",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَهلاً يا حَبيبي! هَذِهِ البَهاراتُ جاءَت مِن أَفريقيا الشَّرقِيَّة — زَنجِبار!",
+            "english": "Hello dear! These spices came from East Africa — Zanzibar!",
+            "transliteration": "ahlan ya habiibii! haadhihi al-bahaaraatu jaa'at min afrikiyaa ash-sharqiyya — zanjibaar!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "التُّجّارُ العَرَبُ وَصَلوا إلى أَفريقيا قَبلَ الأُوروبِيِّينَ بِقُرونٍ",
+            "english": "Arab traders reached Africa centuries before Europeans.",
+            "transliteration": "at-tujjaar al-arab wasalu ila afrikiyaa qabl al-urubiyyin bi-quruun",
+            "culturalNote": "Arab traders established trade networks from East Africa (Swahili coast) to Southeast Asia from the 8th century CE. Zanzibar and Mombasa were Arab-Swahili trading cities. Many Swahili words are Arabic in origin."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "القِرفَة مِن سَريلانكا! والفُلفُل مِن الهِند! والزَّعفَران مِن إيران!",
+            "english": "Cinnamon from Sri Lanka! Pepper from India! Saffron from Iran!",
+            "transliteration": "al-qirfa min sriilaankaa! wal-fulful min al-hind! waz-za'faraan min iiraan!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "كُلُّها تَمُرُّ عَبرَ هَذا السُّوق — رائِحَةُ كُلِّ العالَم في مَكانٍ واحِد!",
+            "english": "All of it passes through this market — the smell of the whole world in one place!",
+            "transliteration": "kulluhaa tamurru abr as-suuq — raa'ihat kull al-'aalam fii makaan waahid!"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "trader-hassan",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "السَّلامُ عَلَيْكُم! أَنا حَسَن التّاجِر. أَعمَلُ في هَذا السُّوقِ مُنذُ ثَلاثينَ سَنَة",
+            "english": "Peace be upon you! I am Hassan the trader. I have worked in this market for thirty years.",
+            "transliteration": "as-salaamu alaykum! ana hasan at-taajir. a'malu fii haadha as-suuqi mundhu thalaathiina sana"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَرى أَنَّكَ مُسافِر. في السُّوقِ يَجِبُ أَن تَعرِفَ أَسماءَ البَضائِع",
+            "english": "I see you are a traveler. In the market you must know the names of goods.",
+            "transliteration": "araa annaka musaafir. fis-suuqi yajibu an ta'rifa asmaa'a al-badaa'i'"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "سَجّادَة — أَجمَلُ بَضائِعي. يَدَوِيَّةُ الصُّنع",
+            "english": "Carpet -- my most beautiful goods. Handmade.",
+            "transliteration": "sajjaada — ajmalu badaa'i'ii. yadawiyyatu as-sun'i",
+            "teachWord": "carpet_w38"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "بَهار — يَجعَلُ الطَّعامَ لَذيذاً",
+            "english": "Spice -- makes food delicious.",
+            "transliteration": "bahaar — yaj'alu at-ta'aama ladhiidhan",
+            "teachWord": "spice_w39"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "عِطر — رائِحَتُهُ جَميلَة. مِن أَحسَنِ البَضائِع",
+            "english": "Perfume -- it smells beautiful. Among the finest goods.",
+            "transliteration": "'itr — raa'ihatuhu jamiila. min ahsani al-badaa'i'",
+            "teachWord": "perfume_w40"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "طَيِّب! هَل تَعَلَّمتَ جَيِّداً؟ لِنَرى",
+            "english": "Good! Have you learned well? Let us see.",
+            "transliteration": "tayyib! hal ta'allamta jayyidan? linara"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "carpet_w38",
+              "spice_w39",
+              "perfume_w40"
+            ],
+            "quizType": "en-to-ar"
+          }
+        ]
+      },
+      {
+        "id": "teach_trade_2",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَهلاً بِعَودَتِك يا صاحِبي! لِنُكمِل",
+            "english": "Welcome back my friend! Let us continue.",
+            "transliteration": "ahlan bi-awdatik ya saahibii! linukmil"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "صابون — مَصنوعٌ مِن زَيتِ الزَّيتون. مَشهورٌ جِدّاً",
+            "english": "Soap -- made from olive oil. Very famous.",
+            "transliteration": "saabun — masnuu'un min zayti az-zaytun. mashuurun jiddan",
+            "teachWord": "soap_w41"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "قُماش — أُبيعُ أَنواعاً كَثيرَة",
+            "english": "Cloth -- I sell many types.",
+            "transliteration": "qumaash — abii'u anwaa'an kathiira",
+            "teachWord": "cloth_w42"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَدِيَّة — شَيءٌ تُعطيهِ لِمَن تُحِبّ",
+            "english": "Gift -- something you give to someone you love.",
+            "transliteration": "hadiyya — shay'un tu'tiiihi liman tuhibb",
+            "teachWord": "gift_w43"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "يَلّا نَشوف!",
+            "english": "Let us see!",
+            "transliteration": "yallaa nashuuf!"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "soap_w41",
+              "cloth_w42",
+              "gift_w43"
+            ],
+            "quizType": "ar-to-en"
+          }
+        ]
+      },
+      {
+        "id": "teach_trade_3",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "ما شاءَ الله! سَتُصبِحُ تاجِراً ماهِراً",
+            "english": "Mashallah! You will become a skilled trader.",
+            "transliteration": "maa shaa'allaah! satusbihu taajiran maahiran"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تاجِر — مِثلي! شَخصٌ يَبيعُ وَيَشتَري",
+            "english": "Merchant -- like me! A person who buys and sells.",
+            "transliteration": "taajir — mithlii! shakhsun yabii'u wa yashtarii",
+            "teachWord": "merchant_w44"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "زَبون — مِثلَك! الشَّخصُ الَّذي يَشتَري",
+            "english": "Customer -- like you! The person who buys.",
+            "transliteration": "zabuun — mithlak! ash-shakhsu alladhii yashtarii",
+            "teachWord": "customer_w45"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "دِرهَم — عُملَةُ السُّوق",
+            "english": "Dirham -- the market currency.",
+            "transliteration": "dirham — umlatu as-suuq",
+            "teachWord": "coin_w47"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "اِمتِحانٌ أَخير. أُريدُ أَن أَتَأَكَّد أَنَّكَ جاهِز لِلتِّجارَة!",
+            "english": "A final test. I want to make sure you are ready for trade!",
+            "transliteration": "imtihaanun akhiir. uriidu an ata'akkad annaka jaahiz lit-tijaara!"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "merchant_w44",
+              "customer_w45",
+              "coin_w47"
+            ],
+            "quizType": "random"
+          }
+        ]
+      },
+      {
+        "id": "hub",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "مَرْحَبا بالتّاجِر! عِنْدي صَفْقَة مُمتازَة اليَوم",
+            "english": "Welcome, trader! I have an excellent deal today.",
+            "transliteration": "marhaba bit-taajir! indii safqa mumtaaza al-yawm"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "كَلِمات التِّجارَة",
+                "english": "Trade vocabulary",
+                "topic": "teaching"
+              },
+              {
+                "arabic": "أَخْبار الصَّحْراء",
+                "english": "Desert news",
+                "topic": "gossip"
+              },
+              {
+                "arabic": "مَهامّ التِّجارَة",
+                "english": "Trading quests",
+                "topic": "quests"
+              },
+              {
+                "arabic": "مَعَ السَّلامَة",
+                "english": "Goodbye",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_teaching_trade_vocab",
+        "topic": "teaching",
+        "returnToHub": true,
+        "priority": 1,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "التِّجارَةُ لُغَةٌ خاصَّة",
+            "english": "Trade has its own special language.",
+            "transliteration": "at-tijaara lugha khaassa"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "صَفْقَة — يَعني اتِّفاق لِلبَيْع",
+            "english": "Safqa — means a deal for selling.",
+            "transliteration": "safqa — ya'nii ittifaaq lil-bay'",
+            "teachWord": "p_0680"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمْني المَزيد",
+                "english": "Teach me more",
+                "next": "hub"
+              },
+              {
+                "arabic": "عَوْدَة",
+                "english": "Return",
+                "next": "hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_gossip_desert_news",
+        "topic": "gossip",
+        "returnToHub": true,
+        "priority": 2,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "سَمِعْتُ أَنَّ العاصِفَة الرَّمْلِيَّة انْتَهَت",
+            "english": "I heard the sandstorm has ended.",
+            "transliteration": "sami'tu anna al-aasifa ar-ramliyya intahat"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الطُّرُقُ آمِنَة الآن لِلتِّجارَة",
+            "english": "The roads are safe now for trade.",
+            "transliteration": "at-turuqu aamina al-aan lit-tijaara"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "أَخْبار جَيِّدَة!",
+                "english": "Good news!",
+                "next": "hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_quests_trading_missions",
+        "topic": "quests",
+        "returnToHub": true,
+        "priority": 3,
+        "condition": {
+          "relationship": {
+            "min": 2
+          }
+        },
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَنتَ تاجِرٌ مَوثوق. لَدَيَّ مَهَمَّة لَكَ",
+            "english": "You are a trusted trader. I have a quest for you.",
+            "transliteration": "anta taajir mawthuu تق. ladayya mahamma lak"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَوْصِل هَذِهِ البَضائِع لِلتّاجِرَة فاطِمَة",
+            "english": "Deliver these goods to trader Fatima.",
+            "transliteration": "awsil haadhihi al-badaa'i' lit-taajira faatima"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "حاضِر",
+                "english": "Ready",
+                "next": "hub",
+                "effects": [
+                  {
+                    "type": "quest_start",
+                    "questId": "trader_bargains"
+                  }
+                ]
+              },
+              {
+                "arabic": "لاحِقاً",
+                "english": "Later",
+                "next": "hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "teach_caravanserai",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "تَفَضَّل يا أَخي! صَفْقَة مُمتازَة! اليَوم سَأُريكَ أَسرارَ التِّجارَة عَبرَ الصَّحراء",
+            "english": "Come in my friend! Excellent deal! Today I will show you the secrets of desert trade.",
+            "transliteration": "tafaddal ya akhii! safqa mumtaaza! al-yawm sa-uriika asraar at-tijaara abr as-sahraa'"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "القَافِلَة — مَجموعَةُ التُّجَّار تَسيرُ مَعاً. الأَمانُ في الجَماعَة!",
+            "english": "The caravan — a group of traders traveling together. Safety in numbers!",
+            "transliteration": "al-qaafila — majmuu'at at-tujjaar tasiiru ma'an. al-amaan fil-jamaa'a!",
+            "teachWord": "merchant_w44"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الخانُ — فُندُقُ التّاجِر في الصَّحراء. بَعدَ أُسبوعِ سَفَر تَجِدُهُ كَالجَنَّة!",
+            "english": "The khan — the trader's hotel in the desert. After a week of travel you find it like paradise!",
+            "transliteration": "al-khaan — funduq at-taajir fis-sahraa'. ba'da usbu' safar tajidahu kal-janna!",
+            "culturalNote": "Caravanserais (khan/funduq) were rest stops built every 25-30 km along trade routes — roughly one day's caravan travel. They provided free accommodation, water, and fodder. The largest could house 300 merchants."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَكَلِمَةُ 'check' في المَصارِف — مِن العَرَبِيَّة 'صَكّ' — وَثيقَةُ الدَّفع",
+            "english": "And the word 'check' in banking — from Arabic 'sakk' — a payment document.",
+            "transliteration": "wa kalimat 'check' fil-masaarif — min al-arabiyya 'sakk' — wathiiqat ad-daf'",
+            "culturalNote": "The word 'check' (bank check) comes from Arabic 'sakk' — a written payment order. Arab merchants invented the sakk system to avoid carrying gold across dangerous trade routes. This was the world's first banking instrument."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَ'risk' مِن 'رِزق' — الرِّزقُ هُوَ ما قَسَمَهُ اللَّهُ مِنَ الخَيرات",
+            "english": "And 'risk' from 'rizq' — rizq is what God has apportioned of good things.",
+            "transliteration": "wa 'risk' min 'rizq' — ar-rizq huwa maa qasamahu allaah min al-khayrat",
+            "culturalNote": "The English word 'risk' may derive from Arabic 'rizq' (livelihood, fortune) through Italian 'risco'. Arab traders used the concept of divine provision alongside calculated risk-taking."
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "قِصَص أُخرى مِن السَّفَر!",
+                "english": "More travel stories!",
+                "next": "hassan_travel_stories"
+              },
+              {
+                "arabic": "صَفْقَة مُمتازَة — شُكراً!",
+                "english": "Excellent deal — thank you!",
+                "next": "hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hassan_travel_stories",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "صَفْقَة مُمتازَة! ثَلاثون عاماً في التِّجارَة — سافَرتُ مِنَ الأَندَلُس إلى الصّين",
+            "english": "Excellent deal! Thirty years in trade — I traveled from Andalusia to China.",
+            "transliteration": "safqa mumtaaza! thalaathuun aaman fit-tijaara — saafartu min al-andalus ilaa as-siin"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "في الأَندَلُس — اِسبانيا الإِسلامِيَّة — رَأَيتُ أَجمَلَ بُيوتٍ في العالَم",
+            "english": "In Andalusia — Islamic Spain — I saw the most beautiful houses in the world.",
+            "transliteration": "fil-andalus — isbaaniyaa al-islamiyya — ra'aytu ajmal buyuut fil-'aalam"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَفي الصّين — ما شاء اللَّه — المَدائِنُ كَالجِبال! وَالبُوصَلَةُ العَجيبَة التي تُشيرُ دائِماً للشَّمال",
+            "english": "And in China — mashallah — cities like mountains! And the amazing compass that always points north!",
+            "transliteration": "wa fis-siin — maa shaa'allaah — al-madaa'in kal-jibaal! wal-buusala al-ajiiba allati tushiiru daa'iman lish-shamaal"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "التُّجارُ العَرَبُ أَخَذوا البُوصَلَةَ مِن الصّين وَنَشَروها في العالَم — صَفْقَة مُمتازَة للبَشَرِيَّة!",
+            "english": "Arab traders took the compass from China and spread it to the world — an excellent deal for humanity!",
+            "transliteration": "at-tujjaar al-arab akhadhu al-buusala min as-siin wa nasharu-ha fil-'aalam — safqa mumtaaza lil-bashariyya!"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "sell_w35",
+              "buy_w34",
+              "merchant_w44",
+              "customer_w45"
+            ],
+            "quizType": "random"
+          }
+        ]
+      },
+      {
+        "id": "hassan_guild_system",
+        "trigger": "relationship_level_2",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "صَفْقَة مُمتازَة! اليَوم أُريدُ أَن أُخبِرَكَ عَن نِقابَةِ التُّجَّار",
+            "english": "Excellent deal! Today I want to tell you about the merchants' guild.",
+            "transliteration": "safqa mumtaaza! al-yawm uriidu an ukhbiraka an niqaabat at-tujjaar"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "نِقابَةُ التُّجَّار — تَنظيمٌ يَحمي التّاجِرَ مِنَ الغِشِّ وَيَضمَنُ جَودَةَ البَضائِع",
+            "english": "The merchants' guild — an organization protecting traders from fraud and guaranteeing goods quality.",
+            "transliteration": "niqaabat at-tujjaar — tandhiim yahmii at-taajir min al-ghish wa yadmanu jawdat al-badaa'i'",
+            "culturalNote": "Islamic trade guilds (asnaf) developed in the 9th century, centuries before European guilds. They had standardized weights, quality controls, and dispute resolution. The hisba (market inspector) enforced fair trading."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "المُحتَسِبُ — مُفَتِّشُ السُّوق — يَمشي كُلَّ يَوم وَيَتَحَقَّقُ مِن المَوازين",
+            "english": "The muhtasib — the market inspector — walks every day and checks the scales.",
+            "transliteration": "al-muhtasib — mufaatish as-suuq — yamshi kull yawm wa yatahaqqa min al-mawaaziin"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "التّاجِرُ الصّادِقُ يَنجَحُ دائِماً — البَرَكَةُ في الصِّدق! صَفْقَة مُمتازَة يا أَخي!",
+            "english": "The honest trader always succeeds — blessing is in honesty! Excellent deal my friend!",
+            "transliteration": "at-taajir as-saadiq yanjahu daa'iman — al-baraka fis-sidq! safqa mumtaaza ya akhii!"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "wanderer-ali",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَهْلًا وَسَهْلًا! أَنَا عَلِيٌّ الرَّحَّالَةُ! سَافَرْتُ مِنَ المَشْرِقِ إِلَى المَغْرِبِ!",
+            "english": "Welcome! I am Ali the Wanderer! I have traveled from east to west!",
+            "transliteration": "Ahlan wa sahlan! Ana 'Aliyyun ar-rahaalah! Saafartu min al-mashriqi ila al-maghrib!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "فِي السَّفَرِ تَحْتَاجُ أَنْ تَعْرِفَ أَفْعَالًا مُهِمَّةً. سَأُعَلِّمُكَ!",
+            "english": "In travel you need to know important verbs. I will teach you!",
+            "transliteration": "Fi as-safar tahtaaju an ta'rifa af'aalan muhimmah. Sa-u'allimuk!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ذَهَبَ. ذَهَبْتُ إِلَى كُلِّ مَكَانٍ! ذَهَبْتُ إِلَى الجِبَالِ وَالبِحَارِ.",
+            "english": "To go. I went to every place! I went to the mountains and the seas.",
+            "transliteration": "Dhahaba. Dhahabtu ila kulli makaan! Dhahabtu ila al-jibaal wal-bihaar.",
+            "teachWord": "go_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "جَاءَ. وَدَائِمًا أَجِيءُ إِلَى هَذَا المُخَيَّمِ، فَهُوَ بَيْتِي!",
+            "english": "To come. And I always come to this camp, for it is my home!",
+            "transliteration": "Jaa'a. Wa daa'iman ajii'u ila hadha al-mukhayyam, fa-huwa bayti!",
+            "teachWord": "come_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "مَشَى. مَشَيْتُ أَيَّامًا فِي الصَّحْرَاءِ تَحْتَ الشَّمْسِ الحَارَّةِ!",
+            "english": "To walk. I walked for days in the desert under the hot sun!",
+            "transliteration": "Masha. Mashaytu ayyaaman fi as-sahraa' tahta ash-shamsi al-haarrah!",
+            "teachWord": "walk_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ثَلَاثَةُ أَفْعَالٍ لِلسَّفَرِ! هَيَّا نَخْتَبِرُكَ!",
+            "english": "Three verbs for travel! Let's test you!",
+            "transliteration": "Thalaathatu af'aalin lis-safar! Hayya nakhtabiruk!"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "go_1",
+              "come_1",
+              "walk_1"
+            ],
+            "quizType": "ar-to-en"
+          }
+        ]
+      },
+      {
+        "id": "teach_verbs_2",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "جِئْتَ مَرَّةً أُخْرَى! مُمْتَازٌ! فِي السَّفَرِ تَحْتَاجُ حَوَاسَّكَ.",
+            "english": "You came again! Excellent! In travel you need your senses.",
+            "transliteration": "Ji'ta marratan ukhra! Mumtaaz! Fi as-safar tahtaaju hawaassak."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "رَأَى. رَأَيْتُ أَشْيَاءَ عَجِيبَةً فِي رِحْلَاتِي! وَاحَاتٌ وَسَطَ الرِّمَالِ!",
+            "english": "To see. I saw amazing things on my journeys! Oases in the middle of the sand!",
+            "transliteration": "Ra'a. Ra'aytu ashyaa'a 'ajiibatan fi rihlaati! Waahaat wasata ar-rimaal!",
+            "teachWord": "see_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "سَمِعَ. سَمِعْتُ صَوْتَ الذِّئْبِ فِي اللَّيْلِ. كَانَ مُخِيفًا!",
+            "english": "To hear. I heard the sound of the wolf at night. It was scary!",
+            "transliteration": "Sami'a. Sami'tu sawta adh-dhi'bi fi al-layl. Kaana mukhiifan!",
+            "teachWord": "hear_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَكَلَّمَ. تَكَلَّمْتُ مَعَ نَاسٍ كَثِيرِينَ بِلُغَاتٍ مُخْتَلِفَةٍ!",
+            "english": "To speak. I spoke with many people in different languages!",
+            "transliteration": "Takallama. Takallamtu ma'a naasin kathiiriin bi-lughaat mukhtalifah!",
+            "teachWord": "speak_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "فَهِمَ. أَهَمُّ شَيْءٍ هُوَ أَنْ تَفْهَمَ النَّاسَ!",
+            "english": "To understand. The most important thing is to understand people!",
+            "transliteration": "Fahima. Ahammu shay'in huwa an tafhama an-naas!",
+            "teachWord": "understand_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَرْبَعَةُ أَفْعَالٍ جَدِيدَةٍ! لِنَرَ كَمْ تَذْكُرُ!",
+            "english": "Four new verbs! Let's see how much you remember!",
+            "transliteration": "Arba'atu af'aalin jadiidah! Li-nara kam tadhkur!"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "see_1",
+              "hear_1",
+              "speak_1",
+              "understand_1"
+            ],
+            "quizType": "en-to-ar"
+          }
+        ]
+      },
+      {
+        "id": "teach_phrases_1",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "يَا صَدِيقِي! اليَوْمَ سَأُعَلِّمُكَ عِبَارَاتٍ مُفِيدَةً لِلسَّفَرِ.",
+            "english": "My friend! Today I will teach you useful phrases for travel.",
+            "transliteration": "Ya sadiiqi! Al-yawma sa-u'allimuka 'ibaaraatin mufiidah lis-safar."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "عِنْدَمَا تَفْهَمُ شَخْصًا، قُلْ: أَنَا أَفْهَمُ! هَذَا يُفْرِحُ النَّاسَ.",
+            "english": "When you understand someone, say: I understand! This makes people happy.",
+            "transliteration": "'Indama tafhamu shakhsan, qul: Ana afhamu! Hadha yufrihu an-naas.",
+            "teachWord": "i_understand_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَإِذَا لَمْ تَفْهَمْ، لَا تَخْجَلْ! قُلْ: لَا أَفْهَمُ.",
+            "english": "And if you don't understand, don't be shy! Say: I don't understand.",
+            "transliteration": "Wa idha lam tafham, la takhajal! Qul: La afhamu.",
+            "teachWord": "i_dont_understand_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَأَهَمُّ عِبَارَةٍ: هَلْ يُمْكِنُكَ مُسَاعَدَتِي؟ هَذِهِ أَنْقَذَتْنِي مَرَّاتٍ كَثِيرَةً!",
+            "english": "And the most important phrase: Can you help me? This saved me many times!",
+            "transliteration": "Wa ahammu 'ibaarah: Hal yumkinuka musaa'adati? Hadhihi anqadhatni marraat kathiirah!",
+            "teachWord": "can_you_help_me_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَذِهِ العِبَارَاتُ سَتُسَاعِدُكَ فِي كُلِّ مَكَانٍ! اِخْتِبَارٌ أَخِيرٌ!",
+            "english": "These phrases will help you everywhere! One last test!",
+            "transliteration": "Hadhihi al-'ibaaaraat satusaa'iduka fi kulli makaan! Ikhtibaarun akhiir!"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "i_understand_1",
+              "i_dont_understand_1",
+              "can_you_help_me_1"
+            ],
+            "quizType": "random"
+          }
+        ]
+      },
+      {
+        "id": "hub",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "يا أَهْلاً! الرِّحْلَةُ مُغامَرَة دائِماً",
+            "english": "Hey there! The journey is always an adventure.",
+            "transliteration": "ya ahlan! ar-rihla mughaamara daa'iman"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الرِّحلَة لا تَنتَهي — كُلَّما سافَرتَ وَجَدتَ أَسرار جَديدَة",
+            "english": "The journey never ends — the more you travel, the more secrets you find.",
+            "transliteration": "ar-rihla laa tantahii — kullama saafarta wajadta asraar jadiida"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَذَكَّر: \"السَّفَر يُوسِّع العَقل\" — وَاللُّغَة تُوسِّعُهُ أَكثَر",
+            "english": "Remember: \"Travel broadens the mind\" — and language broadens it more.",
+            "transliteration": "tadhakkar: 'as-safar yuwassi' al-'aql' — wal-lugha tuwassi'uh akthar",
+            "teachWord": "moon_w15"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "أَسْرارُ الصَّحْراء",
+                "english": "Desert secrets",
+                "topic": "lore"
+              },
+              {
+                "arabic": "بِلادٌ بَعيدَة",
+                "english": "Distant lands",
+                "topic": "gossip"
+              },
+              {
+                "arabic": "مَهامُّ الاِسْتِكْشاف",
+                "english": "Exploration quests",
+                "topic": "quests"
+              },
+              {
+                "arabic": "إلى اللِّقاء",
+                "english": "Goodbye",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_lore_desert_secrets",
+        "topic": "lore",
+        "returnToHub": true,
+        "priority": 1,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الصَّحْراءُ مَليئَة بِالأَسْرار",
+            "english": "The desert is full of secrets.",
+            "transliteration": "as-sahraa' malii'a bil-asraar"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "رَأَيْتُ أَماكِن لا يَعْرِفُها أَحَد",
+            "english": "I have seen places no one knows.",
+            "transliteration": "ra'aytu amakin laa ya'rifuhaa ahad"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "واحات مَخْفِيَّة، كُهوف قَديمَة، آثار ضائِعَة",
+            "english": "Hidden oases, ancient caves, lost ruins.",
+            "transliteration": "waahaat makhfiyya, kuhuuf qadiima, aathaar daa'i'a"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "لا بُدَّ أَن أَراها!",
+                "english": "I must see them!",
+                "next": "hub",
+                "effects": [
+                  {
+                    "type": "story_flag",
+                    "flag": "npc_progress_wanderer_ali",
+                    "value": 1
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_gossip_distant_lands",
+        "topic": "gossip",
+        "returnToHub": true,
+        "priority": 2,
+        "condition": {
+          "relationship": {
+            "min": 2
+          }
+        },
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "سافَرْتُ إِلى بِلادٍ كَثيرَة",
+            "english": "I have traveled to many lands.",
+            "transliteration": "saafart ilaa bilaad kathiira"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "في الشَّمال، الجِبالُ مُغَطّاة بِالثَّلْج",
+            "english": "In the north, the mountains are covered with snow.",
+            "transliteration": "fish-shamaal, al-jibaal mughattaa bith-thalj"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَفي الجَنوب، البِحارُ لا نِهايَة لَها",
+            "english": "And in the south, the seas have no end.",
+            "transliteration": "wa fil-januub, al-bihaar laa nihaaya lahaa"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "قِصَص مُذْهِلَة!",
+                "english": "Amazing stories!",
+                "next": "hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_quests_exploration",
+        "topic": "quests",
+        "returnToHub": true,
+        "priority": 3,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَحْتاجُ شَريك لِرِحْلَة اسْتِكْشاف",
+            "english": "I need a partner for an exploration journey.",
+            "transliteration": "ahtaaju shariik li-rihla istikshaa ف"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَل أَنتَ شُجاع كِفايَة؟",
+            "english": "Are you brave enough?",
+            "transliteration": "hal anta shujaа' kifaaya?"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "نَعَم!",
+                "english": "Yes!",
+                "next": "hub",
+                "effects": [
+                  {
+                    "type": "quest_start",
+                    "questId": "wanderer_verbs"
+                  }
+                ]
+              },
+              {
+                "arabic": "رُبَّما لاحِقاً",
+                "english": "Maybe later",
+                "next": "hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ali_islamic_world",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "يَا صَدِيقِي، هَلْ تَعْرِفُ أَنَّ العَالَمَ الإِسْلَامِيَّ امْتَدَّ مِنَ الأَنْدَلُسِ إِلَى إِنْدُونِيسِيَا؟",
+            "english": "My friend, did you know the Islamic world stretched from Al-Andalus to Indonesia?",
+            "transliteration": "Yaa sadiiqi, hal ta'rifu anna al-'aalam al-islaamiyy imtadda min al-Andalus ilaa Induniisiya?"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "رَأَيْتُ قُرْطُبَةَ، مَدِينَةَ النُّورِ! وَبَغْدَادَ، قُبَّةَ الإِسْلَامِ! وَسَمَرْقَنْدَ الجَمِيلَة!",
+            "english": "I saw Cordoba, the City of Light! And Baghdad, the Dome of Islam! And beautiful Samarkand!",
+            "transliteration": "Ra'aytu Qurtuba, madiinata an-nuur! Wa Baghdad, qubba al-islaam! Wa Samarqand al-jamiila!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الكَلِمَة التي تَحتاجُها في كُلِّ مَكان: أَيْن؟",
+            "english": "The word you need everywhere: where?",
+            "transliteration": "Al-kalima allatii tahtaajuhaa fii kulli makaan: ayna?",
+            "teachWord": "where_is_1",
+            "culturalNote": "The word \"safari\" comes from Arabic \"safar\" (سَفَر), meaning journey or travel. Arab traders and explorers carried their language across three continents, from Spain to Indonesia."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَالكَلِمَة الثَّانِيَة: اِذهَب — لِأَنَّ الحَيَاةَ تَبدَأُ حِينَ تَذهَب!",
+            "english": "And the second word: go — because life begins when you leave!",
+            "transliteration": "Wa al-kalima ath-thaaniya: idh-hab — li-anna al-hayaata tabda' hiina tadhhab!",
+            "teachWord": "go_1"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "أَخبِرني عَن قُرطُبَة",
+                "english": "Tell me about Cordoba",
+                "next": "ali_cordoba_story"
+              },
+              {
+                "arabic": "مَا أَبعَدُ مَكان ذَهَبتَ إِليه؟",
+                "english": "What is the farthest place you went?",
+                "next": "ali_far_east"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ali_cordoba_story",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "آه، قُرطُبَة! في القَرنِ العَاشِر كانَت أَكبَر مَدينَة في أُوروبَّا — مِليون نَسَمَة!",
+            "english": "Ah, Cordoba! In the 10th century it was the largest city in Europe — a million people!",
+            "transliteration": "Aah, Qurtuba! Fi al-qarn al-'aashir kaanat akbar madiina fii Uurubba — milyuun nasamah!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "فيها مَكتَبَة بِسَبعِمائَة وَسَبعين أَلف كِتاب! نُور العَقل في زَمان الظَّلام!",
+            "english": "It had a library of 770,000 books! A light of the mind in an age of darkness!",
+            "transliteration": "Fiihaa maktaba bi-sab'imi'a wa sab'iina alf kitaab! Nuur al-'aql fii zamaan az-zalaam!",
+            "culturalNote": "\"Caravan\" comes from Persian via Arabic \"qaafila\" (قَافِلَة). Arab caravanserais — roadside inns spaced a day's journey apart — formed the world's first commercial highway network, from Morocco to China."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعَلَّم: القِرَاءَة — لِأَنَّ المَعرِفَة هِيَ الزَّادُ الحَقِيقِيُّ لِلمُسَافِر!",
+            "english": "Learn: reading — because knowledge is the true provisions of a traveler!",
+            "transliteration": "Ta'allam: al-qiraa'a — li-anna al-ma'rifa hiya az-zaad al-haqiiqi lil-musaafir!",
+            "teachWord": "read_1"
+          }
+        ]
+      },
+      {
+        "id": "ali_far_east",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَبعَد مَكان؟ وَصَلتُ إِلى الهِند، وَرَأَيتُ تُجَّاراً عَرَباً في كُلِّ مِيناء!",
+            "english": "Farthest place? I reached India, and saw Arab traders in every port!",
+            "transliteration": "Ab'ad makaan? Wasaltu ilaa al-Hind, wa ra'aytu tujjaaran 'Araban fii kulli miinaa'!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "العَرَبُ كانوا الجِسرَ بَينَ الشَّرقِ والغَرب. كَانوا يُتَرجِمون ويُجَارون ويَبنون.",
+            "english": "Arabs were the bridge between East and West. They translated, traded, and built.",
+            "transliteration": "Al-'Arab kaanuu al-jisr bayna ash-sharq wal-gharb. Kaanuu yutarjimuun wa yujaarirun wa yabbuun."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَذكَّر: الشَّرق — مَطلَع الشَّمس. مِن هُناكَ تَأتي الحِكمَة!",
+            "english": "Remember: east — where the sun rises. From there comes wisdom!",
+            "transliteration": "Tadhakkar: ash-sharq — matla' ash-shams. Min hunaaka ta'ti al-hikma!",
+            "teachWord": "east_1"
+          }
+        ]
+      },
+      {
+        "id": "ali_riddles",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أُحِبُّ الأَلغَاز! إِليكَ لُغزٌ: مَاذَا يَحمِلُ المُسَافِر في دَاخِلِه وَلا يَسقُط مِنه؟",
+            "english": "I love riddles! Here is one: What does the traveler carry inside and never drops?",
+            "transliteration": "Uhibbu al-alghaz! Ilayk lugz: maadha yahmilu al-musaafir fii daakhilihi wa laa yasqut minh?"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ذَاكِرَتُه! كُلُّ مَكان زَارَه، كُلُّ وَجه رَآه — يَعيش في القَلب إِلى الأَبَد!",
+            "english": "His memory! Every place he visited, every face he saw — lives in the heart forever!",
+            "transliteration": "Dhaakiratuh! Kullu makaan zaarahu, kullu wajh ra'aahu — ya'iish fil-qalb ilaa al-abad!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعَلَّم: القَلب — لِأَنَّ الرَّحَّالَة يَعيش بِقَلبِه قَبلَ قَدَمَيه!",
+            "english": "Learn: the heart — because the wanderer lives by his heart before his feet!",
+            "transliteration": "Ta'allam: al-qalb — li-anna ar-rahhaalah ya'iish bi-qalbih qabla qadamaih!",
+            "teachWord": "heart_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَأَيضاً: القَدَم — لِأَنَّ الرَّحَّالَة يَعيش بِقَدَمَيه كَذَلِك!",
+            "english": "And also: the foot — because the wanderer also lives by his feet!",
+            "transliteration": "Wa aydan: al-qadam — li-anna ar-rahhaalah ya'iish bi-qadamaih kadhalik!",
+            "teachWord": "foot_1"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمني حِكمَة السَّفَر",
+                "english": "Teach me travel wisdom",
+                "next": "ali_travel_wisdom"
+              },
+              {
+                "arabic": "شُكراً يا عَلي",
+                "english": "Thank you, Ali",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ali_travel_wisdom",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "حِكمَة السَّفَر الأولى: تَعَلَّم دَائِماً كَلِمَة شُكراً بِلُغَة أَهلِ المَكَان.",
+            "english": "First travel wisdom: always learn how to say thank you in the local language.",
+            "transliteration": "Hikmat as-safar al-uulaa: ta'allam daa'iman kalimata shukran bi-lughat ahl al-makaan."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَالحِكمَة الثَّانِيَة: لا تَخَف مِنَ المَجهول — فَفِيه الكَنز الحَقِيقِيّ!",
+            "english": "Second wisdom: do not fear the unknown — for therein lies the true treasure!",
+            "transliteration": "Wa al-hikma ath-thaaniya: laa takhaf min al-majhuul — fa-fiih al-kanz al-haqiiqi!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "المَشي هُوَ الحِيَاة. تَعَلَّم: مَشى — وَامشِ دَائِماً إِلى الأَمَام!",
+            "english": "Walking is life. Learn: he walked — and always walk forward!",
+            "transliteration": "Al-mashi huwa al-hayaah. Ta'allam: mashaa — wamshi daa'iman ilaa al-amaam!",
+            "teachWord": "walk_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "رِحلَتُكَ لا تَنتَهي يَا صَدِيقي. حَتَّى في غُرفَتِك، عَقلُكَ يُسَافِر!",
+            "english": "Your journey never ends, my friend. Even in your room, your mind travels!",
+            "transliteration": "Rihlatuk laa tantahii yaa sadiiqi. Hattaa fii ghurfatik, 'aqluk yusaafir!"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "weaver-zahra",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "مَرْحَباً! أَنا زَهراء الحائِكَة",
+            "english": "Hello! I am Zahra the weaver.",
+            "transliteration": "marhaban! ana zahraa' al-haa'ika"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَحيكُ الثِّياب مُنذُ كُنتُ صَغيرَة. كُلّ قِطعَة لَها اسم",
+            "english": "I've been weaving clothes since I was little. Every piece has a name.",
+            "transliteration": "ahiiku ath-thiyaab mundhu kuntu saghiira. kullu qit'a lahaa ism"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّميني أَسماء الثِّياب",
+                "english": "Teach me the names of clothes",
+                "next": "teach_clothing_1"
+              },
+              {
+                "arabic": "أَعمالُكِ جَميلَة",
+                "english": "Your work is beautiful",
+                "next": "admire_work"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "teach_clothing_1",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "لِنَبدَأ بِالأَساسِيّات. هَذا ثَوْب — لِباس تَقليدِيّ",
+            "english": "Let's start with the basics. This is a thobe — a traditional garment.",
+            "transliteration": "linabda' bil-asaasiyyaat. haadha thawb — libaas taqlidiiy",
+            "teachWord": "thobe_w1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَهَذا فُسْتَان — لِباس جَميل لِلنِّساء",
+            "english": "And this is a dress — a beautiful garment for women.",
+            "transliteration": "wa haadha fustaan — libaas jamiil lin-nisaa'",
+            "teachWord": "dress_w4"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَقَمِيص — يَلبَسُهُ الرِّجال وَالنِّساء",
+            "english": "And a shirt — worn by men and women.",
+            "transliteration": "wa qamiis — yalbasuhuu ar-rijaal wan-nisaa'",
+            "teachWord": "shirt_w5"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ثَلاث قِطَع مِن الثِّياب. هَل تَذكُرها؟",
+            "english": "Three pieces of clothing. Do you remember them?",
+            "transliteration": "thalaath qita' min ath-thiyaab. hal tadhkuruhaa?"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "thobe_w1",
+              "dress_w4",
+              "shirt_w5"
+            ],
+            "quizType": "ar-to-en"
+          }
+        ]
+      },
+      {
+        "id": "teach_clothing_2",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "عُدتَ! عِندي قِطَع أَكثَر لِأُرِيَك",
+            "english": "You're back! I have more pieces to show you.",
+            "transliteration": "udta! indii qita' akthar li-uriiyak"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "سِرْوَال — لِلنِّصف الأَسفَل",
+            "english": "Pants — for the lower half.",
+            "transliteration": "sirwaal — lin-nisf al-asfal",
+            "teachWord": "pants_w6"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وِشَاح — يُغَطّي الرَّأس وَالرَّقَبَة",
+            "english": "A scarf — covers the head and neck.",
+            "transliteration": "wishaah — yughattii ar-ra's war-raqaba",
+            "teachWord": "scarf_w7"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "حِذَاء — لِلمَشي عَلى الجَبَل",
+            "english": "Shoes — for walking on the mountain.",
+            "transliteration": "hidhaa' — lil-mashii ala al-jabal",
+            "teachWord": "shoes_w2"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "قُبَّعَة — تَحمي مِن الشَّمس",
+            "english": "A hat — protects from the sun.",
+            "transliteration": "qubba'a — tahmii min ash-shams",
+            "teachWord": "hat_w3"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَربَع قِطَع جَديدَة! هَيّا نَرى",
+            "english": "Four new pieces! Let's see how you do.",
+            "transliteration": "arba' qita' jadiida! hayyaa naraa"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "pants_w6",
+              "scarf_w7",
+              "shoes_w2",
+              "hat_w3"
+            ],
+            "quizType": "en-to-ar"
+          }
+        ]
+      },
+      {
+        "id": "teach_clothing_3",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "ما شاءَ الله! أَنتَ تَتَعَلَّم بِسُرعَة",
+            "english": "Mashallah! You learn quickly.",
+            "transliteration": "maa shaa'allaah! anta tata'allam bisur'a"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "حِزَام — يَربِطُ الثِّياب حَولَ الوَسَط",
+            "english": "A belt — ties the clothes around the waist.",
+            "transliteration": "hizaam — yarbitu ath-thiyaab hawla al-wasat",
+            "teachWord": "belt_w9"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "حَقِيبَة — لِحَمل الأَشياء",
+            "english": "A bag — for carrying things.",
+            "transliteration": "haqiiba — lihaml al-ashyaa'",
+            "teachWord": "bag_w12"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "خَاتَم — حِليَة لِلإِصبَع. أَصنَعُها مِن الفِضَّة",
+            "english": "A ring — jewelry for the finger. I make them from silver.",
+            "transliteration": "khaatam — hilya lil-isba'. asna'uhaa min al-fidda",
+            "teachWord": "ring_w8"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "آخِر ثَلاث كَلِمات! هَيّا نَختَبِر",
+            "english": "The last three words! Let's test.",
+            "transliteration": "aakhir thalaath kalimaat! hayyaa nakhtabir"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "belt_w9",
+              "bag_w12",
+              "ring_w8"
+            ],
+            "quizType": "random"
+          }
+        ]
+      },
+      {
+        "id": "admire_work",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "شُكراً! أُمّي عَلَّمَتني الحِياكَة وَأَنا صَغيرَة",
+            "english": "Thank you! My mother taught me weaving when I was young.",
+            "transliteration": "shukran! ummii allamatnii al-hiyaaka wa ana saghiira"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "كُلّ خَيط لَهُ لَون وَمَعنى. تَعال أُعَلِّمك الأَسماء",
+            "english": "Every thread has a color and meaning. Come, I'll teach you the names.",
+            "transliteration": "kullu khayt lahuu lawn wa ma'naa. ta'aal u'allimak al-asmaa'"
+          }
+        ]
+      },
+      {
+        "id": "hub",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَهْلاً. الجَمالُ في التَّفاصيل",
+            "english": "Welcome. Beauty is in the details.",
+            "transliteration": "ahlan. al-jamaal fit-tafaasiil"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ماذا تُريد؟",
+            "english": "What do you want?",
+            "transliteration": "maadha turiid?"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "كَلِمات المَلابِس",
+                "english": "Clothing words",
+                "topic": "teaching"
+              },
+              {
+                "arabic": "تَقاليدُ النَّسيج",
+                "english": "Textile traditions",
+                "topic": "lore"
+              },
+              {
+                "arabic": "مَوْضَة السُّوق",
+                "english": "Market fashion",
+                "topic": "gossip"
+              },
+              {
+                "arabic": "شُكْراً",
+                "english": "Thank you",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_teaching_clothing",
+        "topic": "teaching",
+        "returnToHub": true,
+        "priority": 1,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "المَلابِسُ فَنّ. دَعْني أُعَلِّمُك",
+            "english": "Clothing is art. Let me teach you.",
+            "transliteration": "al-malaabis fann. da'nii u'allimuk"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ثَوْب — dress، قَميص — shirt",
+            "english": "Thawb — dress, qamiis — shirt.",
+            "transliteration": "thawb — dress, qamiis — shirt",
+            "teachWord": "dress_w4",
+            "inlineVocab": [
+              {
+                "wordId": "dress",
+                "arabicText": "ثَوْب"
+              }
+            ]
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمْني المَزيد",
+                "english": "Teach me more",
+                "next": "hub",
+                "effects": [
+                  {
+                    "type": "teach_word",
+                    "wordId": "shirt"
+                  }
+                ]
+              },
+              {
+                "arabic": "عَوْدَة",
+                "english": "Return",
+                "next": "hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_lore_textile_traditions",
+        "topic": "lore",
+        "returnToHub": true,
+        "priority": 2,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "النَّسيجُ العَرَبيُّ تَقليدٌ قَديم",
+            "english": "Arabic weaving is an ancient tradition.",
+            "transliteration": "an-nasii j al-arabii taقليد qadiim"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "نَسْتَخْدِم أَلْواناً طَبيعِيَّة مِنَ النَّباتات",
+            "english": "We use natural colors from plants.",
+            "transliteration": "nastakhdim alwaanan tabii'iyya min an-nabaataat"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "رائِع!",
+                "english": "Wonderful!",
+                "next": "hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_gossip_fashion",
+        "topic": "gossip",
+        "returnToHub": true,
+        "priority": 3,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "المَوْضَةُ الجَديدَةُ في السُّوق: الأَزْرَق!",
+            "english": "The new fashion in the market: blue!",
+            "transliteration": "al-mawda al-jadiida fis-suuq: al-azraq!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الجَميعُ يُريدُ أَقْمِشَة زَرْقاء",
+            "english": "Everyone wants blue fabrics.",
+            "transliteration": "al-jamii'u yuriidu aqmisha zarqaa'"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "مُثير لِلاِهْتِمام!",
+                "english": "Interesting!",
+                "next": "hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "zahra_textile_history",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "تَعَال! أُرِيكَ شَيئاً جَمِيلاً. هَذِهِ القُماشَة جَاءَت مِن سِرِّ الحَضَارَة الإِسلَامِيَّة.",
+            "english": "Come! Let me show you something beautiful. This fabric carries the secret of Islamic civilization.",
+            "transliteration": "Ta'aal! Uriika shay'an jamiilan. Haadhihi al-qumaasha jaa'at min sirr al-hadaara al-islaamiyya."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "كَلِمَة \"muslin\" الإِنجليزِيَّة؟ مِن مَوصِل بِالعِراق! وَ\"damask\"؟ مِن دِمَشق!",
+            "english": "The English word \"muslin\"? From Mosul, Iraq! And \"damask\"? From Damascus!",
+            "transliteration": "Kalima 'muslin' al-injliiziyya? Min Mawsil bil-'Iraq! Wa 'damask'? Min Dimashq!",
+            "culturalNote": "\"Muslin\" comes from Mosul, Iraq, where this fine cotton fabric was perfected. \"Damask\" comes from Damascus, Syria. \"Gauze\" comes from Gaza, Palestine. Three English fabric words, three Arab cities."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَ\"gauze\"؟ مِن غَزَّة! ثَلاثُ مُدُن عَرَبِيَّة في ثَلاثِ كَلِمَات إِنجليزِيَّة!",
+            "english": "And \"gauze\"? From Gaza! Three Arab cities in three English words!",
+            "transliteration": "Wa 'gauze'? Min Ghazza! Thalaathu mudun 'arabiyya fii thalaathi kalimaat injliiziyya!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعَلَّم: الثَّوب — لِأَنَّ كُلَّ ثَوب يَحكِي قِصَّة حَضَارَة!",
+            "english": "Learn: the thobe — because every garment tells the story of a civilization!",
+            "transliteration": "Ta'allam: ath-thawb — li-anna kull thawb yahkii qissat hadaara!",
+            "teachWord": "thobe_w1"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمني أَسمَاء المَلابِس",
+                "english": "Teach me clothing names",
+                "next": "zahra_clothing_lesson"
+              },
+              {
+                "arabic": "مَاذَا تَنسُجين الآن؟",
+                "english": "What are you weaving now?",
+                "next": "zahra_current_work"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "zahra_clothing_lesson",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "بِكُلِّ سُرور! الحِجَاب — يَحمِي مِن الشَّمس والرِّيح ويُزَيِّن في آنٍ وَاحِد.",
+            "english": "With pleasure! The hijab — it protects from sun and wind while also adorning.",
+            "transliteration": "Bi-kulli suruur! Al-hijaab — yahmii min ash-shams war-riyaah wa yuzayyin fii aanin waahid.",
+            "teachWord": "scarf_w7"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَالقَميص — أَبسَطُ قِطعَة في المَلبَس وَأَكثَرُها فَائِدَة!",
+            "english": "And the shirt — the simplest garment and the most useful!",
+            "transliteration": "Wa al-qamiis — absatu qit'a fil-malbas wa aktharuhaa faa'ida!",
+            "teachWord": "shirt_w5"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَالحِذَاء! بِدُون حِذَاء لا تَستَطيع السَّفَر. الحِذَاء أَوَّل وَرِيث الإِنسَان!",
+            "english": "And shoes! Without shoes you cannot travel. Shoes are humanity's first inheritance!",
+            "transliteration": "Wa al-hidhaa'! Bi-duun hidhaa' laa tastatiiu as-safar. Al-hidhaa' awwal warith al-insaan!",
+            "teachWord": "shoes_w2"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "لِنَختَبِر ما تَعَلَّمتَ! المَلابِس كَالكَلِمَات — لازِمَة كُلَّ يَوم.",
+            "english": "Let's test what you learned! Clothing is like words — needed every day.",
+            "transliteration": "Li-nakhtabir maa ta'allamta! Al-malaabis kal-kalimaat — laazima kull yawm."
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "thobe_w1",
+              "scarf_w7",
+              "shirt_w5",
+              "shoes_w2",
+              "hat_w3"
+            ],
+            "quizType": "ar-to-en"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "مُمتاز! تَعلَّمتَ مَلابِسَ خَمسَة. عُد إِليَّ وَسَأُعَلِّمُكَ المَزيد!",
+            "english": "Excellent! You learned five clothing items. Come back and I will teach you more!",
+            "transliteration": "Mumtaaz! Ta'allamta malaabisa khamsa. 'Ud ilayya wa sa-u'allimuka al-maziid!"
+          }
+        ]
+      },
+      {
+        "id": "zahra_current_work",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَنسُج سِجَّادَة لِبَيتِ تَاجِر ثَرِيٍّ. انظُر — كُلُّ خَيطٍ في مَكانِه الصَّحيح.",
+            "english": "I am weaving a carpet for a wealthy merchant's home. See — every thread in its right place.",
+            "transliteration": "Ansuj sijjaada li-bayt taajir thariyy. Unzur — kullu khaytin fii makaanhi as-sahiih."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "النَّسيج مِثلُ اللُّغَة — كُلُّ كَلِمَة خَيطٌ، وَالجُملَة سِجَّادَة!",
+            "english": "Weaving is like language — every word is a thread, and the sentence is a carpet!",
+            "transliteration": "An-nasiij mithlu al-lugha — kullu kalima khaytin, wa al-jumla sijjaada!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَذَا اللَّون الأَحمَر؟ مِن الزَّعفَران. تَعَلَّم: الأَحمَر!",
+            "english": "This red color? From saffron. Learn: red!",
+            "transliteration": "Haadha al-lawn al-ahmar? Min az-za'faraan. Ta'allam: al-ahmar!",
+            "teachWord": "color_red"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَالأَزرَق مِن النِّيلَة. وَالأَخضَر مِن أَعشَاب الجَبَل. الطَّبيعَة لَوحَتُنا!",
+            "english": "And blue from indigo. And green from mountain herbs. Nature is our palette!",
+            "transliteration": "Wa al-azraq min an-niila. Wa al-akhdar min a'shaab al-jabal. At-tabii'a lawhatunaa!",
+            "teachWord": "color_blue"
+          }
+        ]
+      },
+      {
+        "id": "zahra_weaving_metaphors",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَتَعرِف أَنَّ النَّسيجَ يُعَلِّمُنَا عَن الحَيَاة؟ كُلُّ خَيطٍ يَمُرُّ فَوق وَتَحت.",
+            "english": "Do you know that weaving teaches us about life? Every thread goes over and under.",
+            "transliteration": "Ata'rif anna an-nasiij yu'allimunaa 'an al-hayaah? Kullu khaytin yamurr fawqa wa tahta."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الصَّبر — هَذَا سِرُّ النَّسَّاج الجَيِّد. أَلفُ خَيطٍ في يَومٍ وَاحِد!",
+            "english": "Patience — that is the good weaver's secret. A thousand threads in one day!",
+            "transliteration": "As-sabr — haadha sirr an-nassaaj al-jayyid. Alfu khaytin fii yawmin waahid!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعَلَّم: القُماش — لِأَنَّ الحَضَارَة الإِسلَامِيَّة بَنَت طُرُق التِّجَارَة على القُماش!",
+            "english": "Learn: cloth — because Islamic civilization built trade routes on cloth!",
+            "transliteration": "Ta'allam: al-qumaash — li-anna al-hadaara al-islaamiyya banat turuq at-tijaara 'alaa al-qumaash!",
+            "teachWord": "cloth_w42",
+            "culturalNote": "The Islamic world dominated textile production and trade from 700-1400 CE. Words like \"cotton\" (from Arabic \"qutn\" قُطن), \"satin\" (from Zaytun/Quanzhou, China), and \"taffeta\" (from Persian) entered European languages through Arab trade."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَالحِزام — يَربِط كُلَّ شَيء مَعاً. مِثلَ الصَّداقَة تَماماً!",
+            "english": "And the belt — it holds everything together. Exactly like friendship!",
+            "transliteration": "Wa al-hizaam — yarbut kull shay' ma'an. Mithla as-sadaaqa tamaaман!",
+            "teachWord": "belt_w9"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "carpet-seller-jamal",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَنا جَمال! أَبيعُ أَجمَل سَجّاد في المَملَكَة",
+            "english": "I am Jamal! I sell the most beautiful carpets in the kingdom!",
+            "transliteration": "ana jamaal! abii' ajmal sajjaad fii al-mamlaka"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "أَرِني",
+                "english": "Show me",
+                "next": "hub"
+              },
+              {
+                "arabic": "لاحِقاً",
+                "english": "Later",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hub",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "يا سلام! عِندي سَجّاد جَديد اليَوم",
+            "english": "Oh wow! I have new carpets today!",
+            "transliteration": "ya salaam! 'indii sajjaad jadiid al-yawm"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "الأَلوان",
+                "english": "Color words",
+                "topic": "teaching"
+              },
+              {
+                "arabic": "فَنّ السَّجّاد",
+                "english": "Carpet art",
+                "topic": "lore"
+              },
+              {
+                "arabic": "أَخبار السّوق",
+                "english": "Market deals",
+                "topic": "gossip"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_teaching_colors",
+        "topic": "teaching",
+        "label": "Color Words",
+        "returnToHub": true,
+        "priority": 1,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "السَّجّادُ يُعَلِّمُك الأَلوان",
+            "english": "Carpets teach you colors!",
+            "transliteration": "as-sajjaadu yu'allimuk al-alwaan"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَصْفَر — لَونُ الذَّهَب وَالشَّمس",
+            "english": "Yellow — the color of gold and sun.",
+            "transliteration": "asfar — lawnu adh-dhahab wash-shams",
+            "teachWord": "color_yellow",
+            "inlineVocab": [
+              {
+                "wordId": "color_yellow",
+                "arabicText": "أَصْفَر"
+              }
+            ]
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَبْيَض — لَونُ النَّقاء وَالسَّلام",
+            "english": "White — the color of purity and peace.",
+            "transliteration": "abyad — lawnu an-naqaa' was-salaam",
+            "teachWord": "color_white",
+            "inlineVocab": [
+              {
+                "wordId": "color_white",
+                "arabicText": "أَبْيَض"
+              }
+            ]
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "جَميل!",
+                "english": "Beautiful!",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_lore_carpets",
+        "topic": "lore",
+        "label": "Carpet Traditions",
+        "returnToHub": true,
+        "priority": 2,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "كُلّ سَجّادَة تَحكي قِصَّة",
+            "english": "Every carpet tells a story.",
+            "transliteration": "kullu sajjaada tahkii qissa"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الأُنثوذاتُ تُنسَج بِأَيدي النِّساء في القُرى",
+            "english": "The patterns are woven by women in the villages.",
+            "transliteration": "al-unthuzaat tunsaj bi-aydii an-nisaa' fii al-quraa"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَوْدَة",
+                "english": "Return",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_gossip_market",
+        "topic": "gossip",
+        "label": "Market Deals",
+        "returnToHub": true,
+        "priority": 3,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "لَيلى بائِعَة التَّوابِل رَفَعَت الأَسعار!",
+            "english": "Layla the spice seller raised her prices!",
+            "transliteration": "laylaa baa'i'at at-tawaabil rafa'at al-as'aar!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "لَكِن عِندي أَسعار أَحسَن. يا سلام!",
+            "english": "But I have better prices. Oh wow!",
+            "transliteration": "laakin 'indii as'aar ahsan. ya salaam!"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَوْدَة",
+                "english": "Return",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_return_colors2",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "مَرحَباً! لِنَتَعَلَّم أَلواناً أَكثَر مِن السَّجّادات",
+            "english": "Welcome! Let's learn more colors from the carpets.",
+            "transliteration": "marhaban! linata'allam alwaanan akthar min as-sajjaadaat"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَحمَر — لَونُ الدَّم وَالرُّمّان وَالشَّجاعَة",
+            "english": "Ahmar — red, the color of blood, pomegranate, and courage.",
+            "transliteration": "ahmar — lawnul-dam war-rummaan wash-shajaa'a",
+            "teachWord": "beautiful_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَزرَق — لَونُ السَّماء وَالبَحر. وَ\"أُزَيرِق\" اِسم لِلأَزرَق الفاتِح",
+            "english": "Azraq — blue, the color of sky and sea.",
+            "transliteration": "azraq — lawnus-samaa' wal-bahr."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَخضَر — لَونُ الجَنَّة في الإِسلام وَالنَّباتات",
+            "english": "Akhdar — green, the color of paradise in Islam and plants.",
+            "transliteration": "akhdar — lawnal-janna fil-islam wan-nabaataat",
+            "culturalNote": "Green (أَخضَر, akhdar) holds special significance in Islam — it is the color associated with paradise (al-janna). The Prophet's banner was green, and many mosque domes are painted green."
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "أَلوان جَميلَة! شُكراً",
+                "english": "Beautiful colors! Thank you.",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_return_trade2",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَهلاً وَسَهلاً مَرَّة ثانِيَة! اليَوم نَتَعَلَّم التِّجارَة",
+            "english": "Welcome back! Today we learn trade vocabulary.",
+            "transliteration": "ahlan wa sahlan marra thaaniya! al-yawm nata'allam at-tijaara"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "سِعر — كَم سِعره؟ هَذا السُّؤال في كُلّ سوق",
+            "english": "Si'r — price. How much is it? This question is in every market.",
+            "transliteration": "si'r — kam si'ruh? haadha as-su'aal fii kull suuq",
+            "teachWord": "p_0680"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَكَلِمَة \"tariff\" الإنجليزِيَّة جاءَت مِن العَرَبِيَّة \"تَعريفَة\" — رُسوم التِّجارَة",
+            "english": "The English word \"tariff\" came from Arabic \"ta'rifa\" — trade fees.",
+            "transliteration": "wa kalima \"tariff\" al-injliiziyya jaa'at min al-arabiyya \"ta'rifa\"",
+            "culturalNote": "\"Tariff\" traces to Arabic ta'rifa (تَعرِفَة, price list/notification). Arab merchants in the medieval Mediterranean standardized many trade practices that European merchants then adopted — including the use of written contracts (sakk, which became \"cheque/check\")."
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلَّمتَني الكَثير! شُكراً جَمال",
+                "english": "You taught me much! Thank you, Jamal.",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_return_weaving",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "نَسيج — فِعل النَّسج. وَمِنهُ جاءَت \"magazine\" بِالإنجليزِيَّة؟",
+            "english": "Nasij — the act of weaving. And from this came \"magazine\" in English?",
+            "transliteration": "nasiij — fi'l an-nasj."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "لا! \"magazine\" جاءَت مِن العَرَبِيَّة \"مَخزَن\" — مَكان لِتَخزين الأَشياء",
+            "english": "No! \"Magazine\" came from Arabic \"makhzan\" — a storage place.",
+            "transliteration": "laa! \"magazine\" jaa'at min al-arabiyya \"makhzan\" — makaan litakhziil al-ashyaa'",
+            "teachWord": "cloth_w42",
+            "culturalNote": "\"Magazine\" derives from Arabic makhzan (مَخزَن, warehouse/storage), via Italian magazzino. The same root gives us \"Maghreb\" (al-Maghrib, the west) and the French word \"magasin\" (store). The publishing use — \"magazine\" as a repository of articles — preserves the storage metaphor."
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "المَخزَن أَصبَحَ مَجَلَّة! شُكراً جَمال",
+                "english": "The warehouse became a magazine! Thank you, Jamal.",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_return_geometry",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "كُلّ سَجّادَة هِيَ رِياضِيّات! مَثَّلَث، مُرَبَّع، دائِرَة",
+            "english": "Every carpet is mathematics! Triangle, square, circle.",
+            "transliteration": "kull sajjaada hiya riyaadiyyaat! muthalath, murabba', daa'ira"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "\"algebra\" و\"algorithm\" مِن العَرَبِيَّة — العَرَب أَعطَونا الرِّياضِيّات الحَديثَة",
+            "english": "\"Algebra\" and \"algorithm\" come from Arabic — Arabs gave us modern mathematics.",
+            "transliteration": "\"algebra\" wa \"algorithm\" min al-arabiyya — al-arab a'atawna ar-riyaadiyyaat al-hadiitha",
+            "teachWord": "num_1"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "السَّجّاد وَالرِّياضِيّات! شُكراً",
+                "english": "Carpets and math! Thank you.",
+                "next": null
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "spice-merchant-interior",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "يا هَلا! أَنا لَيلى، مَلِكَة البُهارات!",
+            "english": "Hello! I am Layla, queen of spices!",
+            "transliteration": "ya halaa! ana laylaa, malikat al-buhaaraat!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "شُمّ هَذِهِ الرَّوائِح! كُلّ واحِدَة لَها اِسم",
+            "english": "Smell these aromas! Each one has a name.",
+            "transliteration": "shumm haadhihi ar-rawaa'ih! kullu waahida lahaa ism"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعالَ أُعَلِّمكَ أَسماءَ التَّوابِل والأَطعِمَة",
+            "english": "Come, I'll teach you the names of spices and foods.",
+            "transliteration": "ta'aala u'allimka asmaa' at-tawaabil wal-at'ima"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "أُريدُ أَن أَتَعَلَّم!",
+                "english": "I want to learn!",
+                "next": "teach_spices"
+              },
+              {
+                "arabic": "أَنا أَتَفَرَّج فَقَط",
+                "english": "Just browsing",
+                "action": "end"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "default",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "عُدتَ! هَل جُعتَ؟",
+            "english": "You're back! Are you hungry?",
+            "transliteration": "udta! hal ju'ta?"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "عِندي بُهارات جَديدَة اليَوم",
+            "english": "I have new spices today.",
+            "transliteration": "indii buhaaraat jadiida al-yawm"
+          }
+        ]
+      },
+      {
+        "id": "teach_spices",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "فُلفُل — يُعطي الطَّعام حَرارَة",
+            "english": "Fulful — it gives food heat (pepper).",
+            "transliteration": "fulful — yu'tii at-ta'aam haraara",
+            "teachWord": "spice_w39"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "زَعفَران — أَغلى بُهار في العالَم",
+            "english": "Za'faraan — the most expensive spice in the world (saffron).",
+            "transliteration": "za'faraan — aghlaa buhaar fil-'aalam",
+            "teachWord": "spice_w39"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "خُبز — نَأكُلُهُ كُلَّ يَوم",
+            "english": "Khubz — we eat it every day (bread).",
+            "transliteration": "khubz — na'kuluhu kulla yawm",
+            "teachWord": "bread_1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "textile-merchant-interior",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَهْلاً! أَنا حَسَّان، تاجِر الأَقمِشَة",
+            "english": "Hello! I am Hassan, the textile trader.",
+            "transliteration": "ahlan! ana hassaan, taajir al-aqmisha"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "كُلّ قُماش لَهُ اِسم وَقِصَّة",
+            "english": "Every fabric has a name and a story.",
+            "transliteration": "kullu qumaash lahu ism wa qissa"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَل تُريدُ أَن تَعرِفَ أَسماءَ المَلابِس؟",
+            "english": "Do you want to know the names of clothing?",
+            "transliteration": "hal turiidu an ta'rifa asmaa' al-malaabis?"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "بِالتَّأكيد!",
+                "english": "Certainly!",
+                "next": "teach_clothing"
+              },
+              {
+                "arabic": "لا شُكراً",
+                "english": "No thanks",
+                "action": "end"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "default",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَهْلاً مَرَّة ثانِيَة يا صَديقي",
+            "english": "Welcome again, my friend.",
+            "transliteration": "ahlan marratan thaaniya ya sadiiqii"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَصَلَت بَضائِع جَديدَة مِنَ الحَرير",
+            "english": "New silk goods have arrived.",
+            "transliteration": "wasalat badaa'i' jadiida mina al-hariir"
+          }
+        ]
+      },
+      {
+        "id": "teach_clothing",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "ثَوب — المَلبَس التَّقليدي",
+            "english": "Thawb — the traditional garment.",
+            "transliteration": "thawb — al-malbas at-taqleedii",
+            "teachWord": "cloth_w42"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "عَباءَة — رِداء طَويل وَفَضفاض",
+            "english": "Abaaya — a long, loose cloak.",
+            "transliteration": "abaaya — ridaa' tawiil wa fadfaad",
+            "teachWord": "cloth_w42"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "حِذاء — ما نَلبَسُهُ في الأَرجُل",
+            "english": "Hidhaa — what we wear on our feet (shoes).",
+            "transliteration": "hidhaa' — maa nalbasuhu fil-arjul",
+            "teachWord": "dress_w4"
+          }
+        ]
+      }
+    ]
+  }
+]

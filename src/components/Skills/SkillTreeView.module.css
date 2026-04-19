@@ -1,0 +1,278 @@
+@import '../../styles/variables.css';
+
+/* ── Container ────────────────────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── XP Bar ───────────────────────────────────────────────────────────────── */
+.xpBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--color-xp-gold);
+  margin-bottom: 16px;
+  gap: 0;
+}
+
+.xpLabel {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-xp-gold);
+  text-transform: uppercase;
+}
+
+.xpValue {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-xp-gold);
+  white-space: nowrap;
+}
+
+/* ── XP Progress Bar Track ─────────────────────────────────────────────────── */
+.xpBarTrack {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  margin: 0 10px;
+  overflow: hidden;
+}
+
+.xpBarFill {
+  height: 100%;
+  transition: width 0.4s ease;
+  min-width: 0;
+}
+
+/* ── Node List ────────────────────────────────────────────────────────────── */
+.nodeList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.nodeRow {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+}
+
+/* ── Connector Line ───────────────────────────────────────────────────────── */
+.connector {
+  width: 2px;
+  height: 16px;
+  background: var(--color-light-gray);
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+.connectorUnlocked {
+  background: var(--color-xp-gold);
+}
+
+/* ── Node Button (base) ───────────────────────────────────────────────────── */
+.node {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  background: transparent;
+  border: 2px solid;
+  cursor: default;
+  text-align: left;
+  transition: transform 0.1s, box-shadow 0.1s, background 0.15s;
+  font-family: var(--font-pixel);
+  position: relative;
+}
+
+/* ── Unlocked State ───────────────────────────────────────────────────────── */
+.unlocked {
+  border-color: var(--color-xp-gold);
+  background: rgba(226, 182, 89, 0.08);
+  opacity: 1;
+  cursor: default;
+  box-shadow: 0 0 0 1px rgba(226, 182, 89, 0.3);
+}
+
+/* ── Available State ──────────────────────────────────────────────────────── */
+.available {
+  border-color: var(--color-white);
+  opacity: 1;
+  cursor: pointer;
+}
+
+.available:hover {
+  transform: translateX(4px);
+  background: rgba(244, 254, 250, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.available:active {
+  transform: translateX(2px);
+  box-shadow: none;
+}
+
+.available:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* ── Locked State ─────────────────────────────────────────────────────────── */
+.locked {
+  border-color: var(--color-light-gray);
+  opacity: 0.45;
+  cursor: not-allowed;
+  filter: grayscale(0.4);
+}
+
+/* ── Frontier Node Highlight ───────────────────────────────────────────────── */
+.frontier {
+  border-color: var(--color-xp-gold);
+  box-shadow: 0 0 8px rgba(226, 182, 89, 0.3), inset 0 0 4px rgba(226, 182, 89, 0.1);
+  animation: frontierPulse 2s ease-in-out infinite;
+}
+
+@keyframes frontierPulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(226, 182, 89, 0.3), inset 0 0 4px rgba(226, 182, 89, 0.1); }
+  50% { box-shadow: 0 0 14px rgba(226, 182, 89, 0.5), inset 0 0 6px rgba(226, 182, 89, 0.15); }
+}
+
+/* ── Collapsed Locked Summary ──────────────────────────────────────────────── */
+.collapsedLocked {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-light-gray);
+  text-align: center;
+  padding: 12px 16px;
+  border: 1px dashed var(--color-light-gray);
+  opacity: 0.5;
+  margin-top: 8px;
+}
+
+/* ── Status Badge ─────────────────────────────────────────────────────────── */
+.statusBadge {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--color-xp-gold);
+  margin-top: 2px;
+}
+
+.locked .statusBadge {
+  color: var(--color-light-gray);
+}
+
+.available .statusBadge {
+  color: var(--color-white);
+}
+
+/* ── Node Content ─────────────────────────────────────────────────────────── */
+.nodeContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.nodeHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nodeName {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-white);
+  letter-spacing: 0.04em;
+}
+
+.unlocked .nodeName {
+  color: var(--color-xp-gold);
+}
+
+.nodeNameArabic {
+  font-family: var(--font-arabic);
+  font-size: 13px;
+  color: var(--color-light);
+  direction: rtl;
+}
+
+.unlocked .nodeNameArabic {
+  color: var(--color-xp-gold);
+}
+
+.nodeDescription {
+  font-family: var(--font-pixeloid);
+  font-size: 10px;
+  color: var(--color-light);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.locked .nodeDescription {
+  color: var(--color-light-gray);
+}
+
+/* ── Meta Row ─────────────────────────────────────────────────────────────── */
+.nodeMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+
+.cefr {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: var(--color-cyan);
+  background: rgba(6, 193, 222, 0.12);
+  border: 1px solid var(--color-cyan);
+  padding: 2px 5px;
+}
+
+.xpCost {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: var(--color-xp-gold);
+}
+
+.reward {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: var(--color-green);
+}
+
+/* ── Prerequisite Note ────────────────────────────────────────────────────── */
+.prereqNote {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: var(--color-light-gray);
+  margin-top: 2px;
+}
+
+/* ── Error ────────────────────────────────────────────────────────────────── */
+.error {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-red);
+  padding: 16px;
+}

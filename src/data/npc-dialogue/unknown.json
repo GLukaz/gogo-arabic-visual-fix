@@ -1,0 +1,1697 @@
+[
+  {
+    "id": "guide-amira",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "مَرْحَبا! أَهْلاً بِكَ في قَرية الواحَة!",
+            "english": "Marhaba! Welcome to Oasis Village!",
+            "transliteration": "marhaba! ahlan bika fii qaryat al-waaha!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَنا أَميرَة، مُرشِدَتُك. سَأُساعِدُكَ في تَعَلُّم العَرَبِيَّة",
+            "english": "I'm Amira, your guide. I'll help you learn Arabic.",
+            "transliteration": "ana amiira, murshidatuk. sa-usaa'iduka fii ta'allum al-arabiyya"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَذا المَكان مَليءٌ بِالنّاس الذينَ يُريدونَ مُساعَدَتَك — تَكَلَّم مَعَهُم وَتَعَلَّم!",
+            "english": "This place is full of people who want to help you — talk to them and learn!",
+            "transliteration": "haadha al-makaan malii'un bin-naas alladhiina yuriduuna musaa'adatak — takallam ma'ahum wa ta'allam!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "لِنَبدَأ بِأَوَّلِ كَلِمَة: مَرْحَبا — تَعني 'أَهلاً'!",
+            "english": "Let me teach you your first word: marhaba — it means 'hello'!",
+            "transliteration": "linabda' bi-awwal kalima: marhaba — ta'nii 'ahlan'!",
+            "teachWord": "marhaba",
+            "inlineVocab": [
+              {
+                "wordId": "marhaba",
+                "arabicText": "مَرْحَبا"
+              }
+            ]
+          },
+          {
+            "speaker": "npc",
+            "arabic": "مُمتاز! الآن اِذهَب إلى الشَّيْخ يوسُف في المَكتَبَة — عِندَهُ الكَثير لِيُعَلِّمَك",
+            "english": "Excellent! Now go find Scholar Yusuf at the library. He has much to teach you.",
+            "transliteration": "mumtaaz! al-aan idh-hab ilaa ash-shaykh yuusuf fil-maktaba — indahu al-kathiir liyu'allimak",
+            "effects": [
+              {
+                "type": "quest_start",
+                "questId": "tutorial_welcome"
+              },
+              {
+                "type": "story_flag",
+                "flag": "met_mentor",
+                "value": true
+              },
+              {
+                "type": "teach_word",
+                "wordId": "marhaba"
+              }
+            ]
+          },
+          {
+            "speaker": "npc",
+            "arabic": "اِمشِ إلى النّاس وَاِضغَط مَسافَة لِلتَّكَلُّم. يَلّا!",
+            "english": "Just walk up to people and press SPACE to talk. Yalla!",
+            "transliteration": "imshi ilan-naas wa-idghat masaafa lit-takallum. yalla!"
+          }
+        ]
+      },
+      {
+        "id": "hub",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "مَرْحَباً مِن جَديد! كَيفَ حالُكَ يا مُسافِر؟",
+            "english": "Hello again! How are you, traveler?",
+            "transliteration": "marhaban min jadiid! kayfa haaluka ya musaafir?"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "كَيفَ أَستَطيعُ مُساعَدَتَك؟",
+            "english": "How can I help you?",
+            "transliteration": "kayfa astatii'u musaa'adatak?"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "ماذا أَفعَلُ الآن؟",
+                "english": "What should I do now?",
+                "topic": "hints"
+              },
+              {
+                "arabic": "كَيفَ أَتَحَرَّك؟",
+                "english": "How do I move?",
+                "topic": "controls"
+              },
+              {
+                "arabic": "أَخبِرني عَن هَذا المَكان",
+                "english": "Tell me about this place",
+                "topic": "purpose"
+              },
+              {
+                "arabic": "إلى اللِّقاء",
+                "english": "Goodbye",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_hints",
+        "topic": "hints",
+        "returnToHub": true,
+        "priority": 1,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "تَكَلَّم مَعَ سُكّانِ القَرية — كُلُّ شَخصٍ يُعَلِّمُكَ كَلِماتٍ جَديدَة",
+            "english": "Talk to the village residents — each person teaches you new words.",
+            "transliteration": "takallam ma'a sukkaan al-qarya — kullu shakhsin yu'allimuka kalimaat jadiida"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَكمِل المَهامّ لِتَكسِبَ خِبرَة وَدَراهِم",
+            "english": "Complete quests to earn XP and dirhams.",
+            "transliteration": "akmil al-mahaamm litaksib khibra wa daraahim"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "كُلَّما تَعَلَّمتَ كَلِماتٍ أَكثَر، فُتِحَت مَناطِقُ جَديدَة!",
+            "english": "The more words you learn, the more zones open up!",
+            "transliteration": "kullama ta'allamta kalimaat akthar, futihat manaatiqu jadiida!"
+          }
+        ]
+      },
+      {
+        "id": "topic_controls",
+        "topic": "controls",
+        "returnToHub": true,
+        "priority": 2,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "اِستَخدِم WASD أَو الأَسهُم لِلتَّحَرُّك. اِضغَط Shift لِلرَّكض!",
+            "english": "Use WASD or arrow keys to move. Hold Shift to sprint!",
+            "transliteration": "istakhdim WASD aw al-ashum lit-taharruk. idghat Shift lir-rakd!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "اِضغَط مَسافَة لِلتَّكَلُّم مَعَ النّاس. اِضغَط Q لِقائِمَة المَهامّ",
+            "english": "Press Space to talk to people. Press Q for the quest log.",
+            "transliteration": "idghat masaafa lit-takallum ma'a an-naas. idghat Q li-qaa'imat al-mahaamm"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "اِضغَط M لِفَتح الخَريطَة وَ ESC لِلقائِمَة الرَّئيسِيَّة",
+            "english": "Press M to open the map and ESC for the main menu.",
+            "transliteration": "idghat M lifath al-khariita wa ESC lil-qaa'ima ar-ra'iisiyya"
+          }
+        ]
+      },
+      {
+        "id": "topic_purpose",
+        "topic": "purpose",
+        "returnToHub": true,
+        "priority": 3,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "واحَةُ الحُروف عالَمٌ سِحرِيٌّ حَيثُ تَتَعَلَّمُ العَرَبِيَّة مِن أَهلِها",
+            "english": "The Oasis of Letters is a magical world where you learn Arabic from its people.",
+            "transliteration": "waahat al-huruuf aalamun sihriyyun haythu tata'allamu al-arabiyya min ahlihaa"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "مَخطوطَة قَديمَة نَقَلَتكَ إلى هُنا — وَلِكَي تَعودَ يَجِبُ أَن تُتقِنَ اللُّغَة",
+            "english": "An ancient manuscript brought you here — and to return, you must master the language.",
+            "transliteration": "makhtootatun qadiima naqalatka ilaa hunaa — wa likay ta'uuda yajib an tutqina al-lugha"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "اِستَكشِف ثَمانِيَة مَناطِق، تَعَلَّم مِن ثَلاثينَ مُعَلِّماً، وَأَكمِل رِحلَتَك!",
+            "english": "Explore eight zones, learn from thirty teachers, and complete your journey!",
+            "transliteration": "istakshif thamaaniyat manaatiq, ta'allam min thalaathiin mu'alliman, wa akmil rihlatak!"
+          }
+        ]
+      },
+      {
+        "id": "topic_about_zones",
+        "topic": "about_zones",
+        "returnToHub": true,
+        "priority": 4,
+        "condition": {
+          "storyFlag": {
+            "key": "zones_visited_2",
+            "value": true
+          }
+        },
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَرى أَنَّكَ بَدَأتَ تَستَكشِف! كُلُّ مِنطَقَة تُعَلِّمُكَ مَوضوعاً مُختَلِفاً",
+            "english": "I see you've started exploring! Each zone teaches you a different topic.",
+            "transliteration": "araa annaka bada'ta tastakshif! kullu mintaqa tu'allimuka mawduu'an mukhtalifan"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "المَكتَبَة تُعَلِّم الأَعداد وَالأَلوان، وَالسّوق يُعَلِّم التِّجارَة وَالطَّعام",
+            "english": "The library teaches numbers and colors, and the market teaches trade and food.",
+            "transliteration": "al-maktaba tu'allim al-a'daad wal-alwaan, was-suuq yu'allim at-tijaara wat-ta'aam"
+          }
+        ]
+      },
+      {
+        "id": "topic_encouragement",
+        "topic": "encouragement",
+        "returnToHub": true,
+        "priority": 5,
+        "condition": {
+          "storyFlag": {
+            "key": "met_mentor",
+            "value": true
+          }
+        },
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "ما شاءَ اللَّه! أَنتَ تَتَقَدَّمُ بِسُرعَة",
+            "english": "Wonderful! You are progressing quickly.",
+            "transliteration": "maa shaa'a allaah! anta tataqaddamu bisur'a"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "واصِل هَكَذا — الطَّريقُ طَويلٌ وَلَكِنَّكَ قادِر",
+            "english": "Keep it up — the path is long but you are capable.",
+            "transliteration": "waasil haakadha — at-tariiqu tawiilun wa laakinnaka qaadir"
+          }
+        ]
+      },
+      {
+        "id": "cultural_arabic_spread",
+        "trigger": "relationship_level_2",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "العَرَبيَّةُ يَتَحَدَّثُها أَكثَرُ مِن ٤٠٠ مِليون شَخص",
+            "english": "Arabic is spoken by over 400 million people",
+            "transliteration": "al-arabiyya yatahadathuha akthar min 400 milyun shakhs"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الفُصحى تَجمَعُ ٢٢ دَولَة — مِن المَغرِب إلى العِراق",
+            "english": "Fusha unites 22 countries — from Morocco to Iraq",
+            "transliteration": "al-fusha tajma' 22 dawla — min al-maghrib ila al-'iraq"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "كُلُّ بَلَدٍ لَهُ لَهجَة لكِنَّ الفُصحى هِيَ اللُّغَةُ المُشتَرَكَة",
+            "english": "Each country has a dialect but Fusha is the shared language",
+            "transliteration": "kullu balad lahu lahja lakinna al-fusha hiya al-lugha al-mushtaraka",
+            "culturalNote": "Modern Standard Arabic (Fusha) is understood across all Arabic-speaking countries. It's the language of news, literature, and formal speech — the common thread connecting 400+ million people."
+          }
+        ]
+      },
+      {
+        "id": "amira_progress_check",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَهلاً مُجَدَّداً! كَيفَ تَسير رِحلَتُكَ؟ أَتَعلَّمتَ كَلِمَات كَثيرَة؟",
+            "english": "Welcome back! How is your journey going? Have you learned many words?",
+            "transliteration": "Ahlan mujaddadan! Kayfa tasir rihlatuk? Ata'allamta kalimaat kathiira?"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "مُمتاز! تَذكَّر: كُلُّ كَلِمَة عَرَبِيَّة تَتَعلَّمُها هِيَ مِفتَاح لِفَهم حَضَارَة عَظيمَة!",
+            "english": "Excellent! Remember: every Arabic word you learn is a key to understanding a great civilization!",
+            "transliteration": "Mumtaaz! Tadhakkar: kullu kalima 'arabiyya tata'allamuhaa hiya miftaah li-fahm hadaara 'aziima!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "كَلِمَة \"يَلَّا\"! أَكثَر كَلِمَة عَرَبِيَّة تَسمَعُها حَول العَالَم — مِن \"يَا الله\"!",
+            "english": "The word \"yalla\"! The most heard Arabic word around the world — from \"ya Allah\" (O God)!",
+            "transliteration": "Kalima 'yalla'! Akthar kalima 'arabiyya tasma'uhaa hawl al-'aalam — min 'yaa Allaah'!",
+            "culturalNote": "\"Yalla\" (يَلَّا) is used worldwide by Arabic speakers to mean \"let's go / hurry up.\" It comes from \"yaa Allah\" (يَا اللّه), an exclamation to God. It is the single most widely recognized Arabic expression across all dialects and cultures."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "يَلَّا! اِذهَب وَتَكَلَّم مَع الجَميع! كُلُّ شَخص يُعَلِّمُكَ شَيئاً جَديداً!",
+            "english": "Yalla! Go and talk to everyone! Every person teaches you something new!",
+            "transliteration": "Yalla! Idh-hab wa takallam ma'a al-jamii'! Kull shakhs yu'allimuka shay'an jadiidan!"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "مَن يَجِب أَن أَزور؟",
+                "english": "Who should I visit?",
+                "next": "amira_npc_hints"
+              },
+              {
+                "arabic": "شُكراً يَا أَميرَة",
+                "english": "Thank you, Amira",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "amira_npc_hints",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "لَم تَزُر يوسُف بَعد؟ اِذهَب إِليه! يُعَلِّمُكَ القَواعِد والنَّحو.",
+            "english": "Have you not visited Yusuf yet? Go to him! He teaches grammar and syntax.",
+            "transliteration": "Lam tazur Yuusuf ba'd? Idh-hab ilayh! Yu'allimuka al-qawaa'id wan-nahw."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَفَاطِمَة التَّاجِرَة تُعَلِّمُكَ كَلِمَات السُّوق. لَيلى تُعَلِّمُكَ التَّوابِل والعُطور!",
+            "english": "And Merchant Fatima teaches you market words. Layla teaches you spices and perfumes!",
+            "transliteration": "Wa Faatima at-taajira tu'allimuka kalimaat as-suuq. Layla tu'allimuka at-tawaabil wal-'utuur!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "عَليّ الرَّحَّالَة في المُخَيَّم البَدَوي يُعَلِّمُكَ أَفعَال السَّفَر. اِذهَب إِليه!",
+            "english": "Wanderer Ali at the Bedouin camp teaches you travel verbs. Go to him!",
+            "transliteration": "Aliyy ar-rahhaala fil-mukhayyam al-badawiyy yu'allimuka af'aal as-safar. Idh-hab ilayh!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَكُلَّمَا تَعَلَّمتَ كَلِمَة جَديدَة، اِرجِع إِليَّ! أَنا هُنا دَائِماً لَك.",
+            "english": "And whenever you learn a new word, come back to me! I am always here for you.",
+            "transliteration": "Wa kullamaa ta'allamta kalima jadiida, irji' ilayya! Ana hunaa daa'iman lak."
+          }
+        ]
+      },
+      {
+        "id": "amira_greetings_lesson",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "هَل تَعرِف كُلَّ التَّحِيَّات؟ هِيَ أَهَمُّ كَلِمَات العَرَبِيَّة!",
+            "english": "Do you know all the greetings? They are the most important Arabic words!",
+            "transliteration": "Hal ta'rif kull at-tahiyyaat? Hiya ahamm kalimaat al-'arabiyya!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "مَرحَبا — قُلناها أَوَّل مَرَّة! وَيُمكِنُكَ قَولُها لِأَيِّ شَخص في أَيِّ وَقت!",
+            "english": "Marhaba — we said it the first time! And you can say it to anyone at any time!",
+            "transliteration": "Marhaba — qulnaahaa awwal marra! Wa yumkinuka qawluhaa li-ayyi shakhs fii ayyi waqt!",
+            "teachWord": "marhaba"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَصَبَاح الخَير في الصَّبَاح. وَمَسَاء الخَير في المَسَاء. بَسيط لَكِن مُؤَثِّر!",
+            "english": "And sabah al-khayr in the morning. And masaa al-khayr in the evening. Simple but impactful!",
+            "transliteration": "Wa sabaaH al-khayr fis-sabaah. Wa masaa' al-khayr fil-masaa'. Basiit laakin mu'aththir!",
+            "teachWord": "sabah_al_khayr"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَأَهلاً وَسَهلاً — تَعني \"أَنتَ مِن أَهلِنا وَالأَرض سَهلَة لَك\"! ما أَجمَلَ اللُّغَة!",
+            "english": "And ahlan wa sahlan — it means \"you are of our family and the ground is easy beneath you\"! What a beautiful language!",
+            "transliteration": "Wa ahlan wa sahlan — ta'nii 'anta min ahlinaa wal-ard sahla lak'! Maa ajmal al-lugha!",
+            "teachWord": "ahlan"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "marhaba",
+              "sabah_al_khayr",
+              "ahlan",
+              "shukran",
+              "ma_a_salama"
+            ],
+            "quizType": "ar-to-en"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "رَائِع! الآن أَنتَ تَعرِف كَيفَ تُحَيِّي أَيَّ شَخص بِالعَرَبِيَّة. يَلَّا، اِذهَب وَجَرِّب!",
+            "english": "Wonderful! Now you know how to greet anyone in Arabic. Yalla, go and try!",
+            "transliteration": "Raa'i'! Al-aan anta ta'rif kayfa tuhayyi ayya shakhs bil-'arabiyya. Yalla, idh-hab wa jarrib!"
+          }
+        ]
+      },
+      {
+        "id": "amira_encouragement",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَنتَ تَتَقَدَّم بِسُرعَة! أَنا فَخورَة بِكَ!",
+            "english": "You are progressing quickly! I am proud of you!",
+            "transliteration": "Anta tataqaddam bi-sur'a! Ana fakhuurah bik!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعَلُّم اللُّغَة العَرَبِيَّة لَيسَ سَهلاً — لَكِنَّكَ لَستَ وَحدَكَ. كُلُّ نَاس هُنا يُحِبُّونَكَ.",
+            "english": "Learning Arabic is not easy — but you are not alone. Everyone here loves you.",
+            "transliteration": "Ta'allum al-lugha al-'arabiyya laysa sahlan — laakinnak lasta wahdak. Kull naas hunaa yuhibbuunak."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "كُلُّ يَوم قَليلاً — هَذا سِرُّ النَّجاح. لا تَتَعجَّل وَلا تَستَسلِم!",
+            "english": "A little every day — that is the secret of success. Do not rush and do not give up!",
+            "transliteration": "Kull yawm qaliiilan — haadha sirr an-najaah. Laa tata'ajjal wa laa tastasлim!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعَلَّم: صَعب — لِأَنَّكَ تَعرِف بالفِعل أَنَّ التَّعلُّم صَعب. لَكِن أَنتَ تَفعَلُه!",
+            "english": "Learn: difficult — because you already know that learning is hard. But you are doing it!",
+            "transliteration": "Ta'allam: sa'b — li-annaka ta'rif bil-fi'l anna at-ta'allum sa'b. Laakin anta taf'aluh!",
+            "teachWord": "difficult_1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "companion_amira",
+    "dialogueTrees": [
+      {
+        "id": "personal_quest_amira",
+        "topic": "Personal Quest",
+        "topicArabic": "المهمة الشخصية",
+        "priority": 2,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_amira",
+            "status": "not_started"
+          },
+          "storyFlag": {
+            "key": "master_of_letters_complete",
+            "value": true
+          }
+        },
+        "lines": [
+          {
+            "arabic": "يا سلام! أَنتَ إذاً العالِمُ الذي أَتقَنَ المَكتَبَة؟",
+            "english": "How wonderful! So you are the scholar who mastered the library?",
+            "transliteration": "ya salaam! anta idhan al-'aalim alladhi atqana al-maktaba?"
+          },
+          {
+            "arabic": "أَنا أَميرَة — أُرَكِّزُ عَلى النَّحوِ وَالجُمَل. سِجِلِّي يَحتاجُ إلى مُساعَدَتِك",
+            "english": "I am Amira — I focus on grammar and sentences. My chronicle needs your help.",
+            "transliteration": "ana amira — urakkiz 'ala an-nahw wal-jumal. sijilli yahtaaj ila musa'adatik",
+            "teachWord": "sentence_w1"
+          },
+          {
+            "arabic": "هَل تَقبَلُ أَن تُساعِدَني في إِتمام سِجِلِّي التّاريخي؟",
+            "english": "Will you accept to help me complete my historical chronicle?",
+            "transliteration": "hal taqbalu an tusa'idani fi itmam sijilli at-tariikhi?"
+          },
+          {
+            "arabic": "سِجِلّي يَعتَمِدُ عَلى تَحليلِ النُّصوص — كُلُّ جُملَة تَحتاجُ قارِئاً يَفهَمُ النَّحو",
+            "english": "My chronicle relies on textual analysis — every sentence needs a reader who understands grammar.",
+            "transliteration": "sijilli ya'tamid 'ala tahlil an-nusuus — kullu jumla tahtaaj qaari'an yafham an-nahw",
+            "condition": {
+              "learningPath": "scholar"
+            }
+          },
+          {
+            "arabic": "سِجِلّي يَتَتَبَّعُ رِحَل العُلَماء — كُلُّ مَكانٍ مَشَوا فيهِ تَرَكَ أَثَراً في اللُّغَة",
+            "english": "My chronicle traces scholars' journeys — every place they walked left a mark on language.",
+            "transliteration": "sijilli yatatabba' rihal al-'ulamaa' — kullu makaanin mashaw fiihi taraka atharan fil-lugha",
+            "condition": {
+              "learningPath": "traveler"
+            }
+          },
+          {
+            "arabic": "سِجِلّي يَحفَظُ التّاريخَ اللُّغَوي — كُلُّ حَقبَة أَضافَت إلى العَرَبيَّة كَلِمات جَديدَة",
+            "english": "My chronicle preserves linguistic history — every era added new words to Arabic.",
+            "transliteration": "sijilli yahfaz at-taariikh al-lughawi — kullu haqba adaafat ilaa al-arabiyya kalimaat jadiida",
+            "condition": {
+              "learningPath": "historian"
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_start",
+            "questId": "companion_quest_amira"
+          }
+        ]
+      },
+      {
+        "id": "personal_quest_amira_complete",
+        "topic": "Quest Complete",
+        "topicArabic": "المهمة مكتملة",
+        "priority": 1,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_amira",
+            "status": "active"
+          }
+        },
+        "lines": [
+          {
+            "arabic": "يا سلام! أَتمَمنا السِّجِلَّ مَعاً. النَّحوُ وَالجُمَلُ الآن مَحفوظَةٌ لِلأَبَد",
+            "english": "How wonderful! We completed the chronicle together. Grammar and sentences are now preserved forever.",
+            "transliteration": "ya salaam! atmamna as-sijill ma'an. an-nahw wal-jumal al-aan mahfuuza lil-abad"
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_complete",
+            "questId": "companion_quest_amira"
+          },
+          {
+            "type": "relationship_change",
+            "amount": 2
+          },
+          {
+            "type": "teach_word",
+            "wordId": "verb_w1"
+          },
+          {
+            "type": "teach_word",
+            "wordId": "noun_w1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "companion_khalid",
+    "dialogueTrees": [
+      {
+        "id": "personal_quest_khalid",
+        "topic": "Personal Quest",
+        "topicArabic": "المهمة الشخصية",
+        "priority": 2,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_khalid",
+            "status": "not_started"
+          },
+          "storyFlag": {
+            "key": "words_of_oasis_complete",
+            "value": true
+          }
+        },
+        "lines": [
+          {
+            "arabic": "الحمد لله! أَنتَ تَعرِفُ كَلِمات الواحَة. أَنا خالِد — رَحّالَة الصَّحراء",
+            "english": "Praise be to God! You know the oasis words. I am Khalid — the desert wanderer.",
+            "transliteration": "al-hamdu lillaah! anta ta'rif kalimaat al-waaha. ana khaalid — rahhaala as-sahraa'"
+          },
+          {
+            "arabic": "أُريدُ إِنشاءَ أَطلَسِ مُفرَدات — خَريطَةَ كُلِّ كَلِمَةٍ في كُلِّ طَريق",
+            "english": "I want to create a vocabulary atlas — a map of every word on every route.",
+            "transliteration": "uriidu inshaa' atlas mufradaat — khariitat kull kalima fi kull tariq",
+            "teachWord": "big_1"
+          },
+          {
+            "arabic": "هَل تُساعِدُني في تَسجيل كَلِمات الطَّريق؟",
+            "english": "Will you help me record the route vocabulary?",
+            "transliteration": "hal tusa'iduni fi tasjil kalimaat at-tariq?"
+          },
+          {
+            "arabic": "الأَطلَسُ يَحتاجُ تَصنيفاً دَقيقاً — الجُذور أَوَّلاً، ثُمَّ المُشتَقّات، ثُمَّ الاستِخدام",
+            "english": "The atlas needs precise classification — roots first, then derivatives, then usage.",
+            "transliteration": "al-atlas yahtaaj tasniifan daqiiqan — al-judhuur awwalan, thumma al-mushtaqqaat, thumma al-istikhdaam",
+            "condition": {
+              "learningPath": "scholar"
+            }
+          },
+          {
+            "arabic": "كُلُّ طَريقٍ لَه لُغَتُه — الأَطلَسُ سَيُريكَ أَينَ يَلتَقي المُسافِرون بِالكَلِمات",
+            "english": "Every route has its language — the atlas will show you where travelers meet words.",
+            "transliteration": "kullu tariiqin lahu lughatu — al-atlas sa-yuriika ayna yaltaqii al-musaafiriin bil-kalimaat",
+            "condition": {
+              "learningPath": "traveler"
+            }
+          },
+          {
+            "arabic": "الكَلِمات تَنتَقِلُ مَعَ التُّجّار وَالجُيوش — الأَطلَسُ سَيَكشِفُ كَيفَ اِنتَشَرَت العَرَبيَّة عَبرَ التّاريخ",
+            "english": "Words travel with merchants and armies — the atlas will reveal how Arabic spread through history.",
+            "transliteration": "al-kalimaat tantaqil ma'a at-tujjaar wal-juyuush — al-atlas sa-yakshif kayfa intasharat al-arabiyya 'abra at-taariikh",
+            "condition": {
+              "learningPath": "historian"
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_start",
+            "questId": "companion_quest_khalid"
+          }
+        ]
+      },
+      {
+        "id": "personal_quest_khalid_complete",
+        "topic": "Quest Complete",
+        "topicArabic": "المهمة مكتملة",
+        "priority": 1,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_khalid",
+            "status": "active"
+          }
+        },
+        "lines": [
+          {
+            "arabic": "الحمد لله! الأَطلَسُ مُكتَمِل. كُلُّ كَلِمَةٍ في مَكانِها",
+            "english": "Praise be to God! The atlas is complete. Every word in its place.",
+            "transliteration": "al-hamdu lillaah! al-atlas muktamil. kull kalima fi makaaniha"
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_complete",
+            "questId": "companion_quest_khalid"
+          },
+          {
+            "type": "relationship_change",
+            "amount": 2
+          },
+          {
+            "type": "teach_word",
+            "wordId": "small_w19"
+          },
+          {
+            "type": "teach_word",
+            "wordId": "good_w20"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "companion_zahra",
+    "dialogueTrees": [
+      {
+        "id": "personal_quest_zahra",
+        "topic": "Personal Quest",
+        "topicArabic": "المهمة الشخصية",
+        "priority": 2,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_zahra",
+            "status": "not_started"
+          },
+          "storyFlag": {
+            "key": "port_of_knowledge_complete",
+            "value": true
+          }
+        },
+        "lines": [
+          {
+            "arabic": "ما شاء الله! أَنتَ تُتقِنُ المِيناء. أَنا زَهرَة — أُعَلِّمُ النُّطقَ بِالشِّعر",
+            "english": "God has willed it! You've mastered the port. I am Zahra — I teach pronunciation through poetry.",
+            "transliteration": "maa shaa' allaah! anta tutqin al-miinaa'. ana zahra — u'allim an-nutq bish-shi'r"
+          },
+          {
+            "arabic": "كُلُّ كَلِمَةٍ تَتَفَتَّحُ كَزَهرَةٍ حين تَنطِقُها بِصِحَّة",
+            "english": "Every word blooms like a flower when you pronounce it correctly.",
+            "transliteration": "kull kalima tatafatahu kazahra hiin tantiquha bissiha",
+            "teachWord": "ahlan"
+          },
+          {
+            "arabic": "هَل تُريدُ أَن تَنظِمَ مَعي بَيتاً يَتَفَتَّحُ بِالنُّطق الصَّحيح؟",
+            "english": "Would you like to compose with me a verse that blooms with correct pronunciation?",
+            "transliteration": "hal turiidu an tanzim ma'i baytan yatafatahu bin-nutq as-sahiih?"
+          },
+          {
+            "arabic": "النُّطقُ الصَّحيح يَكشِفُ المَعنى الخَفيَّ — العالِمُ يَسمَعُ فَرقاً بَينَ ضاد وَظاء",
+            "english": "Correct pronunciation reveals hidden meaning — the scholar hears the difference between Daad and Dhaa.",
+            "transliteration": "an-nutq as-sahiih yakshif al-ma'na al-khafiyy — al-'aalim yasma' farqan bayna dhaad wa dhaa",
+            "condition": {
+              "learningPath": "scholar"
+            }
+          },
+          {
+            "arabic": "في كُلِّ مِيناء لَهجَةٌ مُختَلِفَة — الشِّعرُ يُعَلِّمُكَ كَيفَ تُكَلِّمُ كُلَّ النّاس",
+            "english": "Every port has a different dialect — poetry teaches you how to speak to all people.",
+            "transliteration": "fii kulli miinaa' lahja mukhtalifa — ash-shi'r yu'allimuka kayfa tukallim kull an-naas",
+            "condition": {
+              "learningPath": "traveler"
+            }
+          },
+          {
+            "arabic": "الشِّعرُ العَرَبيُّ حَفِظَ اللُّغَة خِلالَ قُرونِ التَّحَوُّلات — كُلُّ بَيتٍ نافِذَةٌ إلى الماضي",
+            "english": "Arabic poetry preserved the language through centuries of change — every verse is a window to the past.",
+            "transliteration": "ash-shi'r al-arabiyy hafiz al-lugha khilaal quruun at-tahawwulaat — kullu bayt naafidha ilaa al-maadi",
+            "condition": {
+              "learningPath": "historian"
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_start",
+            "questId": "companion_quest_zahra"
+          }
+        ]
+      },
+      {
+        "id": "personal_quest_zahra_complete",
+        "topic": "Quest Complete",
+        "topicArabic": "المهمة مكتملة",
+        "priority": 1,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_zahra",
+            "status": "active"
+          }
+        },
+        "lines": [
+          {
+            "arabic": "ما شاء الله! البَيتُ مُكتَمِل. نُطقُكَ أَصبَحَ كَنَسيم الأَزهار",
+            "english": "God has willed it! The verse is complete. Your pronunciation has become like a flower breeze.",
+            "transliteration": "maa shaa' allaah! al-bayt muktamil. nutquka asbaha ka-nasim al-azhaar"
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_complete",
+            "questId": "companion_quest_zahra"
+          },
+          {
+            "type": "relationship_change",
+            "amount": 2
+          },
+          {
+            "type": "teach_word",
+            "wordId": "marhaba"
+          },
+          {
+            "type": "teach_word",
+            "wordId": "sabah_al_khayr"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "companion_omar",
+    "dialogueTrees": [
+      {
+        "id": "personal_quest_omar",
+        "topic": "Personal Quest",
+        "topicArabic": "المهمة الشخصية",
+        "priority": 2,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_omar",
+            "status": "not_started"
+          },
+          "storyFlag": {
+            "key": "merchant_master_complete",
+            "value": true
+          }
+        },
+        "lines": [
+          {
+            "arabic": "طبعاً! أَنتَ تُتقِنُ السُّوق. لَكِن دَفتَري المَفقود — مُشكِلَتي الكُبرى",
+            "english": "Of course! You've mastered the market. But my lost ledger — my biggest problem.",
+            "transliteration": "tab'an! anta tutqin as-suuq. laakin daftari al-mafquud — mushkilati al-kubraa"
+          },
+          {
+            "arabic": "كُلُّ كَلِمَةٍ في الدَّفتَر تُساوي سُمعَتي التِّجارِيَّة",
+            "english": "Every word in the ledger is worth my trade reputation.",
+            "transliteration": "kull kalima fid-daftar tusaawi sum'ati at-tijariyya",
+            "teachWord": "big_1"
+          },
+          {
+            "arabic": "هَل تُساعِدُني في اِسترِداد كَلِمات دَفتَري؟",
+            "english": "Will you help me recover the words from my ledger?",
+            "transliteration": "hal tusa'iduni fi istirdaad kalimaat daftari?"
+          },
+          {
+            "arabic": "الدَّفتَرُ يَستَخدِمُ مُصطَلَحاتٍ تِجارِيَّةً دَقيقَة — فَقَط عالِمٌ بِالعَرَبيَّة يَفهَمُها",
+            "english": "The ledger uses precise trade terminology — only a scholar of Arabic can understand it.",
+            "transliteration": "ad-daftar yastakhdam mustalahaatan tijaariyya daqiiqa — faqat 'aalim bil-arabiyya yafhamuhaa",
+            "condition": {
+              "learningPath": "scholar"
+            }
+          },
+          {
+            "arabic": "الدَّفتَرُ ضائِعٌ في طَريقِ السُّوق — مَن يَعرِفُ طُرُقَ التُّجّار سَيَجِدُه",
+            "english": "The ledger is lost on the market route — one who knows the traders' paths will find it.",
+            "transliteration": "ad-daftar dhaa'i' fi tariiq as-suuq — man ya'rif turuq at-tujjaar sa-yajiduhu",
+            "condition": {
+              "learningPath": "traveler"
+            }
+          },
+          {
+            "arabic": "هَذا الدَّفتَرُ كُتِبَ عَلى طَريقَة تُجّار الحَرير — مَن يَعرِفُ التّاريخَ التِّجاري سَيَفهَمُ لُغَتَه",
+            "english": "This ledger was written in the style of Silk Road merchants — one who knows trade history will understand its language.",
+            "transliteration": "haadhaa ad-daftar kutib 'ala tariiqa tujjaar al-hariir — man ya'rif at-taariikh at-tijaariyy sa-yafham lughataه",
+            "condition": {
+              "learningPath": "historian"
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_start",
+            "questId": "companion_quest_omar"
+          }
+        ]
+      },
+      {
+        "id": "personal_quest_omar_complete",
+        "topic": "Quest Complete",
+        "topicArabic": "المهمة مكتملة",
+        "priority": 1,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_omar",
+            "status": "active"
+          }
+        },
+        "lines": [
+          {
+            "arabic": "طبعاً! سُمعَتي عادَت. كُلُّ كَلِمَةٍ في مَكانِها الصَّحيح",
+            "english": "Of course! My reputation is restored. Every word in its rightful place.",
+            "transliteration": "tab'an! sum'ati 'aadat. kull kalima fi makaaniha as-saahih"
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_complete",
+            "questId": "companion_quest_omar"
+          },
+          {
+            "type": "relationship_change",
+            "amount": 2
+          },
+          {
+            "type": "teach_word",
+            "wordId": "small_w19"
+          },
+          {
+            "type": "teach_word",
+            "wordId": "good_w20"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "companion_layla",
+    "dialogueTrees": [
+      {
+        "id": "personal_quest_layla",
+        "topic": "Personal Quest",
+        "topicArabic": "المهمة الشخصية",
+        "priority": 2,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_layla",
+            "status": "not_started"
+          },
+          "storyFlag": {
+            "key": "master_of_letters_complete",
+            "value": true
+          }
+        },
+        "lines": [
+          {
+            "arabic": "صحيح! أَنتَ تُتقِنُ المَكتَبَة. أَنا أُصَحِّحُ مَخطوطَةً في سِرٍّ",
+            "english": "Correct! You've mastered the library. I am secretly correcting a manuscript.",
+            "transliteration": "saahih! anta tutqin al-maktaba. ana usahhih makhtuuta fi sirr"
+          },
+          {
+            "arabic": "الأَخطاءُ النَّحوِيَّةُ كَالجُروح — يَجِبُ تَضميدُها قَبلَ الفَجر",
+            "english": "Grammar errors are like wounds — they must be bandaged before dawn.",
+            "transliteration": "al-akhta' an-nahwiyya kaljuruuh — yajibu tadmiiduhaa qabl al-fajr",
+            "teachWord": "sentence_w1"
+          },
+          {
+            "arabic": "أَحتاجُ إلى عالِمٍ واحِدٍ لِلتَّحَقُّق مِن عَمَلي. هَل أَنتَ ذَلِكَ العالِم؟",
+            "english": "I need one scholar to verify my work. Are you that scholar?",
+            "transliteration": "ahtaaju ila 'aalim waahid lit-tahaqquq min 'amali. hal anta dhaalika al-'aalim?"
+          },
+          {
+            "arabic": "النَّحوُ لَيسَ قُيوداً — هُوَ مَنطِقُ اللُّغَة الَّذي يَجعَلُ كُلَّ جُملَةٍ قَصيدَة",
+            "english": "Grammar is not chains — it is the logic of language that makes every sentence a poem.",
+            "transliteration": "an-nahw laysa quyuudan — huwa mantiq al-lugha alladhi yaj'al kull jumla qasiida",
+            "condition": {
+              "learningPath": "scholar"
+            }
+          },
+          {
+            "arabic": "اللَّيلُ وَقتُ التَّفكير — المُسافِرُ يَتَعَلَّمُ اللُّغَة حينَ يَسكُنُ المَكان لَيلاً",
+            "english": "Night is the time for reflection — the traveler learns language when they rest in a place at night.",
+            "transliteration": "al-layl waqt at-tafkiir — al-musaafir yata'allam al-lugha hiina yaskun al-makaan laylan",
+            "condition": {
+              "learningPath": "traveler"
+            }
+          },
+          {
+            "arabic": "المَخطوطاتُ كُتِبَت لَيلاً في أَغلَبِ الأَحيان — النُّسّاخُ عَمِلوا عَلى ضَوءِ الشَّمعَةِ لِيَحفَظوا المَعرِفَة لِلأَجيال",
+            "english": "Most manuscripts were written at night — scribes worked by candlelight to preserve knowledge for generations.",
+            "transliteration": "al-makhtuutaat kutibbat laylan fii aghalab al-ahyaan — an-nussaakh 'amiluu 'ala daw' ash-sham'a li-yahfazuu al-ma'rifa lil-ajyaal",
+            "condition": {
+              "learningPath": "historian"
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_start",
+            "questId": "companion_quest_layla"
+          }
+        ]
+      },
+      {
+        "id": "personal_quest_layla_complete",
+        "topic": "Quest Complete",
+        "topicArabic": "المهمة مكتملة",
+        "priority": 1,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_layla",
+            "status": "active"
+          }
+        },
+        "lines": [
+          {
+            "arabic": "صحيح! التَّصحيحاتُ مُكتَمِلَة. النَّحوُ مَحفوظٌ لِلأَجيال",
+            "english": "Correct! The corrections are complete. Grammar is preserved for generations.",
+            "transliteration": "saahih! at-tashiihaat muktamila. an-nahw mahfuuz lil-ajyaal"
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_complete",
+            "questId": "companion_quest_layla"
+          },
+          {
+            "type": "relationship_change",
+            "amount": 2
+          },
+          {
+            "type": "teach_word",
+            "wordId": "verb_w1"
+          },
+          {
+            "type": "teach_word",
+            "wordId": "noun_w1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "companion_hassan",
+    "dialogueTrees": [
+      {
+        "id": "personal_quest_hassan",
+        "topic": "Personal Quest",
+        "topicArabic": "المهمة الشخصية",
+        "priority": 2,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_hassan",
+            "status": "not_started"
+          },
+          "storyFlag": {
+            "key": "mountain_wisdom_complete",
+            "value": true
+          }
+        },
+        "lines": [
+          {
+            "arabic": "بسم الله. أَنتَ اجتَزتَ حِكمَةَ الجَبَل. جَديرٌ بِالاطِّلاع عَلى المِيثاق",
+            "english": "In the name of God. You have passed the mountain wisdom. Worthy to see the code.",
+            "transliteration": "bismillaah. anta ijtazta hikmat al-jabal. jadiir bil-ittilaa' 'alal-miithaaq"
+          },
+          {
+            "arabic": "مِيثاقُ المُحارِب القَديم — كُلُّ فَضيلَةٍ بِاسمِها العَرَبيِّ الكِلاسيكي",
+            "english": "The ancient warrior code — every virtue named in classical Arabic.",
+            "transliteration": "miithaaq al-muharib al-qadiim — kull fadiila bi-ismiha al-'arabi al-kilaasiiki",
+            "teachWord": "ustadh"
+          },
+          {
+            "arabic": "هَل تَستَطيعُ حِفظَهُ وَتِلاوَتَهُ وَفقَ تَقليد الهِضاب؟",
+            "english": "Can you memorise it and recite it according to the highland tradition?",
+            "transliteration": "hal tastati'u hifzahu wa tilaawatahu wafq taqliid al-hidaab?"
+          },
+          {
+            "arabic": "المِيثاقُ مَكتوبٌ بِالعَرَبِيَّة الفُصحى القَديمَة — يَحتاجُ عالِماً يَفهَمُ تَصريفَ الأَفعال",
+            "english": "The code is written in ancient Classical Arabic — it needs a scholar who understands verb conjugation.",
+            "transliteration": "al-miithaaq maktuum bil-arabiyya al-fushaa al-qadiima — yahtaaj 'aaliman yafham tasriif al-af'aal",
+            "condition": {
+              "learningPath": "scholar"
+            }
+          },
+          {
+            "arabic": "المِيثاقُ يُصاحِبُ المُحارِبَ في كُلِّ رِحلَة — المُسافِرُ الشُّجاعُ يَحفَظُهُ عَن ظَهرِ قَلب",
+            "english": "The code accompanies the warrior on every journey — the brave traveler memorises it by heart.",
+            "transliteration": "al-miithaaq yusaahib al-muharib fii kulli rihlla — al-musaafir ash-shujaa' yahfazuhu 'an zhahr qalb",
+            "condition": {
+              "learningPath": "traveler"
+            }
+          },
+          {
+            "arabic": "المِيثاقُ أَقدَمُ مِنَ الإسلام — جُذورُهُ في قَوانينِ القَبائِل العَرَبيَّة قَبلَ الكِتابَة",
+            "english": "The code is older than Islam — its roots lie in Arab tribal laws from before writing existed.",
+            "transliteration": "al-miithaaq aqdamu min al-islaam — judhuuruhu fii qawaniin al-qabaa'il al-arabiyya qabl al-kitaaba",
+            "condition": {
+              "learningPath": "historian"
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_start",
+            "questId": "companion_quest_hassan"
+          }
+        ]
+      },
+      {
+        "id": "personal_quest_hassan_complete",
+        "topic": "Quest Complete",
+        "topicArabic": "المهمة مكتملة",
+        "priority": 1,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_hassan",
+            "status": "active"
+          }
+        },
+        "lines": [
+          {
+            "arabic": "بسم الله. حَفِظتَ المِيثاق. أَنتَ الآنَ جُزءٌ مِن تُراثِ الجَبَل",
+            "english": "In the name of God. You memorised the code. You are now part of the mountain's heritage.",
+            "transliteration": "bismillaah. hafizta al-miithaaq. anta al-aan juz' min turaath al-jabal"
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_complete",
+            "questId": "companion_quest_hassan"
+          },
+          {
+            "type": "relationship_change",
+            "amount": 2
+          },
+          {
+            "type": "teach_word",
+            "wordId": "write_1"
+          },
+          {
+            "type": "teach_word",
+            "wordId": "book_w1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "companion_fatima",
+    "dialogueTrees": [
+      {
+        "id": "personal_quest_fatima",
+        "topic": "Personal Quest",
+        "topicArabic": "المهمة الشخصية",
+        "priority": 2,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_fatima",
+            "status": "not_started"
+          },
+          "storyFlag": {
+            "key": "master_of_arabic_complete",
+            "value": true
+          }
+        },
+        "lines": [
+          {
+            "arabic": "سُبحان الله! أَنتَ أَتقَنتَ العَرَبِيَّة. اِكتَشَفتُ أَرشيفاً مَخفِيَّاً",
+            "english": "Glory be to God! You've mastered Arabic. I've discovered a hidden archive.",
+            "transliteration": "subhaana allaah! anta atqanta al-arabiyya. iktashaftu arshifan makhfiyyan"
+          },
+          {
+            "arabic": "النُّقوشُ الثَّقافِيَّةُ تَحتاجُ إلى صَوتٍ يُحييها — صَوتِكَ",
+            "english": "The cultural inscriptions need a voice to bring them to life — your voice.",
+            "transliteration": "an-nuquush ath-thaqaafiyya tahtaaju ila sawt yuhyiiha — sawtik",
+            "teachWord": "ustadh"
+          },
+          {
+            "arabic": "هَل تَقرَأُ النُّقوشَ مَعي حَتَّى نُؤَرِّخَها؟",
+            "english": "Will you read the inscriptions with me so we can archive them?",
+            "transliteration": "hal taqra' an-nuquush ma'ii hatta nu'arrikha?"
+          },
+          {
+            "arabic": "النُّقوشُ بِالعَرَبيَّة المُبكِّرَة — تَحليلُها يَكشِفُ كَيفَ تَطَوَّرَت الكِتابَة مِن الرَّسمِ إلى الحُرف",
+            "english": "The inscriptions are in early Arabic — analysing them reveals how writing evolved from images to letters.",
+            "transliteration": "an-nuquush bil-arabiyya al-mubakkira — tahliluhaa yakshif kayfa tatawwarat al-kitaaba min ar-rasm ilaa al-harf",
+            "condition": {
+              "learningPath": "scholar"
+            }
+          },
+          {
+            "arabic": "النُّقوشُ وَجَدتُها في طُرُق القَوافِل — كُلُّ نَقشٍ عَلامَةٌ تَرَكَها مُسافِرٌ لِمَن بَعدَه",
+            "english": "I found the inscriptions on caravan routes — every inscription is a sign left by a traveler for those who follow.",
+            "transliteration": "an-nuquush wajadtuhaa fii turuq al-qawaafil — kullu naqshin 'alaama tarakahaa musaafir liman ba'dahu",
+            "condition": {
+              "learningPath": "traveler"
+            }
+          },
+          {
+            "arabic": "هَذِهِ النُّقوشُ تَعودُ إلى ما قَبلَ الإسلام — إنَّها تَرابُطُ الحَضارات العَرَبيَّة عَبرَ الأَجيال",
+            "english": "These inscriptions date to pre-Islamic times — they are the continuity of Arab civilisations across the ages.",
+            "transliteration": "haadhihi an-nuquush ta'uud ilaa maa qabl al-islaam — innahaa taraabutu al-hadaaraat al-arabiyya 'abra al-ajyaal",
+            "condition": {
+              "learningPath": "historian"
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_start",
+            "questId": "companion_quest_fatima"
+          }
+        ]
+      },
+      {
+        "id": "personal_quest_fatima_complete",
+        "topic": "Quest Complete",
+        "topicArabic": "المهمة مكتملة",
+        "priority": 1,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_fatima",
+            "status": "active"
+          }
+        },
+        "lines": [
+          {
+            "arabic": "سُبحان الله! الأَرشيفُ مُكتَمِل. الكَلِماتُ حَيَّةٌ مِن جَديد",
+            "english": "Glory be to God! The archive is complete. The words are alive again.",
+            "transliteration": "subhaana allaah! al-arshiif muktamil. al-kalimaat hayya min jadiid"
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_complete",
+            "questId": "companion_quest_fatima"
+          },
+          {
+            "type": "relationship_change",
+            "amount": 2
+          },
+          {
+            "type": "teach_word",
+            "wordId": "write_1"
+          },
+          {
+            "type": "teach_word",
+            "wordId": "book_w1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "companion_ali",
+    "dialogueTrees": [
+      {
+        "id": "personal_quest_ali",
+        "topic": "Personal Quest",
+        "topicArabic": "المهمة الشخصية",
+        "priority": 2,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_ali",
+            "status": "not_started"
+          },
+          "storyFlag": {
+            "key": "words_of_oasis_complete",
+            "value": true
+          }
+        },
+        "lines": [
+          {
+            "arabic": "إن شاء الله، أَنتَ تَعرِفُ الواحَة. أَحتاجُ مَن يَتَعَلَّمُ دُعاءَ الشِّفاء",
+            "english": "God willing, you know the oasis. I need someone to learn the healing prayer.",
+            "transliteration": "in shaa' allaah, anta ta'rif al-waaha. ahtaaju man yata'allamu du'aa' ash-shifaa'"
+          },
+          {
+            "arabic": "الدُّعاءُ بِالعَرَبِيَّة الكِلاسيكِيَّة — نُطقُهُ يَجِبُ أَن يَكونَ سَليماً",
+            "english": "The prayer in classical Arabic — its pronunciation must be correct.",
+            "transliteration": "ad-du'aa' bil-arabiyya al-kilaasiikiyya — nutquhu yajibu an yakuuna saliiman",
+            "teachWord": "ahlan"
+          },
+          {
+            "arabic": "هَل تَتَعَلَّمُ الدُّعاءَ مَعي وَتَتلوهُ بِصِحَّة؟",
+            "english": "Will you learn the prayer with me and recite it correctly?",
+            "transliteration": "hal tata'allamu ad-du'aa' ma'ii wa tatluuhu bissiha?"
+          },
+          {
+            "arabic": "الدُّعاءُ الطِّبيُّ يَستَلزِمُ تَحليلَ كُلِّ لَفظَة — كَلِمَة شِفاء لَيسَت مُرادِفَةً لِكَلِمَة صِحَّة",
+            "english": "The healing prayer requires analysing every word — shifa (cure) is not synonymous with sihha (health).",
+            "transliteration": "ad-du'aa' at-tibbiyy yastalzimu tahlil kulli lafza — kalima shifaa' laysat muraadifan li-kalima sihha",
+            "condition": {
+              "learningPath": "scholar"
+            }
+          },
+          {
+            "arabic": "الشِّفاءُ في كُلِّ أَرض — المُسافِرُ يَتَعَلَّمُ الدُّعاء لِيَحمِيَ نَفسَه في أَيِّ طَريق",
+            "english": "Healing exists in every land — the traveler learns the prayer to protect themselves on any road.",
+            "transliteration": "ash-shifaa' fii kulli ard — al-musaafir yata'allamu ad-du'aa' li-yahmiya nafsahu fii ayy tariiq",
+            "condition": {
+              "learningPath": "traveler"
+            }
+          },
+          {
+            "arabic": "الطِّبُّ العَرَبيُّ كانَ طِبَّ الجِسمِ وَالرُّوح — الدُّعاءُ كانَ جُزءاً مِن وِصفَةِ كُلِّ طَبيب",
+            "english": "Arab medicine healed both body and soul — the prayer was part of every physician's prescription.",
+            "transliteration": "at-tibb al-arabiyy kaana tibb al-jism war-ruuh — ad-du'aa' kaana juz'an min wasfa kulli tabiib",
+            "condition": {
+              "learningPath": "historian"
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_start",
+            "questId": "companion_quest_ali"
+          }
+        ]
+      },
+      {
+        "id": "personal_quest_ali_complete",
+        "topic": "Quest Complete",
+        "topicArabic": "المهمة مكتملة",
+        "priority": 1,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_ali",
+            "status": "active"
+          }
+        },
+        "lines": [
+          {
+            "arabic": "إن شاء الله! الدُّعاءُ الآنَ مَحفوظ. نُطقُكَ سَليمٌ تَماماً",
+            "english": "God willing! The prayer is now preserved. Your pronunciation is completely correct.",
+            "transliteration": "in shaa' allaah! ad-du'aa' al-aan mahfuuz. nutquka saliim tamaaman"
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_complete",
+            "questId": "companion_quest_ali"
+          },
+          {
+            "type": "relationship_change",
+            "amount": 2
+          },
+          {
+            "type": "teach_word",
+            "wordId": "marhaba"
+          },
+          {
+            "type": "teach_word",
+            "wordId": "sabah_al_khayr"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "companion_maryam",
+    "dialogueTrees": [
+      {
+        "id": "personal_quest_maryam",
+        "topic": "Personal Quest",
+        "topicArabic": "المهمة الشخصية",
+        "priority": 2,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_maryam",
+            "status": "not_started"
+          },
+          "storyFlag": {
+            "key": "port_of_knowledge_complete",
+            "value": true
+          }
+        },
+        "lines": [
+          {
+            "arabic": "يَلَّا! أَنتَ أَتقَنتَ المِيناء. أَحتاجُ مِنكَ إِتقانَ نَحوِ الأَوامِر",
+            "english": "Let's go! You've mastered the port. I need you to master command grammar.",
+            "transliteration": "yalla! anta atqanta al-miinaa'. ahtaaju minka itqaan nahw al-awamir"
+          },
+          {
+            "arabic": "الجُملَةُ القِتالِيَّة: فِعلٌ ثُمَّ فاعِلٌ ثُمَّ مَفعول — هَكَذا نَأمُر",
+            "english": "The battle sentence: verb then subject then object — that's how we command.",
+            "transliteration": "al-jumla al-qitaaliyya: fi'l thumma faa'il thumma maf'uul — hakadha na'mur",
+            "teachWord": "sentence_w1"
+          },
+          {
+            "arabic": "هَل تُتقِنُ البِنيَةَ وَتُثبِتُ جَدارَتَكَ أَمامي؟",
+            "english": "Will you master the structure and prove your worth before me?",
+            "transliteration": "hal tutqin al-binyata wa tuthbit jadaraataka amamii?"
+          },
+          {
+            "arabic": "النَّحوُ القِتاليُّ مَبنيٌّ عَلى قَواعِدَ صارِمَة — العالِمُ يَستَخدِمُ الأَوزانَ الصَّرفيَّةَ كَسُيوف",
+            "english": "Battle grammar is built on strict rules — the scholar wields morphological patterns like swords.",
+            "transliteration": "an-nahw al-qitaaliyy mabniyy 'ala qawaa'id saarimа — al-'aalim yastakhdam al-awzaan as-sarfiyya ka-suyuuf",
+            "condition": {
+              "learningPath": "scholar"
+            }
+          },
+          {
+            "arabic": "المُسافِرُ الشُّجاعُ لا يَتَرَدَّد — البِنيَةُ تَحمي لِسانَكَ في كُلِّ بَلَد",
+            "english": "The brave traveler does not hesitate — structure protects your tongue in every land.",
+            "transliteration": "al-musaafir ash-shujaa' laa yataraddad — al-binyatu tahmi lisaanik fii kulli balad",
+            "condition": {
+              "learningPath": "traveler"
+            }
+          },
+          {
+            "arabic": "العَرَبُ الفُرسانُ كانوا شُعَراء أَيضاً — السَّيفُ وَالبَيانُ وَجهانِ لِقُوَّةٍ واحِدَة",
+            "english": "Arab knights were also poets — the sword and eloquence are two faces of one power.",
+            "transliteration": "al-'arab al-fursaan kaanuu shu'araa' aydan — as-sayf wal-bayaan wajhaan li-quwwa waahida",
+            "condition": {
+              "learningPath": "historian"
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_start",
+            "questId": "companion_quest_maryam"
+          }
+        ]
+      },
+      {
+        "id": "personal_quest_maryam_complete",
+        "topic": "Quest Complete",
+        "topicArabic": "المهمة مكتملة",
+        "priority": 1,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_maryam",
+            "status": "active"
+          }
+        },
+        "lines": [
+          {
+            "arabic": "يَلَّا! أَحسَنتَ. نَحوُكَ القِتالي أَصبَحَ سِلاحاً حَقيقِيَّاً",
+            "english": "Let's go! Well done. Your battle grammar has become a real weapon.",
+            "transliteration": "yalla! ahsanta. nahwuka al-qitaali asbaha silahan haqiiqiyyan"
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_complete",
+            "questId": "companion_quest_maryam"
+          },
+          {
+            "type": "relationship_change",
+            "amount": 2
+          },
+          {
+            "type": "teach_word",
+            "wordId": "verb_w1"
+          },
+          {
+            "type": "teach_word",
+            "wordId": "noun_w1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "companion_samir",
+    "dialogueTrees": [
+      {
+        "id": "personal_quest_samir",
+        "topic": "Personal Quest",
+        "topicArabic": "المهمة الشخصية",
+        "priority": 2,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_samir",
+            "status": "not_started"
+          },
+          "storyFlag": {
+            "key": "merchant_master_complete",
+            "value": true
+          }
+        },
+        "lines": [
+          {
+            "arabic": "وَالله! أَنتَ أَتقَنتَ السُّوق. لَكِن نُطقُكَ بَطيء جِدَّاً",
+            "english": "By God! You've mastered the market. But your pronunciation is too slow.",
+            "transliteration": "wallaah! anta atqanta as-suuq. laakin nutquka batiiy' jiddan"
+          },
+          {
+            "arabic": "في السُّوق الكَلِماتُ تَتَطايَرُ — مَن لا يَنطِقُها سَريعاً يَخسَر",
+            "english": "In the market words fly — whoever doesn't pronounce them fast loses.",
+            "transliteration": "fis-suuq al-kalimaat tatataayr — man laa yantiquha sarii'an yakhsar",
+            "teachWord": "ahlan"
+          },
+          {
+            "arabic": "هَل تَجرُؤُ عَلى تَحَدِّيَ النُّطقي؟",
+            "english": "Do you dare to face my pronunciation challenge?",
+            "transliteration": "hal tajra'u 'ala tahaddiyi an-nutqii?"
+          },
+          {
+            "arabic": "النُّطقُ السَّريعُ لا يَعني النُّطقَ الأَدقَّ — العالِمُ يُوازِنُ بَينَ السُّرعَةِ وَالضَّبط",
+            "english": "Fast pronunciation does not mean more precise pronunciation — the scholar balances speed with accuracy.",
+            "transliteration": "an-nutq as-sarii' laa ya'nii an-nutq al-adaqq — al-'aalim yuwaazin bayna as-sur'a wad-dabt",
+            "condition": {
+              "learningPath": "scholar"
+            }
+          },
+          {
+            "arabic": "في كُلِّ مَدينَة لَهجَةٌ مُختَلِفَة — المُسافِرُ يَتَكَيَّفُ مَعَ إيقاعِ كُلِّ مَكان",
+            "english": "Every city has a different dialect — the traveler adapts to the rhythm of every place.",
+            "transliteration": "fii kulli madiina lahja mukhtalifa — al-musaafir yatakayaf ma'a iiqa' kulli makaan",
+            "condition": {
+              "learningPath": "traveler"
+            }
+          },
+          {
+            "arabic": "أَسواقُ بَغداد وَالقاهِرَة وَالأَندَلُس كُلٌّ لَها إيقاعُها — التّاريخُ يُسمَعُ في سُرعَةِ الكَلام",
+            "english": "The markets of Baghdad, Cairo, and Andalusia each had their own rhythm — history is heard in the speed of speech.",
+            "transliteration": "aswaaq baghdaad wal-qaahira wal-andalus kullun lahaa iiqa'uhaa — at-taariikh yusma' fii sur'at al-kalaam",
+            "condition": {
+              "learningPath": "historian"
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_start",
+            "questId": "companion_quest_samir"
+          }
+        ]
+      },
+      {
+        "id": "personal_quest_samir_complete",
+        "topic": "Quest Complete",
+        "topicArabic": "المهمة مكتملة",
+        "priority": 1,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_samir",
+            "status": "active"
+          }
+        },
+        "lines": [
+          {
+            "arabic": "وَالله! فُزتَ. نُطقُكَ أَصبَحَ بِسُرعَة البَرق",
+            "english": "By God! You won. Your pronunciation has become as fast as lightning.",
+            "transliteration": "wallaah! fuzta. nutquka asbaha bisur'at al-barq"
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_complete",
+            "questId": "companion_quest_samir"
+          },
+          {
+            "type": "relationship_change",
+            "amount": 2
+          },
+          {
+            "type": "teach_word",
+            "wordId": "marhaba"
+          },
+          {
+            "type": "teach_word",
+            "wordId": "sabah_al_khayr"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "companion_nadia",
+    "dialogueTrees": [
+      {
+        "id": "personal_quest_nadia",
+        "topic": "Personal Quest",
+        "topicArabic": "المهمة الشخصية",
+        "priority": 2,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_nadia",
+            "status": "not_started"
+          },
+          "storyFlag": {
+            "key": "mountain_wisdom_complete",
+            "value": true
+          }
+        },
+        "lines": [
+          {
+            "arabic": "الله أكبر! أَنتَ تُتقِنُ الجَبَل. أَنا نادِيَة — أَحفَظُ تَقاليدَ الأَعشاب",
+            "english": "God is greatest! You've mastered the mountain. I am Nadia — I preserve herb traditions.",
+            "transliteration": "allaahu akbar! anta tutqin al-jabal. ana naadiya — ahfazu taqaaliid al-a'shaab"
+          },
+          {
+            "arabic": "كُلُّ عُشبَةٍ لَها اِسمٌ عَرَبيٌّ قَديمٌ يَجِبُ أَن يُعَلَّمَ لِلأَجيال",
+            "english": "Every herb has an ancient Arabic name that must be taught to the generations.",
+            "transliteration": "kull 'ushba laha ism 'arabi qadiim yajibu an yu'allama lil-ajyaal",
+            "teachWord": "ustadh"
+          },
+          {
+            "arabic": "هَل تُساعِدُني في تَعليم أَسماء الأَعشاب لِلجيل القادِم؟",
+            "english": "Will you help me teach the herb names to the next generation?",
+            "transliteration": "hal tusa'iduni fi ta'liim asmaa' al-a'shaab lil-jiil al-qaadim?"
+          },
+          {
+            "arabic": "التَّصنيفُ العِلمي لِلأَعشاب كَتَبَهُ العُلَماءُ العَرَب — كُلُّ اِسمٍ يَحمِلُ خُصائِصَ النَّبات",
+            "english": "The scientific classification of herbs was written by Arab scholars — every name carries the plant's properties.",
+            "transliteration": "at-tasniif al-'ilmiyy lil-a'shaab katabahu al-'ulamaa' al-'arab — kullu ism yahmil khasaa'is an-nabaat",
+            "condition": {
+              "learningPath": "scholar"
+            }
+          },
+          {
+            "arabic": "الأَعشابُ الطِّبيَّة تَنمو في كُلِّ جَبَل — المُسافِرُ يَتَعَلَّمُ أَسماءَها لِيَنجوَ في البَريَّة",
+            "english": "Medicinal herbs grow on every mountain — the traveler learns their names to survive in the wilderness.",
+            "transliteration": "al-a'shaab at-tibbiyya tanmu fii kulli jabal — al-musaafir yata'allam asmaa'ahaa li-yanjuwa fil-barriyya",
+            "condition": {
+              "learningPath": "traveler"
+            }
+          },
+          {
+            "arabic": "الطِّبُّ النَّباتيُّ الإسلامي وَثَّقَ أَلفَ نَباتٍ قَبلَ عُلَماء أُوروبّا — هَذِهِ الأَسماءُ هِيَ التُّراث",
+            "english": "Islamic botanical medicine documented a thousand plants before European scholars — these names are the heritage.",
+            "transliteration": "at-tibb an-nabaatiyy al-islaamiyy waththaqa alf nabaat qabl 'ulamaa' uurubbaa — haadhihi al-asmaa' hiya at-turaath",
+            "condition": {
+              "learningPath": "historian"
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_start",
+            "questId": "companion_quest_nadia"
+          }
+        ]
+      },
+      {
+        "id": "personal_quest_nadia_complete",
+        "topic": "Quest Complete",
+        "topicArabic": "المهمة مكتملة",
+        "priority": 1,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_nadia",
+            "status": "active"
+          }
+        },
+        "lines": [
+          {
+            "arabic": "الله أكبر! التَّقليدُ مَحفوظ. أَسماءُ الأَعشاب سَتَعيشُ لِلأَبَد",
+            "english": "God is greatest! The tradition is preserved. The herb names will live forever.",
+            "transliteration": "allaahu akbar! at-taqliid mahfuuz. asmaa' al-a'shaab sata'iishu lil-abad"
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_complete",
+            "questId": "companion_quest_nadia"
+          },
+          {
+            "type": "relationship_change",
+            "amount": 2
+          },
+          {
+            "type": "teach_word",
+            "wordId": "write_1"
+          },
+          {
+            "type": "teach_word",
+            "wordId": "book_w1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "companion_tariq",
+    "dialogueTrees": [
+      {
+        "id": "personal_quest_tariq",
+        "topic": "Personal Quest",
+        "topicArabic": "المهمة الشخصية",
+        "priority": 2,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_tariq",
+            "status": "not_started"
+          },
+          "storyFlag": {
+            "key": "master_of_arabic_complete",
+            "value": true
+          }
+        },
+        "lines": [
+          {
+            "arabic": "بالتأكيد. أَنتَ أَتقَنتَ العَرَبِيَّة. النُّقوشُ بِحاجَةٍ إلى عالِمٍ مِثلِك",
+            "english": "Certainly. You've mastered Arabic. The inscriptions need a scholar like you.",
+            "transliteration": "bittakiid. anta atqanta al-arabiyya. an-nuquush bihaajatin ila 'aalim mithlak"
+          },
+          {
+            "arabic": "كُلُّ نَقشٍ يُعَلِّمُ مُفرَداتٍ نادِرَة — لَكِنَّ النَّهَّابينَ يَقتَرِبون",
+            "english": "Every inscription teaches rare vocabulary — but looters are approaching.",
+            "transliteration": "kull naqsh yu'allim mufradaat naadira — laakin an-nahhaabiin yaqtaribuun",
+            "teachWord": "big_1"
+          },
+          {
+            "arabic": "هَل تُساعِدُني في فَكِّ رُموزِ النُّقوش وَتَسجيلِها قَبلَ فَوات الأَوان؟",
+            "english": "Will you help me decode and record the inscriptions before it's too late?",
+            "transliteration": "hal tusa'iduni fi fakk rumuuz an-nuquush wa tasjiiluha qabl fawaat al-awan?"
+          },
+          {
+            "arabic": "فَكُّ الرُّموز عِلمٌ دَقيق — العالِمُ يَربِطُ كُلَّ رَمزٍ بِجَذرِهِ اللُّغَوي",
+            "english": "Decoding symbols is a precise science — the scholar links every symbol to its linguistic root.",
+            "transliteration": "fakk ar-rumuuz 'ilmun daqiiq — al-'aalim yarbit kull ramzin bi-jadhrihi al-lughawiyy",
+            "condition": {
+              "learningPath": "scholar"
+            }
+          },
+          {
+            "arabic": "النُّقوشُ مَنتَشِرَةٌ عَلى طُرُق القَوافِل — المُسافِرُ يَتَعَلَّمُ مِنها الاتِّجاهات وَالتّاريخ مَعاً",
+            "english": "Inscriptions are scattered along caravan routes — the traveler learns both directions and history from them.",
+            "transliteration": "an-nuquush muntashira 'ala turuq al-qawaafil — al-musaafir yata'allam minhaa al-ittijaahaat wat-taariikh ma'an",
+            "condition": {
+              "learningPath": "traveler"
+            }
+          },
+          {
+            "arabic": "النُّقوشُ شُهودٌ صامِتَة عَلى الحَضارات — كُلُّ حَرفٍ هُوَ بَقيَّةٌ مِن عالَمٍ بَنى وَاندَثَر",
+            "english": "Inscriptions are silent witnesses of civilisations — every letter is a remnant of a world that built and then faded.",
+            "transliteration": "an-nuquush shuhuudun saamita 'ala al-hadaaraat — kullu harfin huwa baqiyya min 'aalam banaa wantathara",
+            "condition": {
+              "learningPath": "historian"
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_start",
+            "questId": "companion_quest_tariq"
+          }
+        ]
+      },
+      {
+        "id": "personal_quest_tariq_complete",
+        "topic": "Quest Complete",
+        "topicArabic": "المهمة مكتملة",
+        "priority": 1,
+        "condition": {
+          "quest": {
+            "id": "companion_quest_tariq",
+            "status": "active"
+          }
+        },
+        "lines": [
+          {
+            "arabic": "بالتأكيد. النُّقوشُ مُسَجَّلَة. المُفرَداتُ في أَمانٍ لِلأَبَد",
+            "english": "Certainly. The inscriptions are recorded. The vocabulary is safe forever.",
+            "transliteration": "bittakiid. an-nuquush musajjala. al-mufradaat fi amaan lil-abad"
+          }
+        ],
+        "effects": [
+          {
+            "type": "quest_complete",
+            "questId": "companion_quest_tariq"
+          },
+          {
+            "type": "relationship_change",
+            "amount": 2
+          },
+          {
+            "type": "teach_word",
+            "wordId": "small_w19"
+          },
+          {
+            "type": "teach_word",
+            "wordId": "good_w20"
+          }
+        ]
+      }
+    ]
+  }
+]

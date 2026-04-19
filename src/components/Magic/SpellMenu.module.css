@@ -1,0 +1,298 @@
+@import '../../styles/variables.css';
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.headerTitle {
+  font-family: var(--font-pixel);
+  font-size: 16px;
+  color: #fff;
+}
+
+.closeBtn {
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  color: #fff;
+  background-color: #444;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.closeBtn:hover {
+  background-color: #555;
+}
+
+/* Element filter tabs */
+.filterTabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filterTabAll {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.filterTabAllActive {
+  color: #000;
+  background-color: #fff;
+  border: 2px solid #FFD700;
+}
+
+.filterTabAllInactive {
+  color: #fff;
+  background-color: #333;
+  border: 2px solid #666;
+}
+
+.filterTabElement {
+  font-family: 'Amiri', serif;
+  font-size: 12px;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 2px solid var(--element-color);
+}
+
+.filterTabElementActive {
+  color: #000;
+  background-color: var(--element-color);
+}
+
+.filterTabElementInactive {
+  color: var(--element-color);
+  background-color: #333;
+}
+
+/* Spell grid */
+.spellGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+/* Hotbar area */
+.hotbarArea {
+  border-top: 2px solid #666;
+  padding-top: 16px;
+}
+
+.hotbarLabel {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: #888;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.hotbarSlots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.hotbarSlotWrapper {
+  border-radius: 6px;
+  padding: 2px;
+}
+
+.hotbarSlotWrapperSelected {
+  border: 2px solid #FFD700;
+}
+
+.hotbarSlotWrapperDefault {
+  border: 2px solid transparent;
+}
+
+/* SpellCard styles */
+.spellCard {
+  border-radius: 8px;
+  padding: 12px;
+  position: relative;
+  text-align: center;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-width: 2px;
+  border-style: solid;
+  background-color: var(--element-color-bg);
+}
+
+.spellCardLocked {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background-color: #1a1a1a;
+  border-color: var(--element-color);
+}
+
+.spellCardUnlocked {
+  cursor: pointer;
+  border-color: var(--element-color);
+}
+
+.spellCardEquipped {
+  border-color: #FFD700;
+}
+
+.equippedBadge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-size: 8px;
+  font-family: var(--font-pixel);
+  color: #FFD700;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+.spellRootId {
+  font-size: 24px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  direction: rtl;
+  color: var(--element-color);
+}
+
+.spellName {
+  font-size: 10px;
+  font-family: var(--font-pixel);
+  color: #fff;
+}
+
+.spellNameArabic {
+  font-size: 9px;
+  font-family: 'Amiri', serif;
+  color: #aaa;
+}
+
+.spellLevel {
+  font-size: 8px;
+  font-family: var(--font-pixel);
+  margin-top: 4px;
+  color: var(--element-color);
+}
+
+.xpBarTrack {
+  width: 100%;
+  height: 4px;
+  background-color: #222;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.xpBarFill {
+  height: 100%;
+  transition: width 0.3s ease;
+  background-color: var(--element-color);
+}
+
+.spellFormInfo {
+  font-size: 8px;
+  font-family: var(--font-pixel);
+  color: #888;
+  margin-top: 4px;
+}
+
+.spellLockInfo {
+  font-size: 8px;
+  font-family: var(--font-pixel);
+  color: #ff4444;
+  margin-top: 4px;
+}
+
+/* HotbarSlot styles */
+.hotbarSlotBtn {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--element-color, #444);
+}
+
+.hotbarSlotEmpty {
+  background-color: #222;
+  color: #666;
+}
+
+.hotbarSlotFilled {
+  background-color: #1a1a1a;
+  color: var(--element-color);
+}
+
+.hotbarSlotIndex {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 8px;
+  font-family: var(--font-pixel);
+  color: #666;
+}
+
+.hotbarSlotRoot {
+  font-size: 12px;
+  font-family: 'Amiri', serif;
+  direction: rtl;
+  color: var(--element-color);
+}
+
+.hotbarSlotEmptyLabel {
+  font-size: 8px;
+  font-family: var(--font-pixel);
+  color: #666;
+}
+
+.hotbarSlotMpCost {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 8px;
+  font-family: var(--font-pixel);
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+.hotbarSlotElementLabel {
+  font-size: 8px;
+  font-family: var(--font-pixel);
+  margin-top: 2px;
+}
+
+.hotbarSlotRootBold {
+  font-size: 18px;
+  font-weight: bold;
+  direction: rtl;
+}

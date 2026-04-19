@@ -1,0 +1,368 @@
+/* CraftingResult.module.css — Post-crafting result screen */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.container {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Quality-specific backgrounds */
+.quality_legendary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
+  animation: pulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.quality_epic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(156, 39, 176, 0.1) 0%, transparent 70%);
+  animation: pulse 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.quality_rare::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(33, 150, 243, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Quality Badge */
+.qualityBadge {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.qualityText {
+  font-family: 'Amiri', serif;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Item Name */
+.itemName {
+  text-align: center;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.nameArabic {
+  font-family: 'Amiri', serif;
+  font-size: 32px;
+  color: #e0e0e0;
+  margin: 0 0 8px 0;
+  direction: rtl;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.nameEnglish {
+  font-size: 16px;
+  color: #9e9e9e;
+  margin: 0;
+}
+
+/* Buff Display (for consumables) */
+.buffDisplay {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.buffLabel {
+  font-family: 'Amiri', serif;
+  font-size: 14px;
+  color: #9e9e9e;
+  margin-bottom: 8px;
+  direction: rtl;
+}
+
+.buffContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 18px;
+}
+
+.buffStat {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.buffValue {
+  color: #ffd700;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.buffDuration {
+  color: #9e9e9e;
+  font-size: 14px;
+}
+
+/* Inscription Display (for enchantment scrolls) */
+.inscriptionDisplay {
+  background: rgba(255, 215, 0, 0.08);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.inscriptionLabel {
+  font-family: 'Amiri', serif;
+  font-size: 14px;
+  color: #9e9e9e;
+  margin-bottom: 8px;
+  direction: rtl;
+}
+
+.inscriptionText {
+  font-family: 'Amiri', serif;
+  font-size: 22px;
+  color: #ffd700;
+  margin: 8px 0;
+  direction: rtl;
+  text-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+}
+
+.inscriptionBonus {
+  font-family: 'Amiri', serif;
+  font-size: 16px;
+  color: #4caf50;
+  margin: 0;
+  direction: rtl;
+}
+
+/* XP Section */
+.xpSection {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.xpGained {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.xpLabel {
+  font-family: 'Amiri', serif;
+  color: #9e9e9e;
+  direction: rtl;
+}
+
+.xpValue {
+  color: #4caf50;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Profession Progress */
+.professionProgress {
+  margin-top: 12px;
+}
+
+.professionName {
+  font-family: 'Amiri', serif;
+  font-size: 14px;
+  color: #e0e0e0;
+  margin-bottom: 8px;
+  direction: rtl;
+}
+
+.xpBar {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  height: 12px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.xpBarFill {
+  background: linear-gradient(90deg, #4caf50 0%, #8bc34a 100%);
+  height: 100%;
+  transition: width 0.5s ease-out;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+}
+
+.xpText {
+  font-size: 12px;
+  color: #9e9e9e;
+  text-align: center;
+}
+
+/* Accuracy Section */
+.accuracySection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.accuracyLabel {
+  font-family: 'Amiri', serif;
+  color: #9e9e9e;
+  font-size: 16px;
+  direction: rtl;
+}
+
+.accuracyValue {
+  color: #2196f3;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.closeButton,
+.craftAgainButton {
+  font-family: 'Amiri', serif;
+  font-size: 18px;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.closeButton {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+  direction: rtl;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.craftAgainButton {
+  background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+  color: white;
+  direction: rtl;
+}
+
+.craftAgainButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, #66bb6a 0%, #81c784 100%);
+  box-shadow: 0 6px 12px rgba(76, 175, 80, 0.4);
+}
+
+.craftAgainButton:disabled {
+  background: rgba(158, 158, 158, 0.2);
+  color: #616161;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 24px;
+    max-width: 95%;
+  }
+
+  .qualityBadge {
+    width: 100px;
+    height: 100px;
+  }
+
+  .qualityText {
+    font-size: 20px;
+  }
+
+  .nameArabic {
+    font-size: 26px;
+  }
+
+  .nameEnglish {
+    font-size: 14px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .closeButton,
+  .craftAgainButton {
+    width: 100%;
+  }
+}

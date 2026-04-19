@@ -1,0 +1,153 @@
+@import '../../styles/variables.css';
+
+/* ─── Milestone popup wrapper ─── */
+.milestoneWrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+  z-index: calc(var(--z-overlay) + 10);
+  pointer-events: none;
+}
+
+/* ─── Popup card ─── */
+.milestone {
+  background: #1a1a2e;
+  border: 2px solid rgba(255, 215, 0, 0.5);
+  border-radius: 10px;
+  padding: 20px 28px;
+  max-width: 380px;
+  width: 90%;
+  text-align: center;
+  font-family: var(--font-pixel);
+  image-rendering: pixelated;
+  box-shadow:
+    0 0 40px rgba(255, 215, 0, 0.2),
+    0 8px 32px rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+  cursor: pointer;
+  animation: milestoneEnter 0.5s ease-out forwards;
+}
+
+.milestoneExiting {
+  animation: milestoneExit 0.4s ease-in forwards;
+}
+
+/* ─── Heading ─── */
+.headingEnglish {
+  font-size: 9px;
+  color: #FFD700;
+  margin: 0 0 4px;
+  line-height: 1.5;
+}
+
+.headingArabic {
+  font-family: var(--font-arabic);
+  font-size: 16px;
+  color: #e8d5a3;
+  direction: rtl;
+  margin: 0 0 14px;
+  line-height: 1.4;
+}
+
+/* ─── Tier badge ─── */
+.tierBadge {
+  display: inline-block;
+  font-size: 8px;
+  padding: 4px 14px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #1a1a2e;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+/* ─── Reward description ─── */
+.rewardEnglish {
+  font-size: 8px;
+  color: #ccc;
+  margin: 0 0 4px;
+  line-height: 1.6;
+}
+
+.rewardArabic {
+  font-family: var(--font-arabic);
+  font-size: 13px;
+  color: #bba86e;
+  direction: rtl;
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
+/* ─── XP reward ─── */
+.xpReward {
+  font-size: 8px;
+  color: var(--color-xp-gold);
+  margin: 6px 0 0;
+}
+
+/* ─── Title earned ─── */
+.titleSection {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 215, 0, 0.15);
+}
+
+.titleLabel {
+  font-size: 7px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.titleArabic {
+  font-family: var(--font-arabic);
+  font-size: 15px;
+  color: #FFD700;
+  direction: rtl;
+  margin: 0 0 2px;
+}
+
+.titleEnglish {
+  font-size: 8px;
+  color: #ccc;
+  margin: 0;
+}
+
+/* ─── Dismiss hint ─── */
+.dismissHint {
+  font-size: 6px;
+  color: #555;
+  margin-top: 12px;
+}
+
+/* ─── Animations ─── */
+@keyframes milestoneEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(-20px);
+  }
+  60% {
+    transform: scale(1.04) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes milestoneExit {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.85) translateY(-30px);
+  }
+}

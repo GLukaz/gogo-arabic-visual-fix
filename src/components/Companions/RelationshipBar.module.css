@@ -1,0 +1,59 @@
+@import '../../styles/variables.css';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.barContainer {
+  background: #1a1a2e;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--rel-color);
+}
+
+.barContainerNormal {
+  width: 200px;
+  height: 16px;
+}
+
+.barContainerSmall {
+  width: 100px;
+  height: 8px;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--rel-color) 87%, transparent), var(--rel-color));
+}
+
+.valueText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+  font-family: var(--font-pixel);
+  color: var(--color-white);
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+}
+
+.tierLabel {
+  font-family: var(--font-pixel);
+  text-align: center;
+  color: var(--rel-color);
+}
+
+.tierLabelNormal {
+  font-size: 10px;
+}
+
+.tierLabelSmall {
+  font-size: 8px;
+}

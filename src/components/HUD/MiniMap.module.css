@@ -1,0 +1,149 @@
+@import '../../styles/variables.css';
+
+.container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 180px;
+  min-height: 120px;
+  background: rgba(43, 41, 44, 0.95);
+  border: 3px solid var(--color-light);
+  border-radius: 8px;
+  padding: 12px;
+  z-index: var(--z-minimap);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-family: var(--font-pixel);
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 168, 67, 0.3);
+  border-color: var(--color-xp-gold);
+}
+
+.container:active {
+  transform: translateY(0);
+}
+
+.container:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.zoneName {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--color-cyan);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.zoneNameArabic {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 14px;
+  color: var(--color-xp-gold);
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.exits {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 4px;
+}
+
+.exit {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  color: var(--color-white);
+  padding: 2px 4px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.exitLocked {
+  color: var(--color-gray);
+  opacity: 0.6;
+}
+
+.exitArrow {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--color-xp-gold);
+}
+
+.exitLabel {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hint {
+  margin-top: auto;
+  font-size: 9px;
+  text-align: center;
+  color: var(--color-gray);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-top: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .container {
+    width: 150px;
+    min-height: 100px;
+    padding: 10px;
+    bottom: 80px; /* Avoid overlap with mobile controls */
+    right: 10px;
+  }
+
+  .zoneName {
+    font-size: 10px;
+  }
+
+  .zoneNameArabic {
+    font-size: 12px;
+  }
+
+  .exit {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 120px;
+    min-height: 80px;
+    padding: 8px;
+    bottom: 70px;
+    right: 8px;
+  }
+
+  .zoneName {
+    font-size: 9px;
+  }
+
+  .zoneNameArabic {
+    font-size: 11px;
+  }
+
+  .exit {
+    font-size: 8px;
+  }
+
+  .hint {
+    font-size: 8px;
+  }
+}

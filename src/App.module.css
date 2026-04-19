@@ -1,0 +1,207 @@
+@import './styles/variables.css';
+
+.appContainer {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.statsContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #1A1A2E;
+  color: var(--color-xp-gold);
+  color: var(--color-xp-gold);
+  font-family: var(--font-ui);
+}
+
+.statsTitle {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.statsArabicTitle {
+  font-size: 22px;
+  font-family: var(--font-arabic);
+  margin-bottom: 32px;
+}
+
+.statsBackBtn {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  padding: 12px 24px;
+  background: var(--color-xp-gold);
+  color: #1A1A2E;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.05s;
+}
+
+.statsBackBtn:hover {
+  transform: translateY(-2px);
+}
+
+.statsBackBtn:active {
+  transform: translateY(1px);
+}
+
+.pauseMenuOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(26, 26, 46, 0.85);
+}
+
+.pauseMenuTitle {
+  font-family: var(--font-pixel);
+  font-size: 18px;
+  color: var(--color-xp-gold);
+  margin-bottom: 32px;
+}
+
+.pauseMenuButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pauseMenuBtnResume {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  padding: 14px 28px;
+  background: var(--color-xp-gold);
+  color: #1A1A2E;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.05s;
+}
+
+.pauseMenuBtnResume:hover {
+  transform: translateY(-2px);
+}
+
+.pauseMenuBtnResume:active {
+  transform: translateY(1px);
+}
+
+.pauseMenuBtnMenu {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  padding: 14px 28px;
+  background: transparent;
+  color: var(--color-xp-gold);
+  border: 2px solid var(--color-xp-gold);
+  cursor: pointer;
+  transition: transform 0.05s;
+}
+
+.pauseMenuBtnMenu:hover {
+  transform: translateY(-2px);
+  background: rgba(226, 182, 89, 0.1);
+}
+
+.pauseMenuBtnMenu:active {
+  transform: translateY(1px);
+}
+
+/* Focus states for accessibility */
+.statsBackBtn:focus-visible,
+.pauseMenuBtnResume:focus-visible,
+.pauseMenuBtnMenu:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .statsContainer {
+    padding: 20px;
+  }
+
+  .statsTitle {
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+
+  .statsArabicTitle {
+    font-size: 20px;
+    margin-bottom: 28px;
+  }
+
+  .statsBackBtn {
+    font-size: 10px;
+    padding: 12px 22px;
+    min-height: 48px;
+    min-width: 100px;
+  }
+
+  .pauseMenuTitle {
+    font-size: 16px;
+    margin-bottom: 28px;
+  }
+
+  .pauseMenuBtnResume,
+  .pauseMenuBtnMenu {
+    font-size: 10px;
+    padding: 14px 26px;
+    min-height: 52px;
+    min-width: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .statsContainer {
+    padding: 16px;
+  }
+
+  .statsTitle {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .statsArabicTitle {
+    font-size: 18px;
+    margin-bottom: 24px;
+  }
+
+  .statsBackBtn {
+    font-size: 9px;
+    padding: 12px 20px;
+    /* Touch-friendly button */
+    min-height: 48px;
+    min-width: 100px;
+  }
+
+  .pauseMenuOverlay {
+    padding: 20px;
+  }
+
+  .pauseMenuTitle {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .pauseMenuButtons {
+    gap: 12px;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .pauseMenuBtnResume,
+  .pauseMenuBtnMenu {
+    font-size: 9px;
+    padding: 14px 22px;
+    /* WCAG touch targets */
+    min-height: 52px;
+    width: 100%;
+  }
+}

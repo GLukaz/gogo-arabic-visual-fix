@@ -1,0 +1,100 @@
+/* ErrorBoundary — Error fallback UI */
+@import '../../styles/variables.css';
+
+.container {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #1A1A2E;
+  padding: 32px;
+}
+
+.icon {
+  font-size: 48px;
+  margin-bottom: 24px;
+  color: #D4A843;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.heading {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 18px;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.headingArabic {
+  font-family: 'Noto Kufi Arabic', sans-serif;
+  font-size: 22px;
+  color: #D4A843;
+  direction: rtl;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.details {
+  font-family: monospace;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 12px 16px;
+  border-radius: 4px;
+  max-width: 500px;
+  max-height: 120px;
+  overflow: auto;
+  margin-bottom: 32px;
+  word-break: break-word;
+  text-align: left;
+  width: 100%;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btnPrimary {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 11px;
+  padding: 14px 28px;
+  border: none;
+  cursor: pointer;
+  background: #D4A843;
+  color: #1A1A2E;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.2),
+    0 4px 0 0 #9e7a2a;
+  transition: transform 0.05s;
+}
+
+.btnPrimary:active {
+  transform: translateY(2px);
+}
+
+.btnSecondary {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 11px;
+  padding: 14px 28px;
+  border: 2px solid #D4A843;
+  cursor: pointer;
+  background: transparent;
+  color: #D4A843;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: transform 0.05s;
+}
+
+.btnSecondary:active {
+  transform: translateY(2px);
+}

@@ -1,0 +1,269 @@
+/**
+ * DirectionalPlacement.module.css — Builder mini-game styles
+ */
+
+.container {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 20px;
+  direction: rtl;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.progress {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progressBar {
+  height: 100%;
+  background: linear-gradient(90deg, #ff9800, #ff5722);
+  transition: width 0.3s ease;
+}
+
+.taskCount {
+  text-align: center;
+}
+
+.arabic {
+  font-family: 'Amiri', serif;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.gameCard {
+  background: linear-gradient(135deg, rgba(255, 152, 0, 0.1), rgba(255, 87, 34, 0.05));
+  border: 2px solid rgba(255, 152, 0, 0.3);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.instruction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+.instructionArabic {
+  font-family: 'Amiri', serif;
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+.instructionEnglish {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.timer {
+  position: relative;
+  height: 24px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.timerBar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #ff9800, #f44336);
+  transition: width 0.1s linear;
+}
+
+.timerText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Amiri', serif;
+  font-size: 0.875rem;
+  color: #fff;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.blueprintContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  border: 2px solid rgba(139, 69, 19, 0.5);
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-size: 2rem;
+}
+
+.cellEmpty {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.cellEmpty:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.1));
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+.cellPrefilled {
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.3), rgba(139, 69, 19, 0.2));
+  border: 2px solid rgba(139, 69, 19, 0.5);
+  cursor: not-allowed;
+}
+
+.cellTarget {
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.3), rgba(255, 193, 7, 0.2));
+  border: 3px solid #ffc107;
+  animation: targetPulse 1s ease infinite;
+}
+
+.cellCorrect {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(76, 175, 80, 0.2));
+  border: 2px solid #4caf50;
+  animation: correctPulse 0.5s ease;
+}
+
+.cellIncorrect {
+  background: linear-gradient(135deg, rgba(244, 67, 54, 0.3), rgba(244, 67, 54, 0.2));
+  border: 2px solid #f44336;
+  animation: incorrectShake 0.5s ease;
+}
+
+.elementIcon {
+  font-size: 2rem;
+  user-select: none;
+}
+
+.materialIcon {
+  font-size: 2rem;
+  user-select: none;
+}
+
+.emptyIcon {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.2);
+  user-select: none;
+}
+
+.cellHint {
+  font-family: 'Amiri', serif;
+  font-size: 1rem;
+  color: #fff;
+  text-align: center;
+  margin-top: 12px;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  min-height: 36px;
+}
+
+.feedback {
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-top: 16px;
+}
+
+.feedbackCorrect {
+  background: rgba(76, 175, 80, 0.2);
+  border: 2px solid #4caf50;
+  color: #4caf50;
+}
+
+.feedbackIncorrect {
+  background: rgba(244, 67, 54, 0.2);
+  border: 2px solid #f44336;
+  color: #f44336;
+}
+
+@keyframes targetPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(255, 193, 7, 0);
+  }
+}
+
+@keyframes correctPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes incorrectShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-8px);
+  }
+  75% {
+    transform: translateX(8px);
+  }
+}
+
+@media (max-width: 640px) {
+  .cell {
+    width: 55px;
+    height: 55px;
+    font-size: 1.5rem;
+  }
+
+  .grid {
+    gap: 6px;
+    padding: 12px;
+  }
+
+  .instructionArabic {
+    font-size: 1.25rem;
+  }
+
+  .instructionEnglish {
+    font-size: 0.875rem;
+  }
+}

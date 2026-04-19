@@ -1,0 +1,138 @@
+/* FactionPanel — Faction reputation scores display */
+@import '../../styles/variables.css';
+
+.panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 420px;
+  max-height: 80vh;
+  background: #0a0a1a;
+  border: 2px solid rgba(52, 152, 219, 0.33);
+  border-radius: 12px;
+  padding: 20px;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+  padding-bottom: 12px;
+}
+
+.headerTitle {
+  margin: 0;
+  font-size: 14px;
+  font-family: var(--font-pixel);
+  color: var(--color-white);
+}
+
+.closeBtn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.27);
+  border-radius: 4px;
+  color: var(--color-white);
+  cursor: pointer;
+  padding: 4px 8px;
+  font-size: 10px;
+  font-family: var(--font-pixel);
+}
+
+.factionList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.factionBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  background: #1a1a2e;
+  border-radius: 8px;
+}
+
+.factionIcon {
+  font-size: 24px;
+  min-width: 32px;
+  text-align: center;
+}
+
+.factionContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.factionNameRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+
+.factionName {
+  font-size: 12px;
+  font-family: var(--font-pixel);
+  color: var(--color-white);
+}
+
+.factionNameArabic {
+  font-size: 11px;
+  font-family: var(--font-ui);
+  color: rgba(244, 254, 250, 0.6);
+  direction: rtl;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 14px;
+  background: #0d0d1a;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 3px;
+}
+
+.scoreOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 8px;
+  font-family: var(--font-pixel);
+  color: var(--color-white);
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+}
+
+.tierLabel {
+  margin-top: 2px;
+  font-size: 9px;
+  font-family: var(--font-pixel);
+  text-align: center;
+}
+
+.tierLegend {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.tierLegendItem {
+  font-size: 8px;
+  font-family: var(--font-pixel);
+}

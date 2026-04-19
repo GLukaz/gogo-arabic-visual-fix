@@ -1,0 +1,611 @@
+@import '../../styles/variables.css';
+
+/* Container */
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--color-dark);
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: var(--z-overlay);
+}
+
+.content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: var(--color-panel);
+  border: 4px solid var(--color-light-gray);
+  box-shadow: 4px 4px 0 var(--color-black);
+  padding: 16px;
+}
+
+.playerInfo {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  background: var(--color-dark);
+  border: 3px solid var(--color-xp-gold);
+  box-shadow: 2px 2px 0 var(--color-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.avatarIcon {
+  font-size: 40px;
+}
+
+.playerDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.playerName {
+  font-family: var(--font-pixel);
+  font-size: 20px;
+  color: var(--color-white);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.playerTitle {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--color-xp-gold);
+  text-transform: uppercase;
+}
+
+.levelInfo {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  color: var(--color-cyan);
+}
+
+.backButton {
+  width: 40px;
+  height: 40px;
+  background: var(--color-light-gray);
+  border: 3px solid var(--color-gray);
+  color: var(--color-white);
+  font-family: var(--font-pixel);
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.15s;
+  box-shadow: 2px 2px 0 var(--color-black);
+  flex-shrink: 0;
+}
+
+.backButton:hover {
+  background: var(--color-gray);
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--color-black);
+}
+
+.backButton:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.backButton:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* Section Titles */
+.sectionTitle {
+  font-family: var(--font-pixel);
+  font-size: 16px;
+  color: var(--color-xp-gold);
+  text-transform: uppercase;
+  margin: 0 0 12px 0;
+  letter-spacing: 1px;
+}
+
+/* Stats Section */
+.statsSection {
+  background: var(--color-panel);
+  border: 4px solid var(--color-light-gray);
+  box-shadow: 4px 4px 0 var(--color-black);
+  padding: 20px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.statCard {
+  background: var(--color-dark);
+  border: 3px solid var(--color-gray);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 2px 2px 0 var(--color-black);
+}
+
+.statIcon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.statValue {
+  font-family: var(--font-pixel);
+  font-size: 18px;
+  color: var(--color-white);
+  text-align: center;
+  word-break: break-word;
+}
+
+.statLabel {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: var(--color-light);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Streak Section */
+.streakSection {
+  background: var(--color-panel);
+  border: 4px solid var(--color-light-gray);
+  box-shadow: 4px 4px 0 var(--color-black);
+  padding: 20px;
+}
+
+.streakContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.streakStats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.streakCurrent,
+.streakBest {
+  background: var(--color-dark);
+  border: 3px solid var(--color-gray);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 2px 2px 0 var(--color-black);
+}
+
+.streakIcon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.streakNumber {
+  font-family: var(--font-pixel);
+  font-size: 28px;
+  color: var(--color-fire);
+}
+
+.streakLabel {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: var(--color-light);
+  text-transform: uppercase;
+}
+
+/* Streak Calendar */
+.streakCalendar {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.streakDay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.streakDayLabel {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-light);
+  text-transform: uppercase;
+}
+
+.streakDayBox {
+  width: 32px;
+  height: 32px;
+  background: var(--color-dark);
+  border: 2px solid var(--color-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.streakDayActive .streakDayBox {
+  background: var(--color-fire);
+  border-color: var(--color-fire);
+}
+
+.streakDayCheck {
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  color: var(--color-white);
+}
+
+/* Achievements Section */
+.achievementsSection {
+  background: var(--color-panel);
+  border: 4px solid var(--color-light-gray);
+  box-shadow: 4px 4px 0 var(--color-black);
+  padding: 20px;
+}
+
+.achievementsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.achievementCount {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  color: var(--color-cyan);
+}
+
+.achievementGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.achievementCard {
+  background: var(--color-dark);
+  border: 3px solid var(--color-gray);
+  padding: 12px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  box-shadow: 2px 2px 0 var(--color-black);
+  transition: transform 0.15s;
+}
+
+.achievementCard:hover {
+  transform: translateY(-2px);
+}
+
+/* Rarity borders */
+.achievementCard.rarity-common {
+  border-color: var(--color-white);
+}
+
+.achievementCard.rarity-uncommon {
+  border-color: var(--color-green);
+}
+
+.achievementCard.rarity-rare {
+  border-color: var(--color-blue);
+}
+
+.achievementCard.rarity-epic {
+  border-color: #c084fc;
+}
+
+.achievementCard.rarity-legendary {
+  border-color: var(--color-gold);
+}
+
+.achievementIcon {
+  font-size: 32px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.achievementInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.achievementName {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  color: var(--color-white);
+  text-transform: uppercase;
+}
+
+.achievementDesc {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-light);
+  line-height: 1.4;
+}
+
+.achievementReward {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: var(--color-xp-gold);
+  margin-top: 4px;
+}
+
+.noAchievements {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.noAchievements p {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  color: var(--color-light);
+  margin: 0;
+}
+
+/* Responsive - Tablet */
+@media (max-width: 768px) {
+  .content {
+    padding: 16px;
+    gap: 20px;
+  }
+
+  .header {
+    padding: 12px;
+  }
+
+  .avatar {
+    width: 64px;
+    height: 64px;
+  }
+
+  .avatarIcon {
+    font-size: 32px;
+  }
+
+  .playerName {
+    font-size: 16px;
+  }
+
+  .playerTitle {
+    font-size: 9px;
+  }
+
+  .levelInfo {
+    font-size: 11px;
+  }
+
+  .sectionTitle {
+    font-size: 14px;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+
+  .statCard {
+    padding: 12px;
+  }
+
+  .statIcon {
+    font-size: 28px;
+  }
+
+  .statValue {
+    font-size: 16px;
+  }
+
+  .statLabel {
+    font-size: 8px;
+  }
+
+  .streakNumber {
+    font-size: 24px;
+  }
+
+  .achievementGrid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 10px;
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 480px) {
+  .content {
+    padding: 12px;
+    gap: 16px;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .playerInfo {
+    width: 100%;
+  }
+
+  .avatar {
+    width: 56px;
+    height: 56px;
+  }
+
+  .avatarIcon {
+    font-size: 28px;
+  }
+
+  .playerName {
+    font-size: 14px;
+  }
+
+  .playerTitle {
+    font-size: 8px;
+  }
+
+  .levelInfo {
+    font-size: 10px;
+  }
+
+  .backButton {
+    width: 100%;
+    height: 36px;
+  }
+
+  .sectionTitle {
+    font-size: 12px;
+  }
+
+  .statsSection,
+  .streakSection,
+  .achievementsSection {
+    padding: 16px;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .statCard {
+    padding: 10px;
+    gap: 6px;
+  }
+
+  .statIcon {
+    font-size: 24px;
+  }
+
+  .statValue {
+    font-size: 14px;
+  }
+
+  .statLabel {
+    font-size: 7px;
+  }
+
+  .streakStats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .streakIcon {
+    font-size: 28px;
+  }
+
+  .streakNumber {
+    font-size: 22px;
+  }
+
+  .streakLabel {
+    font-size: 8px;
+  }
+
+  .streakDayBox {
+    width: 28px;
+    height: 28px;
+  }
+
+  .streakDayLabel {
+    font-size: 7px;
+  }
+
+  .achievementGrid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .achievementCard {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .achievementIcon {
+    font-size: 28px;
+  }
+
+  .achievementName {
+    font-size: 10px;
+  }
+
+  .achievementDesc {
+    font-size: 7px;
+  }
+
+  .achievementReward {
+    font-size: 8px;
+  }
+
+  .achievementsHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .achievementCount {
+    font-size: 10px;
+  }
+
+  .noAchievements {
+    padding: 30px 16px;
+  }
+
+  .noAchievements p {
+    font-size: 10px;
+  }
+}
+
+/* Accessibility - Focus states */
+.achievementCard:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* Scrollbar styling for webkit browsers */
+.container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.container::-webkit-scrollbar-track {
+  background: var(--color-dark);
+}
+
+.container::-webkit-scrollbar-thumb {
+  background: var(--color-gray);
+  border: 2px solid var(--color-dark);
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background: var(--color-light-gray);
+}

@@ -1,0 +1,894 @@
+[
+  {
+    "id": "poet-rumi",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَنا الشّاعِرُ الرُّومِيّ. أَرى العالَمَ بِالأَلْوانِ وَالكَلِمات",
+            "english": "I am the Poet Rumi. I see the world in colors and words.",
+            "transliteration": "ana ash-shaa'iru ar-ruumiyy. araa al-aalama bil-alwaani wal-kalimaat"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "رِحْلَتُكَ كانَتْ طَوِيلَة، لَكِنَّ كُلَّ خُطْوَةٍ رَسَمَتْ لَوْناً فِي قَلْبِكَ",
+            "english": "Your journey was long, but every step painted a color in your heart.",
+            "transliteration": "rihlatuka kaanat tawiila, laakinna kulla khutwatin rasamat lawnan fii qalbika"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "دَعْنِي أُعَلِّمُكَ أَلْوانَ القَصْر — فَهِيَ أَلْوانُ الحَياة",
+            "english": "Let me teach you the colors of the palace — they are the colors of life.",
+            "transliteration": "da'nii u'allimuka alwaan al-qasr — fahiya alwaanu al-hayaah"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمْنِي الأَلْوان",
+                "english": "Teach me the colors",
+                "next": "teach_colors_1"
+              },
+              {
+                "arabic": "أَلْقِ عَلَيَّ شِعْراً",
+                "english": "Recite poetry for me",
+                "next": "poetry"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "teach_colors_1",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الأَلْوانُ هِيَ لُغَةُ الرُّوح. اِسْمَعْ وَتَعَلَّمْ",
+            "english": "Colors are the language of the soul. Listen and learn.",
+            "transliteration": "al-alwaanu hiya lughatu ar-ruuh. isma' wa ta'allam"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "بُرْتُقالِيّ — كَلَوْنِ الشَّمْسِ عِنْدَ الغُرُوب",
+            "english": "Burtuqaaliyy — like the color of the sun at sunset.",
+            "transliteration": "burtuqaaliyy — kalawni ash-shamsi inda al-ghuruub",
+            "teachWord": "color_orange"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَرْدِيّ — كَلَوْنِ الوَرْدِ فِي حَدِيقَةِ القَصْر",
+            "english": "Wardiyy — like the color of roses in the palace garden.",
+            "transliteration": "wardiyy — kalawni al-wardi fii hadiiqati al-qasr",
+            "teachWord": "color_pink"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "بَنَفْسَجِيّ — كَلَوْنِ السَّماءِ بَعْدَ المَغْرِب",
+            "english": "Banafsajiyy — like the color of the sky after sunset.",
+            "transliteration": "banafsajiyy — kalawni as-samaa'i ba'da al-maghrib",
+            "teachWord": "color_purple"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الآنَ أَخْبِرْنِي: هَلْ حَفِظَ قَلْبُكَ هَذِهِ الأَلْوان؟",
+            "english": "Now tell me: has your heart memorized these colors?",
+            "transliteration": "al-aana akhbirnii: hal hafiza qalbuka haadhihi al-alwaan?"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "color_orange",
+              "color_pink",
+              "color_purple"
+            ],
+            "quizType": "ar-to-en"
+          }
+        ]
+      },
+      {
+        "id": "teach_colors_2",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "عُدْتَ! كَالقَمَرِ الَّذِي يَعُودُ كُلَّ لَيْلَة. لَدَيَّ أَلْوانٌ وَصِفاتٌ جَدِيدَة",
+            "english": "You returned! Like the moon that returns every night. I have new colors and descriptions.",
+            "transliteration": "udta! kal-qamari alladhii ya'uudu kulla layla. ladayya alwaanun wa sifaatun jadiida"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "بُنِّيّ — كَلَوْنِ الأَرْضِ الطَّيِّبَة",
+            "english": "Bunniyy — like the color of the good earth.",
+            "transliteration": "bunniyy — kalawni al-ardi at-tayyiba",
+            "teachWord": "color_brown"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "رَمادِيّ — كَلَوْنِ الغُيُومِ قَبْلَ المَطَر",
+            "english": "Ramaadiyy — like the color of clouds before rain.",
+            "transliteration": "ramaadiyy — kalawni al-ghuyuumi qabla al-matar",
+            "teachWord": "color_grey"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "جَمِيلٌ — وَهَذا ما أَراهُ فِي كُلِّ شَيْء",
+            "english": "Jamiil — and this is what I see in everything.",
+            "transliteration": "jamiil — wa haadha maa araahu fii kulli shay'",
+            "teachWord": "beautiful_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "قَبِيحٌ — عَكْسُ الجَمال، لَكِنَّ الشّاعِرَ يَرى الجَمالَ حَتّى فِيه",
+            "english": "Qabiih — the opposite of beauty, but a poet sees beauty even in it.",
+            "transliteration": "qabiih — aksu al-jamaal, laakinna ash-shaa'ira yaraa al-jamaala hattaa fiih",
+            "teachWord": "ugly_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَل تَسْتَطِيعُ أَنْ تَتَذَكَّرَ هَذِهِ الكَلِمات؟",
+            "english": "Can you remember these words?",
+            "transliteration": "hal tastatiiu an tatadkakkara haadhihi al-kalimaat?"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "color_brown",
+              "color_grey",
+              "beautiful_1",
+              "ugly_1"
+            ],
+            "quizType": "en-to-ar"
+          }
+        ]
+      },
+      {
+        "id": "teach_colors_3",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَنْتَ الآنَ كَالنَّهْرِ الَّذِي يَعْرِفُ طَرِيقَهُ. لَدَيَّ كَلِماتٌ مِنَ القَلْب",
+            "english": "You are now like a river that knows its path. I have words from the heart.",
+            "transliteration": "anta al-aana kan-nahri alladhii ya'rifu tariiqahu. ladayya kalimaatun min al-qalb"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "سَعِيدٌ — كَالشَّمْسِ عِنْدَما تُشْرِق",
+            "english": "Sa'iid — like the sun when it rises.",
+            "transliteration": "sa'iid — kash-shamsi indamaa tushriq",
+            "teachWord": "happy_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "حَزِينٌ — كَالمَطَرِ الَّذِي يَبْكِي عَلى الأَرْض",
+            "english": "Haziiin — like the rain that cries upon the earth.",
+            "transliteration": "haziiin — kal-matari alladhii yabkii alaa al-ard",
+            "teachWord": "sad_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "كَبِيرٌ — كَالحُلْمِ الَّذِي لا يَنْتَهِي",
+            "english": "Kabiir — like a dream that never ends.",
+            "transliteration": "kabiir — kal-hulmi alladhii laa yantahii",
+            "teachWord": "big_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَذِهِ كَلِماتٌ تَعَلَّمْتَها فِي رِحْلَتِكَ. هَل ما زِلْتَ تَذْكُرُها؟",
+            "english": "These are words you learned on your journey. Do you still remember them?",
+            "transliteration": "haadhihi kalimaatun ta'allamtahaa fii rihlatika. hal maa zilta tadhkuruhaa?"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "happy_1",
+              "sad_1",
+              "big_1"
+            ],
+            "quizType": "random"
+          }
+        ]
+      },
+      {
+        "id": "poetry",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "اِسْمَعْ يا صَدِيقِي:",
+            "english": "Listen, my friend:",
+            "transliteration": "isma' ya sadiiqii:"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "سافَرْتَ بَعِيداً وَتَعَلَّمْتَ كَثِيراً",
+            "english": "You traveled far and learned much,",
+            "transliteration": "saafarta ba'iidan wa ta'allamta kathiiran"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "كُلُّ كَلِمَةٍ نُورٌ، وَكُلُّ حَرْفٍ طَرِيق",
+            "english": "Every word is a light, and every letter is a path.",
+            "transliteration": "kullu kalimatin nuur, wa kullu harfin tariiq"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "اَللُّغَةُ العَرَبِيَّةُ بَحْرٌ عَمِيق، وَأَنْتَ غَوّاصٌ شُجاع",
+            "english": "The Arabic language is a deep sea, and you are a brave diver.",
+            "transliteration": "al-lughatu al-arabiyyatu bahrun amiiq, wa anta ghawwaasun shujaa'"
+          }
+        ]
+      },
+      {
+        "id": "hub",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الكَلِمَة نور! أَهلاً بِصَديق الشِّعر",
+            "english": "The word is light! Welcome, friend of poetry.",
+            "transliteration": "al-kalima nuur! ahlan bisadiiq ash-shi'r"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "كَلِمات وَصفِيَّة",
+                "english": "Descriptive words",
+                "topic": "teaching"
+              },
+              {
+                "arabic": "تَقاليد الشِّعر",
+                "english": "Poetry traditions",
+                "topic": "lore"
+              },
+              {
+                "arabic": "أَخبار الفَنّانين",
+                "english": "Artist news",
+                "topic": "gossip"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_teaching_adjectives",
+        "topic": "teaching",
+        "label": "Descriptive Words",
+        "returnToHub": true,
+        "priority": 1,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الصِّفاتُ هِيَ أَلوان اللُّغَة",
+            "english": "Adjectives are the colors of language.",
+            "transliteration": "as-sifaatu hiya alwaan al-lugha"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَحْمَر — لَونُ الوَردَة في الحَديقَة",
+            "english": "Red — the color of the rose in the garden.",
+            "transliteration": "ahmar — lawnu al-warda fii al-hadiiqa",
+            "teachWord": "color_red",
+            "inlineVocab": [
+              {
+                "wordId": "color_red",
+                "arabicText": "أَحْمَر"
+              }
+            ]
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَخْضَر — لَونُ الأَشجار وَالأَمَل",
+            "english": "Green — the color of trees and hope.",
+            "transliteration": "akhdar — lawnu al-ashjaar wal-amal",
+            "teachWord": "color_green",
+            "inlineVocab": [
+              {
+                "wordId": "color_green",
+                "arabicText": "أَخْضَر"
+              }
+            ]
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَزْرَق — لَونُ السَّماء الَّتي تُلهِمُني",
+            "english": "Blue — the color of the sky that inspires me.",
+            "transliteration": "azraq — lawnu as-samaa' allatii tulhimunii",
+            "teachWord": "color_blue",
+            "inlineVocab": [
+              {
+                "wordId": "color_blue",
+                "arabicText": "أَزْرَق"
+              }
+            ]
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "جَميل!",
+                "english": "Beautiful!",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_lore_poetry",
+        "topic": "lore",
+        "label": "Poetry Traditions",
+        "returnToHub": true,
+        "priority": 2,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الشِّعرُ العَرَبي أَقدَم مِن الكِتابَة",
+            "english": "Arabic poetry is older than writing itself.",
+            "transliteration": "ash-shi'r al-'arabii aqdam min al-kitaaba"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "المُعَلَّقاتُ السَّبع كانَت تُعَلَّق عَلى الكَعبَة",
+            "english": "The Seven Mu'allaqat were hung on the Kaaba.",
+            "transliteration": "al-mu'allaqaat as-sab' kaanat tu'allaq 'alaa al-ka'ba"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "كُلّ بَيت شِعر هُوَ نافِذَة إِلى الرّوح",
+            "english": "Every verse of poetry is a window to the soul.",
+            "transliteration": "kullu bayt shi'r huwa naafidha ilaa ar-ruuh"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَوْدَة",
+                "english": "Return",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_gossip_art",
+        "topic": "gossip",
+        "label": "Artist Community",
+        "returnToHub": true,
+        "priority": 3,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "لَيلى حارِسَة الحَديقَة تُحِبّ الشِّعر سِرّاً",
+            "english": "Leila the garden keeper secretly loves poetry.",
+            "transliteration": "laylaa haarisat al-hadiiqa tuhibb ash-shi'r sirran"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَأَنا أَكتُب قَصيدَة لِلمَلِك — لَكِن لا تُخبِر أَحَداً",
+            "english": "And I am writing a poem for the king — but tell no one.",
+            "transliteration": "wa ana aktub qasiida lil-malik — laakin laa tukhbir ahadan"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "سِرُّك أَمان",
+                "english": "Your secret is safe",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cultural_poetry",
+        "trigger": "relationship_level_2",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "القَصيدَةُ العَرَبيَّة لَها قَوافٍ مُعَقَّدَة — البَحرُ الطَّويل، الكامِل، الوافِر",
+            "english": "Arabic poetry has complex meters — Tawil, Kamil, Wafir",
+            "transliteration": "al-qasida al-arabiyya laha qawafi mu'aqqada — al-bahr at-tawil, al-kamil, al-wafir"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "نِظامُ الجُذورِ الثُّلاثيَّة يَجعَلُ التَّلاعُبَ بالأَلفاظِ فَنّاً",
+            "english": "The trilateral root system makes wordplay an art form",
+            "transliteration": "nizam al-judhur ath-thulathiyya yaj'al at-tala'ub bil-alfaz fannan",
+            "culturalNote": "Arabic's root system means a skilled poet can play with dozens of words sharing the same three-letter root, creating layers of meaning impossible in other languages."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الخَطُّ العَرَبي نَفسُهُ شِعر — كُلُّ حَرفٍ رَقصَة",
+            "english": "Arabic calligraphy itself is poetry — every letter a dance",
+            "transliteration": "al-khatt al-arabi nafsuhu shi'r — kullu harf raqsa"
+          }
+        ]
+      },
+      {
+        "id": "rumi_arabic_roots",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "اِجلِس مَعِي. سَأُرِيكَ أَعجَب شَيء في اللُّغَة العَرَبِيَّة — الجُذور الثُّلَاثِيَّة!",
+            "english": "Sit with me. I will show you the most wondrous thing in Arabic — the trilateral roots!",
+            "transliteration": "Ijlis ma'i. Sa-uriika a'jab shay' fil-lugha al-'arabiyya — al-judhuур ath-thulaathiyya!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ك-ت-ب: ثَلاثَة حُروف فَقَط. لَكِن مِنها: كَتَبَ، كِتَاب، كَاتِب، مَكتَبَة، مَكتوب!",
+            "english": "K-T-B: only three letters. But from them: wrote, book, writer, library, written!",
+            "transliteration": "K-T-B: thalaathat huruuf faqat. Laakin minhaa: kataba, kitaab, kaatib, maktaba, maktуub!",
+            "culturalNote": "Arabic's trilateral root system means three consonants generate a whole family of related words. The root ك-ت-ب (K-T-B) gives: كَتَبَ (wrote), كِتَاب (book), كَاتِب (writer), مَكتَبَة (library), مَكتوب (written/fate). A skilled poet plays with all these at once."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الشَّاعِر العَرَبي يَلعَب بِعَشَرَات الكَلِمَات مِن جَذرٍ وَاحِد في بَيتٍ وَاحِد!",
+            "english": "An Arab poet plays with dozens of words from one root in a single verse!",
+            "transliteration": "Ash-shaa'ir al-'arabiyy yal'ab bi-'asharaat al-kalimaat min jidhr waahid fii bayt waahid!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعَلَّم: صَغير — لِأَنَّ الكَلِمَة الصَّغيرَة تَحمِل أَحياناً أَكبَر مَعنى!",
+            "english": "Learn: small — because the small word sometimes carries the biggest meaning!",
+            "transliteration": "Ta'allam: sagjiir — li-anna al-kalima as-saghiira tahmilu ahyaanan akbar ma'naa!",
+            "teachWord": "small_1"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمني كَلِمَات الشُّعور",
+                "english": "Teach me emotion words",
+                "next": "rumi_emotions_lesson"
+              },
+              {
+                "arabic": "أَخبِرني عَن القَصيدَة العَرَبِيَّة",
+                "english": "Tell me about Arabic poetry forms",
+                "next": "rumi_qasida_form"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rumi_emotions_lesson",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الشُّعور! أَعمَق مَا في الإِنسَان! الشَّاعِر يُعَبِّر عَمَّا لا يَستَطيع غَيرُه قَوله!",
+            "english": "Feelings! The deepest part of being human! The poet expresses what others cannot say!",
+            "transliteration": "Ash-shu'uur! A'maq maa fil-insaan! Ash-shaa'ir yu'abbir 'ammaa laa yastatiiu ghayruhu qawluh!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "سَعيد — أَجمَل كَلِمَة في كُلِّ اللُّغَات. تَقُولها وَتَشعُر بِها في نَفس الوَقت!",
+            "english": "Happy — the most beautiful word in all languages. You say it and feel it at the same time!",
+            "transliteration": "Sa'iid — ajmal kalima fii kulli al-lughaat. Taquuluhaa wa tash'ur bihaa fii nafs al-waqt!",
+            "teachWord": "happy_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "حَزين — ضِدُّ سَعيد. الشَّاعِر يَحتَاج كِلتَا الكَلِمَتَين لِيُعَبِّر عَن الحَيَاة!",
+            "english": "Sad — the opposite of happy. The poet needs both words to express life!",
+            "transliteration": "Haziiin — diddu sa'iid. Ash-shaa'ir yahtaaju kiltaa al-kalimatayn liyu'abbir 'an al-hayaah!",
+            "teachWord": "sad_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "جَميل وَقَبيح! نُور وَظَلام! الشِّعر يَعيش في المَسَافَة بَينَهُما!",
+            "english": "Beautiful and ugly! Light and dark! Poetry lives in the distance between them!",
+            "transliteration": "Jamiil wa qabiih! Nuur wa zalaam! Ash-shi'r ya'iish fil-masaafa baynahumaa!",
+            "teachWord": "ugly_1"
+          },
+          {
+            "action": "quiz",
+            "words": [
+              "happy_1",
+              "sad_1",
+              "beautiful_1",
+              "ugly_1",
+              "big_1",
+              "small_1"
+            ],
+            "quizType": "ar-to-en"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَحسَنتَ! أَنتَ الآن تَمتَلِك المُفرَدَات لِتُعَبِّر عَن نَفسِك. هَذا هُوَ بِداية الشِّعر!",
+            "english": "Well done! You now have the vocabulary to express yourself. This is the beginning of poetry!",
+            "transliteration": "Ahsanta! Anta al-aan tamtalik al-mufradaat litu'abbir 'an nafsik. Haadha huwa bidaayat ash-shi'r!"
+          }
+        ]
+      },
+      {
+        "id": "rumi_qasida_form",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "القَصِيدَة العَرَبِيَّة! الشَّكل الشِّعرِيّ الأَعظَم. وَزن وَقَافِيَة وَمَعنى في آنٍ وَاحِد!",
+            "english": "The Arabic qasida! The greatest poetic form. Meter, rhyme, and meaning all at once!",
+            "transliteration": "Al-qasiida al-'arabiyya! Ash-shakl ash-shi'riyy al-a'zam. Wazn wa qaafiya wa ma'naa fii aanin waahid!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "عِلم العَروض — عِلم أَوزَان الشِّعر. الخَليل بن أَحمَد وَضَعَه في القَرن الثَّامِن!",
+            "english": "The science of arood — the science of poetic meters. Al-Khalil ibn Ahmad established it in the 8th century!",
+            "transliteration": "Ilm al-'aruud — 'ilm awzaan ash-shi'r. Al-Khalil ibn Ahmad wada'ahu fil-qarn ath-thaamin!",
+            "culturalNote": "Al-Khalil ibn Ahmad al-Farahidi (c.718-786 CE) systematized Arabic poetic meters (علم العروض, 'ilm al-'aruud), identifying 16 meters still used today. He also compiled the first Arabic dictionary. This mathematical approach to poetry is unique among world literary traditions."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الشِّعر العَرَبيّ يَخدِم ذَاكِرَتَك — إِذَا حَفِظتَ شِعراً، حَفِظتَ اللُّغَة!",
+            "english": "Arabic poetry serves your memory — if you memorize poetry, you memorize the language!",
+            "transliteration": "Ash-shi'r al-'arabiyy yakhdim dhaakiratik — idhaa hafizta shi'ran, hafizta al-lugha!"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعَلَّم: صَعب — لِأَنَّ الشِّعر صَعبٌ وَلَكِن جَائِزَتُه أَعظَم جَائِزَة!",
+            "english": "Learn: difficult — because poetry is difficult but its reward is the greatest reward!",
+            "transliteration": "Ta'allam: sa'b — li-anna ash-shi'r sa'bun wa laakin jaa'izatuhu a'zam jaa'iza!",
+            "teachWord": "difficult_1"
+          }
+        ]
+      },
+      {
+        "id": "rumi_loanwords_poetry",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "عُدتَ! الشِّعرُ يَنتَظِرُك. لِنَتَكَلَّم عَن الأَلفاظ",
+            "english": "You're back! Poetry awaits you. Let's talk about words.",
+            "transliteration": "'udta! ash-shi'r yantaziruk. linatakallamm 'an al-alfaaz"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "\"risk\" الإنجليزِيَّة جاءَت مِن العَرَبِيَّة \"رِزق\" — الرَّزق الَّذي يُقَسِّمُه الله",
+            "english": "The English \"risk\" came from Arabic \"rizq\" — the provision God distributes.",
+            "transliteration": "\"risk\" al-injliiziyya jaa'at min al-arabiyya \"rizq\"",
+            "teachWord": "beautiful_1",
+            "culturalNote": "The English word \"risk\" traces to Arabic rizq (رِزق), meaning livelihood or God's provision. Arab traders in the medieval Mediterranean used it for the chance of maritime loss — European merchants adopted the term along with the trade practices."
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَ\"check\" في البَنك جاءَت مِن \"صَكّ\" العَرَبِيَّة — وَثيقَة مالِيَّة",
+            "english": "And bank \"check\" came from Arabic \"sakk\" — a financial document.",
+            "transliteration": "wa \"check\" fil-bank jaa'at min \"sakk\" al-arabiyya — wathiiqa maaliyya"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "الكَلِمات تُسافِر مِثلَنا! شُكراً",
+                "english": "Words travel like us! Thank you.",
+                "next": null
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "garden-keeper-leila",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَنا لَيلى. أَعتَني بِهَذِهِ الحَديقَة مُنذُ عَشر سَنَوات",
+            "english": "I am Leila. I have tended this garden for ten years.",
+            "transliteration": "ana laylaa. a'tanii bihaadhihi al-hadiiqa mundhu 'ashr sanawaat"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّميني",
+                "english": "Teach me",
+                "next": "hub"
+              },
+              {
+                "arabic": "مَع السَّلامَة",
+                "english": "Goodbye",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hub",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الحَديقَة جَنَّة! ماذا نَكتَشِف اليَوم؟",
+            "english": "The garden is paradise! What shall we discover today?",
+            "transliteration": "al-hadiiqa janna! maadha naktashif al-yawm?"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "كَلِمات النَّبات",
+                "english": "Plant words",
+                "topic": "teaching"
+              },
+              {
+                "arabic": "تاريخ الحَديقَة",
+                "english": "Garden history",
+                "topic": "lore"
+              },
+              {
+                "arabic": "أَخبار",
+                "english": "News",
+                "topic": "gossip"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_teaching_nature",
+        "topic": "teaching",
+        "label": "Nature & Plant Words",
+        "returnToHub": true,
+        "priority": 1,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الطَّبيعَة مُعَلِّمَة عَظيمَة",
+            "english": "Nature is a great teacher.",
+            "transliteration": "at-tabii'a mu'allima 'aziima"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "شَمْس — النَّباتات تَحتاج الشَّمس لِتَنمو",
+            "english": "Sun — plants need the sun to grow.",
+            "transliteration": "shams — an-nabaataat tahtaaj ash-shams litanmuu",
+            "teachWord": "sun_w14",
+            "inlineVocab": [
+              {
+                "wordId": "sun_w14",
+                "arabicText": "شَمْس"
+              }
+            ]
+          },
+          {
+            "speaker": "npc",
+            "arabic": "مَاء — وَالماء أَيضاً ضَروري",
+            "english": "Water — and water is also essential.",
+            "transliteration": "maa' — wal-maa' aydan daruurii",
+            "teachWord": "water_w13",
+            "inlineVocab": [
+              {
+                "wordId": "water_w13",
+                "arabicText": "مَاء"
+              }
+            ]
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "شُكراً يا لَيلى",
+                "english": "Thank you, Leila",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_lore_garden",
+        "topic": "lore",
+        "label": "Garden History",
+        "returnToHub": true,
+        "priority": 2,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "هَذِهِ الحَديقَة بَناها المَلِكُ الأَوَّل",
+            "english": "The first king built this garden.",
+            "transliteration": "haadhihi al-hadiiqa banaahaa al-maliku al-awwal"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "كانَ يَقول: الحَديقَة تُريح النَّفس وَتُنَقّي الرّوح",
+            "english": "He used to say: the garden soothes the soul and purifies the spirit.",
+            "transliteration": "kaana yaquul: al-hadiiqa turiih an-nafs wa tunaqqii ar-ruuh"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَوْدَة",
+                "english": "Return",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_gossip_botanical",
+        "topic": "gossip",
+        "label": "Botanical News",
+        "returnToHub": true,
+        "priority": 3,
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الشّاعِر رومي يَجلِس هُنا كُلّ يَوم وَيَكتُب",
+            "english": "The poet Rumi sits here every day and writes.",
+            "transliteration": "ash-shaa'ir ruumii yajlis hunaa kulla yawm wa yaktub"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَأَحياناً يَقرَأ لي قَصائِدَهُ. هِيَ جَميلَة",
+            "english": "And sometimes he reads me his poems. They are beautiful.",
+            "transliteration": "wa ahyaanan yaqra' lii qasaa'idahu. hiya jamiila"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَوْدَة",
+                "english": "Return",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_return_plants",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَهلاً! لِنَتَعَلَّم أَسماء النَّباتات اليَوم",
+            "english": "Welcome! Let's learn plant names today.",
+            "transliteration": "ahlan! linata'allam asmaa' an-nabaataat al-yawm"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَرد — الزَّهرَة الأَجمَل. وَكَلِمَة \"ward\" الإنجليزِيَّة جاءَت مِنها",
+            "english": "Ward — rose, the most beautiful flower.",
+            "transliteration": "ward — az-zahra al-ajmal.",
+            "teachWord": "tree_w27"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "نَخيل — شَجَرَة التَّمر. غِذاء الصَّحراء مُنذُ آلاف السِّنين",
+            "english": "Nakheeel — the date palm. Desert food for thousands of years.",
+            "transliteration": "nakhiil — shajarat at-tamr. ghidha' as-sahraa' mundhu alaaf as-siniin",
+            "teachWord": "sun_w14",
+            "culturalNote": "The date palm (نَخيل) was so essential to desert life that classical Arabic has over 360 words for different types of dates and stages of palm development. It provided food, timber, fiber, and shade."
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "الطَّبيعَة جَميلَة! شُكراً لَيلى",
+                "english": "Nature is beautiful! Thank you Leila.",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_return_seasons",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "عُدتَ يا صَديقي! الفُصول تَتَغَيَّر وَالحَديقَة تَتَجَدَّد",
+            "english": "You returned, my friend! The seasons change and the garden renews.",
+            "transliteration": "'udta yaa sadiiqii! al-fusool tataghayar wal-hadiqa tatajaddad"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "رَبيع — فَصلُ الأَزهار وَالأَمَل",
+            "english": "Rabia — spring, the season of flowers and hope.",
+            "transliteration": "rabiia — faslu al-azhaar wal-amal",
+            "teachWord": "day_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "صَيف — الحَرارَة وَالعَمَل. شِتاء — المَطَر وَالرّاحَة",
+            "english": "Sayf — summer, heat and work. Shitaa' — winter, rain and rest.",
+            "transliteration": "sayf — al-haraara wal-'amal. shitaa' — al-matar war-raaha"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَكَلِمَة \"monsoon\" الإنجليزِيَّة جاءَت مِن العَرَبِيَّة \"مَوسِم\" — المَوسِم",
+            "english": "The English word \"monsoon\" came from Arabic \"mawsim\" — the season.",
+            "transliteration": "wa kalima \"monsoon\" al-injliiziyya jaa'at min al-arabiyya \"mawsim\"",
+            "culturalNote": "\"Monsoon\" derives from Arabic mawsim (مَوسِم, season). Arab sailors in the Indian Ocean used the seasonal monsoon winds to navigate between Arabia, India, and East Africa — mastering these patterns by the 8th century CE."
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "الفُصول كَالحَياة. شُكراً لَيلى",
+                "english": "The seasons are like life. Thank you, Leila.",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_return_water",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الماء حَياة! \"ماء\" — أَقصَر الكَلِمات وَأَهَمُّها",
+            "english": "Water is life! \"Maa'\" — the shortest word and the most important.",
+            "transliteration": "al-maa' hayaat! \"maa'\" — aqsar al-kalimaat wa ahammuha",
+            "teachWord": "water_w13"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "قَناة — العَرَب بَنوا قَنوات الري في الأَندَلُس — لا تَزال تَعمَل",
+            "english": "Qanaat — the Arabs built irrigation canals in Andalusia — still working.",
+            "transliteration": "qanaah — al-arab banaw qanawaat ar-ray fii al-andalus — laa tazaal ta'mal",
+            "culturalNote": "The Arab Agricultural Revolution (8th-13th c.) transformed Spain: the Arabs introduced sophisticated irrigation systems (qanat, نهر), new crops (citrus, cotton, rice, sugarcane), and agricultural manuals. Andalusian gardens like the Generalife in Granada preserve this legacy."
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "الماء يَجمَع البَشَر! شُكراً لَيلى",
+                "english": "Water connects humanity! Thank you, Leila.",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_return_knowledge",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الحَديقَة تُعَلِّمُك الصَّبر — النَّباتات لا تَستَعجِل",
+            "english": "The garden teaches patience — plants do not hurry.",
+            "transliteration": "al-hadiqa tu'allimuk as-sabr — an-nabaataat laa tasta'jil"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "قُل: \"الطَّبيعَة جَميلَة\" — أَربَع كَلِمات تَعلَّمتَها اليَوم",
+            "english": "Say: \"Nature is beautiful\" — four words you learned today.",
+            "transliteration": "qul: \"at-tabi'a jamiila\" — arba' kalimaat ta'allamtaha al-yawm",
+            "teachWord": "sun_w14"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "الطَّبيعَة جَميلَة! شُكراً لَيلى",
+                "english": "Nature is beautiful! Thank you, Leila.",
+                "next": null
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

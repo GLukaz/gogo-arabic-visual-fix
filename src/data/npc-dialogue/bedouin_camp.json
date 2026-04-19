@@ -1,0 +1,90 @@
+[
+  {
+    "id": "bedouin-elder-interior",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "السَّلامُ عَلَيكُم! اِجلِس عَلى هَذِهِ السَّجّادَة",
+            "english": "Peace be upon you! Sit on this carpet.",
+            "transliteration": "as-salaamu alaykum! ijlis alaa haadhihi as-sajjaada"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الوَقت هُوَ أَثمَن شَيء عِندَ البَدو",
+            "english": "Time is the most precious thing to the Bedouin.",
+            "transliteration": "al-waqt huwa athman shay' inda al-badw"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "سَأُعَلِّمُكَ كَلِمات الوَقت",
+            "english": "I will teach you the words of time.",
+            "transliteration": "sa'u'allimuka kalimaat al-waqt"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمني يا شَيخ",
+                "english": "Teach me, Elder",
+                "next": "teach_time"
+              },
+              {
+                "arabic": "أُريدُ أَن أَستَمِع",
+                "english": "I want to listen",
+                "action": "end"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "default",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الوَقت يَمُرّ كَالرِّياح في الصَّحراء",
+            "english": "Time passes like the winds in the desert.",
+            "transliteration": "al-waqt yamurr kar-riyaah fis-sahraa'"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "لَكِن دائِماً هُناكَ وَقت لِلتَّعَلُّم",
+            "english": "But there is always time for learning.",
+            "transliteration": "laakin daa'iman hunaaka waqt lit-ta'allum"
+          }
+        ]
+      },
+      {
+        "id": "teach_time",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "صَباح — أَوَّل الضَّوء",
+            "english": "Sabaah — the first light (morning).",
+            "transliteration": "sabaah — awwal ad-daw'",
+            "teachWord": "day_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "لَيل — عِندَما تَظهَر النُّجوم",
+            "english": "Layl — when the stars appear (night).",
+            "transliteration": "layl — indamaa tazhar an-nujuum",
+            "teachWord": "night_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "يَوم — مِنَ الشُّروق إلى الغُروب",
+            "english": "Yawm — from sunrise to sunset (day).",
+            "transliteration": "yawm — mina ash-shuruuq ilaa al-ghuruub",
+            "teachWord": "day_1"
+          }
+        ]
+      }
+    ]
+  }
+]

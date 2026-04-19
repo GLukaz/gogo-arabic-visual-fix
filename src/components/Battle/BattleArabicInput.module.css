@@ -1,0 +1,121 @@
+@import '../../styles/variables.css';
+
+.inputOverlay {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  direction: rtl;
+  z-index: 1001;
+  background: rgba(26, 26, 46, 0.95);
+  border: 2px solid rgba(226, 182, 89, 0.6);
+  padding: 20px;
+  min-width: 320px;
+  max-width: 440px;
+}
+
+.timerBarTrack {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.timerBarFill {
+  height: 100%;
+  transition: width 100ms linear;
+  background: var(--timer-color);
+}
+
+.fleeHeader {
+  font-family: 'Amiri', serif;
+  font-size: 16px;
+  color: #CC4444;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.choiceArabicPrompt {
+  font-family: 'Amiri', serif;
+  font-size: 24px;
+  color: #f5f0e8;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.choiceList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.choiceButton {
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(226, 182, 89, 0.4);
+  color: #f5f0e8;
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.choiceButton:hover {
+  background: rgba(226, 182, 89, 0.2);
+  border-color: rgba(226, 182, 89, 0.7);
+}
+
+.choiceButton:active {
+  transform: scale(0.97);
+}
+
+.typePrompt {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  color: #f5f0e8;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.typeInput {
+  width: 100%;
+  padding: 10px 14px;
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  color: #f5f0e8;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(226, 182, 89, 0.5);
+  outline: none;
+  direction: rtl;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.typeInput:focus {
+  border-color: var(--color-xp-gold);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.typeInput::placeholder {
+  color: rgba(245, 240, 232, 0.3);
+}
+
+.typeSubmitBtn {
+  width: 100%;
+  padding: 10px;
+  background: rgba(226, 182, 89, 0.8);
+  border: none;
+  color: #1A1A2E;
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.typeSubmitBtn:hover {
+  background: rgba(226, 182, 89, 1);
+}
+
+.typeSubmitBtn:active {
+  transform: scale(0.97);
+}

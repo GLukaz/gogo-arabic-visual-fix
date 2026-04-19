@@ -1,0 +1,142 @@
+/**
+ * CalligraphyTracing.module.css — Styles for Canvas-based letter tracing mini-game
+ */
+
+.container {
+  background: #1A1A2E;
+  border: 2px solid #E2B659;
+  border-radius: 8px;
+  padding: 30px;
+  max-width: 520px;
+  font-family: 'Press Start 2P', monospace;
+  color: #f5f0e8;
+  text-align: center;
+}
+
+.title {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #E2B659;
+  text-shadow: 0 0 6px rgba(226, 182, 89, 0.3);
+}
+
+/* ────────────────────────────────────────────────
+   TIMER BAR
+   ──────────────────────────────────────────────── */
+
+.timerBar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.timerFill {
+  height: 100%;
+  transition: width 100ms linear;
+  border-radius: 4px;
+}
+
+/* ────────────────────────────────────────────────
+   ATTEMPTS & TARGET LETTER
+   ──────────────────────────────────────────────── */
+
+.attempts {
+  font-size: 11px;
+  color: #AAA;
+  margin-bottom: 16px;
+}
+
+.targetLetter {
+  font-family: 'Amiri', serif;
+  font-size: 80px;
+  margin-bottom: 20px;
+  color: #E2B659;
+  text-shadow: 0 0 10px rgba(226, 182, 89, 0.4);
+  direction: rtl;
+}
+
+/* ────────────────────────────────────────────────
+   CANVAS
+   ──────────────────────────────────────────────── */
+
+.canvas {
+  display: block;
+  margin: 0 auto 20px;
+  border: 2px solid rgba(226, 182, 89, 0.4);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  cursor: crosshair;
+  touch-action: none; /* Prevent scrolling on touch devices */
+}
+
+.canvas:hover {
+  border-color: rgba(226, 182, 89, 0.6);
+}
+
+/* ────────────────────────────────────────────────
+   CONTROLS
+   ──────────────────────────────────────────────── */
+
+.controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.clearButton,
+.submitButton,
+.cancelButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.clearButton {
+  background: rgba(255, 255, 255, 0.1);
+  color: #f5f0e8;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.clearButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.submitButton {
+  background: linear-gradient(135deg, #44CC44, #339933);
+  color: #1A1A2E;
+  box-shadow: 0 3px 0 #227722;
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 #227722;
+}
+
+.submitButton:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 0 #227722;
+}
+
+.cancelButton {
+  background: rgba(204, 68, 68, 0.7);
+  color: #f5f0e8;
+  box-shadow: 0 3px 0 #883333;
+}
+
+.cancelButton:hover {
+  background: rgba(204, 68, 68, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 #883333;
+}
+
+.cancelButton:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 0 #883333;
+}

@@ -1,0 +1,370 @@
+[
+  {
+    "id": "mountain-hermit-idris",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَنا إِدريس. أَعيشُ هُنا وَحدي مُنذُ سَنَوات",
+            "english": "I am Idris. I have lived here alone for years.",
+            "transliteration": "ana idriis. a'iishu hunaa wahdii mundhu sanawaat"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الجَبَلُ مُعَلِّمي وَصَديقي",
+            "english": "The mountain is my teacher and my friend.",
+            "transliteration": "al-jabalu mu'allimii wa sadiiqii"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمني",
+                "english": "Teach me",
+                "next": "hub"
+              },
+              {
+                "arabic": "مَع السَّلامَة",
+                "english": "Farewell",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hub",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الجَبَلُ يَعلَم... ماذا تَبحَث عَنه؟",
+            "english": "The mountain knows... what do you seek?",
+            "transliteration": "al-jabalu ya'lam... maadha tabhath 'anhu?"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "كَلِمات الطَّبيعَة",
+                "english": "Nature words",
+                "topic": "teaching"
+              },
+              {
+                "arabic": "أَساطير الجَبَل",
+                "english": "Mountain legends",
+                "topic": "lore"
+              },
+              {
+                "arabic": "اِختِبارات الجَبَل",
+                "english": "Mountain trials",
+                "topic": "quests"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_teaching_nature",
+        "topic": "teaching",
+        "label": "Nature Words",
+        "returnToHub": true,
+        "priority": 1,
+        "conditions": [
+          {
+            "type": "relationship",
+            "npcId": "mountain-hermit-idris",
+            "min": 1
+          }
+        ],
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الطَّبيعَةُ لُغَة بِلا كَلِمات. لَكِن نَحتاج كَلِمات أَيضاً",
+            "english": "Nature is a language without words. But we need words too.",
+            "transliteration": "at-tabii'atu lugha bilaa kalimaat. laakin nahtaaj kalimaat aydan"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "رَمْل — الصَّحراء تَتَكَلَّم بِالرَّمل",
+            "english": "Sand — the desert speaks with sand.",
+            "transliteration": "raml — as-sahraa' tatakallam bir-raml",
+            "teachWord": "sand_w17",
+            "inlineVocab": [
+              {
+                "wordId": "sand_w17",
+                "arabicText": "رَمْل"
+              }
+            ]
+          },
+          {
+            "speaker": "npc",
+            "arabic": "شَجَرَة — الصَّبر كَالشَّجَرَة، يَنمو بِبُطء",
+            "english": "Tree — patience is like a tree, it grows slowly.",
+            "transliteration": "shajara — as-sabr kash-shajara, yanmuu bibu't'",
+            "teachWord": "tree_w27"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "شُكراً",
+                "english": "Thank you",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_lore_mountain",
+        "topic": "lore",
+        "label": "Mountain Legends",
+        "returnToHub": true,
+        "priority": 2,
+        "conditions": [
+          {
+            "type": "relationship",
+            "npcId": "mountain-hermit-idris",
+            "min": 1
+          }
+        ],
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "يَقولون أَنَّ في هَذا الجَبَل كَنزاً مَخفِيّاً",
+            "english": "They say there is a hidden treasure in this mountain.",
+            "transliteration": "yaquuluun anna fii haadha al-jabal kanzan makhfiyyan"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "لَكِنَّ الكَنز الحَقيقي هُوَ المَعرِفَة",
+            "english": "But the real treasure is knowledge.",
+            "transliteration": "laakinna al-kanz al-haqiiqii huwa al-ma'rifa",
+            "effects": [
+              {
+                "type": "story_flag",
+                "flag": "mountain_secret_learned"
+              }
+            ]
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَوْدَة",
+                "english": "Return",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_quests_trials",
+        "topic": "quests",
+        "label": "Mountain Trials",
+        "returnToHub": true,
+        "priority": 3,
+        "conditions": [
+          {
+            "type": "relationship",
+            "npcId": "mountain-hermit-idris",
+            "min": 1
+          }
+        ],
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الجَبَل يَختَبِر مَن يَدخُل",
+            "english": "The mountain tests those who enter.",
+            "transliteration": "al-jabal yakhtabir man yadkhul"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "إِذا عَرَفتَ الكَلِمات، سَتَجِد الطَّريق",
+            "english": "If you know the words, you will find the way.",
+            "transliteration": "idhaa 'arafta al-kalimaat, satajid at-tariiq",
+            "effects": [
+              {
+                "type": "quest_start",
+                "questId": "mountain_paths"
+              }
+            ]
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "أَنا مُستَعِدّ",
+                "english": "I am ready",
+                "action": "return_to_hub"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_return_wisdom",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "عُدتَ. الجَبَلُ لا يَنسى مَن طَلَبَ الحِكمَة",
+            "english": "You returned. The mountain never forgets those who sought wisdom.",
+            "transliteration": "'udta. al-jabal laa yansaa man talaba al-hikma"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "صَبر — الصَّبرُ مِفتاحُ الفَرَج. كَلِمَة عَظيمَة",
+            "english": "Sabr — patience is the key to relief. A great word.",
+            "transliteration": "sabr — as-sabru miftaahu al-faraj. kalima 'aziima",
+            "teachWord": "write_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَقَولُ المَثَل: \"الصَّبرُ مِفتاحُ الفَرَج\" — بِالعَرَبِيَّة يُصبِح شِعراً",
+            "english": "And the proverb: \"Patience is the key to relief\" — in Arabic it becomes poetry.",
+            "transliteration": "wa qawlu al-mathal: \"as-sabru miftaahu al-faraj\" — bil-arabiyya yusbih shi'ran",
+            "culturalNote": "Arabic proverbs (أَمثال, amthaal) are a cornerstone of classical learning. The proverb \"الصَّبرُ مِفتاحُ الفَرَج\" (patience is the key to relief) appears in Imam al-Ghazali's 12th-century Ihya Ulum al-Din."
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "الحِكمَة مَوجودَة هُنا. شُكراً إِدريس",
+                "english": "Wisdom lives here. Thank you, Idris.",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_return_philosophy",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الجَبَل يَرحَّب بِك مَرَّة أُخرى. لِنَتَأَمَّل",
+            "english": "The mountain welcomes you again. Let us reflect.",
+            "transliteration": "al-jabal yurahahib bik marra ukhraa. linata'ammal"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "حِكمَة — وَكَلِمَة \"حَكيم\" تَعني الحَكيم أَو الطَّبيب في العَرَبِيَّة القَديمَة",
+            "english": "Hikma — wisdom. And \"hakim\" means wise man or physician in classical Arabic.",
+            "transliteration": "hikma — wa kalima \"hakiim\" ta'nii al-hakiim aw at-tabiib fil-arabiyya al-qadiima",
+            "teachWord": "beautiful_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ابن سينا لَقَّبوه \"الشَّيخ الرَّئيس\" — رَئيس الحُكَماء",
+            "english": "Ibn Sina was titled \"al-Shaykh al-Ra'is\" — Chief of the Wise.",
+            "transliteration": "ibn siinaa laqqabuuh \"ash-shaykh ar-ra'iis\" — ra'iis al-hukamaa'"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "وَ\"elixir\" الإنجليزِيَّة جاءَت مِن الكيمياء العَرَبِيَّة \"الإِكسير\"",
+            "english": "And English \"elixir\" came from Arabic alchemy: \"al-iksir\".",
+            "transliteration": "wa \"elixir\" al-injliiziyya jaa'at min al-kiimyaa' al-arabiyya \"al-iksir\"",
+            "culturalNote": "\"Elixir\" derives from Arabic al-iksir (الإِكسير), itself from Greek xerion. Arab alchemists like Jabir ibn Hayyan (8th c.) developed systematic chemistry — the word \"alchemy\" itself comes from Arabic al-kimiya (الكيمياء), from Coptic kemi (black earth/Egypt)."
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "العِلمُ العَرَبي في كُلّ مَكان! شُكراً إِدريس",
+                "english": "Arabic science is everywhere! Thank you, Idris.",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_return_writing",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الكِتابَة العَرَبِيَّة تَسير مِن اليَمين إلى اليَسار — كَالشَّمس تَغرُب",
+            "english": "Arabic writing goes from right to left — like the sun setting.",
+            "transliteration": "al-kitaaba al-arabiyya tasiir min al-yamiin ilaa al-yasaar — kashams taghrub",
+            "teachWord": "write_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "جَذر \"ك-ت-ب\": كَتَبَ — يَكتُب — كِتاب — كاتِب — مَكتَبَة — مَكتَب",
+            "english": "Root K-T-B: kataba (he wrote) — yaktub (he writes) — kitaab (book) — kaatib (writer) — maktaba (library) — maktab (office).",
+            "transliteration": "jadhr k-t-b: kataba — yaktub — kitaab — kaatib — maktaba — maktab",
+            "culturalNote": "The Arabic trilateral root K-T-B (ك-ت-ب) demonstrates the system's power: from three letters, the language generates dozens of related words. Learning one root unlocks a whole vocabulary family — this is why Arabic learners say \"once you see the roots, the language opens up.\""
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "الجُذور تَفتَح العالَم! شُكراً إِدريس",
+                "english": "Roots open the world! Thank you, Idris.",
+                "next": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "topic_return_meditation",
+        "trigger": "return_visit",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "اِجلِس. خُذ نَفَساً. \"تَفَكَّر\" — العَقل يَحتاج الهُدوء",
+            "english": "Sit. Take a breath. \"Tafakkar\" — the mind needs quiet.",
+            "transliteration": "ijlis. khudh nafasan. \"tafakkar\" — al-'aql yahtaaj al-huduu'"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "كَلِمَة \"تَفَكَّر\" تَعني التَّأَمُّل العَميق — فِكر عَميق",
+            "english": "\"Tafakkar\" means deep reflection — profound thought.",
+            "transliteration": "kalima \"tafakkar\" ta'nii at-ta'ammul al-'amiiq — fikr 'amiiq",
+            "teachWord": "write_1"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "سَأَتَفَكَّر. شُكراً",
+                "english": "I will reflect. Thank you.",
+                "next": null
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "poet-mountain",
+    "dialogueTrees": [
+      {
+        "id": "poet-mountain-greeting",
+        "trigger": "interact",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "مِن أَعلى الجَبَل أَرى الدُّنيا كَما رَآها لَبيد بنُ رَبيعَة",
+            "english": "From the mountain top I see the world as Labid ibn Rabi'ah saw it"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "عَفَتِ الدِّيارُ — هَل تَعرِفُ مُعَلَّقَة لَبيد؟ سَنَختَبِرُ ذَلِك الآن",
+            "english": "The abodes have faded — do you know Labid's Ode? We shall test that now"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,233 @@
+@import '../../styles/variables.css';
+
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-toast);
+  width: 90%;
+  max-width: 420px;
+  background: linear-gradient(135deg, #2a1800 0%, var(--color-brown) 50%, #2a1800 100%);
+  border: 3px solid var(--color-xp-gold);
+  box-shadow:
+    0 0 30px rgba(226, 182, 89, 0.4),
+    0 8px 32px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  padding: 0;
+}
+
+.shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 25%,
+    rgba(226, 182, 89, 0.1) 40%,
+    transparent 55%
+  );
+  background-size: 200% 100%;
+  animation: toastShimmer 2.5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes toastShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.icon {
+  font-size: 24px;
+  color: var(--color-xp-gold);
+  line-height: 1;
+  flex-shrink: 0;
+  animation: starPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes starPulse {
+  0%, 100% {
+    text-shadow: 0 0 4px var(--color-xp-gold);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 12px var(--color-xp-gold), 0 0 24px rgba(226, 182, 89, 0.4);
+    transform: scale(1.1);
+  }
+}
+
+.titles {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.titleEn {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--color-xp-gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.4;
+}
+
+.titleAr {
+  font-family: var(--font-arabic);
+  font-size: 13px;
+  color: var(--color-light);
+  direction: rtl;
+  line-height: 1.3;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: var(--color-light);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+
+.closeBtn:hover {
+  opacity: 1;
+  color: var(--color-white);
+}
+
+.closeBtn:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.featureInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 3px solid var(--color-xp-gold);
+}
+
+.featureName {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  color: var(--color-white);
+  font-weight: bold;
+}
+
+.featureNameAr {
+  font-family: var(--font-arabic);
+  font-size: 14px;
+  color: var(--color-light);
+  direction: rtl;
+}
+
+.featureDesc {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-light);
+  margin: 2px 0 0 0;
+  line-height: 1.6;
+}
+
+.tryNowBtn {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  padding: 10px 20px;
+  background: var(--color-xp-gold);
+  color: var(--color-brown);
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  align-self: center;
+  box-shadow:
+    inset -3px -3px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 3px 3px 0px 0px rgba(255, 255, 255, 0.3),
+    0 3px 0 0 #a0842a;
+  transition: transform 0.05s, box-shadow 0.05s;
+}
+
+.tryNowBtn:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    inset -3px -3px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 3px 3px 0px 0px rgba(255, 255, 255, 0.4),
+    0 5px 0 0 #a0842a;
+}
+
+.tryNowBtn:active {
+  transform: translateY(0);
+  box-shadow:
+    inset -3px -3px 0px 0px rgba(0, 0, 0, 0.3),
+    inset 3px 3px 0px 0px rgba(255, 255, 255, 0.2),
+    0 1px 0 0 #a0842a;
+}
+
+.tryNowBtn:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* ── Reduced Motion ── */
+
+@media (prefers-reduced-motion: reduce) {
+  .shimmer {
+    animation: none;
+    background: none;
+  }
+
+  .icon {
+    animation: none;
+  }
+}
+
+/* ── Mobile ── */
+
+@media (max-width: 480px) {
+  .toast {
+    width: 95%;
+    top: 10px;
+  }
+
+  .content {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .titleEn {
+    font-size: 9px;
+  }
+
+  .featureName {
+    font-size: 9px;
+  }
+
+  .tryNowBtn {
+    font-size: 9px;
+    padding: 8px 16px;
+  }
+}

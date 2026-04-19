@@ -1,0 +1,123 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.panel {
+  max-width: 400px;
+  width: 90%;
+  background: #1a1a2e;
+  border: 2px solid #e2b659;
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+}
+.title {
+  color: #e2b659;
+  font-size: 1.6rem;
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  direction: rtl;
+  margin: 0 0 4px;
+}
+.subtitle {
+  color: #c8c8c8;
+  font-size: 0.85rem;
+  margin: 0 0 20px;
+}
+.sectionTitle {
+  color: #888;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0 0 10px;
+}
+.summarySection {
+  background: #2b292c;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.statRow {
+  display: flex;
+  justify-content: space-around;
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.statValue {
+  color: #e2b659;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.statLabel {
+  color: #888;
+  font-size: 0.75rem;
+  margin-top: 4px;
+}
+.dueSection {
+  background: #2b292c;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.dueCount {
+  color: #e2b659;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+.dueLabel {
+  color: #c8c8c8;
+  font-size: 0.9rem;
+}
+.streakSection {
+  margin-bottom: 20px;
+}
+.streakActive {
+  color: #e2b659;
+  font-size: 1rem;
+  margin: 0;
+}
+.streakBroken {
+  color: #ef4444;
+  font-size: 0.9rem;
+  margin: 0;
+}
+.streakNew {
+  color: #888;
+  font-size: 0.9rem;
+  margin: 0;
+}
+.ctaButton {
+  background: #e2b659;
+  color: #1a1a2e;
+  padding: 14px 28px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  width: 100%;
+  margin-bottom: 10px;
+  transition: background 0.2s;
+}
+.ctaButton:hover {
+  background: #d4a843;
+}
+.skipButton {
+  background: transparent;
+  color: #888;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 8px;
+}

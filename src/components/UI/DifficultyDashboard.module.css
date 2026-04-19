@@ -1,0 +1,222 @@
+@import '../../styles/variables.css';
+
+.container {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 800;
+  min-width: 200px;
+  max-width: 280px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.header:hover {
+  border-color: rgba(255, 215, 0, 0.6);
+}
+
+.header:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.levelBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-left: 3px solid #FFD700;
+  padding-left: 8px;
+}
+
+.levelDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.levelText {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.expandIcon {
+  font-size: 8px;
+  color: var(--color-light);
+}
+
+/* Expanded panel */
+.panel {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-top: none;
+  padding: 16px;
+  animation: expandIn 0.2s ease-out;
+}
+
+@keyframes expandIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section {
+  margin-bottom: 14px;
+}
+
+.sectionLabel {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.sectionLabel strong {
+  color: #FFD700;
+}
+
+/* Difficulty bar */
+.difficultyBar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.difficultyFill {
+  height: 100%;
+  transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+.difficultyLabels {
+  display: flex;
+  justify-content: space-between;
+}
+
+.difficultyLabel {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+}
+
+.activeDifficultyLabel {
+  font-weight: bold;
+}
+
+/* Sparkline */
+.sparkline {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 24px;
+  padding: 4px 0;
+}
+
+.sparkBar {
+  flex: 1;
+  min-width: 4px;
+  max-width: 10px;
+  border-radius: 1px;
+}
+
+.sparkCorrect {
+  background: #2ecc71;
+  height: 100%;
+}
+
+.sparkIncorrect {
+  background: #e74c3c;
+  height: 50%;
+}
+
+/* Stats row */
+.statsRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  margin-bottom: 12px;
+  padding: 10px 8px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 215, 0, 0.15);
+}
+
+.miniStat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+}
+
+.miniStatValue {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  color: #FFD700;
+  font-weight: bold;
+}
+
+.miniStatLabel {
+  font-family: var(--font-pixel);
+  font-size: 6px;
+  color: var(--color-light);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Recommendation */
+.recommendation {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-light);
+  line-height: 1.6;
+  margin: 0;
+  font-style: italic;
+  text-align: center;
+  padding: 8px;
+  background: rgba(255, 215, 0, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    animation: none;
+  }
+
+  .difficultyFill {
+    transition: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .container {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    max-width: none;
+    min-width: auto;
+  }
+}

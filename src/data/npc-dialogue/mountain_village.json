@@ -1,0 +1,178 @@
+[
+  {
+    "id": "mountain-elder-interior",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "مَرْحَباً في بَيتي عَلى الجَبَل",
+            "english": "Welcome to my home on the mountain.",
+            "transliteration": "marhaban fii baytii alaa al-jabal"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "مِنْ هُنا نَرى كُلّ شَيء — كَبير وَصَغير",
+            "english": "From here we see everything — big and small.",
+            "transliteration": "min hunaa naraa kulla shay' — kabiir wa saghiir"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "لِنَتَعَلَّم كَيفَ نَصِف الأَشياء",
+            "english": "Let's learn how to describe things.",
+            "transliteration": "linata'allam kayfa nasif al-ashyaa'"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمني الصِّفات",
+                "english": "Teach me adjectives",
+                "next": "teach_adjectives"
+              },
+              {
+                "arabic": "أُريدُ أَن أَستَريح",
+                "english": "I want to rest",
+                "action": "end"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "default",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الجَبَل جَميل اليَوم",
+            "english": "The mountain is beautiful today.",
+            "transliteration": "al-jabal jamiil al-yawm"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هَل تُريدُ أَن نَتَعَلَّم صِفات جَديدَة؟",
+            "english": "Do you want to learn new adjectives?",
+            "transliteration": "hal turiidu an nata'allam sifaat jadiida?"
+          }
+        ]
+      },
+      {
+        "id": "teach_adjectives",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "كَبير — مِثل الجَبَل",
+            "english": "Kabiir — like the mountain (big).",
+            "transliteration": "kabiir — mithl al-jabal",
+            "teachWord": "big_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "صَغير — مِثل الحَصى",
+            "english": "Saghiir — like the pebbles (small).",
+            "transliteration": "saghiir — mithl al-hasaa",
+            "teachWord": "small_1"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "جَميل — مِثل هَذا المَنظَر",
+            "english": "Jamiil — like this view (beautiful).",
+            "transliteration": "jamiil — mithl haadha al-manzar",
+            "teachWord": "beautiful_1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "imam-interior",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "أَهْلاً بِكَ في بَيتِ الله",
+            "english": "Welcome to the house of God.",
+            "transliteration": "ahlan bika fii bayti allaah"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "هُنا نَتَعَلَّم الكَلِمات الَّتي تُقَرِّبُنا مِنَ الله",
+            "english": "Here we learn words that bring us closer to God.",
+            "transliteration": "hunaa nata'allam al-kalimaat allatii tuqarribunaa mina allaah"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "سَأُعَلِّمُكَ عِبارات الاِحتِرام والدُّعاء",
+            "english": "I will teach you phrases of respect and prayer.",
+            "transliteration": "sa'u'allimuka ibaaraat al-ihtiraam wad-du'aa'"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "عَلِّمني يا إمام",
+                "english": "Teach me, Imam",
+                "next": "teach_spiritual"
+              },
+              {
+                "arabic": "جَزاكَ اللهُ خَيراً",
+                "english": "May God reward you",
+                "action": "end"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "default",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "بابُ المَسجِد مَفتوح دائِماً",
+            "english": "The mosque door is always open.",
+            "transliteration": "baabu al-masjid maftuuh daa'iman"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "تَعالَ مَتى شِئتَ لِلتَّعَلُّم",
+            "english": "Come whenever you wish to learn.",
+            "transliteration": "ta'aala mataa shi'ta lit-ta'allum"
+          }
+        ]
+      },
+      {
+        "id": "teach_spiritual",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "بِسمِ الله — نَقولُها قَبلَ كُلّ شَيء",
+            "english": "Bismillaah — we say it before everything (in God's name).",
+            "transliteration": "bismillaah — naquuluhaa qabla kulli shay'",
+            "teachWord": "bismillah"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "الحَمْدُ لِلَّه — شُكر لِلَّه عَلى نِعَمِه",
+            "english": "Al-hamdu lillaah — thanks to God for His blessings.",
+            "transliteration": "al-hamdu lillaah — shukr lillaah alaa ni'amihi",
+            "teachWord": "alhamdulillah"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "إِن شاءَ الله — عِندَما نَتَحَدَّث عَنِ المُستَقبَل",
+            "english": "In shaa' allaah — when we speak about the future (God willing).",
+            "transliteration": "in shaa' allaah — indamaa natahaddath anil-mustaqbal",
+            "teachWord": "inshallah"
+          }
+        ]
+      }
+    ]
+  }
+]

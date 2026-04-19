@@ -1,0 +1,122 @@
+@import '../../styles/variables.css';
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #0f3460;
+  border: 3px solid var(--color-xp-gold);
+  padding: 28px 32px;
+  max-width: 380px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 0 0 rgba(0, 0, 0, 0.4);
+}
+
+.title {
+  font-family: var(--font-pixel);
+  font-size: 16px;
+  color: var(--color-xp-gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-family: var(--font-arabic);
+  font-size: 18px;
+  color: var(--color-beige);
+  direction: rtl;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.statsList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.statItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 6px;
+}
+
+.statLabel {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: var(--color-beige);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.statValue {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  color: var(--color-xp-gold);
+}
+
+.noStats {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: var(--color-beige);
+  margin-bottom: 16px;
+  opacity: 0.7;
+}
+
+.summary {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-beige);
+  opacity: 0.6;
+  margin-bottom: 20px;
+  min-height: 12px;
+}
+
+.dismissBtn {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  padding: 14px 28px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: var(--color-xp-gold);
+  color: var(--color-brown);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.3),
+    0 4px 0 0 #a0842a;
+  transition: transform 0.05s;
+  width: 100%;
+}
+
+.dismissBtn:hover {
+  transform: translateY(-2px);
+}
+
+.dismissBtn:active {
+  transform: translateY(2px);
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.25),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.2),
+    0 2px 0 0 #a0842a;
+}
+
+.dismissBtn:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}

@@ -1,0 +1,2586 @@
+[
+  {
+    "id": "scholar-yusuf",
+    "name": "Scholar Yusuf",
+    "nameArabic": "الشَّيْخ يوسُف",
+    "portrait": "portrait-scholar-yusuf",
+    "role": "Teaches alphabet and grammar foundations",
+    "greeting": {
+      "arabic": "السَّلامُ عَلَيْكُم يا طالِب العِلْم",
+      "english": "Peace be upon you, seeker of knowledge",
+      "transliteration": "as-salaamu alaykum ya taalib al-ilm"
+    },
+    "personality": {
+      "tone": "formal_scholar",
+      "catchphrase": "بِسْمِ اللَّه — bismillaah (In the name of God)",
+      "interests": [
+        "grammar",
+        "teaching",
+        "alphabet",
+        "classical_arabic"
+      ],
+      "mood": "serious"
+    },
+    "zone": "oasis_village",
+    "vocabWords": [
+      "salaam",
+      "shukran",
+      "marhaba",
+      "ahlan",
+      "afwan",
+      "ma_a_salama",
+      "sabah_al_khayr",
+      "masa_al_khayr",
+      "kayfa_haluk",
+      "bi_khayr",
+      "na_am",
+      "la",
+      "bismillah",
+      "alhamdulillah"
+    ],
+    "storyArc": {
+      "arc": "main_storyline",
+      "role": "knowledge_keeper",
+      "branchPoint": "scholars_dilemma"
+    },
+    "topics": [
+      "lore",
+      "teaching",
+      "quests",
+      "personal"
+    ],
+    "schedule": [
+      {
+        "startHour": 8,
+        "endHour": 17,
+        "zone": "oasis_village",
+        "location": {
+          "x": 9,
+          "y": 6
+        },
+        "behavior": "static"
+      },
+      {
+        "startHour": 17,
+        "endHour": 20,
+        "zone": "oasis_village",
+        "location": {
+          "x": 12,
+          "y": 4
+        },
+        "behavior": "wander"
+      }
+    ],
+    "actionSets": {
+      "interact": [
+        {
+          "requirements": [
+            {
+              "type": "quest",
+              "questId": "learn-greetings",
+              "status": "complete"
+            }
+          ],
+          "actions": [
+            {
+              "type": "speech",
+              "npcId": "scholar-yusuf",
+              "dialogueKey": "advanced-lesson"
+            },
+            {
+              "type": "teachWord",
+              "wordId": "kitab"
+            }
+          ]
+        },
+        {
+          "requirements": [
+            {
+              "type": "flag",
+              "flagId": "met_mentor"
+            }
+          ],
+          "actions": [
+            {
+              "type": "speech",
+              "npcId": "scholar-yusuf",
+              "dialogueKey": "welcome-student"
+            },
+            {
+              "type": "setFlag",
+              "flagId": "met_scholar",
+              "value": true
+            }
+          ]
+        },
+        {
+          "requirements": [],
+          "actions": [
+            {
+              "type": "speech",
+              "npcId": "scholar-yusuf",
+              "dialogueKey": "default"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "merchant-fatima",
+    "name": "Merchant Fatima",
+    "nameArabic": "التّاجِرَة فاطِمَة",
+    "portrait": "portrait-merchant-fatima",
+    "role": "Teaches trade and market vocabulary",
+    "greeting": {
+      "arabic": "أَهْلاً يا زَبون! تَفَضَّل",
+      "english": "Welcome, customer! Come in",
+      "transliteration": "ahlan ya zabuun! tafaddal"
+    },
+    "personality": {
+      "tone": "casual_merchant",
+      "catchphrase": "يَلّا يا زَبون! — yalla ya zabuun! (Come on, customer!)",
+      "interests": [
+        "trade",
+        "bargaining",
+        "marketplace",
+        "business"
+      ],
+      "mood": "cheerful"
+    },
+    "zone": "oasis_village",
+    "vocabWords": [
+      "shop_w28",
+      "market_w29",
+      "money_w30",
+      "price_w31",
+      "cheap_w32",
+      "expensive_w33",
+      "buy_w34",
+      "sell_w35",
+      "gold_w36",
+      "silver_w37",
+      "carpet_w38",
+      "merchant_w44",
+      "customer_w45"
+    ],
+    "topics": [
+      "teaching",
+      "gossip",
+      "quests"
+    ],
+    "schedule": [
+      {
+        "startHour": 6,
+        "endHour": 21,
+        "zone": "oasis_village",
+        "location": {
+          "x": 14,
+          "y": 8
+        },
+        "behavior": "static"
+      },
+      {
+        "startHour": 21,
+        "endHour": 6,
+        "zone": "oasis_village",
+        "location": {
+          "x": 14,
+          "y": 10
+        },
+        "behavior": "static"
+      }
+    ],
+    "actionSets": {
+      "interact": [
+        {
+          "requirements": [
+            {
+              "type": "item",
+              "itemId": "rare_spice"
+            }
+          ],
+          "actions": [
+            {
+              "type": "speech",
+              "npcId": "merchant-fatima",
+              "dialogueKey": "special-trade"
+            },
+            {
+              "type": "giveItem",
+              "itemId": "gold_dinar",
+              "quantity": 5
+            }
+          ]
+        },
+        {
+          "requirements": [
+            {
+              "type": "level",
+              "min": 3
+            }
+          ],
+          "actions": [
+            {
+              "type": "speech",
+              "npcId": "merchant-fatima",
+              "dialogueKey": "experienced-trader"
+            },
+            {
+              "type": "teachWord",
+              "wordId": "tujjar"
+            }
+          ]
+        },
+        {
+          "requirements": [],
+          "actions": [
+            {
+              "type": "speech",
+              "npcId": "merchant-fatima",
+              "dialogueKey": "default"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "student-khalid",
+    "name": "Student Khalid",
+    "nameArabic": "الطّالِب خالِد",
+    "portrait": "portrait-student-khalid",
+    "role": "Quiz practice partner and daily challenges",
+    "greeting": {
+      "arabic": "يا هَلا! أَنا خالِد",
+      "english": "Hey there! I'm Khalid",
+      "transliteration": "ya halaa! ana khaalid"
+    },
+    "personality": {
+      "tone": "playful_student",
+      "catchphrase": "يا هَلا! — ya halaa! (Hey there!)",
+      "interests": [
+        "quizzes",
+        "games",
+        "practice",
+        "competition"
+      ],
+      "mood": "excited"
+    },
+    "zone": "oasis_village",
+    "vocabWords": [
+      "min_fadlak",
+      "inshallah",
+      "mashallah",
+      "jazakallah",
+      "tayyib",
+      "yalla",
+      "spice_w39",
+      "perfume_w40",
+      "soap_w41",
+      "cloth_w42",
+      "gift_w43",
+      "scale_w46",
+      "coin_w47"
+    ],
+    "topics": [
+      "teaching",
+      "lore",
+      "gossip"
+    ],
+    "schedule": [
+      {
+        "startHour": 8,
+        "endHour": 12,
+        "zone": "oasis_village",
+        "location": {
+          "x": 10,
+          "y": 6
+        },
+        "behavior": "static"
+      },
+      {
+        "startHour": 12,
+        "endHour": 17,
+        "zone": "oasis_village",
+        "location": {
+          "x": 7,
+          "y": 10
+        },
+        "behavior": "wander"
+      }
+    ],
+    "actionSets": {
+      "interact": [
+        {
+          "requirements": [
+            {
+              "type": "quest",
+              "questId": "help-khalid-study",
+              "status": "active"
+            }
+          ],
+          "actions": [
+            {
+              "type": "speech",
+              "npcId": "student-khalid",
+              "dialogueKey": "study-session"
+            },
+            {
+              "type": "teachWord",
+              "wordId": "qiraa"
+            }
+          ]
+        },
+        {
+          "requirements": [],
+          "actions": [
+            {
+              "type": "speech",
+              "npcId": "student-khalid",
+              "dialogueKey": "default"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "librarian-ibrahim",
+    "name": "Librarian Ibrahim",
+    "nameArabic": "أَمين المَكتَبَة إِبراهيم",
+    "portrait": "portrait-librarian-ibrahim",
+    "role": "Teaches numbers and counting",
+    "greeting": {
+      "arabic": "أَهْلاً بِكَ في المَكتَبَة",
+      "english": "Welcome to the library",
+      "transliteration": "ahlan bika fil-maktaba"
+    },
+    "personality": {
+      "tone": "formal_scholar",
+      "catchphrase": "العِلْمُ نور — al-ilmu nuur (Knowledge is light)",
+      "interests": [
+        "books",
+        "knowledge",
+        "numbers",
+        "history"
+      ],
+      "mood": "neutral"
+    },
+    "zone": "ancient_library",
+    "vocabWords": [
+      "num_1",
+      "num_2",
+      "num_3",
+      "num_4",
+      "num_5",
+      "num_6",
+      "num_7",
+      "num_8",
+      "num_9",
+      "num_10",
+      "num_11",
+      "num_12",
+      "num_13",
+      "num_14",
+      "num_15"
+    ],
+    "topics": [
+      "teaching",
+      "lore",
+      "quests"
+    ]
+  },
+  {
+    "id": "scribe-amina",
+    "name": "Scribe Amina",
+    "nameArabic": "الكاتِبَة أَمينَة",
+    "portrait": "portrait-scribe-amina",
+    "role": "Teaches colors and common phrases",
+    "greeting": {
+      "arabic": "مَرحَباً! الدُّنيا مَليئَة بِالأَلوان",
+      "english": "Hello! The world is full of colors",
+      "transliteration": "marhaban! ad-dunyaa malii'a bil-alwaan"
+    },
+    "personality": {
+      "tone": "diligent_scribe",
+      "catchphrase": "الخَطُّ الجَميلُ فَنّ — al-khat al-jamiil fann (Beautiful writing is art)",
+      "interests": [
+        "calligraphy",
+        "writing",
+        "poetry",
+        "manuscripts"
+      ],
+      "mood": "serious"
+    },
+    "zone": "ancient_library",
+    "vocabWords": [
+      "color_red",
+      "color_blue",
+      "color_green",
+      "color_yellow",
+      "color_white",
+      "color_black",
+      "color_orange",
+      "color_brown",
+      "color_pink",
+      "color_purple",
+      "color_grey",
+      "color_golden",
+      "what_is_your_name_1",
+      "how_are_you_1",
+      "i_am_learning_arabic_1"
+    ],
+    "topics": [
+      "teaching",
+      "lore",
+      "quests"
+    ]
+  },
+  {
+    "id": "spice-seller-layla",
+    "name": "Spice Seller Layla",
+    "nameArabic": "بائِعَة البَهارات لَيلى",
+    "portrait": "portrait-spice-seller-layla",
+    "role": "Teaches food vocabulary",
+    "greeting": {
+      "arabic": "أَهلاً يا حَبيبي! تَعالَ شُمَّ البَهارات",
+      "english": "Hello dear! Come smell the spices",
+      "transliteration": "ahlan ya habiibii! ta'aala shumma al-bahaaraat"
+    },
+    "personality": {
+      "tone": "casual_merchant",
+      "catchphrase": "تَفَضَّل! — tafaddal! (Come in!)",
+      "interests": [
+        "spices",
+        "cooking",
+        "trade",
+        "recipes"
+      ],
+      "mood": "cheerful"
+    },
+    "zone": "desert_marketplace",
+    "vocabWords": [
+      "water_1",
+      "bread_1",
+      "rice_1",
+      "meat_1",
+      "chicken_1",
+      "fish_food_1",
+      "milk_1",
+      "tea_1",
+      "coffee_1",
+      "sugar_1",
+      "salt_1",
+      "dates_1",
+      "olive_1",
+      "honey_1",
+      "spice_w39"
+    ],
+    "topics": [
+      "teaching",
+      "gossip",
+      "lore"
+    ]
+  },
+  {
+    "id": "trader-hassan",
+    "name": "Trader Hassan",
+    "nameArabic": "التّاجِر حَسَن",
+    "portrait": "portrait-trader-hassan",
+    "role": "Teaches advanced trade vocabulary",
+    "greeting": {
+      "arabic": "تَفَضَّل يا أَخي! عِندي أَحسَنُ البَضائِع",
+      "english": "Come in, my friend! I have the best goods",
+      "transliteration": "tafaddal ya akhii! indii ahsanu al-badaa'i'"
+    },
+    "personality": {
+      "tone": "casual_merchant",
+      "catchphrase": "صَفْقَة مُمتازَة! — safqa mumtaaza! (Excellent deal!)",
+      "interests": [
+        "trading",
+        "bargaining",
+        "travel",
+        "goods"
+      ],
+      "mood": "neutral"
+    },
+    "zone": "desert_marketplace",
+    "vocabWords": [
+      "shop_w28",
+      "market_w29",
+      "money_w30",
+      "price_w31",
+      "cheap_w32",
+      "expensive_w33",
+      "buy_w34",
+      "sell_w35",
+      "carpet_w38",
+      "cloth_w42",
+      "gift_w43",
+      "coin_w47",
+      "num_1",
+      "num_2",
+      "num_3"
+    ],
+    "topics": [
+      "teaching",
+      "gossip",
+      "quests"
+    ]
+  },
+  {
+    "id": "guard-hamza",
+    "name": "Guard Hamza",
+    "nameArabic": "الحارِس حَمزَة",
+    "portrait": "portrait-guard-hamza",
+    "role": "Teaches numbers 11-15 and market phrases",
+    "greeting": {
+      "arabic": "قِف! مَن أَنت؟ ... أَهلاً، تَفَضَّل",
+      "english": "Halt! Who are you? ... Welcome, come in",
+      "transliteration": "qif! man anta? ... ahlan, tafaddal"
+    },
+    "personality": {
+      "tone": "gruff_warrior",
+      "catchphrase": "قِف! — qif! (Halt!)",
+      "interests": [
+        "security",
+        "defense",
+        "patrol",
+        "duty"
+      ],
+      "mood": "serious"
+    },
+    "zone": "oasis_village",
+    "vocabWords": [
+      "num_4",
+      "num_5",
+      "num_6",
+      "num_7",
+      "num_8",
+      "num_9",
+      "num_10",
+      "where_is_1",
+      "what_is_this_1",
+      "this_is_1",
+      "please_1",
+      "excuse_me_1",
+      "welcome_1"
+    ],
+    "topics": [
+      "lore",
+      "quests",
+      "gossip"
+    ]
+  },
+  {
+    "id": "farmer-omar",
+    "name": "Farmer Omar",
+    "nameArabic": "المُزَارِعُ عُمَرُ",
+    "portrait": "portrait-farmer-omar",
+    "role": "Teaches nature and animal vocabulary",
+    "greeting": {
+      "arabic": "أَهْلًا! مَرْحَبًا فِي مَزْرَعَتِي!",
+      "english": "Hello! Welcome to my farm!",
+      "transliteration": "Ahlan! Marhaban fi mazra'ati!"
+    },
+    "personality": {
+      "tone": "cheerful_farmer",
+      "catchphrase": "الحَمْدُ لِلَّه — al-hamdu lillaah (Praise be to God)",
+      "interests": [
+        "farming",
+        "nature",
+        "animals",
+        "harvest"
+      ],
+      "mood": "cheerful"
+    },
+    "zone": "oasis_village",
+    "vocabWords": [
+      "water_w13",
+      "sun_w14",
+      "rain_w25",
+      "tree_w27",
+      "palm_tree_w20",
+      "oasis_w19",
+      "cat_1",
+      "dog_1",
+      "horse_1",
+      "camel_1",
+      "bird_1",
+      "sheep_1",
+      "goat_1",
+      "cow_1",
+      "donkey_1"
+    ],
+    "topics": [
+      "teaching",
+      "lore",
+      "gossip"
+    ]
+  },
+  {
+    "id": "herbalist-maryam",
+    "name": "Herbalist Maryam",
+    "nameArabic": "العَشَّابَةُ مَرْيَمُ",
+    "portrait": "portrait-herbalist-maryam",
+    "role": "Teaches body parts and basic verbs",
+    "greeting": {
+      "arabic": "السَّلَامُ عَلَيْكُمْ! تَفَضَّلْ، اِجْلِسْ هُنَا.",
+      "english": "Peace be upon you! Please, sit here.",
+      "transliteration": "As-salaamu 'alaykum! Tafaddal, ijlis huna."
+    },
+    "personality": {
+      "tone": "gentle_healer",
+      "catchphrase": "الصِّحَّةُ تاج — as-sihha taaj (Health is a crown)",
+      "interests": [
+        "healing",
+        "herbs",
+        "medicine",
+        "health"
+      ],
+      "mood": "neutral"
+    },
+    "zone": "oasis_village",
+    "vocabWords": [
+      "head_1",
+      "hand_1",
+      "eye_1",
+      "ear_1",
+      "mouth_1",
+      "nose_1",
+      "foot_1",
+      "heart_1",
+      "back_1",
+      "stomach_1",
+      "finger_1",
+      "tooth_1",
+      "eat_1",
+      "drink_1",
+      "sleep_1"
+    ],
+    "topics": [
+      "teaching",
+      "lore",
+      "quests"
+    ]
+  },
+  {
+    "id": "elder-tariq",
+    "name": "Elder Tariq",
+    "nameArabic": "الشَّيْخُ طَارِقٌ",
+    "portrait": "portrait-elder-tariq",
+    "role": "Teaches time vocabulary",
+    "greeting": {
+      "arabic": "السَّلَامُ عَلَيْكُمْ يَا مُسَافِرُ. اِجْلِسْ مَعَنَا عِنْدَ النَّارِ.",
+      "english": "Peace be upon you, traveler. Sit with us by the fire.",
+      "transliteration": "As-salaamu 'alaykum ya musaafir. Ijlis ma'ana 'inda an-naar."
+    },
+    "personality": {
+      "tone": "serious_elder",
+      "catchphrase": "الحِكْمَةُ مَعَ التَّجْرِبَة — al-hikma ma'a at-tajriba (Wisdom with experience)",
+      "interests": [
+        "history",
+        "wisdom",
+        "tradition",
+        "knowledge"
+      ],
+      "mood": "serious"
+    },
+    "zone": "oasis_village",
+    "vocabWords": [
+      "day_1",
+      "night_1",
+      "morning_1",
+      "evening_1",
+      "today_1",
+      "tomorrow_1",
+      "yesterday_1",
+      "hour_1",
+      "week_1",
+      "month_1",
+      "good_morning_1",
+      "good_evening_1",
+      "goodbye_1",
+      "see_you_later_1"
+    ],
+    "topics": [
+      "lore",
+      "quests",
+      "teaching"
+    ]
+  },
+  {
+    "id": "storyteller-noor",
+    "name": "Storyteller Noor",
+    "nameArabic": "الرَّاوِيَةُ نُورٌ",
+    "portrait": "portrait-storyteller-noor",
+    "role": "Teaches adjectives through stories",
+    "greeting": {
+      "arabic": "أَهْلًا وَسَهْلًا! تَعَالَ وَاسْمَعْ قِصَّةً!",
+      "english": "Welcome! Come and hear a story!",
+      "transliteration": "Ahlan wa sahlan! Ta'aal wasma' qissah!"
+    },
+    "personality": {
+      "tone": "wise_storyteller",
+      "catchphrase": "يُحْكى أَنَّ — yuhkaa anna (It is said that...)",
+      "interests": [
+        "stories",
+        "legends",
+        "history",
+        "entertainment"
+      ],
+      "mood": "cheerful"
+    },
+    "zone": "oasis_village",
+    "vocabWords": [
+      "big_1",
+      "small_1",
+      "beautiful_1",
+      "old_1",
+      "new_1",
+      "happy_1",
+      "sad_1",
+      "strong_1",
+      "weak_1",
+      "easy_1",
+      "difficult_1",
+      "long_tall_1",
+      "i_am_fine_1",
+      "i_want_1",
+      "congratulations_1"
+    ],
+    "topics": [
+      "lore",
+      "teaching",
+      "gossip"
+    ]
+  },
+  {
+    "id": "wanderer-ali",
+    "name": "Wanderer Ali",
+    "nameArabic": "الرَّحَّالَةُ عَلِيٌّ",
+    "portrait": "portrait-wanderer-ali",
+    "role": "Teaches useful phrases and verbs",
+    "greeting": {
+      "arabic": "يَا سَلَامْ! مُسَافِرٌ آخَرُ! أَهْلًا بِكَ!",
+      "english": "Oh wow! Another traveler! Welcome!",
+      "transliteration": "Ya salaam! Musaafirun aakhar! Ahlan bik!"
+    },
+    "personality": {
+      "tone": "adventurous_wanderer",
+      "catchphrase": "الرِّحْلَةُ مُغامَرَة — ar-rihla mughaamara (The journey is an adventure)",
+      "interests": [
+        "exploration",
+        "adventure",
+        "desert",
+        "discovery"
+      ],
+      "mood": "excited"
+    },
+    "zone": "desert_marketplace",
+    "vocabWords": [
+      "go_1",
+      "come_1",
+      "see_1",
+      "hear_1",
+      "speak_1",
+      "walk_1",
+      "run_1",
+      "know_1",
+      "understand_1",
+      "right_1",
+      "left_1",
+      "north_1",
+      "south_1",
+      "east_1",
+      "west_1"
+    ],
+    "topics": [
+      "lore",
+      "gossip",
+      "quests"
+    ]
+  },
+  {
+    "id": "guide-salim",
+    "name": "Guide Salim",
+    "nameArabic": "المُرشِد سَليم",
+    "portrait": "portrait-guide-salim",
+    "role": "Teaches mountain animals and adjectives",
+    "greeting": {
+      "arabic": "مَرْحَباً يا مُسافِر. الجَبَل يَنتَظِرُك",
+      "english": "Welcome, traveler. The mountain awaits you.",
+      "transliteration": "marhaban ya musaafir. al-jabal yantaziruk"
+    },
+    "personality": {
+      "tone": "friendly_guide",
+      "catchphrase": "اِتَّبِعْني — ittabi'nii (Follow me)",
+      "interests": [
+        "directions",
+        "navigation",
+        "zones",
+        "helping"
+      ],
+      "mood": "cheerful"
+    },
+    "zone": "oasis_village",
+    "vocabWords": [
+      "cat_1",
+      "dog_1",
+      "horse_1",
+      "camel_1",
+      "lion_1",
+      "eagle_1",
+      "rabbit_1",
+      "snake_1",
+      "hot_1",
+      "cold_1",
+      "fast_1",
+      "slow_1",
+      "near_1",
+      "far_1",
+      "above_1"
+    ],
+    "topics": [
+      "teaching",
+      "lore",
+      "quests"
+    ]
+  },
+  {
+    "id": "weaver-zahra",
+    "name": "Weaver Zahra",
+    "nameArabic": "الحائِكَة زَهراء",
+    "portrait": "portrait-weaver-zahra",
+    "role": "Teaches clothing vocabulary",
+    "greeting": {
+      "arabic": "أَهْلاً وَسَهْلاً! تَعال شُوف أَعمالي",
+      "english": "Welcome! Come see my work.",
+      "transliteration": "ahlan wa sahlan! ta'aal shuuf a'maalii"
+    },
+    "personality": {
+      "tone": "artistic_poet",
+      "catchphrase": "الجَمالُ في التَّفاصيل — al-jamaal fit-tafaasiil (Beauty is in the details)",
+      "interests": [
+        "weaving",
+        "textiles",
+        "fashion",
+        "art"
+      ],
+      "mood": "neutral"
+    },
+    "zone": "desert_marketplace",
+    "vocabWords": [
+      "thobe_w1",
+      "shoes_w2",
+      "hat_w3",
+      "dress_w4",
+      "shirt_w5",
+      "pants_w6",
+      "scarf_w7",
+      "ring_w8",
+      "belt_w9",
+      "socks_w10",
+      "glasses_w11",
+      "bag_w12",
+      "clean_1",
+      "dirty_1",
+      "beautiful_1"
+    ],
+    "topics": [
+      "teaching",
+      "lore",
+      "gossip"
+    ]
+  },
+  {
+    "id": "healer-khadija",
+    "name": "Healer Khadija",
+    "nameArabic": "المُعالِجَة خَديجَة",
+    "portrait": "portrait-healer-khadija",
+    "role": "Teaches adjectives for describing conditions",
+    "greeting": {
+      "arabic": "السَّلامُ عَلَيْكُم يا بُنَيّ. كَيفَ حالُك؟",
+      "english": "Peace be upon you, dear child. How are you?",
+      "transliteration": "as-salaamu alaykum ya bunayy. kayfa haaluk?"
+    },
+    "personality": {
+      "tone": "gentle_healer",
+      "catchphrase": "بِالشِّفاء إِن شاء الله — bish-shifaa' in shaa' allaah (May you be healed, God willing)",
+      "interests": [
+        "healing",
+        "herbs",
+        "health",
+        "body"
+      ],
+      "mood": "cheerful"
+    },
+    "zone": "oasis_village",
+    "vocabWords": [
+      "ugly_1",
+      "short_1",
+      "big_1",
+      "small_1",
+      "strong_1",
+      "weak_1",
+      "read_1",
+      "write_1",
+      "learn_1",
+      "open_1",
+      "close_1",
+      "help_1",
+      "give_1",
+      "take_1",
+      "work_1"
+    ],
+    "topics": [
+      "teaching",
+      "lore",
+      "gossip"
+    ]
+  },
+  {
+    "id": "captain-rashid",
+    "name": "Captain Rashid",
+    "nameArabic": "القُبطان رَشيد",
+    "portrait": "portrait-captain-rashid",
+    "role": "Teaches directions and navigation",
+    "greeting": {
+      "arabic": "أَهْلاً يا بَحّار! هَل أَنتَ مُستَعِدّ لِلبَحر؟",
+      "english": "Welcome, sailor! Are you ready for the sea?",
+      "transliteration": "ahlan ya bahhaar! hal anta musta'idd lil-bahr?"
+    },
+    "personality": {
+      "tone": "gruff_warrior",
+      "catchphrase": "يا لَلبَحر! — ya lal-bahr! (Oh, the sea!)",
+      "interests": [
+        "navigation",
+        "military",
+        "sea",
+        "discipline"
+      ],
+      "mood": "serious"
+    },
+    "zone": "coastal_port",
+    "vocabWords": [
+      "right_1",
+      "left_1",
+      "above_1",
+      "below_1",
+      "north_1",
+      "south_1",
+      "east_1",
+      "west_1",
+      "near_1",
+      "far_1",
+      "sea_w23",
+      "wind_w26",
+      "star_w16",
+      "moon_w15"
+    ],
+    "topics": [
+      "teaching",
+      "lore",
+      "quests",
+      "gossip"
+    ]
+  },
+  {
+    "id": "fishmonger-hana",
+    "name": "Fishmonger Hana",
+    "nameArabic": "بائِعَة السَّمَك هَنا",
+    "portrait": "portrait-fishmonger-hana",
+    "role": "Teaches seafood and drink vocabulary",
+    "greeting": {
+      "arabic": "يا هَلا يا هَلا! سَمَك طازَج! تَعال تَعال!",
+      "english": "Welcome welcome! Fresh fish! Come come!",
+      "transliteration": "ya halaa ya halaa! samak taazaj! ta'aal ta'aal!"
+    },
+    "personality": {
+      "tone": "casual_merchant",
+      "catchphrase": "طازَج! طازَج! — taazaj! taazaj! (Fresh! Fresh!)",
+      "interests": [
+        "fishing",
+        "food",
+        "cooking",
+        "trade"
+      ],
+      "mood": "cheerful"
+    },
+    "zone": "coastal_port",
+    "vocabWords": [
+      "fish_food_1",
+      "egg_1",
+      "cheese_1",
+      "fruit_1",
+      "apple_1",
+      "soup_1",
+      "juice_1",
+      "salt_1",
+      "sugar_1",
+      "bread_1",
+      "water_1",
+      "how_much_1",
+      "i_want_1",
+      "i_dont_want_1"
+    ],
+    "topics": [
+      "teaching",
+      "lore",
+      "gossip"
+    ]
+  },
+  {
+    "id": "blacksmith-daud",
+    "name": "Blacksmith Daud",
+    "nameArabic": "الحَدّاد داوُد",
+    "portrait": "portrait-blacksmith-daud",
+    "role": "Teaches trade items and nature words",
+    "greeting": {
+      "arabic": "أَهْلاً. الحَديد يَتَكَلَّم بِصَوتِه. اِسمَع",
+      "english": "Welcome. The iron speaks with its voice. Listen.",
+      "transliteration": "ahlan. al-hadiid yatakallam bisawtihi. isma'"
+    },
+    "personality": {
+      "tone": "gruff_warrior",
+      "catchphrase": "الحَديدُ لا يَكذِب — al-hadiidu laa yakdhib (Iron does not lie)",
+      "interests": [
+        "smithing",
+        "tools",
+        "metal",
+        "crafting"
+      ],
+      "mood": "neutral"
+    },
+    "zone": "coastal_port",
+    "vocabWords": [
+      "gold_w36",
+      "silver_w37",
+      "scale_w46",
+      "coin_w47",
+      "money_w30",
+      "price_w31",
+      "buy_w34",
+      "sell_w35",
+      "mountain_w21",
+      "sand_w17",
+      "desert_w18",
+      "stand_1",
+      "sit_1",
+      "wake_up_1"
+    ],
+    "topics": [
+      "teaching",
+      "lore",
+      "gossip"
+    ]
+  },
+  {
+    "id": "vizier-abbas",
+    "name": "Vizier Abbas",
+    "nameArabic": "الوَزِير عَبّاس",
+    "portrait": "portrait-vizier-abbas",
+    "role": "Teaches formal phrases and etiquette",
+    "greeting": {
+      "arabic": "مَرْحَباً بِكَ فِي القَصْرِ المَلَكِيّ، يا ضَيْفَنا الكَرِيم",
+      "english": "Welcome to the Royal Palace, our honored guest",
+      "transliteration": "marhaban bika fil-qasri al-malakiyy, ya dayfanaa al-kariim"
+    },
+    "personality": {
+      "tone": "authoritative_vizier",
+      "catchphrase": "بِأَمرِ المَلِك — bi-amr al-malik (By the king's command)",
+      "interests": [
+        "politics",
+        "history",
+        "law",
+        "diplomacy"
+      ],
+      "mood": "serious"
+    },
+    "zone": "royal_palace",
+    "vocabWords": [
+      "what_is_your_name_1",
+      "my_name_is_1",
+      "how_are_you_1",
+      "i_am_fine_1",
+      "please_1",
+      "excuse_me_1",
+      "im_sorry_1",
+      "welcome_1",
+      "i_understand_1",
+      "i_dont_understand_1",
+      "can_you_help_me_1",
+      "thank_god_1",
+      "god_willing_1",
+      "in_the_name_of_god_1"
+    ],
+    "topics": [
+      "lore",
+      "quests",
+      "gossip"
+    ]
+  },
+  {
+    "id": "princess-aisha",
+    "name": "Princess Aisha",
+    "nameArabic": "الأَمِيرَة عائِشَة",
+    "portrait": "portrait-princess-aisha",
+    "role": "Teaches family vocabulary",
+    "greeting": {
+      "arabic": "أَهْلاً وَسَهْلاً! يُسْعِدُنِي لِقاؤُكَ فِي قَصْرِنا",
+      "english": "Welcome! I am delighted to meet you in our palace",
+      "transliteration": "ahlan wa sahlan! yus'idunii liqaa'uka fii qasrinaa"
+    },
+    "personality": {
+      "tone": "noble_princess",
+      "catchphrase": "بِإِذنِ الله وَبِقُوَّة المَعرِفَة — bi-idhn allaah wa bi-quwwat al-ma'rifa (By God's permission and the power of knowledge)",
+      "interests": [
+        "diplomacy",
+        "languages",
+        "travel",
+        "culture"
+      ],
+      "mood": "cheerful"
+    },
+    "zone": "royal_palace",
+    "vocabWords": [
+      "family_father",
+      "family_mother",
+      "family_brother",
+      "family_sister",
+      "family_son",
+      "family_daughter",
+      "family_grandfather",
+      "family_grandmother",
+      "family_uncle_paternal",
+      "family_aunt_paternal",
+      "family_husband",
+      "family_wife",
+      "family_child",
+      "color_golden",
+      "color_purple"
+    ],
+    "topics": [
+      "teaching",
+      "lore",
+      "gossip",
+      "quests"
+    ]
+  },
+  {
+    "id": "poet-rumi",
+    "name": "Poet Rumi",
+    "nameArabic": "الشّاعِر الرُّومِي",
+    "portrait": "portrait-poet-rumi",
+    "role": "Teaches colors and beautiful adjectives",
+    "greeting": {
+      "arabic": "السَّلامُ عَلَيْكَ يا مُسافِر. الجَمالُ فِي كُلِّ مَكان",
+      "english": "Peace be upon you, traveler. Beauty is everywhere",
+      "transliteration": "as-salaamu alayka ya musaafir. al-jamaalu fii kulli makaan"
+    },
+    "personality": {
+      "tone": "artistic_poet",
+      "catchphrase": "الكَلِمَة نور — al-kalima nuur (The word is light)",
+      "interests": [
+        "poetry",
+        "beauty",
+        "nature",
+        "philosophy"
+      ],
+      "mood": "excited"
+    },
+    "zone": "garden_district",
+    "vocabWords": [
+      "beautiful_1",
+      "happy_1",
+      "sad_1",
+      "big_1",
+      "small_1",
+      "color_red",
+      "color_blue",
+      "color_green",
+      "color_white",
+      "color_black",
+      "what_god_has_willed_1",
+      "congratulations_1",
+      "see_you_later_1",
+      "i_am_learning_arabic_1"
+    ],
+    "topics": [
+      "teaching",
+      "lore",
+      "gossip"
+    ]
+  },
+  {
+    "id": "imam-muhammad",
+    "name": "Imam Muhammad",
+    "nameArabic": "الإِمام مُحَمَّد",
+    "portrait": "portrait-imam-muhammad",
+    "role": "Teaches verbs of knowledge and final review phrases",
+    "greeting": {
+      "arabic": "بِسْمِ اللَّهِ. أَهْلاً بِطالِبِ العِلْم",
+      "english": "In the name of God. Welcome, seeker of knowledge",
+      "transliteration": "bismillaah. ahlan bi-taalib al-ilm"
+    },
+    "personality": {
+      "tone": "devout_imam",
+      "catchphrase": "الحَمدُ لِلَّه — al-hamdu lillaah (Praise be to God)",
+      "interests": [
+        "faith",
+        "time",
+        "community",
+        "prayer"
+      ],
+      "mood": "neutral"
+    },
+    "zone": "oasis_village",
+    "vocabWords": [
+      "alhamdulillah",
+      "bismillah",
+      "inshallah",
+      "mashallah",
+      "jazakallah",
+      "thank_god_1",
+      "god_willing_1",
+      "what_god_has_willed_1",
+      "in_the_name_of_god_1",
+      "morning_1",
+      "evening_1",
+      "day_1",
+      "night_1",
+      "week_1",
+      "month_1"
+    ],
+    "topics": [
+      "teaching",
+      "lore",
+      "gossip"
+    ]
+  },
+  {
+    "id": "baker-yasmin",
+    "name": "Baker Yasmin",
+    "nameArabic": "الخَبّازَة ياسمين",
+    "portrait": "portrait-baker-yasmin",
+    "role": "Teaches food vocabulary through baking",
+    "zone": "oasis_village",
+    "vocabWords": [
+      "bread_1",
+      "rice_1",
+      "meat_1",
+      "chicken_1",
+      "milk_1",
+      "tea_1",
+      "coffee_1",
+      "sugar_1",
+      "honey_1",
+      "dates_1",
+      "olive_1",
+      "fruit_1",
+      "apple_1",
+      "egg_1",
+      "cheese_1"
+    ],
+    "personality": {
+      "tone": "cheerful_farmer",
+      "catchphrase": "بِسْمِ الله — bismillaah (In God's name)",
+      "interests": [
+        "baking",
+        "food",
+        "community"
+      ],
+      "mood": "cheerful"
+    },
+    "topics": [
+      "teaching",
+      "lore",
+      "gossip"
+    ],
+    "greeting": {
+      "arabic": "أَهلاً! ريحَة الخُبز الطّازَج أَحلى شَيء",
+      "english": "Hello! The smell of fresh bread is the sweetest thing.",
+      "transliteration": "ahlan! riihat al-khubz at-taazaj ahlaa shay'"
+    }
+  },
+  {
+    "id": "astronomer-zain",
+    "name": "Astronomer Zain",
+    "nameArabic": "الفَلَكي زَين",
+    "portrait": "portrait-astronomer-zain",
+    "role": "Teaches number and sky vocabulary through astronomy",
+    "zone": "ancient_library",
+    "vocabWords": [
+      "star_w16",
+      "moon_w15",
+      "sun_w14",
+      "sky_w22",
+      "num_1",
+      "num_2",
+      "num_3",
+      "num_4",
+      "num_5",
+      "num_10",
+      "night_1",
+      "morning_1",
+      "evening_1",
+      "today_1"
+    ],
+    "personality": {
+      "tone": "formal_scholar",
+      "catchphrase": "النُّجومُ لا تَكذِب — an-nujuumu laa takdhib (The stars do not lie)",
+      "interests": [
+        "astronomy",
+        "numbers",
+        "stars",
+        "mathematics"
+      ],
+      "mood": "excited"
+    },
+    "topics": [
+      "teaching",
+      "lore",
+      "quests"
+    ],
+    "greeting": {
+      "arabic": "النُّجومُ لا تَكذِب. مَرحَباً يا مُتَعَلِّم",
+      "english": "The stars do not lie. Welcome, learner.",
+      "transliteration": "an-nujuumu laa takdhib. marhaban ya muta'allim"
+    }
+  },
+  {
+    "id": "carpet-seller-jamal",
+    "name": "Carpet Seller Jamal",
+    "nameArabic": "بائِع السَّجّاد جَمال",
+    "portrait": "portrait-carpet-seller-jamal",
+    "role": "Teaches color vocabulary through carpet trading",
+    "zone": "desert_marketplace",
+    "vocabWords": [
+      "color_red",
+      "color_blue",
+      "color_green",
+      "color_yellow",
+      "color_white",
+      "color_black",
+      "color_orange",
+      "color_brown",
+      "color_pink",
+      "carpet_w38",
+      "cloth_w42",
+      "cheap_w32",
+      "expensive_w33",
+      "how_much_1"
+    ],
+    "personality": {
+      "tone": "casual_merchant",
+      "catchphrase": "يا سلام! — ya salaam! (Oh wow!)",
+      "interests": [
+        "carpets",
+        "colors",
+        "bargaining",
+        "trade"
+      ],
+      "mood": "cheerful"
+    },
+    "topics": [
+      "teaching",
+      "lore",
+      "gossip"
+    ],
+    "greeting": {
+      "arabic": "يا سلام! تَعال شوف السَّجّاد الجَميل",
+      "english": "Oh wow! Come see the beautiful carpets!",
+      "transliteration": "ya salaam! ta'aal shuuf as-sajjaad al-jamiil"
+    }
+  },
+  {
+    "id": "dockmaster-nadia",
+    "name": "Dockmaster Nadia",
+    "nameArabic": "رَئيسَة المِيناء نادِيَة",
+    "portrait": "portrait-dockmaster-nadia",
+    "role": "Teaches direction vocabulary through port management",
+    "zone": "coastal_port",
+    "vocabWords": [
+      "right_1",
+      "left_1",
+      "north_1",
+      "south_1",
+      "east_1",
+      "west_1",
+      "above_1",
+      "below_1",
+      "near_1",
+      "far_1",
+      "go_1",
+      "come_1",
+      "walk_1",
+      "run_1"
+    ],
+    "personality": {
+      "tone": "authoritative_vizier",
+      "catchphrase": "بِنِظام! — bi-nizaam! (In order!)",
+      "interests": [
+        "shipping",
+        "directions",
+        "order",
+        "efficiency"
+      ],
+      "mood": "serious"
+    },
+    "topics": [
+      "teaching",
+      "lore",
+      "quests"
+    ],
+    "greeting": {
+      "arabic": "بِنِظام! مَن أَنت وَماذا تُريد؟",
+      "english": "In order! Who are you and what do you want?",
+      "transliteration": "bi-nizaam! man anta wa maadha turiid?"
+    }
+  },
+  {
+    "id": "mountain-hermit-idris",
+    "name": "Mountain Hermit Idris",
+    "nameArabic": "ناسِك الجَبَل إِدريس",
+    "portrait": "portrait-mountain-hermit-idris",
+    "role": "Teaches nature vocabulary through mountain wisdom",
+    "zone": "mountain_pass",
+    "vocabWords": [
+      "water_w13",
+      "mountain_w21",
+      "river_w24",
+      "rain_w25",
+      "wind_w26",
+      "tree_w27",
+      "sky_w22",
+      "sand_w17",
+      "desert_w18",
+      "oasis_w19",
+      "palm_tree_w20",
+      "sea_w23",
+      "sun_w14"
+    ],
+    "personality": {
+      "tone": "wise_storyteller",
+      "catchphrase": "الجَبَلُ يَعلَم — al-jabalu ya'lam (The mountain knows)",
+      "interests": [
+        "nature",
+        "mountains",
+        "philosophy",
+        "solitude"
+      ],
+      "mood": "neutral"
+    },
+    "topics": [
+      "teaching",
+      "lore",
+      "quests"
+    ],
+    "greeting": {
+      "arabic": "الجَبَلُ يَعلَم مَن يَأتي. تَعال اِجلِس",
+      "english": "The mountain knows who comes. Come, sit.",
+      "transliteration": "al-jabalu ya'lam man ya'tii. ta'aal ijlis"
+    }
+  },
+  {
+    "id": "stable-master-yara",
+    "name": "Stable Master Yara",
+    "nameArabic": "سائِسَة الخَيل يارا",
+    "portrait": "portrait-stable-master-yara",
+    "role": "Teaches animal vocabulary through horse care",
+    "zone": "oasis_village",
+    "vocabWords": [
+      "horse_1",
+      "camel_1",
+      "dog_1",
+      "cat_1",
+      "bird_1",
+      "sheep_1",
+      "goat_1",
+      "cow_1",
+      "donkey_1",
+      "lion_1",
+      "rabbit_1",
+      "eagle_1",
+      "fish_animal_1",
+      "ant_1",
+      "snake_1"
+    ],
+    "personality": {
+      "tone": "cheerful_farmer",
+      "catchphrase": "هَيّا يا حُصان! — hayyaa ya husaan! (Come on, horse!)",
+      "interests": [
+        "horses",
+        "animals",
+        "travel",
+        "outdoors"
+      ],
+      "mood": "cheerful"
+    },
+    "topics": [
+      "teaching",
+      "lore",
+      "gossip"
+    ],
+    "greeting": {
+      "arabic": "هَيّا يا حُصان! أَهلاً يا مُسافِر!",
+      "english": "Come on, horse! Hello, traveler!",
+      "transliteration": "hayyaa ya husaan! ahlan ya musaafir!"
+    }
+  },
+  {
+    "id": "garden-keeper-leila",
+    "name": "Garden Keeper Leila",
+    "nameArabic": "حارِسَة الحَديقَة لَيلى",
+    "portrait": "portrait-garden-keeper-leila",
+    "role": "Teaches nature and plant vocabulary",
+    "zone": "garden_district",
+    "vocabWords": [
+      "tree_w27",
+      "water_w13",
+      "sun_w14",
+      "rain_w25",
+      "wind_w26",
+      "palm_tree_w20",
+      "oasis_w19",
+      "mountain_w21",
+      "river_w24",
+      "color_green",
+      "color_yellow",
+      "color_brown",
+      "beautiful_1",
+      "big_1"
+    ],
+    "personality": {
+      "tone": "gentle_healer",
+      "catchphrase": "الحَديقَة جَنَّة — al-hadiiqa janna (The garden is paradise)",
+      "interests": [
+        "plants",
+        "nature",
+        "gardening",
+        "peace"
+      ],
+      "mood": "cheerful"
+    },
+    "topics": [
+      "teaching",
+      "lore",
+      "gossip"
+    ],
+    "greeting": {
+      "arabic": "الحَديقَة جَنَّة! مَرحَباً يا زائِر",
+      "english": "The garden is paradise! Welcome, visitor.",
+      "transliteration": "al-hadiiqa janna! marhaban ya zaa'ir"
+    }
+  },
+  {
+    "id": "guide-amira",
+    "name": "Guide Amira",
+    "nameArabic": "المُرشِدَة أَميرَة",
+    "portrait": "portrait-guide-amira",
+    "role": "Mentor and guide for new travelers",
+    "personality": {
+      "tone": "warm_mentor",
+      "mood": "cheerful"
+    },
+    "vocabWords": [
+      "salaam",
+      "marhaba",
+      "ahlan",
+      "shukran",
+      "afwan",
+      "ma_a_salama",
+      "sabah_al_khayr",
+      "na_am",
+      "la",
+      "tayyib",
+      "yalla"
+    ],
+    "greeting": {
+      "arabic": "أَهْلاً وَسَهْلاً يا مُسافِر! أَنا أَميرَة",
+      "english": "Welcome, traveler! I am Amira.",
+      "transliteration": "ahlan wa sahlan ya musaafir! ana amiira"
+    },
+    "schedule": [
+      {
+        "startHour": 7,
+        "endHour": 20,
+        "zone": "oasis_village",
+        "location": {
+          "x": 5,
+          "y": 5
+        },
+        "behavior": "wander"
+      },
+      {
+        "startHour": 20,
+        "endHour": 7,
+        "zone": "oasis_village",
+        "location": {
+          "x": 9,
+          "y": 8
+        },
+        "behavior": "static"
+      }
+    ],
+    "actionSets": {
+      "interact": [
+        {
+          "requirements": [
+            {
+              "type": "flag",
+              "flagId": "met_scholar"
+            }
+          ],
+          "actions": [
+            {
+              "type": "speech",
+              "npcId": "guide-amira",
+              "dialogueKey": "scholar-intro-done"
+            },
+            {
+              "type": "startQuest",
+              "questId": "learn-greetings"
+            }
+          ]
+        },
+        {
+          "requirements": [],
+          "actions": [
+            {
+              "type": "speech",
+              "npcId": "guide-amira",
+              "dialogueKey": "default"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "scholar-yusuf-interior",
+    "name": "Scholar Yusuf",
+    "nameArabic": "الشَّيْخ يوسُف",
+    "portrait": "portrait-scholar-yusuf",
+    "role": "Teaches advanced greetings and formal expressions",
+    "personality": {
+      "tone": "formal_scholar",
+      "mood": "serious"
+    },
+    "vocabWords": [
+      "kayfa_haluk",
+      "bi_khayr",
+      "min_fadlak",
+      "inshallah",
+      "mashallah",
+      "alhamdulillah",
+      "bismillah",
+      "jazakallah"
+    ],
+    "greeting": {
+      "arabic": "أَهْلاً بِكَ في مَكتَبَتي الخاصَّة",
+      "english": "Welcome to my private study.",
+      "transliteration": "ahlan bika fii maktabatii al-khaassa"
+    },
+    "zone": "oasis_village",
+    "interior": "scholar_house_interior"
+  },
+  {
+    "id": "merchant-fatima-interior",
+    "name": "Merchant Fatima",
+    "nameArabic": "التّاجِرَة فاطِمَة",
+    "portrait": "portrait-merchant-fatima",
+    "role": "Teaches family-related vocabulary",
+    "personality": {
+      "tone": "warm_friendly",
+      "mood": "cheerful"
+    },
+    "vocabWords": [
+      "family_father",
+      "family_mother",
+      "family_brother",
+      "family_sister",
+      "family_son",
+      "family_daughter"
+    ],
+    "greeting": {
+      "arabic": "أَهْلاً! تَعالَ اِجلِس مَعَنا",
+      "english": "Hello! Come sit with us.",
+      "transliteration": "ahlan! ta'aala ijlis ma'anaa"
+    },
+    "zone": "oasis_village",
+    "interior": "merchant_house_interior"
+  },
+  {
+    "id": "librarian-interior",
+    "name": "Librarian Ibrahim",
+    "nameArabic": "أَمين المَكتَبَة إبراهيم",
+    "portrait": "portrait-librarian-ibrahim",
+    "role": "Teaches numbers and counting in the archives",
+    "personality": {
+      "tone": "patient_teacher",
+      "mood": "neutral"
+    },
+    "greeting": {
+      "arabic": "مَرْحَباً في الأَرشيف القَديم",
+      "english": "Welcome to the ancient archives.",
+      "transliteration": "marhaban fil-arshiif al-qadiim"
+    },
+    "zone": "ancient_library",
+    "interior": "library_archive_interior",
+    "vocabWords": [
+      "num_1",
+      "num_2",
+      "num_3",
+      "num_4",
+      "num_5",
+      "num_6",
+      "num_7",
+      "num_8",
+      "num_9",
+      "num_10",
+      "num_11",
+      "num_12",
+      "num_13",
+      "num_14",
+      "num_15"
+    ]
+  },
+  {
+    "id": "spice-merchant-interior",
+    "name": "Spice Seller Layla",
+    "nameArabic": "بائِعَة التَّوابِل لَيلى",
+    "portrait": "portrait-spice-seller-layla",
+    "role": "Teaches spice and food vocabulary in her shop",
+    "personality": {
+      "tone": "enthusiastic_merchant",
+      "mood": "cheerful"
+    },
+    "greeting": {
+      "arabic": "أَهْلاً وَسَهْلاً في دُكّاني!",
+      "english": "Welcome to my shop!",
+      "transliteration": "ahlan wa sahlan fii dukkaanii!"
+    },
+    "zone": "desert_marketplace",
+    "interior": "spice_shop_interior",
+    "vocabWords": [
+      "water_1",
+      "bread_1",
+      "rice_1",
+      "meat_1",
+      "fish_1",
+      "fruit_1",
+      "vegetables_1",
+      "milk_1",
+      "egg_1",
+      "salt_1",
+      "pepper_1",
+      "oil_1",
+      "honey_1",
+      "tea_1",
+      "coffee_1"
+    ]
+  },
+  {
+    "id": "textile-merchant-interior",
+    "name": "Trader Hassan",
+    "nameArabic": "التّاجِر حَسَّان",
+    "portrait": "portrait-trader-hassan",
+    "role": "Teaches clothing and textile vocabulary",
+    "personality": {
+      "tone": "smooth_merchant",
+      "mood": "friendly"
+    },
+    "greeting": {
+      "arabic": "تَفَضَّل! عِندي أَجمَل الأَقمِشَة",
+      "english": "Come in! I have the finest textiles.",
+      "transliteration": "tafaddal! indii ajmal al-aqmisha"
+    },
+    "zone": "desert_marketplace",
+    "interior": "textile_shop_interior",
+    "vocabWords": [
+      "thobe_w1",
+      "headscarf_w2",
+      "sandals_w3",
+      "belt_w4",
+      "cloak_w5",
+      "dress_w6",
+      "turban_w7",
+      "veil_w8",
+      "robe_w9",
+      "socks_w10",
+      "gloves_w11",
+      "bag_w12"
+    ]
+  },
+  {
+    "id": "farmer-interior",
+    "name": "Farmer Omar",
+    "nameArabic": "المُزارِع عُمَر",
+    "portrait": "portrait-farmer-omar",
+    "role": "Teaches nature and farming vocabulary",
+    "personality": {
+      "tone": "cheerful_farmer",
+      "mood": "content"
+    },
+    "greeting": {
+      "arabic": "أَهْلاً بِكَ في بَيتي المُتَواضِع",
+      "english": "Welcome to my humble home.",
+      "transliteration": "ahlan bika fii baytii al-mutawaadi'"
+    },
+    "zone": "farmland",
+    "interior": "farmhouse_interior",
+    "vocabWords": [
+      "water_w13",
+      "rain_w14",
+      "river_w15",
+      "mountain_w16",
+      "desert_w17",
+      "sky_w18",
+      "sun_w19",
+      "moon_w20",
+      "star_w21",
+      "earth_w22",
+      "sea_w23",
+      "wind_w24",
+      "fire_w25",
+      "flower_w26",
+      "tree_w27"
+    ]
+  },
+  {
+    "id": "bedouin-elder-interior",
+    "name": "Elder Tariq",
+    "nameArabic": "الشَّيخ طارِق",
+    "portrait": "portrait-elder-tariq",
+    "role": "Teaches time-related vocabulary and Bedouin wisdom",
+    "personality": {
+      "tone": "wise_elder",
+      "mood": "contemplative"
+    },
+    "greeting": {
+      "arabic": "أَهْلاً بِالضَّيف في خَيمَتي",
+      "english": "Welcome, guest, to my tent.",
+      "transliteration": "ahlan bid-dayf fii khaymatii"
+    },
+    "zone": "bedouin_camp",
+    "interior": "bedouin_tent_interior",
+    "vocabWords": [
+      "day_1",
+      "night_1",
+      "morning_1",
+      "evening_1",
+      "hour_1",
+      "week_1",
+      "month_1",
+      "year_1",
+      "today_1",
+      "tomorrow_1"
+    ]
+  },
+  {
+    "id": "mountain-elder-interior",
+    "name": "Guide Salim",
+    "nameArabic": "الدَّليل سَليم",
+    "portrait": "portrait-guide-salim",
+    "role": "Teaches adjectives and descriptive vocabulary",
+    "personality": {
+      "tone": "calm_guide",
+      "mood": "peaceful"
+    },
+    "greeting": {
+      "arabic": "أَهْلاً! اِستَرِح مِنَ الطَّريق",
+      "english": "Hello! Rest from the journey.",
+      "transliteration": "ahlan! istarih mina at-tariiq"
+    },
+    "zone": "mountain_village",
+    "interior": "mountain_home_interior",
+    "vocabWords": [
+      "big_1",
+      "small_1",
+      "new_1",
+      "old_1",
+      "beautiful_1",
+      "ugly_1",
+      "hot_1",
+      "cold_1",
+      "fast_1",
+      "slow_1",
+      "strong_1",
+      "weak_1",
+      "tall_1",
+      "short_1",
+      "heavy_1"
+    ]
+  },
+  {
+    "id": "imam-interior",
+    "name": "Imam Muhammad",
+    "nameArabic": "الإمام مُحَمَّد",
+    "portrait": "portrait-imam-muhammad",
+    "role": "Teaches spiritual greetings and respectful phrases",
+    "personality": {
+      "tone": "serene_spiritual",
+      "mood": "peaceful"
+    },
+    "greeting": {
+      "arabic": "السَّلامُ عَلَيكُم وَرَحمَة الله",
+      "english": "Peace and God's mercy be upon you.",
+      "transliteration": "as-salaamu alaykum wa rahmatu allaah"
+    },
+    "zone": "mountain_village",
+    "interior": "mountain_mosque_interior",
+    "vocabWords": [
+      "salaam",
+      "marhaba",
+      "shukran",
+      "bismillaah",
+      "alhamdulillaah",
+      "inshaallaah",
+      "maasalama",
+      "ahlan",
+      "sabah_al_khayr",
+      "masaa_al_khayr",
+      "what_is_your_name_1",
+      "my_name_is_1",
+      "please_1",
+      "thank_you_very_much_1"
+    ]
+  },
+  {
+    "id": "tavern-keeper-interior",
+    "name": "Captain Rashid",
+    "nameArabic": "القُبطان رَشيد",
+    "portrait": "portrait-captain-rashid",
+    "role": "Teaches food and drink vocabulary in the tavern",
+    "personality": {
+      "tone": "boisterous_sailor",
+      "mood": "jovial"
+    },
+    "greeting": {
+      "arabic": "يا هَلا بِالبَحّار الجَديد!",
+      "english": "Welcome, new sailor!",
+      "transliteration": "ya halaa bil-bahhaar al-jadiid!"
+    },
+    "zone": "coastal_port",
+    "interior": "port_tavern_interior",
+    "vocabWords": [
+      "water_1",
+      "bread_1",
+      "rice_1",
+      "meat_1",
+      "fish_1",
+      "fruit_1",
+      "milk_1",
+      "tea_1",
+      "coffee_1",
+      "juice_1",
+      "chicken_1",
+      "soup_1",
+      "sugar_1",
+      "cheese_1"
+    ]
+  },
+  {
+    "id": "vizier-interior",
+    "name": "Vizier Abbas",
+    "nameArabic": "الوَزير عَبّاس",
+    "portrait": "portrait-vizier-abbas",
+    "role": "Teaches formal Arabic and courtly expressions",
+    "personality": {
+      "tone": "regal_formal",
+      "mood": "stern"
+    },
+    "greeting": {
+      "arabic": "مَن أَذِنَ لَكَ بِالدُّخول؟",
+      "english": "Who permitted you to enter?",
+      "transliteration": "man adhina laka bid-dukhuul?"
+    },
+    "zone": "royal_palace",
+    "interior": "palace_throne_interior",
+    "vocabWords": [
+      "what_is_your_name_1",
+      "my_name_is_1",
+      "how_are_you_1",
+      "i_am_fine_1",
+      "please_1",
+      "thank_you_very_much_1",
+      "excuse_me_1",
+      "yes_1",
+      "no_1",
+      "welcome_1",
+      "goodbye_1",
+      "good_morning_1",
+      "good_evening_1",
+      "i_dont_understand_1"
+    ]
+  },
+  {
+    "id": "mysterious-traveler",
+    "name": "Mysterious Traveler",
+    "nameArabic": "المُسافِر الغامِض",
+    "portrait": "portrait-npc-default",
+    "role": "A traveler who only appears after you have met the scholar",
+    "visibilityFlag": "met_scholar",
+    "showWhenTrue": true,
+    "personality": {
+      "tone": "mysterious",
+      "mood": "enigmatic"
+    },
+    "zone": "oasis_village",
+    "greeting": {
+      "arabic": "أَهلاً يا طالِب العِلم... سَمِعتُ أَنَّكَ تَلتَقي بِيوسُف",
+      "english": "Hello, seeker of knowledge... I heard you met Yusuf.",
+      "transliteration": "ahlan ya taalib al-ilm... sami'tu annaka talqa bi-yuusuf"
+    },
+    "vocabWords": [
+      "safar",
+      "ghareeb"
+    ],
+    "actionSets": {
+      "interact": [
+        {
+          "requirements": [
+            {
+              "type": "quest",
+              "questId": "learn-greetings",
+              "status": "complete"
+            }
+          ],
+          "actions": [
+            {
+              "type": "speech",
+              "npcId": "mysterious-traveler",
+              "dialogueKey": "quest-complete"
+            },
+            {
+              "type": "teachWord",
+              "wordId": "safar"
+            },
+            {
+              "type": "setFlag",
+              "flagId": "met_traveler",
+              "value": true
+            }
+          ]
+        },
+        {
+          "requirements": [],
+          "actions": [
+            {
+              "type": "speech",
+              "npcId": "mysterious-traveler",
+              "dialogueKey": "default"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "night-guard",
+    "name": "Night Guard",
+    "nameArabic": "حارِس اللَّيل",
+    "portrait": "portrait-npc-default",
+    "role": "A guard who only patrols after dark",
+    "visibilityFlag": "unlocked_night_district",
+    "showWhenTrue": true,
+    "personality": {
+      "tone": "stern",
+      "mood": "vigilant"
+    },
+    "zone": "oasis_village",
+    "greeting": {
+      "arabic": "قِف! مَن أَنتَ في هذا الوَقت المُتَأَخِّر؟",
+      "english": "Halt! Who goes there at this late hour?",
+      "transliteration": "qif! man anta fii haadhaa al-waqt al-muta'akhkhir?"
+    },
+    "vocabWords": [
+      "hiraasa",
+      "layl"
+    ],
+    "actionSets": {
+      "interact": [
+        {
+          "requirements": [
+            {
+              "type": "time",
+              "startHour": 20,
+              "endHour": 6
+            }
+          ],
+          "actions": [
+            {
+              "type": "speech",
+              "npcId": "night-guard",
+              "dialogueKey": "on-duty"
+            },
+            {
+              "type": "teachWord",
+              "wordId": "layl"
+            }
+          ]
+        },
+        {
+          "requirements": [],
+          "actions": [
+            {
+              "type": "speech",
+              "npcId": "night-guard",
+              "dialogueKey": "default"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "companion_amira",
+    "name": "Amira",
+    "nameArabic": "أَميرَة",
+    "portrait": "portrait-companion-amira",
+    "role": "The Chronicler — grammar specialist, Ancient Library companion",
+    "greeting": {
+      "arabic": "يا سلام، وَجَدتُكَ أَخيراً! أَنا أَميرَة المُؤَرِّخَة",
+      "english": "How wonderful, I've found you at last! I am Amira the Chronicler.",
+      "transliteration": "ya salaam, wajadtuka akhiiran! ana amira al-mu'arriikha"
+    }
+  },
+  {
+    "id": "companion_khalid",
+    "name": "Khalid",
+    "nameArabic": "خالِد",
+    "portrait": "portrait-companion-khalid",
+    "role": "The Desert Wanderer — vocabulary specialist, Oasis Village companion",
+    "greeting": {
+      "arabic": "الحمد لله! وَجَدتُ رَفيقَ طَريقٍ جَديد",
+      "english": "Praise be to God! I found a new travelling companion.",
+      "transliteration": "al-hamdu lillaah! wajadtu rafiiq taariq jadiid"
+    }
+  },
+  {
+    "id": "companion_zahra",
+    "name": "Zahra",
+    "nameArabic": "زَهرَة",
+    "portrait": "portrait-companion-zahra",
+    "role": "The Flower Speaker — pronunciation specialist, Coastal Port companion",
+    "greeting": {
+      "arabic": "ما شاء الله! صَوتُكَ يَحمِلُ لَحنَ اللُّغَة",
+      "english": "God has willed it! Your voice carries the melody of language.",
+      "transliteration": "maa shaa' allaah! sawtuka yahmil lahn al-lugha"
+    }
+  },
+  {
+    "id": "companion_omar",
+    "name": "Omar",
+    "nameArabic": "عُمَر",
+    "portrait": "portrait-companion-omar",
+    "role": "The Market Keeper — vocabulary specialist, Desert Marketplace companion",
+    "greeting": {
+      "arabic": "طبعاً! أَنا عُمَر — كُلُّ كَلِمَةٍ عِندي لَها سِعر",
+      "english": "Of course! I am Omar — every word with me has a price.",
+      "transliteration": "tab'an! ana 'umar — kull kalima 'indi laha si'r"
+    }
+  },
+  {
+    "id": "companion_layla",
+    "name": "Layla",
+    "nameArabic": "لَيلى",
+    "portrait": "portrait-companion-layla",
+    "role": "The Night Scholar — grammar specialist, Ancient Library companion",
+    "greeting": {
+      "arabic": "صحيح. أَنا لَيلى — أَعمَلُ في اللَّيل حينَ يَنامُ الآخَرون",
+      "english": "Correct. I am Layla — I work at night while the others sleep.",
+      "transliteration": "saahih. ana layla — a'mal fil-layl hiina yanaam al-aakhiruun"
+    }
+  },
+  {
+    "id": "companion_hassan",
+    "name": "Hassan",
+    "nameArabic": "حَسَن",
+    "portrait": "portrait-companion-hassan",
+    "role": "The Mountain Guide — culture specialist, Mountain Village companion",
+    "greeting": {
+      "arabic": "بسم الله. أَنا حَسَن — دَليلُ الجِبال وَحارِسُ التُّراث",
+      "english": "In the name of God. I am Hassan — the mountain guide and guardian of heritage.",
+      "transliteration": "bismillaah. ana hassan — daliil al-jibal wa haaris at-turaath"
+    }
+  },
+  {
+    "id": "companion_fatima",
+    "name": "Fatima",
+    "nameArabic": "فاطِمَة",
+    "portrait": "portrait-companion-fatima",
+    "role": "The Ruin Keeper — culture specialist, Royal Palace companion",
+    "greeting": {
+      "arabic": "سُبحان الله! هَذا المَكانُ يَروي قِصَصَ الأُمَم",
+      "english": "Glory be to God! This place tells the stories of nations.",
+      "transliteration": "subhaana allaah! haadha al-makaan yarwii qisas al-umam"
+    }
+  },
+  {
+    "id": "companion_ali",
+    "name": "Ali",
+    "nameArabic": "عَليّ",
+    "portrait": "portrait-companion-ali",
+    "role": "The Oasis Healer — pronunciation specialist, Oasis Village companion",
+    "greeting": {
+      "arabic": "إن شاء الله، صِحَّتُكَ طَيِّبَة. أَنا عَليّ — طَبيبُ الواحَة",
+      "english": "God willing, your health is good. I am Ali — the oasis healer.",
+      "transliteration": "in shaa' allaah, sihhutuka tayyiba. ana 'ali — tabiib al-waaha"
+    }
+  },
+  {
+    "id": "companion_maryam",
+    "name": "Maryam",
+    "nameArabic": "مَريَم",
+    "portrait": "portrait-companion-maryam",
+    "role": "The Coastal Warrior — grammar specialist, Coastal Port companion",
+    "greeting": {
+      "arabic": "يَلَّا! أَنا مَريَم — حارِسَةُ الساحِل. لا وَقتَ لِلتَّرَدُّد",
+      "english": "Let's go! I am Maryam — guardian of the coast. No time for hesitation.",
+      "transliteration": "yalla! ana maryam — haarisa as-saahil. laa waqt lit-taraddud"
+    }
+  },
+  {
+    "id": "companion_samir",
+    "name": "Samir",
+    "nameArabic": "سَمير",
+    "portrait": "portrait-companion-samir",
+    "role": "The Market Brawler — pronunciation specialist, Desert Marketplace companion",
+    "greeting": {
+      "arabic": "وَالله! أَنتَ جَريءٌ أَن تَقتَرِبَ. أَنا سَمير — أُعَلِّمُ بِسُرعَة",
+      "english": "By God! You're bold to approach. I am Samir — I teach fast.",
+      "transliteration": "wallaah! anta jarii' an taqtarib. ana samir — u'allim bisur'a"
+    }
+  },
+  {
+    "id": "companion_nadia",
+    "name": "Nadia",
+    "nameArabic": "نادِيَة",
+    "portrait": "portrait-companion-nadia",
+    "role": "The Mountain Herbalist — culture specialist, Mountain Village companion",
+    "greeting": {
+      "arabic": "الله أكبر! هَذا الجَبَلُ يَحمِلُ أَسرارَ الأَعشاب",
+      "english": "God is greatest! This mountain holds the secrets of herbs.",
+      "transliteration": "allaahu akbar! haadha al-jabal yahmil asraar al-a'shaab"
+    }
+  },
+  {
+    "id": "companion_tariq",
+    "name": "Tariq",
+    "nameArabic": "طارِق",
+    "portrait": "portrait-companion-tariq",
+    "role": "The Ruin Defender — vocabulary specialist, Royal Palace companion",
+    "greeting": {
+      "arabic": "بالتأكيد. أَنا طارِق — صَامِدٌ هُنا حَتَّى تَكونَ النُّقوشُ في أَمان",
+      "english": "Certainly. I am Tariq — standing here until the inscriptions are safe.",
+      "transliteration": "bittakiid. ana tariq — saamid huna hatta takuuna an-nuquush fi amaan"
+    }
+  },
+  {
+    "id": "poet-oasis",
+    "name": "Poet Layla",
+    "nameArabic": "الشّاعِرَة لَيلى",
+    "type": "poet",
+    "zone": "oasis_village",
+    "position": {
+      "x": 300,
+      "y": 350
+    },
+    "sprite": "npc_scholar",
+    "schedule": "static",
+    "greeting": {
+      "arabic": "أَهلاً بِكَ يا مُسافِر — الشِّعرُ طَريقُ القَلب",
+      "english": "Welcome, traveller — poetry is the path of the heart",
+      "transliteration": "ahlan bika ya musafir — ash-shi'ru tariiqu al-qalb"
+    },
+    "actionSets": {
+      "interact": [
+        {
+          "requirements": [],
+          "actions": [
+            {
+              "type": "speech",
+              "npcId": "poet-oasis",
+              "dialogueKey": "poet-oasis-greeting"
+            },
+            {
+              "type": "poetry:start-battle",
+              "poetId": "poet-oasis",
+              "poemId": "poem_khansa_01",
+              "npcAccuracy": 0.5
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "poet-library",
+    "name": "Scholar Poet Ibrahim",
+    "nameArabic": "الشّاعِر العالِم إبراهيم",
+    "type": "poet",
+    "zone": "sacred_library",
+    "position": {
+      "x": 480,
+      "y": 260
+    },
+    "sprite": "npc_scholar",
+    "schedule": "static",
+    "greeting": {
+      "arabic": "قَرَأتُ كُلَّ الدَّواوين — هَل تَجرُؤُ عَلى مُنافَستي؟",
+      "english": "I have read every divan — do you dare to compete with me?",
+      "transliteration": "qara'tu kulla al-dawaaween — hal tajru' ala munafasatii?"
+    },
+    "actionSets": {
+      "interact": [
+        {
+          "requirements": [],
+          "actions": [
+            {
+              "type": "speech",
+              "npcId": "poet-library",
+              "dialogueKey": "poet-library-greeting"
+            },
+            {
+              "type": "poetry:start-battle",
+              "poetId": "poet-library",
+              "poemId": "poem_mutanabbi_01",
+              "npcAccuracy": 0.8
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "poet-market",
+    "name": "Street Poet Nabil",
+    "nameArabic": "شاعِرُ السّوق نَبيل",
+    "type": "poet",
+    "zone": "market_district",
+    "position": {
+      "x": 560,
+      "y": 400
+    },
+    "sprite": "npc_scholar",
+    "schedule": "static",
+    "greeting": {
+      "arabic": "أُلقي الشِّعرَ في كُلِّ زاوِيَة مِن هَذا السّوق!",
+      "english": "I recite poetry in every corner of this market!",
+      "transliteration": "ulqii ash-shi'ra fii kulli zaawiya min haadha as-suuq!"
+    },
+    "actionSets": {
+      "interact": [
+        {
+          "requirements": [],
+          "actions": [
+            {
+              "type": "speech",
+              "npcId": "poet-market",
+              "dialogueKey": "poet-market-greeting"
+            },
+            {
+              "type": "poetry:start-battle",
+              "poetId": "poet-market",
+              "poemId": "poem_ibn_zaydun_01",
+              "npcAccuracy": 0.6
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "poet-desert",
+    "name": "Wandering Poet Karim",
+    "nameArabic": "الشّاعِر التّائِه كَريم",
+    "type": "poet",
+    "zone": "desert_expanse",
+    "position": {
+      "x": 700,
+      "y": 500
+    },
+    "sprite": "npc_scholar",
+    "schedule": "static",
+    "greeting": {
+      "arabic": "الصَّحراءُ تُعَلِّمُني الشِّعر — الرِّمالُ والنُّجوم ملهَمتي",
+      "english": "The desert teaches me poetry — sand and stars are my inspiration",
+      "transliteration": "as-sahraa tu'allimunii ash-shi'r — ar-rimaal wan-nujuum mulhimatii"
+    },
+    "actionSets": {
+      "interact": [
+        {
+          "requirements": [],
+          "actions": [
+            {
+              "type": "speech",
+              "npcId": "poet-desert",
+              "dialogueKey": "poet-desert-greeting"
+            },
+            {
+              "type": "poetry:start-battle",
+              "poetId": "poet-desert",
+              "poemId": "poem_abu_nuwas_01",
+              "npcAccuracy": 0.7
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "poet-ruins",
+    "name": "Spirit Poet Zahir",
+    "nameArabic": "روحُ الشّاعِر ظاهِر",
+    "type": "poet",
+    "zone": "ancient_ruins",
+    "position": {
+      "x": 420,
+      "y": 380
+    },
+    "sprite": "npc_scholar",
+    "schedule": "static",
+    "greeting": {
+      "arabic": "مِن هَذِه الأَطلال يُنادينا امرُؤُ القَيس عَبرَ الزَّمان",
+      "english": "From these ruins, Imru al-Qais calls to us across time",
+      "transliteration": "min hadhihi al-atlal yunaadinaa imru ul-qays abra az-zamaan"
+    },
+    "actionSets": {
+      "interact": [
+        {
+          "requirements": [],
+          "actions": [
+            {
+              "type": "speech",
+              "npcId": "poet-ruins",
+              "dialogueKey": "poet-ruins-greeting"
+            },
+            {
+              "type": "poetry:start-battle",
+              "poetId": "poet-ruins",
+              "poemId": "poem_imruulqais_01",
+              "npcAccuracy": 0.75
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "poet-caves",
+    "name": "Hermit Poet Rashid",
+    "nameArabic": "الشّاعِر الزّاهِد رَشيد",
+    "type": "poet",
+    "zone": "mystic_caves",
+    "position": {
+      "x": 340,
+      "y": 290
+    },
+    "sprite": "npc_scholar",
+    "schedule": "static",
+    "greeting": {
+      "arabic": "في عُزلَتي هَذِه أَحفَظُ أَشعارَ العَرَب وأَتَأَمَّلُها",
+      "english": "In my solitude I memorise and contemplate the poetry of the Arabs",
+      "transliteration": "fii uzlatii hadhihi ahfadhu ash'aar al-arab wa ata'ammaluhaa"
+    },
+    "actionSets": {
+      "interact": [
+        {
+          "requirements": [],
+          "actions": [
+            {
+              "type": "speech",
+              "npcId": "poet-caves",
+              "dialogueKey": "poet-caves-greeting"
+            },
+            {
+              "type": "poetry:start-battle",
+              "poetId": "poet-caves",
+              "poemId": "poem_abu_tammam_01",
+              "npcAccuracy": 0.7
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "poet-coast",
+    "name": "Seafaring Poet Jad",
+    "nameArabic": "الشّاعِر البَحّار جاد",
+    "type": "poet",
+    "zone": "coastal_docks",
+    "position": {
+      "x": 620,
+      "y": 460
+    },
+    "sprite": "npc_scholar",
+    "schedule": "static",
+    "greeting": {
+      "arabic": "البَحرُ يُلهِمُني مِثلَما أَلهَمَ الشُّعَراءَ القُدامى",
+      "english": "The sea inspires me as it inspired the poets of old",
+      "transliteration": "al-bahru yulhimunii mithlamaa alhama ash-shu'araa al-qudaamaa"
+    },
+    "actionSets": {
+      "interact": [
+        {
+          "requirements": [],
+          "actions": [
+            {
+              "type": "speech",
+              "npcId": "poet-coast",
+              "dialogueKey": "poet-coast-greeting"
+            },
+            {
+              "type": "poetry:start-battle",
+              "poetId": "poet-coast",
+              "poemId": "poem_hassan_ibn_thabit_01",
+              "npcAccuracy": 0.65
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "poet-mountain",
+    "name": "Mountain Sage Poet Hakim",
+    "nameArabic": "حَكيمُ الجَبَل الشّاعِر",
+    "type": "poet",
+    "zone": "mountain_pass",
+    "position": {
+      "x": 500,
+      "y": 200
+    },
+    "sprite": "npc_scholar",
+    "schedule": "static",
+    "greeting": {
+      "arabic": "مِن أَعلى الجَبَل أَرى الدُّنيا كَما رَآها لَبيد بنُ رَبيعَة",
+      "english": "From the mountain top I see the world as Labid ibn Rabi'ah saw it",
+      "transliteration": "min a'laa al-jabal araa ad-dunyaa kamaa ra'aahaa labiid ibn rabii'a"
+    },
+    "actionSets": {
+      "interact": [
+        {
+          "requirements": [],
+          "actions": [
+            {
+              "type": "speech",
+              "npcId": "poet-mountain",
+              "dialogueKey": "poet-mountain-greeting"
+            },
+            {
+              "type": "poetry:start-battle",
+              "poetId": "poet-mountain",
+              "poemId": "poem_labid_01",
+              "npcAccuracy": 0.85
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

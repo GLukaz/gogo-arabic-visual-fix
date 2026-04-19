@@ -1,0 +1,90 @@
+[
+  {
+    "id": "farmer-interior",
+    "dialogueTrees": [
+      {
+        "id": "intro",
+        "trigger": "first_meeting",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الحَمْدُ لِلَّه! ضَيف في بَيتي",
+            "english": "Praise God! A guest in my home.",
+            "transliteration": "al-hamdu lillaah! dayf fii baytii"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَنا عُمَر، أَزرَع هَذِهِ الأَرض مُنذُ سِنين",
+            "english": "I am Omar, I have farmed this land for years.",
+            "transliteration": "ana 'umar, azra'u haadhihi al-ard mundhu siniin"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "لِنَتَحَدَّث عَن الطَّبيعَة!",
+            "english": "Let's talk about nature!",
+            "transliteration": "linatahaddath 'an at-tabii'a!"
+          },
+          {
+            "speaker": "player",
+            "choices": [
+              {
+                "arabic": "أَخبِرني عَن الطَّبيعَة",
+                "english": "Tell me about nature",
+                "next": "teach_nature"
+              },
+              {
+                "arabic": "شُكراً يا عُمَر",
+                "english": "Thank you, Omar",
+                "action": "end"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "default",
+        "trigger": "default",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "عُدتَ! الأَرض خَضراء اليَوم",
+            "english": "You're back! The land is green today.",
+            "transliteration": "udta! al-ard khadraa' al-yawm"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "اِجلِس وَاِشرَب شاياً",
+            "english": "Sit down and drink some tea.",
+            "transliteration": "ijlis wa ishrab shaayan"
+          }
+        ]
+      },
+      {
+        "id": "teach_nature",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "شَجَرَة — هِيَ أُمّ الظِّل",
+            "english": "Shajara — she is the mother of shade (tree).",
+            "transliteration": "shajara — hiya umm az-zill",
+            "teachWord": "tree_w27"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "ماء — الحَياة نَفسُها",
+            "english": "Maa' — life itself (water).",
+            "transliteration": "maa' — al-hayaat nafsuhaa",
+            "teachWord": "water_w13"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "شَمس — تُنيرُ كُلَّ شَيء",
+            "english": "Shams — it lights everything (sun).",
+            "transliteration": "shams — tuniiru kulla shay'",
+            "teachWord": "sun_w14"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,102 @@
+@import '../../styles/variables.css';
+
+.instruction {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--color-brown);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.promptBox {
+  background: var(--color-dark);
+  border: 4px solid var(--color-gray);
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  text-align: center;
+  image-rendering: pixelated;
+}
+
+.verbRoot {
+  font-size: 32px;
+  font-family: var(--font-arabic-display);
+  direction: rtl;
+  color: var(--color-gold);
+  margin-bottom: 4px;
+}
+
+.verbMeaning {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: var(--color-light);
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.paradigmLabel {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--color-white);
+  margin-bottom: 6px;
+  text-transform: lowercase;
+}
+
+.pronounAr {
+  font-size: 18px;
+  font-family: var(--font-arabic-display);
+  direction: rtl;
+  color: var(--color-blue);
+  margin-bottom: 2px;
+}
+
+.pronoun {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  color: var(--color-white);
+}
+
+.choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.choice {
+  font-family: var(--font-arabic-display);
+  font-size: 20px;
+  padding: 14px 10px;
+  border: 4px solid var(--color-dark);
+  background: var(--color-beige);
+  color: var(--color-dark);
+  direction: rtl;
+  cursor: pointer;
+  text-align: center;
+  box-shadow:
+    inset -3px -3px 0px 0px rgba(0, 0, 0, 0.08),
+    inset 3px 3px 0px 0px rgba(255, 255, 255, 0.4);
+  transition: none;
+  image-rendering: pixelated;
+}
+
+.choice:hover:not(:disabled) {
+  background: var(--color-creamy-beige);
+}
+
+.choiceCorrect {
+  composes: choice;
+  background: rgba(46, 204, 113, 0.2);
+  border-color: var(--color-green);
+  box-shadow:
+    inset -3px -3px 0px 0px rgba(0, 0, 0, 0.08),
+    inset 3px 3px 0px 0px rgba(46, 204, 113, 0.3);
+}
+
+.choiceWrong {
+  composes: choice;
+  background: rgba(240, 49, 49, 0.15);
+  border-color: var(--color-red);
+  box-shadow:
+    inset -3px -3px 0px 0px rgba(0, 0, 0, 0.08),
+    inset 3px 3px 0px 0px rgba(240, 49, 49, 0.2);
+}

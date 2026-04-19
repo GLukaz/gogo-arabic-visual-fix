@@ -1,0 +1,228 @@
+/**
+ * PatternMatching.module.css — Weaver mini-game styles
+ */
+
+.container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  direction: rtl;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-family: 'Amiri', serif;
+  font-size: 1.5rem;
+  color: #fff;
+  text-align: center;
+  margin: 0 0 16px 0;
+}
+
+.timer {
+  position: relative;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.timerBar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #2196f3, #03a9f4);
+  transition: width 0.1s linear;
+}
+
+.timerText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Amiri', serif;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+}
+
+.gridContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gridLabel {
+  font-family: 'Amiri', serif;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 12px;
+}
+
+.grid {
+  display: grid;
+  gap: 8px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  border: 2px solid rgba(156, 39, 176, 0.3);
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+}
+
+.cellClickable {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cellClickable:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+.shapeIcon {
+  color: #fff;
+  user-select: none;
+}
+
+.emptyCell {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 1.5rem;
+}
+
+.cellCorrect {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(76, 175, 80, 0.2));
+  border-color: #4caf50;
+}
+
+.cellIncorrect {
+  background: linear-gradient(135deg, rgba(244, 67, 54, 0.3), rgba(244, 67, 54, 0.2));
+  border-color: #f44336;
+}
+
+.shapeHint {
+  font-family: 'Amiri', serif;
+  font-size: 1rem;
+  color: #fff;
+  text-align: center;
+  margin-top: 12px;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  min-height: 36px;
+}
+
+.shapeLegend {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legendIcon {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.legendName {
+  font-family: 'Amiri', serif;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.submitButton {
+  margin-top: 20px;
+  padding: 12px 48px;
+  background: linear-gradient(135deg, #9c27b0, #673ab7);
+  border: 2px solid #ba68c8;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-size: 1.25rem;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submitButton:hover {
+  background: linear-gradient(135deg, #ab47bc, #7e57c2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(156, 39, 176, 0.4);
+}
+
+.resultContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comparison {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.comparisonGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.accuracyDisplay {
+  font-family: 'Amiri', serif;
+  font-size: 1.5rem;
+  color: #fff;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.1));
+  border: 2px solid #4caf50;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+@media (max-width: 640px) {
+  .cell {
+    width: 45px;
+    height: 45px;
+  }
+
+  .grid {
+    gap: 6px;
+    padding: 12px;
+  }
+
+  .comparison {
+    flex-direction: column;
+    gap: 16px;
+  }
+}

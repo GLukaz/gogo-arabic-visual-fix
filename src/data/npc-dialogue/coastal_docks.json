@@ -1,0 +1,23 @@
+[
+  {
+    "id": "poet-coast",
+    "dialogueTrees": [
+      {
+        "id": "poet-coast-greeting",
+        "trigger": "interact",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "البَحرُ يُلهِمُني مِثلَما أَلهَمَ الشُّعَراءَ القُدامى",
+            "english": "The sea inspires me as it inspired the poets of old"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "حَسّانُ بنُ ثابِت مَدَحَ بِأَجمَلِ القَصائِد — هَل تَحفَظُ شَيئاً؟",
+            "english": "Hassan ibn Thabit praised with the most beautiful odes — do you know any?"
+          }
+        ]
+      }
+    ]
+  }
+]

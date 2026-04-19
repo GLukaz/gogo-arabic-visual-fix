@@ -1,0 +1,146 @@
+@import '../../styles/variables.css';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+/* ── Sentence Builder Area (RTL) ── */
+
+.sentenceArea {
+  min-height: 64px;
+  padding: 12px 16px;
+  background: rgba(26, 26, 46, 0.8);
+  border: 2px dashed rgba(255, 215, 0, 0.4);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: rtl;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.sentenceCorrect {
+  border-color: var(--color-green);
+  background: rgba(46, 204, 113, 0.15);
+}
+
+.sentenceWords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  direction: rtl;
+  justify-content: center;
+}
+
+.placeholder {
+  font-family: var(--font-arabic), var(--font-pixel), sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+  user-select: none;
+}
+
+/* ── Sentence Tiles ── */
+
+.sentenceTile {
+  position: relative;
+  font-family: var(--font-arabic-body);
+  font-size: 18px;
+  color: #1a1a2e;
+  background: linear-gradient(135deg, #FFD700, #e2b659);
+  border: 2px solid #FFD700;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  animation: tileAppear 0.2s ease-out;
+  user-select: none;
+}
+
+.sentenceTile:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+}
+
+.sentenceTile:disabled {
+  cursor: default;
+}
+
+.removeIcon {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  width: 18px;
+  height: 18px;
+  background: var(--color-red);
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.sentenceTile:hover .removeIcon {
+  opacity: 1;
+}
+
+/* ── Word Bank Tiles ── */
+
+.bankArea {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  padding: 12px;
+  background: rgba(26, 26, 46, 0.5);
+  border-radius: 8px;
+  direction: rtl;
+}
+
+.bankTile {
+  font-family: var(--font-arabic-body);
+  font-size: 18px;
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+  user-select: none;
+}
+
+.bankTile:hover:not(:disabled) {
+  background: rgba(255, 215, 0, 0.2);
+  border-color: #FFD700;
+  transform: translateY(-2px);
+}
+
+.bankTile:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.bankTileUsed {
+  opacity: 0.25;
+  cursor: default;
+  transform: scale(0.9);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ── Animations ── */
+
+@keyframes tileAppear {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

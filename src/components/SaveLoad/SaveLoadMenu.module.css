@@ -1,0 +1,396 @@
+@import '../../styles/variables.css';
+
+/* ── Overlay ─────────────────────────────────────────────────────────────── */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+/* ── Panel ───────────────────────────────────────────────────────────────── */
+
+.panel {
+  background: #0a0a0a;
+  border: 2px solid #d4a843;
+  box-shadow:
+    0 0 0 4px #0a0a0a,
+    0 0 0 6px #d4a843,
+    0 12px 40px rgba(0, 0, 0, 0.8);
+  width: 100%;
+  max-width: 480px;
+  font-family: var(--font-pixel);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Header ──────────────────────────────────────────────────────────────── */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 14px;
+  border-bottom: 2px solid #d4a843;
+  background: #111111;
+}
+
+.title {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  color: #d4a843;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.closeBtn {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  background: transparent;
+  border: 1px solid #444;
+  color: #888;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: color 0.1s, border-color 0.1s;
+}
+
+.closeBtn:hover {
+  color: #d4a843;
+  border-color: #d4a843;
+}
+
+.closeBtn:focus-visible {
+  outline: 2px solid #d4a843;
+  outline-offset: 2px;
+}
+
+/* ── Feedback Banner ─────────────────────────────────────────────────────── */
+
+.feedback {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  text-align: center;
+  padding: 8px 12px;
+  letter-spacing: 1px;
+}
+
+.feedback.success {
+  background: rgba(46, 204, 113, 0.12);
+  color: #2ecc71;
+  border-bottom: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+.feedback.error {
+  background: rgba(240, 49, 49, 0.12);
+  color: #f03131;
+  border-bottom: 1px solid rgba(240, 49, 49, 0.3);
+}
+
+/* ── Slot List ───────────────────────────────────────────────────────────── */
+
+.slotList {
+  list-style: none;
+  margin: 0;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Individual Slot ─────────────────────────────────────────────────────── */
+
+.slotItem {
+  background: #141414;
+  border: 2px solid #2a2a2a;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: border-color 0.12s, background 0.12s;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 70px;
+}
+
+.slotItem:hover {
+  border-color: #555;
+  background: #181818;
+}
+
+.slotItem:focus-visible {
+  outline: 2px solid #d4a843;
+  outline-offset: 2px;
+}
+
+.slotSelected {
+  border-color: #d4a843;
+  background: #1a1600;
+  box-shadow: inset 0 0 0 1px rgba(212, 168, 67, 0.15);
+}
+
+.slotSelected:hover {
+  border-color: #d4a843;
+  background: #1a1600;
+}
+
+.slotEmpty {
+  opacity: 0.6;
+}
+
+/* ── Slot Content ────────────────────────────────────────────────────────── */
+
+.slotLabel {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: #d4a843;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 2px;
+}
+
+.slotInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.emptyText {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: #444;
+  letter-spacing: 1px;
+}
+
+.playerName {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: #f4fefa;
+  letter-spacing: 1px;
+}
+
+.slotMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: #888;
+}
+
+.metaDivider {
+  color: #444;
+}
+
+.timestamp {
+  font-family: var(--font-pixel);
+  font-size: 6px;
+  color: #555;
+  letter-spacing: 0.5px;
+}
+
+/* ── Slot Actions ────────────────────────────────────────────────────────── */
+
+.slotActions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.btnSave,
+.btnLoad {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  padding: 8px 14px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: #d4a843;
+  color: #0a0a0a;
+  box-shadow:
+    inset -3px -3px 0px rgba(0, 0, 0, 0.25),
+    inset 3px 3px 0px rgba(255, 255, 255, 0.2),
+    0 3px 0 #8a6c20;
+  transition: transform 0.05s;
+}
+
+.btnSave:hover,
+.btnLoad:hover {
+  transform: translateY(-1px);
+}
+
+.btnSave:active,
+.btnLoad:active {
+  transform: translateY(2px);
+  box-shadow:
+    inset -3px -3px 0px rgba(0, 0, 0, 0.3),
+    inset 3px 3px 0px rgba(255, 255, 255, 0.1),
+    0 1px 0 #8a6c20;
+}
+
+.btnSave:disabled,
+.btnLoad:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btnSave:focus-visible,
+.btnLoad:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.btnDelete {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  padding: 8px 12px;
+  border: 1px solid #3a1a1a;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: #1a0a0a;
+  color: #884444;
+  transition: background 0.1s, color 0.1s, border-color 0.1s;
+}
+
+.btnDelete:hover {
+  background: #2a0a0a;
+  color: #f03131;
+  border-color: #f03131;
+}
+
+.btnDelete:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btnDelete:focus-visible {
+  outline: 2px solid #f03131;
+  outline-offset: 2px;
+}
+
+/* ── Confirm Delete Dialog ───────────────────────────────────────────────── */
+
+.confirmOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.confirmBox {
+  background: #0f0f0f;
+  border: 2px solid #f03131;
+  padding: 24px 28px;
+  text-align: center;
+  max-width: 300px;
+  box-shadow:
+    0 0 0 3px #0a0a0a,
+    0 0 0 5px #f03131;
+}
+
+.confirmMsg {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: #f4fefa;
+  line-height: 1.8;
+  margin: 0 0 20px;
+}
+
+.confirmSub {
+  font-size: 7px;
+  color: #888;
+}
+
+.confirmActions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btnDeleteConfirm {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  padding: 8px 14px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: #f03131;
+  color: #fff;
+  box-shadow: 0 3px 0 #8a1a1a;
+  transition: transform 0.05s;
+}
+
+.btnDeleteConfirm:hover {
+  transform: translateY(-1px);
+}
+
+.btnDeleteConfirm:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #8a1a1a;
+}
+
+.btnDeleteConfirm:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.btnCancel {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  padding: 8px 14px;
+  border: 1px solid #444;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: #1e1e1e;
+  color: #888;
+  transition: color 0.1s, border-color 0.1s;
+}
+
+.btnCancel:hover {
+  color: #d4a843;
+  border-color: #d4a843;
+}
+
+.btnCancel:focus-visible {
+  outline: 2px solid #d4a843;
+  outline-offset: 2px;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 480px) {
+  .panel {
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 10px;
+  }
+
+  .playerName {
+    font-size: 8px;
+  }
+
+  .slotMeta {
+    font-size: 6px;
+  }
+
+  .btnSave,
+  .btnLoad,
+  .btnDelete {
+    font-size: 7px;
+    padding: 7px 10px;
+  }
+}

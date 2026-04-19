@@ -1,0 +1,365 @@
+@import '../../styles/variables.css';
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(43, 41, 44, 0.92);
+  border-bottom: 4px solid var(--color-dark);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--color-white);
+  pointer-events: none;
+  z-index: var(--z-hud);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.levelBadge {
+  background: var(--color-brown);
+  border: 2px solid var(--color-xp-gold);
+  color: var(--color-xp-gold);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  padding: 4px 8px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.xpBarOuter {
+  width: 90px;
+  height: 10px;
+  background: var(--color-dark);
+  border: 2px solid var(--color-light);
+  overflow: hidden;
+}
+
+.xpBarFill {
+  height: 100%;
+  background: var(--color-xp-gold);
+  transition: width 0.3s;
+}
+
+.xpText {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--color-xp-gold);
+}
+
+.staminaBarOuter {
+  width: 90px;
+  height: 8px;
+  background: var(--color-dark);
+  border: 2px solid var(--color-light);
+  overflow: hidden;
+}
+
+.staminaBarFill {
+  height: 100%;
+  background: var(--color-cyan);
+  transition: width 0.2s;
+}
+
+.progressStrip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 8px;
+  padding: 2px 8px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progressItem {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-family: var(--font-ui);
+  font-size: 9px;
+  color: var(--color-light);
+}
+
+.progressIcon {
+  font-size: 10px;
+  color: var(--color-xp-gold);
+}
+
+.progressValue {
+  color: var(--color-white);
+  font-weight: bold;
+}
+
+.progressSep {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 8px;
+}
+
+.btn {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  padding: 6px 10px;
+  border: none;
+  cursor: pointer;
+  image-rendering: pixelated;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  background: var(--color-gray);
+  color: var(--color-white);
+  box-shadow:
+    inset -2px -2px 0px 0px rgba(0, 0, 0, 0.3),
+    inset 2px 2px 0px 0px rgba(255, 255, 255, 0.1),
+    0 2px 0 0 #1a191b;
+  pointer-events: auto;
+  transition: transform 0.05s;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    inset -2px -2px 0px 0px rgba(0, 0, 0, 0.3),
+    inset 2px 2px 0px 0px rgba(255, 255, 255, 0.15),
+    0 3px 0 0 #1a191b;
+}
+
+.btn:active {
+  transform: translateY(1px);
+  box-shadow:
+    inset -2px -2px 0px 0px rgba(0, 0, 0, 0.4),
+    inset 2px 2px 0px 0px rgba(255, 255, 255, 0.05),
+    0 1px 0 0 #1a191b;
+}
+
+.btn:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.mapBtn {
+  background: var(--color-blue);
+  font-weight: bold;
+}
+
+.lettersBtn {
+  background: var(--color-green);
+  font-weight: bold;
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 14px;
+  position: relative;
+}
+
+.lettersBadge {
+  background: var(--color-xp-gold);
+  color: var(--color-dark);
+  font-family: var(--font-pixel);
+  font-size: 9px;
+}
+
+/* Pulse animation to attract attention when no letters learned */
+.lettersPulse {
+  animation: lettersPulse 2s infinite;
+}
+
+@keyframes lettersPulse {
+
+  0%,
+  100% {
+    box-shadow:
+      inset -2px -2px 0px 0px rgba(0, 0, 0, 0.3),
+      inset 2px 2px 0px 0px rgba(255, 255, 255, 0.1),
+      0 2px 0 0 #1a191b;
+  }
+
+  50% {
+    box-shadow:
+      inset -2px -2px 0px 0px rgba(0, 0, 0, 0.3),
+      inset 2px 2px 0px 0px rgba(255, 255, 255, 0.1),
+      0 2px 0 0 #1a191b,
+      0 0 20px rgba(103, 193, 103, 0.8);
+  }
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  font-weight: bold;
+  line-height: 1;
+  padding: 0 4px;
+  border: 2px solid var(--color-dark);
+  pointer-events: none;
+}
+
+.questBadge {
+  background: var(--color-green);
+  color: var(--color-dark);
+}
+
+.achievementBadge {
+  background: var(--color-xp-gold);
+  color: var(--color-dark);
+}
+
+.goalBadge {
+  background: var(--color-cyan);
+  color: var(--color-dark);
+}
+
+.reviewBtn {
+  background: var(--color-fire);
+  color: var(--color-dark);
+  font-weight: bold;
+}
+
+.reviewBadge {
+  background: var(--color-blue);
+  color: var(--color-dark);
+}
+
+.inventoryIcon {
+  font-family: var(--font-arabic);
+  font-size: 14px;
+  direction: rtl;
+}
+
+.inventoryBadge {
+  background: var(--color-brown);
+  color: var(--color-xp-gold);
+}
+
+.cefrBadge {
+  background: #e2b659;
+  color: #1a1a2e;
+  font-weight: bold;
+}
+
+/* Pulse animation for review button when >10 FSRS cards are due */
+.duePulse {
+  animation: duePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes duePulse {
+
+  0%,
+  100% {
+    box-shadow:
+      inset -2px -2px 0px 0px rgba(0, 0, 0, 0.3),
+      inset 2px 2px 0px 0px rgba(255, 255, 255, 0.1),
+      0 2px 0 0 #1a191b;
+  }
+
+  50% {
+    box-shadow:
+      inset -2px -2px 0px 0px rgba(0, 0, 0, 0.3),
+      inset 2px 2px 0px 0px rgba(255, 255, 255, 0.1),
+      0 2px 0 0 #1a191b,
+      0 0 20px rgba(240, 49, 49, 0.7);
+  }
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .container {
+    font-size: 10px;
+    padding: 6px 10px;
+    flex-wrap: wrap;
+  }
+
+  .levelBadge,
+  .xpText {
+    font-size: 10px;
+  }
+
+  .btn {
+    font-size: 10px;
+    padding: 8px 12px;
+    /* Ensure min 44px touch target */
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .right {
+    gap: 8px;
+  }
+
+  .xpBarOuter {
+    width: 70px;
+  }
+
+  .progressStrip {
+    display: none;
+    /* Hide on tablet to prevent HUD overflow */
+  }
+
+  .badge {
+    font-size: 10px;
+    min-width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    font-size: 8px;
+    padding: 4px 8px;
+    flex-wrap: wrap;
+    border-bottom: 3px solid var(--color-dark);
+  }
+
+  .levelBadge,
+  .xpText {
+    font-size: 8px;
+  }
+
+  .btn {
+    font-size: 8px;
+    padding: 8px 10px;
+    /* WCAG touch target compliance */
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .xpBarOuter {
+    width: 60px;
+    height: 8px;
+  }
+
+  .progressStrip {
+    display: none;
+    /* Hidden on mobile -- metrics accessible via dashboard */
+  }
+
+  .left,
+  .right {
+    gap: 6px;
+  }
+
+  .badge {
+    font-size: 9px;
+    min-width: 16px;
+    height: 16px;
+  }
+}

@@ -1,0 +1,114 @@
+/**
+ * VocabTooltip.module.css
+ *
+ * Tooltip popup for vocabulary highlights in reading passages.
+ * Dark theme (#1a1a2e, #FFD700).
+ * Phase 82 (READ-01 + READ-02)
+ */
+
+.tooltipWrapper {
+  position: relative;
+  display: inline;
+}
+
+.highlightedWord {
+  color: #FFD700;
+  cursor: pointer;
+  border-bottom: 1px dashed #FFD700;
+  transition: color 0.2s ease;
+}
+
+.highlightedWord:hover {
+  color: #ffe14d;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  background: #1a1a2e;
+  border: 1px solid #FFD700;
+  border-radius: 8px;
+  padding: 12px 16px;
+  min-width: 200px;
+  max-width: 280px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.15s ease-out;
+  direction: ltr;
+  text-align: left;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #FFD700;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.arabicWord {
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+  font-size: 1.25rem;
+  color: #FFD700;
+  text-align: center;
+  direction: rtl;
+  margin-bottom: 4px;
+}
+
+.transliteration {
+  font-style: italic;
+  font-size: 0.85rem;
+  color: #aaa;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.english {
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.addButton {
+  display: block;
+  width: 100%;
+  padding: 6px 12px;
+  border: 1px solid #FFD700;
+  border-radius: 4px;
+  background: transparent;
+  color: #FFD700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.addButton:hover {
+  background: #FFD700;
+  color: #1a1a2e;
+}
+
+.addButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.addButton:disabled:hover {
+  background: transparent;
+  color: #FFD700;
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "poet-desert",
+    "dialogueTrees": [
+      {
+        "id": "poet-desert-greeting",
+        "trigger": "interact",
+        "lines": [
+          {
+            "speaker": "npc",
+            "arabic": "الصَّحراءُ تُعَلِّمُني الشِّعر — الرِّمالُ والنُّجوم ملهَمتي",
+            "english": "The desert teaches me poetry — sand and stars are my inspiration"
+          },
+          {
+            "speaker": "npc",
+            "arabic": "أَبو نُواس كانَ يَسير في هَذِه الصِّحراء — هَل تَعرِفُ شِعرَه؟",
+            "english": "Abu Nuwas walked this desert — do you know his poetry?"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,129 @@
+@import '../../styles/variables.css';
+
+.instruction {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--color-brown);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.prompt {
+  font-family: var(--font-pixel);
+  font-size: 13px;
+  margin: 10px 0 14px;
+  color: var(--color-dark);
+  line-height: 1.6;
+}
+
+.dropZone {
+  min-height: 52px;
+  border: 4px solid var(--color-dark);
+  background: var(--color-creamy-beige);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 12px;
+  direction: rtl;
+  margin-bottom: 12px;
+  box-shadow: inset 3px 3px 0px 0px rgba(0, 0, 0, 0.08);
+  image-rendering: pixelated;
+}
+
+.dropZoneCorrect {
+  composes: dropZone;
+  border-color: var(--color-green);
+  background: rgba(46, 204, 113, 0.1);
+}
+
+.dropZoneWrong {
+  composes: dropZone;
+  border-color: var(--color-red);
+  background: rgba(240, 49, 49, 0.08);
+}
+
+.tile {
+  font-family: var(--font-arabic-display);
+  font-size: 18px;
+  padding: 6px 12px;
+  border: 3px solid var(--color-dark);
+  background: var(--color-beige);
+  color: var(--color-dark);
+  cursor: pointer;
+  direction: rtl;
+  box-shadow:
+    inset -2px -2px 0px 0px rgba(0, 0, 0, 0.1),
+    inset 2px 2px 0px 0px rgba(255, 255, 255, 0.4);
+  image-rendering: pixelated;
+}
+
+.tile:hover:not(:disabled) {
+  background: var(--color-creamy-beige);
+}
+
+.tileUsed {
+  composes: tile;
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.tileBank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  direction: rtl;
+  margin-bottom: 10px;
+}
+
+.correctAnswer {
+  font-family: var(--font-arabic-display);
+  font-size: 18px;
+  direction: rtl;
+  color: var(--color-green);
+  margin-top: 6px;
+}
+
+.correctLabel {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--color-green);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+.clearBtn {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  padding: 6px 12px;
+  border: 3px solid var(--color-dark);
+  background: var(--color-beige);
+  color: var(--color-dark);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  image-rendering: pixelated;
+  margin-bottom: 10px;
+}
+
+.clearBtn:hover {
+  background: var(--color-creamy-beige);
+}
+
+.submitBtn {
+  composes: clearBtn;
+  background: var(--color-gold);
+  color: var(--color-beige);
+  border-color: var(--color-dark-gold);
+}
+
+.submitBtn:hover {
+  background: var(--color-xp-gold);
+}
+
+.actionRow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}

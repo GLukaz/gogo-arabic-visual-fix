@@ -1,0 +1,203 @@
+/* GoalSetting.module.css — Learning goals with progress rings */
+
+.container {
+  background: #16162a;
+  border: 2px solid #3a373b;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.title {
+  color: #FFD700;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 16px 0;
+}
+
+/* Progress rings row */
+.ringsRow {
+  display: flex;
+  justify-content: space-around;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.ringCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.ringWrapper {
+  position: relative;
+  width: 72px;
+  height: 72px;
+}
+
+.ringSvg {
+  transform: rotate(-90deg);
+}
+
+.ringBg {
+  fill: none;
+  stroke: #2a2a3e;
+  stroke-width: 6;
+}
+
+.ringFill {
+  fill: none;
+  stroke-width: 6;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+.ringFillMinutes {
+  stroke: #FFD700;
+}
+
+.ringFillWords {
+  stroke: #4ade80;
+}
+
+.ringFillPassages {
+  stroke: #4A90D9;
+}
+
+.ringCenter {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.ringPercent {
+  color: #f4fefa;
+  font-size: 0.85rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.ringLabel {
+  color: #c8c8c8;
+  font-size: 0.6rem;
+  text-align: center;
+  margin-top: 2px;
+}
+
+/* Goal sliders */
+.goalSliders {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.goalRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.goalLabel {
+  color: #c8c8c8;
+  font-size: 0.75rem;
+  min-width: 100px;
+}
+
+.goalLabelArabic {
+  color: #888;
+  font-size: 0.6rem;
+  display: block;
+  direction: rtl;
+}
+
+.slider {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  background: #2a2a3e;
+  border-radius: 3px;
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #FFD700;
+  cursor: pointer;
+  border: 2px solid #1a1a2e;
+}
+
+.slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #FFD700;
+  cursor: pointer;
+  border: 2px solid #1a1a2e;
+}
+
+.goalValue {
+  color: #FFD700;
+  font-size: 0.8rem;
+  font-weight: bold;
+  min-width: 36px;
+  text-align: right;
+}
+
+/* Streak bar */
+.streakBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 10px;
+  background: #1a1a2e;
+  border-radius: 6px;
+  border: 1px solid #3a373b;
+}
+
+.streakIcon {
+  font-size: 1.1rem;
+}
+
+.streakText {
+  color: #c8c8c8;
+  font-size: 0.75rem;
+}
+
+.streakCount {
+  color: #FFD700;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .ringsRow {
+    gap: 8px;
+  }
+
+  .ringWrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .ringPercent {
+    font-size: 0.75rem;
+  }
+
+  .goalLabel {
+    min-width: 80px;
+    font-size: 0.65rem;
+  }
+}
