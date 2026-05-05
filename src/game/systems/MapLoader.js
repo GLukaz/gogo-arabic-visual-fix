@@ -99,37 +99,38 @@ const GRASS_F = {
   VAR_6: GRASS_COLS * 9 + 5,
 };
 
-// Water tileset (6 cols x 3 rows = 18 frames)
-const WATER_KEY = 'kenmi-base-tiles-water-water-tile-3';
-const WATER_COLS = 3;
+// Water tileset animated (24 cols x 5 rows = 120 frames)
+const WATER_KEY = 'kenmi-base-tiles-water-water-tile-3-anim';
+const WATER_COLS = 24;
 
+// Animated water tileset frame indices (stride=3 per row)
 const WATER_F = {
-  // Row 0: top edges
+  // Row 0: CORNER_TL, EDGE_TOP, CORNER_TR (frames 0-23)
   CORNER_TL: 0,
   EDGE_TOP:  1,
   CORNER_TR: 2,
-  SOLID_1:   WATER_COLS + 1,
-  SOLID_2:   WATER_COLS + 1,
-  SOLID_3:   WATER_COLS + 1,
-  // Row 1: mid edges + solid fills
-  EDGE_LEFT:   WATER_COLS,
-  SOLID_4:     WATER_COLS + 1,
-  EDGE_RIGHT:  WATER_COLS + 2,
-  SOLID_5:     WATER_COLS + 1,
-  SOLID_6:     WATER_COLS + 1,
-  SOLID_7:     WATER_COLS + 1,
-  // Row 2: bottom edges
-  CORNER_BL:    WATER_COLS * 2,
-  EDGE_BOTTOM:  WATER_COLS * 2 + 1,
-  CORNER_BR:    WATER_COLS * 2 + 2,
-  SOLID_8:      WATER_COLS + 1,
-  SOLID_9:      WATER_COLS + 1,
-  SOLID_10:     WATER_COLS + 1,
-  //Inner (concave) corners — rows 0-1, cols 3-5
-  INNER_TL: WATER_COLS * 4 + 1,
-  INNER_TR: WATER_COLS * 4 + 0,
-  INNER_BL: WATER_COLS * 3 + 1,
-  INNER_BR: WATER_COLS * 3 + 0,  
+  SOLID_1:   25,
+  SOLID_2:   25,
+  SOLID_3:   25,
+  // Row 1: EDGE_LEFT, SOLID, EDGE_RIGHT (frames 24-47)
+  EDGE_LEFT:   24,
+  SOLID_4:     25,
+  EDGE_RIGHT:  26,
+  SOLID_5:     25,
+  SOLID_6:     25,
+  SOLID_7:     25,
+  // Row 2: CORNER_BL, EDGE_BOTTOM, CORNER_BR (frames 48-71)
+  CORNER_BL:    48,
+  EDGE_BOTTOM:  49,
+  CORNER_BR:    50,
+  SOLID_8:      25,
+  SOLID_9:      25,
+  SOLID_10:     25,
+  // Row 3-4: Inner corners (frames 72-119)
+  INNER_TL: 97,
+  INNER_TR: 96,
+  INNER_BL: 73,
+  INNER_BR: 72,
 };
 
 // Phase 97 Plan 04 — drift detection: throw at module load if PNG dimensions
@@ -137,7 +138,7 @@ const WATER_F = {
 // of bug from VISUAL-LAYER-DIAGNOSIS.md the moment it could occur.
 for (const k of BEACH_KEYS) _assertFrameTableMatch(k, 5, 3);
 _assertFrameTableMatch(GRASS_KEY, 16, 10);
-_assertFrameTableMatch(WATER_KEY, 3, 5);
+_assertFrameTableMatch(WATER_KEY, 24, 5);
 
 // Water foam animation key (20 cols x 3 rows = 60 frames)
 const FOAM_KEY = 'kenmi-desert-tiles-desert-water-foam-animation';
@@ -340,8 +341,8 @@ const BIOME_TILESETS = {
     sandCols: 5,
     grassKey: 'kenmi-base-tiles-grass-grass-tiles-3',
     grassCols: 16,
-    waterKey: 'kenmi-base-tiles-water-water-tile-3',
-    waterCols: 3,
+    waterKey: 'kenmi-base-tiles-water-water-tile-3-anim',
+    waterCols: 24,
     foamKey: 'kenmi-desert-tiles-desert-water-foam-animation',
     foamCols: 20,
   },
@@ -620,6 +621,8 @@ export class MapLoader {
 
     // Create foam animation if not yet registered
     this._createFoamAnimations();
+    // Create water animation if not yet registered
+    this._createWaterAnimations();
 
     for (let y = 0; y < mapH; y++) {
       for (let x = 0; x < mapW; x++) {
@@ -882,10 +885,29 @@ export class MapLoader {
     }
 
     const waterKey = cfg.waterKey;
-    const sprite = this.scene.add.image(px, py, waterKey, this._safeFrame(waterKey, frame));
+
+    // Use sprite for desert biome water to enable animations
+    let sprite;
+    if (this._currentBiome === 'desert') {
+      sprite = this.scene.add.sprite(px, py, waterKey, this._safeFrame(waterKey, frame));
+
+      // Determine which row (0-4) and tile type (0-2) the frame belongs to
+      const rowSize = 24;
+      const row = Math.floor(frame / rowSize);
+      const frameInRow = frame % rowSize;
+      const tileType = frameInRow % 3;
+      const animKey = `water-anim-row${row}-${tileType}`;
+      if (this.scene.anims.exists(animKey)) {
+        sprite.play(animKey);
+      }
+    } else {
+      // Non-desert water uses static image
+      sprite = this.scene.add.image(px, py, waterKey, this._safeFrame(waterKey, frame));
+    }
+
     sprite.setScale(KENMI_SCALE);
 
-   
+
     // Add water inner corner overlays for desert biome
     if (this._currentBiome === 'desert') {
       const nwWater = (ty > 0 && tx > 0) ? groundData[ty-1][tx-1] === WATER : false;
@@ -1016,6 +1038,50 @@ export class MapLoader {
   }
 
   /**
+   * Create water animation configs (run once per zone load).
+   * Water has 5 rows of animations, each with 3 tile types spaced by stride=3.
+   * Row 0: CORNER_TL(0,3,6,...), EDGE_TOP(1,4,7,...), CORNER_TR(2,5,8,...)
+   * Row 1: EDGE_LEFT(24,27,30,...), SOLID(25,28,31,...), EDGE_RIGHT(26,29,32,...)
+   * etc.
+   */
+  _createWaterAnimations() {
+    if (!this.scene.textures.exists(WATER_KEY)) return;
+
+    const stride = 3;  // 3 tile types per row
+    const variations = 8;  // 8 animation frames per tile type
+    const rowSize = 24;  // frames per row
+    const numRows = 5;  // 5 animation rows
+
+    // Create animation for each row and tile type
+    for (let row = 0; row < numRows; row++) {
+      for (let tileType = 0; tileType < stride; tileType++) {
+        const animKey = `water-anim-row${row}-${tileType}`;
+
+        // Skip if already created
+        if (this.scene.anims.exists(animKey)) continue;
+
+        // Generate frames for this row: rowStart + 0*3+tileType, rowStart + 1*3+tileType, etc.
+        const frames = [];
+        const rowStart = row * rowSize;
+        for (let i = 0; i < variations; i++) {
+          const frameIndex = rowStart + i * stride + tileType;
+          frames.push(frameIndex);
+        }
+
+        // Create animation
+        this.scene.anims.create({
+          key: animKey,
+          frames: frames.map(f => ({ key: WATER_KEY, frame: f })),
+          frameRate: 8,
+          repeat: -1,
+        });
+      }
+    }
+
+    this._waterAnimCreated = true;
+  }
+
+  /**
    * Add animated foam sprite overlay on a water tile that borders land.
    * Uses biome-specific foam texture and animation keys.
    */
@@ -1084,10 +1150,21 @@ export class MapLoader {
   _addWaterOverlay(px, py, nForeign, sForeign, wForeign, eForeign, nwWater = false, neWater = false, swWater = false, seWater = false) {
     if (!this.scene.textures.exists(WATER_KEY)) return;
 
-    const addOverlayFrame = (frame) => {
-      const overlay = this.scene.add.image(px, py, WATER_KEY, this._safeFrame(WATER_KEY, frame));
+    const addOverlayFrame = (frameNum) => {
+      const overlay = this.scene.add.sprite(px, py, WATER_KEY, this._safeFrame(WATER_KEY, frameNum));
       overlay.setScale(KENMI_SCALE);
       overlay.setDepth(1);
+
+      // Determine which row and tile type to play correct animation
+      const rowSize = 24;
+      const row = Math.floor(frameNum / rowSize);
+      const frameInRow = frameNum % rowSize;
+      const tileType = frameInRow % 3;
+      const animKey = `water-anim-row${row}-${tileType}`;
+      if (this.scene.anims.exists(animKey)) {
+        overlay.play(animKey);
+      }
+
       this.groundSprites.push(overlay);
     };
 
