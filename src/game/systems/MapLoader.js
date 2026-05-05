@@ -72,27 +72,26 @@ const BEACH = {
   WATER_INNER: BEACH_COLS * 2 + 3,  
 };
 
-// Grass tileset (3 cols x 5 rows = 15 frames)
-const GRASS_KEY = 'kenmi-desert-tiles-desert-grass';
-const GRASS_COLS = 3;
+const GRASS_KEY = 'kenmi-base-tiles-grass-grass-tiles-3';
+const GRASS_COLS = 16;
 
 const GRASS_F = {
-  CORNER_TL: 0,
-  EDGE_TOP:  1,
-  CORNER_TR: 2,
-  EDGE_LEFT:  GRASS_COLS + 0,
-  SOLID:      GRASS_COLS + 1,
-  EDGE_RIGHT: GRASS_COLS + 2,
-  CORNER_BL:  GRASS_COLS * 2 + 0,
-  EDGE_BOTTOM: GRASS_COLS * 2 + 1,
-  CORNER_BR:  GRASS_COLS * 2 + 2,
+  CORNER_TL: GRASS_COLS *5,
+  EDGE_TOP:  GRASS_COLS * 5 + 1,
+  CORNER_TR: GRASS_COLS * 5 + 2,
+  EDGE_LEFT:  GRASS_COLS * 6,
+  SOLID:      GRASS_COLS * 9 + 5,
+  EDGE_RIGHT: GRASS_COLS * 6 + 2,
+  CORNER_BL:  GRASS_COLS * 7 ,
+  EDGE_BOTTOM: GRASS_COLS * 7 + 1,
+  CORNER_BR:  GRASS_COLS * 7 + 2,
   // Variants in rows 3-4
-  VAR_1: GRASS_COLS * 3 + 0,
-  VAR_2: GRASS_COLS * 3 + 1,
-  VAR_3: GRASS_COLS * 3 + 2,
-  VAR_4: GRASS_COLS * 4 + 0,
-  VAR_5: GRASS_COLS * 4 + 1,
-  VAR_6: GRASS_COLS * 4 + 2,
+  VAR_1: GRASS_COLS * 9 + 6,
+  VAR_2: GRASS_COLS * 9 + 7,
+  VAR_3: GRASS_COLS * 9 + 5,
+  VAR_4: GRASS_COLS * 9 + 6,
+  VAR_5: GRASS_COLS * 9 + 7,
+  VAR_6: GRASS_COLS * 9 + 5,
 };
 
 // Water tileset (6 cols x 3 rows = 18 frames)
@@ -127,7 +126,7 @@ const WATER_F = {
 // disagree with the hardcoded constants above. Catches the "black squares" class
 // of bug from VISUAL-LAYER-DIAGNOSIS.md the moment it could occur.
 for (const k of BEACH_KEYS) _assertFrameTableMatch(k, 5, 3);
-_assertFrameTableMatch(GRASS_KEY, 3, 5);
+_assertFrameTableMatch(GRASS_KEY, 16, 10);
 _assertFrameTableMatch(WATER_KEY, 6, 3);
 
 // Water foam animation key (20 cols x 3 rows = 60 frames)
@@ -329,8 +328,8 @@ const BIOME_TILESETS = {
       'kenmi-desert-tiles-desert-beach-tiles-3',
     ],
     sandCols: 5,
-    grassKey: 'kenmi-desert-tiles-desert-grass',
-    grassCols: 3,
+    grassKey: 'kenmi-base-tiles-grass-grass-tiles-3',
+    grassCols: 16,
     waterKey: 'kenmi-desert-tiles-desert-water-tiles-1',
     waterCols: 6,
     foamKey: 'kenmi-desert-tiles-desert-water-foam-animation',
