@@ -463,7 +463,8 @@ export class MapLoader {
       const key = (sprite.texture && sprite.texture.key) || '?';
       const frameName = sprite.frame ? String(sprite.frame.name) : '?';
       const file = this._getTextureFilename(sprite.texture);
-      this._debugHoverLabel.setText(`${frameName}\n${key}\n${file}`);
+      const method = sprite._debugMethod || '?';
+      this._debugHoverLabel.setText(`${frameName}\n${key}\n${file}\n${method}`);
       this._debugHoverLabel.setPosition(px, py - TILE / 2 - 2);
       this._debugHoverLabel.setVisible(true);
     });
@@ -696,6 +697,7 @@ export class MapLoader {
 
       const sprite = this.scene.add.image(px, py, key, this._safeFrame(key, frame));
       sprite.setScale(KENMI_SCALE);
+      sprite._debugMethod = '_renderSandTile';
       if (this._currentBiome === 'snow' && cfg.sandTint) {
         sprite.setTint(cfg.sandTint);
       }
@@ -733,6 +735,7 @@ export class MapLoader {
 
     const sprite = this.scene.add.image(px, py, key, this._safeFrame(key, frame));
     sprite.setScale(KENMI_SCALE);
+    sprite._debugMethod = '_renderSandTile';
     if (this._currentBiome === 'snow' && cfg.sandTint) {
       sprite.setTint(cfg.sandTint);
     }
@@ -832,6 +835,7 @@ export class MapLoader {
     const grassKey = cfg.grassKey;
     const sprite = this.scene.add.image(px, py, grassKey, this._safeFrame(grassKey, frame));
     sprite.setScale(KENMI_SCALE);
+    sprite._debugMethod = '_renderGrassTile';
 
     // Ice-grass tint: use biome-aware tint if available, fall back to default
     if (tileType === ICE_GRASS) {
@@ -889,6 +893,7 @@ export class MapLoader {
     let sprite;
     if (this._currentBiome === 'desert') {
       sprite = this.scene.add.sprite(px, py, waterKey, this._safeFrame(waterKey, frame));
+      sprite._debugMethod = '_renderWaterTile';
 
       // Determine which row (0-4) and tile type (0-2) the frame belongs to
       const rowSize = 24;
@@ -902,6 +907,7 @@ export class MapLoader {
     } else {
       // Non-desert water uses static image
       sprite = this.scene.add.image(px, py, waterKey, this._safeFrame(waterKey, frame));
+      sprite._debugMethod = '_renderWaterTile';
     }
 
     sprite.setScale(KENMI_SCALE);
