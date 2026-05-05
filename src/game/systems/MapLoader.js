@@ -876,7 +876,7 @@ export class MapLoader {
       const L = cols, CENTER = cols + 1, R = cols + 2;
       const BL = cols * 2, B = cols * 2 + 1, BR = cols * 2 + 2;
       if (!nForeign && !sForeign && !wForeign && !eForeign) {
-        const solids = [CENTER, CENTER + 1];
+        const solids = [CENTER];
         frame = solids[Math.floor(hash * solids.length)];
       } else {
         frame = this._pickEdgeFrame(nForeign, sForeign, wForeign, eForeign, TL, T, TR, L, B, R, CENTER, BL, BR);
