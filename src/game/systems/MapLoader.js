@@ -100,31 +100,36 @@ const GRASS_F = {
 };
 
 // Water tileset (6 cols x 3 rows = 18 frames)
-const WATER_KEY = 'kenmi-desert-tiles-desert-water-tiles-1';
-const WATER_COLS = 6;
+const WATER_KEY = 'kenmi-base-tiles-water-water-tile-3';
+const WATER_COLS = 3;
 
 const WATER_F = {
   // Row 0: top edges
   CORNER_TL: 0,
   EDGE_TOP:  1,
   CORNER_TR: 2,
-  SOLID_1:   3,
-  SOLID_2:   4,
-  SOLID_3:   5,
+  SOLID_1:   WATER_COLS + 1,
+  SOLID_2:   WATER_COLS + 1,
+  SOLID_3:   WATER_COLS + 1,
   // Row 1: mid edges + solid fills
-  EDGE_LEFT:   WATER_COLS + 0,
+  EDGE_LEFT:   WATER_COLS,
   SOLID_4:     WATER_COLS + 1,
   EDGE_RIGHT:  WATER_COLS + 2,
-  SOLID_5:     WATER_COLS + 3,
-  SOLID_6:     WATER_COLS + 4,
-  SOLID_7:     WATER_COLS + 5,
+  SOLID_5:     WATER_COLS + 1,
+  SOLID_6:     WATER_COLS + 1,
+  SOLID_7:     WATER_COLS + 1,
   // Row 2: bottom edges
-  CORNER_BL:    WATER_COLS * 2 + 0,
+  CORNER_BL:    WATER_COLS * 2,
   EDGE_BOTTOM:  WATER_COLS * 2 + 1,
   CORNER_BR:    WATER_COLS * 2 + 2,
-  SOLID_8:      WATER_COLS * 2 + 3,
-  SOLID_9:      WATER_COLS * 2 + 4,
-  SOLID_10:     WATER_COLS * 2 + 5,
+  SOLID_8:      WATER_COLS + 1,
+  SOLID_9:      WATER_COLS + 1,
+  SOLID_10:     WATER_COLS + 1,
+  //Inner (concave) corners — rows 0-1, cols 3-5
+  INNER_TL: WATER_COLS * 4 + 1,
+  INNER_TR: WATER_COLS * 4 + 0,
+  INNER_BL: WATER_COLS * 3 + 1,
+  INNER_BR: WATER_COLS * 3 + 0,  
 };
 
 // Phase 97 Plan 04 — drift detection: throw at module load if PNG dimensions
@@ -132,7 +137,7 @@ const WATER_F = {
 // of bug from VISUAL-LAYER-DIAGNOSIS.md the moment it could occur.
 for (const k of BEACH_KEYS) _assertFrameTableMatch(k, 5, 3);
 _assertFrameTableMatch(GRASS_KEY, 16, 10);
-_assertFrameTableMatch(WATER_KEY, 6, 3);
+_assertFrameTableMatch(WATER_KEY, 3, 5);
 
 // Water foam animation key (20 cols x 3 rows = 60 frames)
 const FOAM_KEY = 'kenmi-desert-tiles-desert-water-foam-animation';
@@ -335,8 +340,8 @@ const BIOME_TILESETS = {
     sandCols: 5,
     grassKey: 'kenmi-base-tiles-grass-grass-tiles-3',
     grassCols: 16,
-    waterKey: 'kenmi-desert-tiles-desert-water-tiles-1',
-    waterCols: 6,
+    waterKey: 'kenmi-base-tiles-water-water-tile-3',
+    waterCols: 3,
     foamKey: 'kenmi-desert-tiles-desert-water-foam-animation',
     foamCols: 20,
   },
@@ -885,6 +890,17 @@ export class MapLoader {
       this._addFoamOverlay(px, py, nForeign, sForeign, wForeign, eForeign);
     }
 
+    // Add water inner corner overlays for desert biome
+    if (this._currentBiome === 'desert') {
+      const nwWater = (ty > 0 && tx > 0) ? groundData[ty-1][tx-1] === WATER : false;
+      const neWater = (ty > 0 && tx < mapW-1) ? groundData[ty-1][tx+1] === WATER : false;
+      const swWater = (ty < mapH-1 && tx > 0) ? groundData[ty+1][tx-1] === WATER : false;
+      const seWater = (ty < mapH-1 && tx < mapW-1) ? groundData[ty+1][tx+1] === WATER : false;
+      if (nwWater || neWater || swWater || seWater) {
+        this._addWaterOverlay(px, py, nForeign, sForeign, wForeign, eForeign, nwWater, neWater, swWater, seWater);
+      }
+    }
+
     return sprite;
   }
 
@@ -1067,6 +1083,23 @@ export class MapLoader {
     if (neGrass && !nGrass && !eGrass) addOverlayFrame(GRASS_F.INNER_TR);
     if (swGrass && !sGrass && !wGrass) addOverlayFrame(GRASS_F.INNER_BL);
     if (seGrass && !sGrass && !eGrass) addOverlayFrame(GRASS_F.INNER_BR);
+  }
+
+  _addWaterOverlay(px, py, nForeign, sForeign, wForeign, eForeign, nwWater = false, neWater = false, swWater = false, seWater = false) {
+    if (!this.scene.textures.exists(WATER_KEY)) return;
+
+    const addOverlayFrame = (frame) => {
+      const overlay = this.scene.add.image(px, py, WATER_KEY, this._safeFrame(WATER_KEY, frame));
+      overlay.setScale(KENMI_SCALE);
+      overlay.setDepth(1);
+      this.groundSprites.push(overlay);
+    };
+
+    // Concave (inner) corners: no diagonal water but cardinal water on both sides
+    if (!nwWater && !nForeign && !wForeign) addOverlayFrame(WATER_F.INNER_TL);
+    if (!neWater && !nForeign && !eForeign) addOverlayFrame(WATER_F.INNER_TR);
+    if (!swWater && !sForeign && !wForeign) addOverlayFrame(WATER_F.INNER_BL);
+    if (!seWater && !sForeign && !eForeign) addOverlayFrame(WATER_F.INNER_BR);
   }
   // ================================================================
   // Water edge effects
