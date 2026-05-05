@@ -686,10 +686,10 @@ export class MapLoader {
         const varHash = tileHash(tx, ty, 99);
         frame = solidFrames[Math.floor(varHash * solidFrames.length)];
       } else {
-        // Non-desert: 3×3 auto-tile block at top-left of sheet, center solid = row1,col1
+        // Non-desert: SAND auto-tile block at rows 5-7 (offset cols*5 from GRASS rows 0-2)
         const cols = cfg.sandCols;
-        const solidCenter = cols + 1;
-        const solidVariants = [solidCenter, solidCenter + 1, solidCenter + 2];
+        const solidCenter = cols * 6 + 1;
+        const solidVariants = [solidCenter];
         const varHash = tileHash(tx, ty, 99);
         frame = solidVariants[Math.floor(varHash * solidVariants.length)];
       }
@@ -722,12 +722,12 @@ export class MapLoader {
     if (this._currentBiome === 'desert') {
       frame = this._pickSandWaterFrame(nWater, sWater, wWater, eWater, groundData, tx, ty, mapW, mapH);
     } else {
-      // Non-desert: use generic 3×3 auto-tile edge frames
+      // Non-desert: SAND auto-tile edge frames at rows 5-7 (offset cols*5 from GRASS rows 0-2)
       const cols = cfg.sandCols;
-      const TL = 0, T = 1, TR = 2;
-      const L = cols, R = cols + 2;
-      const BL = cols * 2, B = cols * 2 + 1, BR = cols * 2 + 2;
-      const solidCenter = cols + 1;
+      const TL = cols * 5, T = cols * 5 + 1, TR = cols * 5 + 2;
+      const L = cols * 6, R = cols * 6 + 2;
+      const BL = cols * 7, B = cols * 7 + 1, BR = cols * 7 + 2;
+      const solidCenter = cols * 6 + 1;
       frame = this._pickEdgeFrame(nWater, sWater, wWater, eWater, TL, T, TR, L, B, R, solidCenter, BL, BR);
     }
 
@@ -816,13 +816,12 @@ export class MapLoader {
         );
       }
     } else {
-      // Non-desert grass: use 3×3 auto-tile block at top-left of sheet
-      const cols = cfg.grassCols; // 16 for base grass
-      const TL = 0, T = 1, TR = 2;
-      const L = cols, CENTER = cols * 9 + 5, R = cols + 2;
-      const BL = cols * 2, B = cols * 2 + 1, BR = cols * 2 + 2;
+      // Non-desert grass: use 3×3 auto-tile block at rows 0-2 (GRASS section)
+      const cols = cfg.grassCols;
+      const TL = cols * 5, T = cols * 5 + 1, TR = cols * 5 + 2;
+      const L = cols * 6, CENTER = cols * 9 + 5, R = cols * 6 + 2;
+      const BL = cols * 7, B = cols * 7 + 1, BR = cols * 7 + 2;
       if (!nForeign && !sForeign && !wForeign && !eForeign) {
-        // Solid fill variants from rows 1-2
         const solids = [CENTER, CENTER + 1, CENTER + 2];
         frame = solids[Math.floor(hash * solids.length)];
       } else {
