@@ -885,11 +885,7 @@ export class MapLoader {
     const sprite = this.scene.add.image(px, py, waterKey, this._safeFrame(waterKey, frame));
     sprite.setScale(KENMI_SCALE);
 
-    // Add foam animation overlay on water tiles that border land
-    if (nForeign || sForeign || wForeign || eForeign) {
-      this._addFoamOverlay(px, py, nForeign, sForeign, wForeign, eForeign);
-    }
-
+   
     // Add water inner corner overlays for desert biome
     if (this._currentBiome === 'desert') {
       const nwWater = (ty > 0 && tx > 0) ? groundData[ty-1][tx-1] === WATER : false;
