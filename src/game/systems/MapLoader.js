@@ -819,11 +819,11 @@ export class MapLoader {
       // Non-desert grass: use 3×3 auto-tile block at top-left of sheet
       const cols = cfg.grassCols; // 16 for base grass
       const TL = 0, T = 1, TR = 2;
-      const L = cols, CENTER = cols + 1, R = cols + 2;
+      const L = cols, CENTER = cols * 9 + 5, R = cols + 2;
       const BL = cols * 2, B = cols * 2 + 1, BR = cols * 2 + 2;
       if (!nForeign && !sForeign && !wForeign && !eForeign) {
         // Solid fill variants from rows 1-2
-        const solids = [CENTER, CENTER + 1, cols * 2 + 1, cols * 2 + 2];
+        const solids = [CENTER, CENTER + 1, CENTER + 2];
         frame = solids[Math.floor(hash * solids.length)];
       } else {
         frame = this._pickEdgeFrame(nForeign, sForeign, wForeign, eForeign, TL, T, TR, L, B, R, CENTER, BL, BR);
