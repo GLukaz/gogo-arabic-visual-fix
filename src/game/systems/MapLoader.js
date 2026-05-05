@@ -54,22 +54,22 @@ const BEACH_COLS = 5;
 const BEACH = {
   // Sand-water border edges (sand with water cutout)
   CORNER_TL: 0,                       // (0,0) top-left corner
-  EDGE_TOP:  1,                        // (1,0) top edge — sand above, water below
-  CORNER_TR: 2,                        // (2,0) top-right corner
-  SAND_SOLID: 3,                       // (3,0) solid sand fill
-  WATER_POOL: 4,                       // (4,0) solid water pool
+  EDGE_TOP:  1,                     
+  CORNER_TR: 2,                     
+  SAND_SOLID: BEACH_COLS + 1,         
+  WATER_POOL: BEACH_COLS * 2 + 3,       
 
-  EDGE_LEFT:   BEACH_COLS + 0,        // (0,1) left edge — sand left, water right
-  WATER_CENTER: BEACH_COLS + 1,       // (1,1) water surrounded by sand
-  EDGE_RIGHT:  BEACH_COLS + 2,        // (2,1) right edge — sand right, water left
-  SAND_VAR_1:  BEACH_COLS + 3,        // (3,1) inner sand variant
-  WATER_VAR:   BEACH_COLS + 4,        // (4,1) water variant
+  EDGE_LEFT:   BEACH_COLS + 0,      
+  WATER_CENTER: BEACH_COLS * 2 + 3,   
+  EDGE_RIGHT:  BEACH_COLS + 2,      
+  SAND_VAR_1:  BEACH_COLS + 1,      
+  WATER_VAR:   BEACH_COLS * 2 + 3,    
 
-  CORNER_BL:   BEACH_COLS * 2 + 0,   // (0,2) bottom-left corner
-  EDGE_BOTTOM: BEACH_COLS * 2 + 1,   // (1,2) bottom edge — sand below, water above
-  CORNER_BR:   BEACH_COLS * 2 + 2,   // (2,2) bottom-right corner
-  SAND_VAR_2:  BEACH_COLS * 2 + 3,   // (3,2) sand variant 2
-  WATER_INNER: BEACH_COLS * 2 + 4,   // (4,2) water inner
+  CORNER_BL:   BEACH_COLS * 2 + 0,  
+  EDGE_BOTTOM: BEACH_COLS * 2 + 1,  
+  CORNER_BR:   BEACH_COLS * 2 + 2,  
+  SAND_VAR_2:  BEACH_COLS + 1,   
+  WATER_INNER: BEACH_COLS * 2 + 3,  
 };
 
 // Grass tileset (3 cols x 5 rows = 15 frames)
