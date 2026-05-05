@@ -762,8 +762,8 @@ export class MapLoader {
 
     let frame;
     if (this._currentBiome === 'desert') {
-      // Desert grass: 3 cols x 5 rows
-      if (!nForeign && !sForeign && !wForeign && !eForeign) {
+      //  (path in grass, reversed logic)
+      if (nForeign || sForeign || wForeign || eForeign) {
         const solids = [GRASS_F.SOLID, GRASS_F.VAR_1, GRASS_F.VAR_2, GRASS_F.VAR_3];
         frame = solids[Math.floor(hash * solids.length)];
       } else {
