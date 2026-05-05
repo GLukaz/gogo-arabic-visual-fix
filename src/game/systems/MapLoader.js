@@ -816,16 +816,16 @@ export class MapLoader {
         );
       }
     } else {
-      // Non-desert grass: use 3×3 auto-tile block at rows 0-2 (GRASS section)
+      // Non-desert grass: inverted edge logic (sand outside, grass inside) + inner corners
       const cols = cfg.grassCols;
-      const TL = cols * 5, T = cols * 5 + 1, TR = cols * 5 + 2;
-      const L = cols * 6, CENTER = cols * 9 + 5, R = cols * 6 + 2;
-      const BL = cols * 7, B = cols * 7 + 1, BR = cols * 7 + 2;
+      const T = cols * 5 + 1, L = cols * 6, CENTER = cols * 9 + 5, R = cols * 6 + 2, B = cols * 7 + 1;
+      const INNER_TL = cols * 8, INNER_TR = cols * 8 + 1;
+      const INNER_BL = cols * 9, INNER_BR = cols * 9 + 1;
       if (!nForeign && !sForeign && !wForeign && !eForeign) {
         const solids = [CENTER, CENTER + 1, CENTER + 2];
         frame = solids[Math.floor(hash * solids.length)];
       } else {
-        frame = this._pickEdgeFrame(nForeign, sForeign, wForeign, eForeign, TL, T, TR, L, B, R, CENTER, BL, BR);
+        frame = this._pickEdgeFrame(nForeign, sForeign, wForeign, eForeign, INNER_TL, B, INNER_TR, R, T, L, CENTER, INNER_BL, INNER_BR);
       }
     }
 
