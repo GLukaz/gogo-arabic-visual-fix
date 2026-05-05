@@ -85,6 +85,11 @@ const GRASS_F = {
   CORNER_BL:  GRASS_COLS * 7 ,
   EDGE_BOTTOM: GRASS_COLS * 7 + 1,
   CORNER_BR:  GRASS_COLS * 7 + 2,
+  // Inner (concave) corners — rows 8-9, cols 0-1
+  INNER_TL: GRASS_COLS * 9 + 1,
+  INNER_TR: GRASS_COLS * 9 + 0,
+  INNER_BL: GRASS_COLS * 8 + 1,
+  INNER_BR: GRASS_COLS * 8 + 0,
   // Variants in rows 3-4
   VAR_1: GRASS_COLS * 9 + 6,
   VAR_2: GRASS_COLS * 9 + 7,
@@ -686,6 +691,19 @@ export class MapLoader {
       if (this._currentBiome === 'snow' && cfg.sandTint) {
         sprite.setTint(cfg.sandTint);
       }
+      if (this._currentBiome === 'desert') {
+        const nGrass = neighbors.n === GRASS;
+        const sGrass = neighbors.s === GRASS;
+        const wGrass = neighbors.w === GRASS;
+        const eGrass = neighbors.e === GRASS;
+        const nwGrass = (ty > 0 && tx > 0) ? groundData[ty-1][tx-1] === GRASS : false;
+        const neGrass = (ty > 0 && tx < mapW-1) ? groundData[ty-1][tx+1] === GRASS : false;
+        const swGrass = (ty < mapH-1 && tx > 0) ? groundData[ty+1][tx-1] === GRASS : false;
+        const seGrass = (ty < mapH-1 && tx < mapW-1) ? groundData[ty+1][tx+1] === GRASS : false;
+        if (nGrass || sGrass || wGrass || eGrass || nwGrass || neGrass || swGrass || seGrass) {
+          this._addGrassOverlay(px, py, nGrass, sGrass, wGrass, eGrass, nwGrass, neGrass, swGrass, seGrass);
+        }
+      }
       return sprite;
     }
 
@@ -709,6 +727,20 @@ export class MapLoader {
     sprite.setScale(KENMI_SCALE);
     if (this._currentBiome === 'snow' && cfg.sandTint) {
       sprite.setTint(cfg.sandTint);
+    }
+
+    if (this._currentBiome === 'desert') {
+      const nGrass = neighbors.n === GRASS;
+      const sGrass = neighbors.s === GRASS;
+      const wGrass = neighbors.w === GRASS;
+      const eGrass = neighbors.e === GRASS;
+      const nwGrass = (ty > 0 && tx > 0) ? groundData[ty-1][tx-1] === GRASS : false;
+      const neGrass = (ty > 0 && tx < mapW-1) ? groundData[ty-1][tx+1] === GRASS : false;
+      const swGrass = (ty < mapH-1 && tx > 0) ? groundData[ty+1][tx-1] === GRASS : false;
+      const seGrass = (ty < mapH-1 && tx < mapW-1) ? groundData[ty+1][tx+1] === GRASS : false;
+      if (nGrass || sGrass || wGrass || eGrass || nwGrass || neGrass || swGrass || seGrass) {
+        this._addGrassOverlay(px, py, nGrass, sGrass, wGrass, eGrass, nwGrass, neGrass, swGrass, seGrass);
+      }
     }
     return sprite;
   }
@@ -1009,6 +1041,33 @@ export class MapLoader {
     this.groundSprites.push(foam);
   }
 
+
+  _addGrassOverlay(px, py, nGrass, sGrass, wGrass, eGrass, nwGrass = false, neGrass = false, swGrass = false, seGrass = false) {
+    if (!this.scene.textures.exists(GRASS_KEY)) return;
+
+    const addOverlayFrame = (frame) => {
+      const overlay = this.scene.add.image(px, py, GRASS_KEY, this._safeFrame(GRASS_KEY, frame));
+      overlay.setScale(KENMI_SCALE);
+      overlay.setDepth(1);
+      this.groundSprites.push(overlay);
+    };
+
+    // Cardinal edges and convex corners
+    const frame = this._pickEdgeFrame(
+      nGrass, sGrass, wGrass, eGrass,
+      GRASS_F.CORNER_TL, GRASS_F.EDGE_TOP, GRASS_F.CORNER_TR,
+      GRASS_F.EDGE_LEFT, GRASS_F.EDGE_BOTTOM, GRASS_F.EDGE_RIGHT,
+      null,
+      GRASS_F.CORNER_BL, GRASS_F.CORNER_BR
+    );
+    if (frame !== null) addOverlayFrame(frame);
+
+    // Concave (inner) corners: diagonal grass with no adjacent cardinal grass
+    if (nwGrass && !nGrass && !wGrass) addOverlayFrame(GRASS_F.INNER_TL);
+    if (neGrass && !nGrass && !eGrass) addOverlayFrame(GRASS_F.INNER_TR);
+    if (swGrass && !sGrass && !wGrass) addOverlayFrame(GRASS_F.INNER_BL);
+    if (seGrass && !sGrass && !eGrass) addOverlayFrame(GRASS_F.INNER_BR);
+  }
   // ================================================================
   // Water edge effects
   // ================================================================
