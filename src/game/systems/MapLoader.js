@@ -1,6 +1,20 @@
 import { TILE, SAND, GRASS, WATER, ICE_GRASS, STONE, WOOD } from '../../data/zones.js';
 import { SPRITE_KEY_MAP, BIOME_DECORATION_SETS, BIOME_ANIMAL_SETS } from '../../data/spriteKeyMap.js';
 import { KENMI_FRAME_TABLES } from '../../data/kenmiFrameTables.js';
+import { KENMI_CATALOG } from '../../data/kenmiCatalog.js';
+import { SHARED_ASSETS } from '../../data/zoneAssetManifests.js';
+
+// Lazy key→original-path lookup built from the asset manifests.
+// Used by the ?autotileDebug=1 tooltip so the displayed filename is the
+// authored source PNG, not a Vite-rewritten/hashed runtime URL.
+let _ASSET_KEY_TO_PATH = null;
+function getAssetKeyToPath() {
+  if (_ASSET_KEY_TO_PATH) return _ASSET_KEY_TO_PATH;
+  _ASSET_KEY_TO_PATH = new Map();
+  for (const entry of KENMI_CATALOG) _ASSET_KEY_TO_PATH.set(entry.key, entry.path);
+  for (const entry of SHARED_ASSETS) _ASSET_KEY_TO_PATH.set(entry.key, entry.path);
+  return _ASSET_KEY_TO_PATH;
+}
 
 // ================================================================
 // Kenmi 16x16 desert tileset keys & frame maps
@@ -402,6 +416,72 @@ export class MapLoader {
     this.wallGroup = null;
     this.exitTriggers = [];
     this.activeTweens = [];
+
+    // ?autotileDebug=1 — overlay every ground tile with its frame index and texture key
+    this._autotileDebug = false;
+    if (typeof window !== 'undefined' && window.location && window.location.search) {
+      this._autotileDebug = new URLSearchParams(window.location.search).get('autotileDebug') === '1';
+    }
+  }
+
+  /**
+   * When ?autotileDebug=1 is set, make the tile interactive and show a single
+   * shared tooltip with frame index + texture key while the mouse hovers it.
+   * The shared label is pushed into groundSprites so it gets destroyed on teardown.
+   */
+  _addTileDebugLabel(sprite, px, py) {
+    if (!this._autotileDebug || !sprite) return;
+
+    if (!this._debugHoverLabel) {
+      this._debugHoverLabel = this.scene.add.text(0, 0, '', {
+        fontFamily: 'monospace',
+        fontSize: '12px',
+        color: '#ffff00',
+        backgroundColor: 'rgba(0,0,0,0.85)',
+        align: 'center',
+        padding: { x: 4, y: 2 },
+        resolution: 2,
+      });
+      this._debugHoverLabel.setOrigin(0.5, 1);
+      this._debugHoverLabel.setDepth(99999);
+      this._debugHoverLabel.setVisible(false);
+      this.groundSprites.push(this._debugHoverLabel);
+    }
+
+    sprite.setInteractive();
+    sprite.on('pointerover', () => {
+      const key = (sprite.texture && sprite.texture.key) || '?';
+      const frameName = sprite.frame ? String(sprite.frame.name) : '?';
+      const file = this._getTextureFilename(sprite.texture);
+      this._debugHoverLabel.setText(`${frameName}\n${key}\n${file}`);
+      this._debugHoverLabel.setPosition(px, py - TILE / 2 - 2);
+      this._debugHoverLabel.setVisible(true);
+    });
+    sprite.on('pointerout', () => {
+      this._debugHoverLabel.setVisible(false);
+    });
+  }
+
+  /**
+   * Extract the original source PNG filename (e.g. "desert-beach-tiles-1.png")
+   * for a Phaser Texture. Prefers the asset manifest (authored path, stable
+   * across Vite hashing) and falls back to the runtime image URL.
+   */
+  _getTextureFilename(texture) {
+    const key = texture && texture.key;
+    const manifestPath = key && getAssetKeyToPath().get(key);
+    if (manifestPath) {
+      return manifestPath.substring(manifestPath.lastIndexOf('/') + 1) || manifestPath;
+    }
+    const src = texture && texture.source && texture.source[0];
+    const url = src && src.image && src.image.src;
+    if (!url) return '?';
+    try {
+      const path = new URL(url, window.location.origin).pathname;
+      return path.substring(path.lastIndexOf('/') + 1) || path;
+    } catch {
+      return url.substring(url.lastIndexOf('/') + 1) || url;
+    }
   }
 
   /**
@@ -413,6 +493,7 @@ export class MapLoader {
     this.decoSprites = [];
     this.animalSprites = [];
     this.exitTriggers = [];
+    this._debugHoverLabel = null;
     this.activeTweens.forEach((t) => { if (t) t.remove(); });
     this.activeTweens = [];
 
@@ -514,6 +595,7 @@ export class MapLoader {
           sprite = this.scene.add.image(px, py, 'tile-sand');
         }
         this.groundSprites.push(sprite);
+        this._addTileDebugLabel(sprite, px, py);
       }
     }
   }
@@ -558,6 +640,7 @@ export class MapLoader {
 
         sprite.setDepth(0);
         this.groundSprites.push(sprite);
+        this._addTileDebugLabel(sprite, px, py);
       }
     }
   }
