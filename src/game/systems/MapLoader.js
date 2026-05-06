@@ -638,7 +638,7 @@ export class MapLoader {
         switch (tileType) {
           case GRASS:
           case ICE_GRASS:
-            sprite = this._renderGrassTile(px, py, n, hash, tileType);
+            sprite = this._renderGrassTile(px, py, n, hash, tileType,groundData, x, y, mapW, mapH);
             break;
           case WATER:
             sprite = this._renderWaterTile(px, py, n, hash, groundData, x, y, mapW, mapH);
@@ -795,13 +795,14 @@ export class MapLoader {
    * Render a grass tile with auto-tiling edges.
    * Uses biome config to select the correct grass spritesheet.
    */
-  _renderGrassTile(px, py, neighbors, hash, tileType) {
+  _renderGrassTile(px, py, neighbors, hash, tileType, groundData, tx, ty, mapW, mapH) {
     const cfg = this._currentBiomeConfig;
-    const isGrassLike = (t) => t === GRASS || t === ICE_GRASS;
+    const isGrassLike = (t) => t === GRASS || t === ICE_GRASS || t=== WATER; // treat water as "grass-like" for grass edge rendering (sand is the "foreign" type)
     const nForeign = !isGrassLike(neighbors.n);
     const sForeign = !isGrassLike(neighbors.s);
     const wForeign = !isGrassLike(neighbors.w);
     const eForeign = !isGrassLike(neighbors.e);
+
 
     let frame;
     if (this._currentBiome === 'desert') {
@@ -820,16 +821,7 @@ export class MapLoader {
       }
     } else {
       // Non-desert grass: inverted edge logic (sand outside, grass inside) + inner corners
-      const cols = cfg.grassCols;
-      const T = cols * 5 + 1, L = cols * 6, CENTER = cols * 9 + 5, R = cols * 6 + 2, B = cols * 7 + 1;
-      const INNER_TL = cols * 8, INNER_TR = cols * 8 + 1;
-      const INNER_BL = cols * 9, INNER_BR = cols * 9 + 1;
-      if (!nForeign && !sForeign && !wForeign && !eForeign) {
-        const solids = [CENTER, CENTER + 1, CENTER + 2];
-        frame = solids[Math.floor(hash * solids.length)];
-      } else {
-        frame = this._pickEdgeFrame(nForeign, sForeign, wForeign, eForeign, INNER_TL, B, INNER_TR, R, T, L, CENTER, INNER_BL, INNER_BR);
-      }
+        frame = this._pickGrassForeignFrame(nForeign, sForeign, wForeign, eForeign, hash, groundData, tx, ty, mapW, mapH);
     }
 
     const grassKey = cfg.grassKey;
@@ -845,6 +837,46 @@ export class MapLoader {
 
     return sprite;
   }
+
+  _pickGrassForeignFrame(nForeign, sForeign, wForeign, eForeign, hash, groundData, tx, ty, mapW, mapH) {
+    const cfg = this._currentBiomeConfig;
+    const cols = cfg.grassCols;
+    const T = cols * 5 + 1, L = cols * 6, CENTER = cols * 9 + 5, R = cols * 6 + 2, B = cols * 7 + 1;
+    const INNER_TL = cols * 9 + 1, INNER_TR = cols * 9;
+    const INNER_BL = cols * 8 + 1, INNER_BR = cols * 8;
+    const TL = cols * 5, TR = cols * 5 + 2, BL = cols * 7, BR = cols * 7 + 2;
+
+    const isGrassLike = (t) => t === GRASS || t === ICE_GRASS || t=== WATER; // treat water as "grass-like" for grass edge rendering (sand is the "foreign" type)
+   
+    // Also check diagonal neighbors for corner detection
+    const nw = (ty > 0 && tx > 0) ? !isGrassLike(groundData[ty - 1][tx - 1]) : false;
+    const ne = (ty > 0 && tx < mapW - 1) ? !isGrassLike(groundData[ty - 1][tx + 1]) : false;
+    const sw = (ty < mapH - 1 && tx > 0) ? !isGrassLike(groundData[ty + 1][tx - 1]) : false;
+    const se = (ty < mapH - 1 && tx < mapW - 1) ? !isGrassLike(groundData[ty + 1][tx + 1]) : false;
+
+    // Two-edge corners (L-shaped  borders)
+    if (nForeign && wForeign) return INNER_BR;  //  BR corner
+    if (nForeign && eForeign) return INNER_BL;  //  BL corner
+    if (sForeign && wForeign) return INNER_TR;  //  TR corner
+    if (sForeign && eForeign) return INNER_TL;  //  TL corner
+
+    // Single cardinal edges
+    if (nForeign) return B; // above -> bottom edge of island
+    if (sForeign) return T;    // below -> top edge of island
+    if (wForeign) return R;  // left -> right edge of island
+    if (eForeign) return L;   // right -> left edge of island
+
+    // corners (only diagonal water neighbor)
+    if (nw) return BR;
+    if (ne) return BL;
+    if (sw) return TR;
+    if (se) return TL;
+
+    // Fallback to solid sand
+    const solids = [CENTER, CENTER + 1, CENTER + 2];
+    return solids[Math.floor(hash * solids.length)];
+  }
+
 
   /**
    * Render a water tile with auto-tiling edges.
