@@ -672,7 +672,11 @@ export class MapLoader {
     const sWater = neighbors.s === WATER;
     const wWater = neighbors.w === WATER;
     const eWater = neighbors.e === WATER;
-    const hasWaterNeighbor = nWater || sWater || wWater || eWater;
+    const nwWater = (ty > 0 && tx > 0) ? groundData[ty - 1][tx - 1] === WATER : false;
+    const neWater = (ty > 0 && tx < mapW - 1) ? groundData[ty - 1][tx + 1] === WATER : false;
+    const swWater = (ty < mapH - 1 && tx > 0) ? groundData[ty + 1][tx - 1] === WATER : false;
+    const seWater = (ty < mapH - 1 && tx < mapW - 1) ? groundData[ty + 1][tx + 1] === WATER : false;
+    const hasWaterNeighbor = nWater || sWater || wWater || eWater || nwWater || neWater || swWater || seWater;
 
     if (!hasWaterNeighbor) {
       // Solid sand — pick from biome color variants for visual variety
@@ -725,12 +729,7 @@ export class MapLoader {
       frame = this._pickSandWaterFrame(nWater, sWater, wWater, eWater, groundData, tx, ty, mapW, mapH);
     } else {
       // Non-desert: SAND auto-tile edge frames at rows 5-7 (offset cols*5 from GRASS rows 0-2)
-      const cols = cfg.sandCols;
-      const TL = cols * 5, T = cols * 5 + 1, TR = cols * 5 + 2;
-      const L = cols * 6, R = cols * 6 + 2;
-      const BL = cols * 7, B = cols * 7 + 1, BR = cols * 7 + 2;
-      const solidCenter = cols * 6 + 1;
-      frame = this._pickEdgeFrame(nWater, sWater, wWater, eWater, TL, T, TR, L, B, R, solidCenter, BL, BR);
+        frame = this._pickSandWaterFrameNoDesert(nWater, sWater, wWater, eWater, groundData, tx, ty, mapW, mapH);
     }
 
     const sprite = this.scene.add.image(px, py, key, this._safeFrame(key, frame));
@@ -791,6 +790,44 @@ export class MapLoader {
     return BEACH.SAND_SOLID;
   }
 
+
+  _pickSandWaterFrameNoDesert(nWater, sWater, wWater, eWater, groundData, tx, ty, mapW, mapH) {
+    const cfg = this._currentBiomeConfig;
+    const cols = cfg.sandCols;
+    const TL = cols * 5, T = cols * 5 + 1, TR = cols * 5 + 2;
+    const L = cols * 6, R = cols * 6 + 2;
+    const BL = cols * 7, B = cols * 7 + 1, BR = cols * 7 + 2;
+    const solidCenter = cols * 6 + 1;
+    const INNER_TL = cols * 9 + 1, INNER_TR = cols * 9;
+    const INNER_BL = cols * 8 + 1, INNER_BR = cols * 8;
+   
+    // Also check diagonal neighbors for corner detection
+    const nw = (ty > 0 && tx > 0) ? groundData[ty - 1][tx - 1] === WATER : false;
+    const ne = (ty > 0 && tx < mapW - 1) ? groundData[ty - 1][tx + 1] === WATER : false;
+    const sw = (ty < mapH - 1 && tx > 0) ? groundData[ty + 1][tx - 1] === WATER : false;
+    const se = (ty < mapH - 1 && tx < mapW - 1) ? groundData[ty + 1][tx + 1] === WATER : false;
+
+    // Two-edge corners (L-shaped water borders) — original directions
+    if (nWater && wWater) return BR;
+    if (nWater && eWater) return BL;
+    if (sWater && wWater) return TR;
+    if (sWater && eWater) return TL;
+
+    // Single cardinal edges — inverted
+    if (nWater) return T;
+    if (sWater) return B;
+    if (wWater) return L;
+    if (eWater) return R;
+
+    // Inner corners (only diagonal water neighbor) — inverted
+    if (nw) return INNER_TL;
+    if (ne) return INNER_TR;
+    if (sw) return INNER_BL;
+    if (se) return INNER_BR;
+
+    // Fallback to solid sand
+    return solidCenter;
+  }
   /**
    * Render a grass tile with auto-tiling edges.
    * Uses biome config to select the correct grass spritesheet.
