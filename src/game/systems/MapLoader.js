@@ -884,7 +884,17 @@ export class MapLoader {
     const TL = cols * 5, TR = cols * 5 + 2, BL = cols * 7, BR = cols * 7 + 2;
 
     const isGrassLike = (t) => t === GRASS || t === ICE_GRASS || t=== WATER; // treat water as "grass-like" for grass edge rendering (sand is the "foreign" type)
-   
+
+    // Water-specific cardinal checks (water is grass-like, but we need to distinguish it for mixed corners)
+    const nWater = (ty > 0) ? groundData[ty - 1][tx] === WATER : false;
+    const sWater = (ty < mapH - 1) ? groundData[ty + 1][tx] === WATER : false;
+    const wWater = (tx > 0) ? groundData[ty][tx - 1] === WATER : false;
+    const eWater = (tx < mapW - 1) ? groundData[ty][tx + 1] === WATER : false;
+    const nwWater = (ty > 0 && tx > 0) ? groundData[ty - 1][tx - 1] === WATER : false;
+    const neWater = (ty > 0 && tx < mapW - 1) ? groundData[ty - 1][tx + 1] === WATER : false;
+    const swWater = (ty < mapH - 1 && tx > 0) ? groundData[ty + 1][tx - 1] === WATER : false;
+    const seWater = (ty < mapH - 1 && tx < mapW - 1) ? groundData[ty + 1][tx + 1] === WATER : false;
+
     // Also check diagonal neighbors for corner detection
     const nw = (ty > 0 && tx > 0) ? !isGrassLike(groundData[ty - 1][tx - 1]) : false;
     const ne = (ty > 0 && tx < mapW - 1) ? !isGrassLike(groundData[ty - 1][tx + 1]) : false;
@@ -897,6 +907,28 @@ export class MapLoader {
     if (sForeign && wForeign) return INNER_TR;  //  TR corner
     if (sForeign && eForeign) return INNER_TL;  //  TL corner
 
+    // Mixed grass/water/sand outer corners: sand on one vertical cardinal + water on one horizontal cardinal
+    if (sForeign && eWater && !nForeign && !wForeign) return TR;
+    if (sForeign && wWater && !nForeign && !eForeign) return TL;
+    if (nForeign && eWater && !sForeign && !wForeign) return BR;
+    if (nForeign && wWater && !sForeign && !eForeign) return BL;
+
+    // Mixed grass/water/sand outer corners: sand on one horizontal cardinal + water on one vertical cardinal
+    if (wForeign && nWater && !sForeign && !eForeign) return TR;
+    if (eForeign && nWater && !sForeign && !wForeign) return TL;
+    if (wForeign && sWater && !nForeign && !eForeign) return BR;
+    if (eForeign && sWater && !nForeign && !wForeign) return BL;
+
+    // Mixed grass/water/sand outer corners: sand on one cardinal + water on adjacent diagonal
+    if (eForeign && neWater && !wForeign && !nForeign) return TL;
+    if (eForeign && seWater && !wForeign && !sForeign) return BL;
+    if (wForeign && nwWater && !eForeign && !nForeign) return TR;
+    if (wForeign && swWater && !eForeign && !sForeign) return BR;
+    if (nForeign && nwWater && !sForeign && !wForeign) return BL;
+    if (nForeign && neWater && !sForeign && !eForeign) return BR;
+    if (sForeign && swWater && !nForeign && !wForeign) return TL;
+    if (sForeign && seWater && !nForeign && !eForeign) return TR;
+
     // Single cardinal edges
     if (nForeign) return B; // above -> bottom edge of island
     if (sForeign) return T;    // below -> top edge of island
@@ -904,10 +936,10 @@ export class MapLoader {
     if (eForeign) return L;   // right -> left edge of island
 
     // corners (only diagonal water neighbor)
-    if (nw) return BR;
-    if (ne) return BL;
-    if (sw) return TR;
-    if (se) return TL;
+    if (nw && !swWater) return BR;
+    if (ne && !seWater) return BL;
+    if (sw && !nwWater) return TR;
+    if (se && !neWater) return TL;
 
     // Fallback to solid sand
     const solids = [CENTER, CENTER + 1, CENTER + 2];
