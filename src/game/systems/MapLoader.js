@@ -3,6 +3,7 @@ import { SPRITE_KEY_MAP, BIOME_DECORATION_SETS, BIOME_ANIMAL_SETS } from '../../
 import { KENMI_FRAME_TABLES } from '../../data/kenmiFrameTables.js';
 import { KENMI_CATALOG } from '../../data/kenmiCatalog.js';
 import { SHARED_ASSETS } from '../../data/zoneAssetManifests.js';
+import ReplaceColorPipeline from './ReplaceColorPipeline.js';
 
 // Lazy key→original-path lookup built from the asset manifests.
 // Used by the ?autotileDebug=1 tooltip so the displayed filename is the
@@ -432,6 +433,8 @@ export class MapLoader {
     if (typeof window !== 'undefined' && window.location && window.location.search) {
       this._autotileDebug = new URLSearchParams(window.location.search).get('autotileDebug') === '1';
     }
+
+    scene.renderer.pipelines.add('ReplaceColor', new ReplaceColorPipeline(scene.game));
   }
 
   /**
@@ -868,8 +871,28 @@ export class MapLoader {
 
     // Ice-grass tint: use biome-aware tint if available, fall back to default
     if (tileType === ICE_GRASS) {
-      const iceTint = (cfg && cfg.iceGrassTint) || 0x99ccff;
-      sprite.setTint(iceTint);
+      // const iceTint = (cfg && cfg.iceGrassTint) || 0x99ccff;
+    
+      sprite.setPipeline('ReplaceColor');
+      const pipeline = sprite.pipeline;
+
+      if(this._currentBiome === 'desert')
+      {
+        pipeline.set3f(
+          'targetColor',
+          0.486, // R
+          0.588, // G
+          0.235  // B
+        );
+      }
+      else{
+        pipeline.set3f(
+          'targetColor',
+          0.243, // R
+          0.537, // G
+          0.282  // B
+        );
+      }
     }
 
     return sprite;
