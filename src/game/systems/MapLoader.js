@@ -869,10 +869,8 @@ export class MapLoader {
     sprite.setScale(KENMI_SCALE);
     sprite._debugMethod = '_renderGrassTile';
 
-    // Ice-grass tint: use biome-aware tint if available, fall back to default
-    if (tileType === ICE_GRASS) {
-      // const iceTint = (cfg && cfg.iceGrassTint) || 0x99ccff;
-    
+    if (tileType === ICE_GRASS) { 
+      //paint in white and let the shader recolor it, so the same tile can be used for both snow and desert biomes with different tints
       sprite.setPipeline('ReplaceColor');
       const pipeline = sprite.pipeline;
 
