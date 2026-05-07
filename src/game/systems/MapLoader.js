@@ -155,14 +155,27 @@ const PROP_CROP_REGIONS = {
   'kenmi-desert-props-desert-rocks': [
     { x: 0,   y: 0,  w: 16, h: 16 },
     { x: 16,  y: 0,  w: 16, h: 16 },
-    { x: 32,  y: 0,  w: 16, h: 16 },
-    { x: 48,  y: 0,  w: 16, h: 16 },
+    { x: 32,  y: 0,  w: 32, h: 32 },
     { x: 64,  y: 0,  w: 16, h: 16 },
     { x: 80,  y: 0,  w: 16, h: 16 },
-    { x: 0,   y: 16, w: 16, h: 16 },
-    { x: 16,  y: 16, w: 16, h: 16 },
-    { x: 32,  y: 16, w: 16, h: 16 },
-    { x: 48,  y: 16, w: 16, h: 16 },
+    { x: 96,  y: 0,  w: 16, h: 16 },
+    { x: 112,   y: 0, w: 32, h: 32 },
+    { x: 144,  y: 0, w: 16, h: 16 },
+    { x: 160,  y: 0, w: 32, h: 32 },
+    { x: 0,   y: 16,  w: 16, h: 16 },
+    { x: 16,  y: 16,  w: 16, h: 16 },
+    { x: 64,  y: 16,  w: 16, h: 16 },
+    { x: 80,  y: 16,  w: 16, h: 16 },
+    { x: 96,  y: 16,  w: 16, h: 16 },    
+  ],
+  'kenmi-desert-props-palm-tree-1': [
+    { x: 48,  y: 0, w: 48, h: 60 },
+  ],  
+  'kenmi-desert-props-palm-tree-2': [
+    { x: 32,  y: 0, w: 32, h: 48 },
+  ],
+  'kenmi-desert-props-acacia-tree':[
+    { x: 80,  y: 0, w: 80, h: 62 },
   ],
   // desert-pots-sacks.png: 80x16 = 5 cols x 1 row of 16x16
   'kenmi-desert-props-desert-pots-sacks': [
@@ -533,9 +546,9 @@ export class MapLoader {
     // Place world objects
     this.placeObjects(objects);
 
-    this.scatterDecorations(zone, groundData, mapWidth, mapHeight);
+    // this.scatterDecorations(zone, groundData, mapWidth, mapHeight);
 
-    this.spawnAmbientAnimals(zone, groundData, mapWidth, mapHeight);
+    // this.spawnAmbientAnimals(zone, groundData, mapWidth, mapHeight);
 
     // Create exit triggers (signposts at zone edges)
     this.createExitTriggers(exits, mapWidth, mapHeight);
@@ -1408,19 +1421,24 @@ export class MapLoader {
       // Remap old placeholder keys to Kenmi asset keys (backward compatible)
       const kenmiKey = SPRITE_KEY_MAP[obj.key];
       const textureKey = kenmiKey && this.scene.textures.exists(kenmiKey) ? kenmiKey : obj.key;
-      const sprite = this.scene.add.image(px, py, textureKey).setOrigin(0.5, 0.8);
+      const sprite = this.scene.add.image(px, py, textureKey);
 
-      // Kenmi buildings/props are already 80-144px images — do NOT scale 4x.
-      // Only scale if the texture is smaller than a game tile (< 64px wide).
-      if (kenmiKey && this.scene.textures.exists(kenmiKey)) {
-        const tex = this.scene.textures.get(kenmiKey);
-        const srcWidth = tex.source[0]?.width || 64;
-        if (srcWidth <= 32) {
-          sprite.setScale(KENMI_SCALE);
-          sprite.setDepth(py); // Y-sorting based on bottom edge (y + height)
-        }
-        // Otherwise render at native size — Kenmi buildings are already proportional
+      sprite.setOrigin(0.5, 0.8);
+
+      // Select random variation from spritesheet if multi-item prop (2+ regions)
+      // Single-region crops are for large singular objects (e.g. palm trees)
+      const cropRegions = PROP_CROP_REGIONS[textureKey];
+      if (cropRegions && cropRegions.length > 0) {
+        // Multi-item spritesheet: pick random variant
+        const randomIdx = Math.floor(Math.random() * cropRegions.length);
+        const region = cropRegions[randomIdx];
+        sprite.setCrop(region.x, region.y, region.w, region.h);
+        sprite.setScale(KENMI_SCALE);
+      }  else {
+        sprite.setScale(KENMI_SCALE);
       }
+
+      sprite.setDepth(py);
 
       this.objectSprites.push(sprite);
 
