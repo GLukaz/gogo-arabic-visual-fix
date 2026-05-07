@@ -1417,6 +1417,7 @@ export class MapLoader {
         const srcWidth = tex.source[0]?.width || 64;
         if (srcWidth <= 32) {
           sprite.setScale(KENMI_SCALE);
+          sprite.setDepth(py); // Y-sorting based on bottom edge (y + height)
         }
         // Otherwise render at native size — Kenmi buildings are already proportional
       }
