@@ -652,7 +652,7 @@ function buildFarmlandMap() {
   for (let y = 0; y < H; y++) {
     const row = [];
     for (let x = 0; x < W; x++) {
-      let tile = SAND;
+      let tile = GRASS;
       // Large grass fields
       if (x >= 5 && x <= 20 && y >= 5 && y <= 15) tile = GRASS;
       if (x >= 25 && x <= 40 && y >= 5 && y <= 15) tile = GRASS;
