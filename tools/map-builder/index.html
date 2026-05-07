@@ -378,7 +378,14 @@ let generationSpeed = 50;
 
 // Map data: layers[layerIndex][y][x] = { tilesetKey, tileX, tileY } or null
 let layers = [];
+// Snapshot objects: pixel-positioned overlays (buildings, props) drawn on top of tile layers
+// with the same (0.5, 0.8) origin used by in-game MapLoader.placeObjects.
+let snapshotObjects = [];
 const loadedImages = {};
+
+// Game uses 64px world tiles; map-builder renders at TILE_SIZE (32px). Object images are at
+// native game resolution, so scale them to the builder's display tile size.
+const GAME_TILE_PX = 64;
 
 // ---- Canvas Setup ----
 const canvas = document.getElementById('map-canvas');
@@ -527,6 +534,23 @@ function render() {
     }
   }
 
+  // Snapshot object overlays (buildings, props) — anchor (0.5, 0.8), y-sorted for depth.
+  // Mirrors MapLoader.placeObjects so the builder reflects what the game would draw.
+  if (layerVisibility[4] && snapshotObjects.length) {
+    const scale = (TILE_SIZE * zoom) / GAME_TILE_PX;
+    const sorted = [...snapshotObjects].sort((a, b) => a.y - b.y);
+    for (const obj of sorted) {
+      if (!obj.img) continue;
+      const anchorX = (obj.x + 0.5) * TILE_SIZE * zoom;
+      const anchorY = (obj.y + 0.5) * TILE_SIZE * zoom;
+      // Tile-icon kenmi assets (≤32px native) are scaled 4x in-game (KENMI_SCALE).
+      const iconScale = obj.img.width <= 32 ? 4 : 1;
+      const dW = obj.img.width * scale * iconScale;
+      const dH = obj.img.height * scale * iconScale;
+      ctx.drawImage(obj.img, anchorX - dW * 0.5, anchorY - dH * 0.8, dW, dH);
+    }
+  }
+
   // Grid overlay
   if (showGrid) {
     ctx.strokeStyle = 'rgba(255,255,255,0.06)';
@@ -570,6 +594,7 @@ function initLayers() {
     }
     layers.push(layer);
   }
+  snapshotObjects = [];
 }
 
 // ---- Zone Definitions ----
@@ -977,9 +1002,42 @@ async function loadSnapshot(filename) {
       }
     }
 
-    render();
     log(`Placed ${tileCount} tiles`, 'log-done');
-    setStatus(`Loaded snapshot: ${filename} (${tileCount} tiles)`);
+
+    // Load and place objects (buildings, props) as pixel-positioned overlays
+    const snapObjects = snapshot.objects || [];
+    if (snapObjects.length) {
+      log(`Loading ${snapObjects.length} objects...`, 'log-step');
+      const objKeyData = new Map(); // key → { path, img }
+      const missingObjKeys = new Set();
+      for (const obj of snapObjects) {
+        if (objKeyData.has(obj.key) || missingObjKeys.has(obj.key)) continue;
+        const entry = catalog.get(obj.key);
+        if (!entry) { missingObjKeys.add(obj.key); continue; }
+        const path = catalogPathToRelative(entry.path);
+        objKeyData.set(obj.key, { path, img: null });
+      }
+      for (const data of objKeyData.values()) {
+        data.img = await loadImage(data.path);
+      }
+      if (missingObjKeys.size > 0) {
+        log(`Missing ${missingObjKeys.size} object catalog entries (skipped)`, 'log-step');
+      }
+
+      let objectCount = 0;
+      for (const obj of snapObjects) {
+        const data = objKeyData.get(obj.key);
+        if (!data || !data.img) continue;
+        snapshotObjects.push({ img: data.img, x: obj.x, y: obj.y, key: obj.key });
+        if (obj.collide) setCollision(obj.x, obj.y);
+        objectCount++;
+      }
+      log(`Placed ${objectCount} objects`, 'log-done');
+    }
+
+    render();
+    const objSummary = snapObjects.length ? `, ${snapshotObjects.length} objects` : '';
+    setStatus(`Loaded snapshot: ${filename} (${tileCount} tiles${objSummary})`);
   } catch (err) {
     log(`Error loading snapshot: ${err.message}`, 'log-step');
     setStatus('Error loading snapshot');
