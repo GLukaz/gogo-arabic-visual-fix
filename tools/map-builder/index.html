@@ -248,6 +248,21 @@
         <option value="royal-palace">Royal Palace (44x32)</option>
       </select>
     </label>
+    <span style="color:#333">|</span>
+    <label>Snapshot:
+      <select id="snapshot-select">
+        <option value="">— Load Snapshot —</option>
+        <option value="oasis_village">Oasis Village</option>
+        <option value="desert_marketplace">Desert Marketplace</option>
+        <option value="ancient_library">Ancient Library</option>
+        <option value="bedouin_camp">Bedouin Camp</option>
+        <option value="farmland">Farmland</option>
+        <option value="mountain_village">Mountain Village</option>
+        <option value="coastal_port">Coastal Port</option>
+        <option value="royal_palace">Royal Palace</option>
+      </select>
+    </label>
+    <button id="btn-load-snapshot">Load</button>
     <label>Speed:
       <input type="range" id="speed-slider" min="1" max="100" value="50" style="width:80px">
     </label>
@@ -858,6 +873,120 @@ async function generateZone(zoneType) {
   isGenerating = false;
 }
 
+// ---- Kenmi Catalog Loading ----
+// The kenmi catalog (src/data/kenmiCatalog.js) is the master registry of all
+// 969 kenmi assets. We fetch it as text and eval it to get the full key→path
+// mapping with frame dimensions.
+let kenmiCatalogMap = null;
+
+async function loadKenmiCatalog() {
+  if (kenmiCatalogMap) return kenmiCatalogMap;
+
+  const response = await fetch('../../src/data/kenmiCatalog.js');
+  if (!response.ok) throw new Error(`Catalog not found: ${response.statusText}`);
+  const text = await response.text();
+
+  // Strip ES module syntax so we can eval it as a regular script
+  const code = text
+    .replace(/export\s+const\s+KENMI_CATALOG\s*=/, 'var KENMI_CATALOG =')
+    .replace(/export\s+default\s+KENMI_CATALOG\s*;?/, '');
+
+  const fn = new Function(code + '\nreturn KENMI_CATALOG;');
+  const catalog = fn();
+
+  kenmiCatalogMap = new Map();
+  for (const entry of catalog) {
+    kenmiCatalogMap.set(entry.key, entry);
+  }
+  log(`Loaded kenmi catalog: ${kenmiCatalogMap.size} entries`, 'log-done');
+  return kenmiCatalogMap;
+}
+
+// Convert catalog path "/assets/kenmi/desert/tiles/grass.png"
+// to relative path used by loadImage: "desert/tiles/grass.png"
+function catalogPathToRelative(catalogPath) {
+  return catalogPath.replace(/^\/assets\/kenmi\//, '');
+}
+
+// ---- Snapshot Loading ----
+async function loadSnapshot(filename) {
+  try {
+    log(`Loading snapshot: ${filename}...`, 'log-step');
+    setStatus('Loading snapshot...');
+
+    const catalog = await loadKenmiCatalog();
+
+    const response = await fetch(`../../src/test/fixtures/world-snapshots/${filename}.json`);
+    if (!response.ok) throw new Error(`Failed to fetch snapshot: ${response.statusText}`);
+
+    const snapshot = await response.json();
+
+    mapWidth = snapshot.mapW;
+    mapHeight = snapshot.mapH;
+    initLayers();
+    resizeCanvas();
+
+    log(`Map: ${mapWidth}x${mapHeight} (${snapshot.biome})`, 'log-tile');
+
+    // Resolve unique keys → catalog entries + relative paths, load images
+    const keyData = new Map(); // key → { entry, path, img }
+    const missingKeys = new Set();
+    for (const tile of snapshot.tiles) {
+      if (keyData.has(tile.key) || missingKeys.has(tile.key)) continue;
+      const entry = catalog.get(tile.key);
+      if (!entry) {
+        missingKeys.add(tile.key);
+        continue;
+      }
+      const path = catalogPathToRelative(entry.path);
+      keyData.set(tile.key, { entry, path, img: null });
+    }
+
+    for (const data of keyData.values()) {
+      data.img = await loadImage(data.path);
+    }
+
+    if (missingKeys.size > 0) {
+      log(`Missing ${missingKeys.size} catalog entries (skipped)`, 'log-step');
+    }
+    log(`Loaded ${keyData.size} unique tilesets`, 'log-done');
+    log('Rendering tiles...', 'log-step');
+
+    // Snapshot uses game's 64px grid with tile-center coordinates (offset by 32)
+    const GAME_TILE_SIZE = 64;
+    let tileCount = 0;
+    for (const tile of snapshot.tiles) {
+      const data = keyData.get(tile.key);
+      if (!data || !data.img) continue;
+
+      const tileX = Math.floor(tile.x / GAME_TILE_SIZE);
+      const tileY = Math.floor(tile.y / GAME_TILE_SIZE);
+
+      // Compute frame position from frame index using the catalog's frame size
+      const fw = data.entry.frameWidth || TILE_SIZE;
+      const cols = Math.max(1, Math.floor(data.img.width / fw));
+      const frameX = tile.frame % cols;
+      const frameY = Math.floor(tile.frame / cols);
+
+      setTile(0, tileX, tileY, data.path, frameX, frameY);
+      tileCount++;
+
+      if (tileCount % 200 === 0) {
+        render();
+        await sleep(5);
+      }
+    }
+
+    render();
+    log(`Placed ${tileCount} tiles`, 'log-done');
+    setStatus(`Loaded snapshot: ${filename} (${tileCount} tiles)`);
+  } catch (err) {
+    log(`Error loading snapshot: ${err.message}`, 'log-step');
+    setStatus('Error loading snapshot');
+    console.error(err);
+  }
+}
+
 // ---- Export to Tiled JSON ----
 function exportTiledJSON() {
   const tiledMap = {
@@ -974,6 +1103,16 @@ document.getElementById('btn-clear').addEventListener('click', () => {
 });
 
 document.getElementById('btn-export').addEventListener('click', exportTiledJSON);
+
+document.getElementById('btn-load-snapshot').addEventListener('click', () => {
+  const filename = document.getElementById('snapshot-select').value;
+  if (filename) {
+    isGenerating = false;
+    isPaused = false;
+    document.getElementById('log-output').innerHTML = '';
+    loadSnapshot(filename);
+  }
+});
 
 document.getElementById('speed-slider').addEventListener('input', (e) => {
   generationSpeed = parseInt(e.target.value);
