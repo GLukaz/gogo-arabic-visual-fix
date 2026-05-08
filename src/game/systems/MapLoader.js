@@ -1685,6 +1685,12 @@ export class MapLoader {
 
         if (!propKey) continue;
 
+        // Rugs are large; reduce their spawn rate by 50%
+        if (propKey === 'kenmi-desert-props-desert-rugs') {
+          const rugHash = tileHash(x, y, DECO_SEED + 10);
+          if (rugHash > 0.5) continue;
+        }
+
         // Random offset within tile for natural look
         const offsetX = (tileHash(x, y, DECO_SEED + 2) - 0.5) * 24;
         const offsetY = (tileHash(x, y, DECO_SEED + 3) - 0.5) * 24;
@@ -1749,6 +1755,12 @@ export class MapLoader {
         const propIdx = Math.floor(tileHash(tx, ty, DECO_SEED + 200 + ci) * clusterProps.length);
         const propKey = clusterProps[propIdx];
         if (!this.scene.textures.exists(propKey)) continue;
+
+        // Rugs are large; reduce their spawn rate by 50%
+        if (propKey === 'kenmi-desert-props-desert-rugs') {
+          const rugHash = tileHash(tx, ty, DECO_SEED + 210 + ci);
+          if (rugHash > 0.5) continue;
+        }
 
         const offsetX = (tileHash(tx, ty, DECO_SEED + 201) - 0.5) * 16;
         const offsetY = (tileHash(tx, ty, DECO_SEED + 202) - 0.5) * 16;
