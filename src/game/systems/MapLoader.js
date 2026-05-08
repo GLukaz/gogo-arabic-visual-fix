@@ -147,6 +147,12 @@ const FOAM_COLS = 20;
 
 const KENMI_SCALE = 4; // 16px tiles -> 64px game tiles
 
+// Props that lie flat on the ground — always rendered just above the tilemap (depth ~0.5)
+// and below all upright objects/players.
+const FLAT_GROUND_PROPS = new Set([
+  'kenmi-desert-props-desert-rugs',
+]);
+
 // Crop regions for multi-item prop sheets (each region is one item in the sheet).
 // Maps texture key -> array of { x, y, w, h } regions in source pixels 
 // Props NOT listed here are single-item or large-object images — rendered at native or scaled size.
@@ -380,7 +386,19 @@ const PROP_CROP_REGIONS = {
   'kenmi-desert-props-desert-fencewall': [
     { x: 16, y: 0, w: 48, h: 16 },
   ],
-  
+
+  'kenmi-military-military-tents': [
+    { x: 0, y: 0, w: 80, h: 96 },
+    { x: 0, y: 96, w: 80, h: 96 },
+    { x: 0, y: 192, w: 80, h: 96 },
+    { x: 0, y: 288, w: 80, h: 96 },
+    { x: 0, y: 384, w: 80, h: 96 },
+    { x: 240, y: 0, w: 80, h: 96 },
+    { x: 240, y: 96, w: 80, h: 96 },
+    { x: 240, y: 192, w: 80, h: 96 },
+    { x: 240, y: 288, w: 80, h: 96 },
+    { x: 240, y: 384, w: 80, h: 96 },
+  ],
 };
 
 // Biome-to-tileset config table.
@@ -1284,7 +1302,7 @@ export class MapLoader {
 
     const foam = this.scene.add.sprite(px, py, foamKey, 0);
     foam.setScale(KENMI_SCALE);
-    foam.setDepth(1);
+    foam.setDepth(0.1);
     foam.setAlpha(0.7);
     foam.play(animKey);
 
@@ -1307,7 +1325,7 @@ export class MapLoader {
     const addOverlayFrame = (frame) => {
       const overlay = this.scene.add.image(px, py, GRASS_KEY, this._safeFrame(GRASS_KEY, frame));
       overlay.setScale(KENMI_SCALE);
-      overlay.setDepth(1);
+      overlay.setDepth(0.1);
       this.groundSprites.push(overlay);
     };
 
@@ -1481,8 +1499,11 @@ export class MapLoader {
           (region.x + region.w / 2) / src.width,
           (region.y + region.h / 2) / src.height
         );
-        // Depth = visual bottom of crop (centre + half crop height).
-        depth = py + (region.h / 2) * KENMI_SCALE;
+        // Flat ground props (rugs, mats) sit just above the tilemap.
+        // Everything else uses visual-bottom Y-sort.
+        depth = FLAT_GROUND_PROPS.has(textureKey)
+          ? 0.5 + py * 0.0001
+          : py + (region.h / 2) * KENMI_SCALE;
       } else {
         sprite.setOrigin(0.5, 0.8);
         sprite.setScale(KENMI_SCALE);
@@ -1946,12 +1967,14 @@ export class MapLoader {
     const sprite = this.scene.add.image(px, py, propKey);
 
     const cropRegions = PROP_CROP_REGIONS[propKey];
+    let displayH;
     if (cropRegions && cropRegions.length > 0) {
       // Multi-item sheet: pick one region, crop to it, then scale 4x
       const regionIdx = Math.floor(hash * cropRegions.length);
       const region = cropRegions[regionIdx];
       sprite.setCrop(region.x, region.y, region.w, region.h);
       sprite.setScale(KENMI_SCALE);
+      displayH = region.h * KENMI_SCALE;
     } else {
       // Not in crop list — check texture source dimensions
       const tex = this.scene.textures.get(propKey);
@@ -1965,9 +1988,16 @@ export class MapLoader {
         // These are already sized for the visual world (80-240px wide)
         sprite.setScale(1);
       }
+      displayH = sprite.displayHeight;
     }
 
-    sprite.setDepth(py- sprite.displayHeight); // Y-sort depth
+    // Flat ground props sit just above the tilemap (depth 0) but below all
+    // upright objects and the player. The tiny py factor preserves Y-sort
+    // between overlapping rugs/mats without ever reaching object-range depths.
+    const depth = FLAT_GROUND_PROPS.has(propKey)
+      ? 0.5 + py * 0.0001
+      : py - displayH;
+    sprite.setDepth(depth);
 
     return sprite;
   }
