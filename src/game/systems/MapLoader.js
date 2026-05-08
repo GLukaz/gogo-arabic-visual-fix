@@ -1724,15 +1724,15 @@ export class MapLoader {
 
         // Determine placement chance based on context
         const hash1 = tileHash(x, y, DECO_SEED);
-        let chance = 0.08; // base 8%
+        let chance = 0.04; // base 4%
 
         const isNearObj = nearObject(x, y, 3);
         const isNearWater = nearWater(x, y, 2);
         const isNearEdge = nearEdge(x, y, 2);
 
-        if (isNearObj) chance = 0.25;
-        else if (isNearWater) chance = 0.18;
-        else if (isNearEdge) chance = 0.15;
+        if (isNearObj) chance = 0.08;
+        else if (isNearWater) chance = 0.06;
+        else if (isNearEdge) chance = 0.02;
 
         if (hash1 > chance) continue;
 
