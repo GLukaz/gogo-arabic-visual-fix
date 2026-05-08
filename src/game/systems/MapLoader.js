@@ -148,10 +148,9 @@ const FOAM_COLS = 20;
 const KENMI_SCALE = 4; // 16px tiles -> 64px game tiles
 
 // Crop regions for multi-item prop sheets (each region is one item in the sheet).
-// Maps texture key -> array of { x, y, w, h } regions in source pixels (16x16 grid).
+// Maps texture key -> array of { x, y, w, h } regions in source pixels 
 // Props NOT listed here are single-item or large-object images — rendered at native or scaled size.
 const PROP_CROP_REGIONS = {
-  // desert-rocks.png: 192x32 = 12 cols x 2 rows of 16x16
   'kenmi-desert-props-desert-rocks': [
     { x: 0,   y: 0,  w: 16, h: 16 },
     { x: 16,  y: 0,  w: 16, h: 16 },
@@ -177,7 +176,6 @@ const PROP_CROP_REGIONS = {
   'kenmi-desert-props-acacia-tree':[
     { x: 80,  y: 0, w: 80, h: 62 },
   ],
-  // desert-pots-sacks.png: 80x16 = 5 cols x 1 row of 16x16
   'kenmi-desert-props-desert-pots-sacks': [
     { x: 0,  y: 0, w: 16, h: 16 },
     { x: 16, y: 0, w: 16, h: 16 },
@@ -185,18 +183,14 @@ const PROP_CROP_REGIONS = {
     { x: 48, y: 0, w: 16, h: 16 },
     { x: 64, y: 0, w: 16, h: 16 },
   ],
-  // desert-rugs.png: 96x96 = 6 cols x 6 rows of 16x16
   'kenmi-desert-props-desert-rugs': [
-    { x: 0,  y: 0,  w: 16, h: 16 },
-    { x: 16, y: 0,  w: 16, h: 16 },
-    { x: 32, y: 0,  w: 16, h: 16 },
-    { x: 0,  y: 16, w: 16, h: 16 },
-    { x: 16, y: 16, w: 16, h: 16 },
-    { x: 32, y: 16, w: 16, h: 16 },
-    { x: 0,  y: 32, w: 16, h: 16 },
-    { x: 16, y: 32, w: 16, h: 16 },
+    { x: 0,  y: 0,  w: 48, h: 32 },
+    { x: 48, y: 0,  w: 48, h: 32 },
+    { x: 0, y: 32,  w: 48, h: 32 },
+    { x: 48,  y: 32, w: 48, h: 32 },
+    { x: 0, y: 64, w: 48, h: 32 },
+    { x: 48, y: 64, w: 48, h: 32 },
   ],
-  // desert-bones.png: 160x128 = 10 cols x 8 rows of 16x16
   'kenmi-desert-props-desert-bones': [
     { x: 0,  y: 0,  w: 16, h: 16 },
     { x: 16, y: 0,  w: 16, h: 16 },
@@ -207,38 +201,26 @@ const PROP_CROP_REGIONS = {
     { x: 16, y: 16, w: 16, h: 16 },
     { x: 32, y: 16, w: 16, h: 16 },
   ],
-  // golden-pots.png: 48x16 = 3 cols x 1 row of 16x16
   'kenmi-desert-props-golden-pots': [
     { x: 0,  y: 0, w: 16, h: 16 },
     { x: 16, y: 0, w: 16, h: 16 },
     { x: 32, y: 0, w: 16, h: 16 },
   ],
-  // desert-grass-props.png: 48x16 = 3 cols x 1 row of 16x16
   'kenmi-desert-props-desert-grass-props': [
     { x: 0,  y: 0, w: 16, h: 16 },
     { x: 16, y: 0, w: 16, h: 16 },
     { x: 32, y: 0, w: 16, h: 16 },
   ],
-  // fallen-palm-leaves.png: 32x32 = 2 cols x 2 rows of 16x16
   'kenmi-desert-props-fallen-palm-leaves': [
-    { x: 0,  y: 0,  w: 16, h: 16 },
-    { x: 16, y: 0,  w: 16, h: 16 },
-    { x: 0,  y: 16, w: 16, h: 16 },
-    { x: 16, y: 16, w: 16, h: 16 },
+    { x: 0,  y: 0,  w: 32, h: 32 },
   ],
-  // fallen-palm-leaves-dead.png: 32x32 = 2 cols x 2 rows of 16x16
   'kenmi-desert-props-fallen-palm-leaves-dead': [
-    { x: 0,  y: 0,  w: 16, h: 16 },
-    { x: 16, y: 0,  w: 16, h: 16 },
-    { x: 0,  y: 16, w: 16, h: 16 },
-    { x: 16, y: 16, w: 16, h: 16 },
+    { x: 0,  y: 0,  w: 32, h: 32 },
   ],
-  // dead-bush.png: 32x16 = 2 cols x 1 row of 16x16
   'kenmi-desert-props-dead-bush': [
     { x: 0,  y: 0, w: 16, h: 16 },
     { x: 16, y: 0, w: 16, h: 16 },
   ],
-  // cactus.png: 224x256 = 14 cols x 16 rows of 16x16
   'kenmi-desert-props-cactus': [
     { x: 0,   y: 0,  w: 16, h: 16 },
     { x: 16,  y: 0,  w: 16, h: 16 },
@@ -251,33 +233,28 @@ const PROP_CROP_REGIONS = {
     { x: 32,  y: 16, w: 16, h: 16 },
     { x: 48,  y: 16, w: 16, h: 16 },
   ],
-  // sleeping-mat.png: 32x32 = 2 cols x 2 rows of 16x16
   'kenmi-desert-props-sleeping-mat': [
     { x: 0,  y: 0,  w: 16, h: 16 },
     { x: 16, y: 0,  w: 16, h: 16 },
     { x: 0,  y: 16, w: 16, h: 16 },
     { x: 16, y: 16, w: 16, h: 16 },
   ],
-  // fire-pit.png: 112x16 = 7 cols x 1 row of 16x16
   'kenmi-desert-props-fire-pit': [
     { x: 0,  y: 0, w: 16, h: 16 },
     { x: 16, y: 0, w: 16, h: 16 },
     { x: 32, y: 0, w: 16, h: 16 },
     { x: 48, y: 0, w: 16, h: 16 },
   ],
-  // desert-campfire.png: 96x16 = 6 cols x 1 row of 16x16
   'kenmi-desert-props-desert-campfire': [
     { x: 0,  y: 0, w: 16, h: 16 },
     { x: 16, y: 0, w: 16, h: 16 },
     { x: 32, y: 0, w: 16, h: 16 },
   ],
-  // ambarakaman-plant.png: 48x16 = 3 cols x 1 row of 16x16
   'kenmi-desert-props-ambarakaman-plant': [
     { x: 0,  y: 0, w: 16, h: 16 },
     { x: 16, y: 0, w: 16, h: 16 },
     { x: 32, y: 0, w: 16, h: 16 },
   ],
-  // barrels.png: 96x64 = 6 cols x 4 rows of 16x16
   'kenmi-base-outdoor-decoration-barrels': [
     { x: 0,  y: 0,  w: 16, h: 16 },
     { x: 16, y: 0,  w: 16, h: 16 },
@@ -286,7 +263,6 @@ const PROP_CROP_REGIONS = {
     { x: 16, y: 16, w: 16, h: 16 },
     { x: 32, y: 16, w: 16, h: 16 },
   ],
-  // benches.png: 64x32 = 4 cols x 2 rows of 16x16
   'kenmi-base-outdoor-decoration-benches': [
     { x: 0,  y: 0,  w: 16, h: 16 },
     { x: 16, y: 0,  w: 16, h: 16 },
@@ -295,7 +271,6 @@ const PROP_CROP_REGIONS = {
     { x: 0,  y: 16, w: 16, h: 16 },
     { x: 16, y: 16, w: 16, h: 16 },
   ],
-  // camp-decor.png: 80x16 = 5 cols x 1 row of 16x16
   'kenmi-base-outdoor-decoration-camp-decor': [
     { x: 0,  y: 0, w: 16, h: 16 },
     { x: 16, y: 0, w: 16, h: 16 },
@@ -303,7 +278,6 @@ const PROP_CROP_REGIONS = {
     { x: 48, y: 0, w: 16, h: 16 },
     { x: 64, y: 0, w: 16, h: 16 },
   ],
-  // fences.png: 64x64 = 4 cols x 4 rows of 16x16
   'kenmi-base-outdoor-decoration-fences': [
     { x: 0,  y: 0,  w: 16, h: 16 },
     { x: 16, y: 0,  w: 16, h: 16 },
@@ -312,7 +286,6 @@ const PROP_CROP_REGIONS = {
     { x: 16, y: 16, w: 16, h: 16 },
     { x: 32, y: 16, w: 16, h: 16 },
   ],
-  // flowers.png: 160x160 = 10 cols x 10 rows of 16x16
   'kenmi-base-outdoor-decoration-flowers': [
     { x: 0,  y: 0,  w: 16, h: 16 },
     { x: 16, y: 0,  w: 16, h: 16 },
@@ -323,13 +296,11 @@ const PROP_CROP_REGIONS = {
     { x: 16, y: 16, w: 16, h: 16 },
     { x: 32, y: 16, w: 16, h: 16 },
   ],
-  // hay-bales.png: 48x16 = 3 cols x 1 row of 16x16
   'kenmi-base-outdoor-decoration-hay-bales': [
     { x: 0,  y: 0, w: 16, h: 16 },
     { x: 16, y: 0, w: 16, h: 16 },
     { x: 32, y: 0, w: 16, h: 16 },
   ],
-  // outdoor-decor.png: 144x416 = 9 cols x 26 rows of 16x16 (large multi-item sheet)
   'kenmi-base-outdoor-decoration-outdoor-decor': [
     { x: 0,  y: 0,  w: 16, h: 16 },
     { x: 16, y: 0,  w: 16, h: 16 },
@@ -546,7 +517,7 @@ export class MapLoader {
     // Place world objects
     this.placeObjects(objects);
 
-    // this.scatterDecorations(zone, groundData, mapWidth, mapHeight);
+    this.scatterDecorations(zone, groundData, mapWidth, mapHeight);
 
     // this.spawnAmbientAnimals(zone, groundData, mapWidth, mapHeight);
 
@@ -1723,7 +1694,6 @@ export class MapLoader {
 
         const sprite = this._createDecoSprite(px, py, propKey, tileHash(x, y, DECO_SEED + 5));
         if (sprite) {
-          sprite.setAlpha(0.8 + tileHash(x, y, DECO_SEED + 4) * 0.2); // 0.8-1.0
           this.decoSprites.push(sprite);
         }
       }
@@ -1762,6 +1732,7 @@ export class MapLoader {
       const bldg = buildingObjects[bi];
       const clusterSize = 2 + Math.floor(tileHash(bldg.x, bldg.y, DECO_SEED + 100) * 3); // 2-4
 
+      
       for (let ci = 0; ci < clusterSize; ci++) {
         // Offset 1.5-3.5 tiles from building in random direction
         const angle = tileHash(bldg.x + ci, bldg.y, DECO_SEED + 101 + ci) * Math.PI * 2;
@@ -1882,7 +1853,6 @@ export class MapLoader {
     if (!this.scene.textures.exists(propKey)) return null;
 
     const sprite = this.scene.add.image(px, py, propKey);
-    sprite.setDepth(py); // Y-sort depth
 
     const cropRegions = PROP_CROP_REGIONS[propKey];
     if (cropRegions && cropRegions.length > 0) {
@@ -1905,6 +1875,8 @@ export class MapLoader {
         sprite.setScale(1);
       }
     }
+
+    sprite.setDepth(py- sprite.displayHeight); // Y-sort depth
 
     return sprite;
   }
