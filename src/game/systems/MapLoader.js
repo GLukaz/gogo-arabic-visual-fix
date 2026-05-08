@@ -2022,7 +2022,8 @@ export class MapLoader {
     const flagKey = 'kenmi-military-flags-anim';
     if (this.scene.textures.exists(flagKey) && !this.scene.anims.exists('deco-flag')) {
       const tex = this.scene.textures.get(flagKey);
-      const frameCount = tex.frameTotal - 1;
+      const firstFlagFrames = 6;
+      const frameCount = firstFlagFrames - 1;
       if (frameCount > 0) {
         this.scene.anims.create({
           key: 'deco-flag',
