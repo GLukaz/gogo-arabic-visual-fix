@@ -399,6 +399,10 @@ const PROP_CROP_REGIONS = {
     { x: 240, y: 288, w: 80, h: 96 },
     { x: 240, y: 384, w: 80, h: 96 },
   ],
+  'kenmi-military-palisade': [
+    { x: 160, y: 0, w: 80, h: 48 },
+    { x: 160, y: 48, w: 80, h: 48 },
+  ],
 };
 
 // Biome-to-tileset config table.
@@ -2054,7 +2058,8 @@ export class MapLoader {
     const bannerKey = 'kenmi-military-banners-anim';
     if (this.scene.textures.exists(bannerKey) && !this.scene.anims.exists('deco-banner')) {
       const tex = this.scene.textures.get(bannerKey);
-      const frameCount = tex.frameTotal - 1;
+      const firstBannersFrames = 17;
+      const frameCount = firstBannersFrames - 1;
       if (frameCount > 0) {
         this.scene.anims.create({
           key: 'deco-banner',
