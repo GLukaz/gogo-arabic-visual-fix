@@ -873,7 +873,7 @@ const bedouin_camp = {
     { key: 'kenmi-desert-props-palm-tree-1', x: 32, y: 5, collide: true, collideW: 30, collideH: 20 },
     { key: 'kenmi-desert-props-palm-tree-1', x: 2, y: 20, collide: true, collideW: 30, collideH: 20 },
     { key: 'kenmi-desert-props-palm-tree-2', x: 32, y: 20, collide: true, collideW: 20, collideH: 16 },
-    { key: 'kenmi-desert-props-palm-tree-1', x: 17, y: 3, collide: true, collideW: 30, collideH: 20 },
+    { key: 'kenmi-desert-props-palm-tree-1', x: 13, y: 2, collide: true, collideW: 30, collideH: 20 },
     // Edge rocks
     { key: 'kenmi-desert-props-desert-rocks', x: 12, y: 22, collide: true, collideW: 30, collideH: 20 },
     { key: 'kenmi-desert-props-desert-rocks', x: 25, y: 22, collide: true, collideW: 30, collideH: 20 },
