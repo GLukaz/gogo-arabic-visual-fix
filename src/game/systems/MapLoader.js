@@ -1507,6 +1507,10 @@ export class MapLoader {
       } else {
         sprite.setOrigin(0.5, 0.8);
         sprite.setScale(KENMI_SCALE);
+        // Foot = visual bottom with origin 0.8 → py + displayHeight * 0.2
+        depth = FLAT_GROUND_PROPS.has(textureKey)
+          ? 0.5 + py * 0.0001
+          : py + sprite.displayHeight * 0.2;
       }
 
       sprite.setDepth(depth);

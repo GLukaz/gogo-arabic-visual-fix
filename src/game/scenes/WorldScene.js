@@ -194,7 +194,7 @@ export class WorldScene extends Phaser.Scene {
     // Y-sort all sprites for depth ordering
     const player = this.playerController.getPlayer();
     const npcs = this.npcManager.getNPCs();
-    [player, ...npcs].filter(Boolean).forEach((s) => s.setDepth(s.y));
+    [player, ...npcs].filter(Boolean).forEach((s) => s.setDepth(s.body?.bottom ?? s.y));
 
     // Throttled player position for HUD compass (~10Hz at 60fps)
     this._frameCount = (this._frameCount || 0) + 1;
