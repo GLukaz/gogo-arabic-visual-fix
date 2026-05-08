@@ -309,8 +309,6 @@ const PROP_CROP_REGIONS = {
   ],
   'kenmi-base-outdoor-decoration-fences': [
     { x: 16, y: 0,  w: 48, h: 16 },
-    { x: 0, y: 0,  w: 16, h: 48 },
-    { x: 0, y: 48,  w: 16, h: 16 },
   ],
   'kenmi-base-outdoor-decoration-flowers': [
     { x: 0,  y: 0,  w: 16, h: 16 },
@@ -378,6 +376,11 @@ const PROP_CROP_REGIONS = {
     { x: 0,  y: 32, w: 16, h: 16 },
     { x: 16, y: 32, w: 16, h: 16 },
   ],
+
+  'kenmi-desert-props-desert-fencewall': [
+    { x: 16, y: 0, w: 48, h: 16 },
+  ],
+  
 };
 
 // Biome-to-tileset config table.
@@ -1461,22 +1464,31 @@ export class MapLoader {
       const textureKey = kenmiKey && this.scene.textures.exists(kenmiKey) ? kenmiKey : obj.key;
       const sprite = this.scene.add.image(px, py, textureKey);
 
-      sprite.setOrigin(0.5, 0.8);
-
       // Select random variation from spritesheet if multi-item prop (2+ regions)
       // Single-region crops are for large singular objects (e.g. palm trees)
       const cropRegions = PROP_CROP_REGIONS[textureKey];
+      let depth = py;
       if (cropRegions && cropRegions.length > 0) {
         // Multi-item spritesheet: pick random variant
         const randomIdx = Math.floor(Math.random() * cropRegions.length);
         const region = cropRegions[randomIdx];
         sprite.setCrop(region.x, region.y, region.w, region.h);
         sprite.setScale(KENMI_SCALE);
-      }  else {
+        // Pin origin to the visual center of the crop region so py lands on the
+        // centre of the visible sprite (not the centre of the full frame).
+        const src = this.scene.textures.get(textureKey).source[0];
+        sprite.setOrigin(
+          (region.x + region.w / 2) / src.width,
+          (region.y + region.h / 2) / src.height
+        );
+        // Depth = visual bottom of crop (centre + half crop height).
+        depth = py + (region.h / 2) * KENMI_SCALE;
+      } else {
+        sprite.setOrigin(0.5, 0.8);
         sprite.setScale(KENMI_SCALE);
       }
 
-      sprite.setDepth(py);
+      sprite.setDepth(depth);
 
       this.objectSprites.push(sprite);
 
