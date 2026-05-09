@@ -92,6 +92,151 @@ const oasis_village = {
     { key: 'kenmi-desert-props-sleeping-mat', x: 10, y: 7, collide: false },
     { key: 'kenmi-desert-props-desert-pots-sacks', x: 11, y: 19, collide: false },
     { key: 'kenmi-desert-props-sleeping-mat', x: 34, y: 26, collide: false },
+    {
+    "key": "kenmi-desert-props-desert-rugs",
+    "x": 17,
+    "y": 5,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-rugs",
+    "x": 20,
+    "y": 5,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-rugs",
+    "x": 23,
+    "y": 5,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-bones",
+    "x": 11,
+    "y": 23,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-bones",
+    "x": 21,
+    "y": 24,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-rugs",
+    "x": 32,
+    "y": 12,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-rugs",
+    "x": 6,
+    "y": 14,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-golden-pots",
+    "x": 22,
+    "y": 7,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-golden-pots",
+    "x": 18,
+    "y": 7,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 21,
+    "y": 11,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 16,
+    "y": 15,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 24,
+    "y": 13,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-fallen-palm-leaves",
+    "x": 33,
+    "y": 2,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-fallen-palm-leaves",
+    "x": 11,
+    "y": 4,
+    "collide": true
+  },
+  {
+    "key": "kenmi-base-outdoor-decoration-outdoor-decor",
+    "x": 19,
+    "y": 11,
+    "collide": true
+  },
+  {
+    "key": "kenmi-base-outdoor-decoration-outdoor-decor",
+    "x": 20,
+    "y": 17,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-fern",
+    "x": 14,
+    "y": 22,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-fern-dead",
+    "x": 27,
+    "y": 7,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 28,
+    "y": 12,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 18,
+    "y": 20,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-ladder",
+    "x": 11,
+    "y": 15,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-rugs",
+    "x": 14,
+    "y": 9,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-rugs",
+    "x": 9,
+    "y": 7,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-rugs",
+    "x": 33,
+    "y": 26,
+    "collide": true
+  }
+
   ],
 
   npcs: [
