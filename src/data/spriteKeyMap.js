@@ -131,6 +131,85 @@ export const BIOME_DECORATION_SETS = {
 };
 
 /**
+ * BIOME_SCATTER_PROP_SETS — Contextual prop pools used by MapLoader.scatterDecorations.
+ *
+ * Each biome defines five sets that pick props based on tile context:
+ *   nearWater    — props placed near water tiles (oasis edges, riverbanks)
+ *   nearBuilding — props placed on the per-tile pass near placed objects
+ *   edge         — props placed along map borders
+ *   open         — fallback set for empty open ground
+ *   cluster      — props chosen for the 2-4 prop cluster pass around buildings
+ *                  (tents, houses, towers); includes camp gear like ladders,
+ *                  fire-pits and water-sacks that don't appear in scatter pools.
+ *
+ * The ObjectPlacerEditor reads the same constant to filter its palette to the
+ * scatter-relevant props for the active zone's biome (with a show-all toggle to
+ * surface non-scatter objects like military tents and houses).
+ */
+export const BIOME_SCATTER_PROP_SETS = {
+  desert: {
+    nearWater: [
+      'kenmi-desert-props-desert-fern',
+      'kenmi-desert-props-fallen-palm-leaves',
+      'kenmi-desert-props-desert-grass-props',
+    ],
+    nearBuilding: [
+      'kenmi-desert-props-desert-pots-sacks',
+      'kenmi-desert-props-desert-rugs',
+      'kenmi-desert-props-sleeping-mat',
+      'kenmi-desert-props-golden-pots',
+    ],
+    edge: [
+      'kenmi-desert-props-dead-bush',
+      'kenmi-desert-props-desert-fern-dead',
+      'kenmi-desert-props-desert-bones',
+      'kenmi-desert-props-fallen-palm-leaves-dead',
+    ],
+    open: [
+      'kenmi-desert-props-cactus',
+      'kenmi-desert-props-desert-rocks',
+      'kenmi-desert-props-dead-bush',
+      'kenmi-desert-props-desert-grass-props',
+      'kenmi-desert-props-desert-fern',
+    ],
+    cluster: [
+      'kenmi-desert-props-desert-pots-sacks',
+      'kenmi-desert-props-desert-rugs',
+      'kenmi-desert-props-sleeping-mat',
+      'kenmi-desert-props-water-sack-on-stick',
+      'kenmi-desert-props-fire-pit',
+      'kenmi-desert-props-desert-ladder',
+    ],
+  },
+  grass: {
+    nearWater: [
+      'kenmi-base-outdoor-decoration-flowers',
+      'kenmi-base-outdoor-decoration-outdoor-decor',
+    ],
+    nearBuilding: [
+      'kenmi-base-outdoor-decoration-barrels',
+      'kenmi-base-outdoor-decoration-hay-bales',
+      'kenmi-base-outdoor-decoration-camp-decor',
+    ],
+    edge: [
+      'kenmi-base-outdoor-decoration-fences',
+      'kenmi-base-outdoor-decoration-outdoor-decor',
+    ],
+    open: [
+      'kenmi-base-outdoor-decoration-flowers',
+      'kenmi-base-outdoor-decoration-outdoor-decor',
+      'kenmi-base-outdoor-decoration-hay-bales',
+    ],
+    cluster: [
+      'kenmi-base-outdoor-decoration-barrels',
+      'kenmi-base-outdoor-decoration-camp-decor',
+      'kenmi-base-outdoor-decoration-hay-bales',
+      'kenmi-base-outdoor-decoration-benches',
+    ],
+  },
+};
+
+/**
  * BIOME_ANIMAL_SETS — Animal sprite keys available for spawnAmbientAnimals per biome.
  * Phase 97 Plan 05.
  *

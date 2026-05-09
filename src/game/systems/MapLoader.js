@@ -1,5 +1,5 @@
 import { TILE, SAND, GRASS, WATER, ICE_GRASS, STONE, WOOD } from '../../data/zones.js';
-import { SPRITE_KEY_MAP, BIOME_DECORATION_SETS, BIOME_ANIMAL_SETS } from '../../data/spriteKeyMap.js';
+import { SPRITE_KEY_MAP, BIOME_DECORATION_SETS, BIOME_SCATTER_PROP_SETS, BIOME_ANIMAL_SETS } from '../../data/spriteKeyMap.js';
 import { KENMI_FRAME_TABLES } from '../../data/kenmiFrameTables.js';
 import { KENMI_CATALOG } from '../../data/kenmiCatalog.js';
 import { SHARED_ASSETS } from '../../data/zoneAssetManifests.js';
@@ -145,18 +145,18 @@ _assertFrameTableMatch(WATER_KEY, 24, 5);
 const FOAM_KEY = 'kenmi-desert-tiles-desert-water-foam-animation';
 const FOAM_COLS = 20;
 
-const KENMI_SCALE = 4; // 16px tiles -> 64px game tiles
+export const KENMI_SCALE = 4; // 16px tiles -> 64px game tiles
 
 // Props that lie flat on the ground — always rendered just above the tilemap (depth ~0.5)
 // and below all upright objects/players.
-const FLAT_GROUND_PROPS = new Set([
+export const FLAT_GROUND_PROPS = new Set([
   'kenmi-desert-props-desert-rugs',
 ]);
 
 // Crop regions for multi-item prop sheets (each region is one item in the sheet).
-// Maps texture key -> array of { x, y, w, h } regions in source pixels 
+// Maps texture key -> array of { x, y, w, h } regions in source pixels
 // Props NOT listed here are single-item or large-object images — rendered at native or scaled size.
-const PROP_CROP_REGIONS = {
+export const PROP_CROP_REGIONS = {
   'kenmi-desert-props-desert-rocks': [
     { x: 0,   y: 0,  w: 16, h: 16 },
     { x: 16,  y: 0,  w: 16, h: 16 },
@@ -607,7 +607,7 @@ export class MapLoader {
     // Place world objects
     this.placeObjects(objects);
 
-    this.scatterDecorations(zone, groundData, mapWidth, mapHeight);
+    // this.scatterDecorations(zone, groundData, mapWidth, mapHeight);
 
     // this.spawnAmbientAnimals(zone, groundData, mapWidth, mapHeight);
 
@@ -1631,55 +1631,14 @@ export class MapLoader {
       }
     }
 
-    // Prop sets by context — biome-specific
-    let NEAR_WATER_PROPS, NEAR_BUILDING_PROPS, EDGE_PROPS, OPEN_PROPS;
-
-    if (biome === 'grass') {
-      NEAR_WATER_PROPS = [
-        'kenmi-base-outdoor-decoration-flowers',
-        'kenmi-base-outdoor-decoration-outdoor-decor',
-      ];
-      NEAR_BUILDING_PROPS = [
-        'kenmi-base-outdoor-decoration-barrels',
-        'kenmi-base-outdoor-decoration-hay-bales',
-        'kenmi-base-outdoor-decoration-camp-decor',
-      ];
-      EDGE_PROPS = [
-        'kenmi-base-outdoor-decoration-fences',
-        'kenmi-base-outdoor-decoration-outdoor-decor',
-      ];
-      OPEN_PROPS = [
-        'kenmi-base-outdoor-decoration-flowers',
-        'kenmi-base-outdoor-decoration-outdoor-decor',
-        'kenmi-base-outdoor-decoration-hay-bales',
-      ];
-    } else {
-      // desert (default)
-      NEAR_WATER_PROPS = [
-        'kenmi-desert-props-desert-fern',
-        'kenmi-desert-props-fallen-palm-leaves',
-        'kenmi-desert-props-desert-grass-props',
-      ];
-      NEAR_BUILDING_PROPS = [
-        'kenmi-desert-props-desert-pots-sacks',
-        'kenmi-desert-props-desert-rugs',
-        'kenmi-desert-props-sleeping-mat',
-        'kenmi-desert-props-golden-pots',
-      ];
-      EDGE_PROPS = [
-        'kenmi-desert-props-dead-bush',
-        'kenmi-desert-props-desert-fern-dead',
-        'kenmi-desert-props-desert-bones',
-        'kenmi-desert-props-fallen-palm-leaves-dead',
-      ];
-      OPEN_PROPS = [
-        'kenmi-desert-props-cactus',
-        'kenmi-desert-props-desert-rocks',
-        'kenmi-desert-props-dead-bush',
-        'kenmi-desert-props-desert-grass-props',
-        'kenmi-desert-props-desert-fern',
-      ];
-    }
+    // Prop sets by context — biome-specific. Source of truth lives in
+    // BIOME_SCATTER_PROP_SETS so the ObjectPlacerEditor can filter its palette
+    // identically. Snow biomes fall through to desert sets (legacy behaviour).
+    const propSets = BIOME_SCATTER_PROP_SETS[biome] || BIOME_SCATTER_PROP_SETS.desert;
+    const NEAR_WATER_PROPS = propSets.nearWater;
+    const NEAR_BUILDING_PROPS = propSets.nearBuilding;
+    const EDGE_PROPS = propSets.edge;
+    const OPEN_PROPS = propSets.open;
 
     // Animated grass spritesheet keys
     const ANIM_GRASS_KEYS = [
@@ -1822,23 +1781,9 @@ export class MapLoader {
       )
     );
 
-    const CLUSTER_PROPS_DESERT = [
-      'kenmi-desert-props-desert-pots-sacks',
-      'kenmi-desert-props-desert-rugs',
-      'kenmi-desert-props-sleeping-mat',
-      'kenmi-desert-props-water-sack-on-stick',
-      'kenmi-desert-props-fire-pit',
-      'kenmi-desert-props-desert-ladder',
-    ];
-
-    const CLUSTER_PROPS_GRASS = [
-      'kenmi-base-outdoor-decoration-barrels',
-      'kenmi-base-outdoor-decoration-camp-decor',
-      'kenmi-base-outdoor-decoration-hay-bales',
-      'kenmi-base-outdoor-decoration-benches',
-    ];
-
-    const clusterProps = biome === 'grass' ? CLUSTER_PROPS_GRASS : CLUSTER_PROPS_DESERT;
+    // Cluster pool comes from BIOME_SCATTER_PROP_SETS (shared with the editor).
+    // Snow biomes fall back to desert clusters (legacy behaviour).
+    const clusterProps = (propSets && propSets.cluster) || BIOME_SCATTER_PROP_SETS.desert.cluster;
 
     for (let bi = 0; bi < buildingObjects.length; bi++) {
       const bldg = buildingObjects[bi];

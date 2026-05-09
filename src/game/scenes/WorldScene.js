@@ -32,6 +32,7 @@ import { StepTriggerSystem } from '../systems/StepTriggerSystem.js';
 import { ExitTriggerChecker } from '../systems/ExitTriggerChecker.js';
 import { ZoneToast } from '../systems/ZoneToast.js';
 import { FloatingArabicLabelManager } from '../systems/FloatingArabicLabelManager.js';
+import { ObjectPlacerEditor } from '../systems/ObjectPlacerEditor.js';
 
 
 // ============================================================
@@ -163,6 +164,11 @@ export class WorldScene extends Phaser.Scene {
 
     EventBus.emit(EVENTS.SCENE_READY, this);
 
+    if (ObjectPlacerEditor.isEnabled()) {
+      this.objectPlacerEditor = new ObjectPlacerEditor(this);
+      this.objectPlacerEditor.enable();
+    }
+
     // Cinematic intro for new players
     const playerState = store.getState().player;
     if (!playerState.onboardingComplete && playerState.tutorialPhase === 'cinematic_intro') {
@@ -262,6 +268,7 @@ export class WorldScene extends Phaser.Scene {
     EventBus.off(EVENTS.VFX_PARTICLES_CONTINUOUS, this.handleVfxContinuous, this);
     EventBus.off(EVENTS.DOOR_OPENED, this.handleDoorOpened, this);
 
+    if (this.objectPlacerEditor) { this.objectPlacerEditor.disable(); this.objectPlacerEditor = null; }
     if (this.particleEffects) { this.particleEffects.destroy(); this.particleEffects = null; }
     if (this.domOverlay) { this.domOverlay.destroy(); this.domOverlay = null; }
     if (this.timeSystem) { this.timeSystem.destroy(); this.timeSystem = null; }
@@ -345,6 +352,8 @@ export class WorldScene extends Phaser.Scene {
     // Zone name toast (suppressed on first load)
     if (!this._suppressZoneToast) ZoneToast.show(this, zoneName, zone);
     this._suppressZoneToast = false;
+
+    if (this.objectPlacerEditor) this.objectPlacerEditor.onZoneChanged();
   }
 
   // ============================================================
