@@ -1,5 +1,5 @@
 import { TILE, SAND, GRASS, WATER, ICE_GRASS, STONE, WOOD } from '../../data/zones.js';
-import { SPRITE_KEY_MAP, BIOME_DECORATION_SETS, BIOME_SCATTER_PROP_SETS, BIOME_ANIMAL_SETS } from '../../data/spriteKeyMap.js';
+import { SPRITE_KEY_MAP, BIOME_DECORATION_SETS, BIOME_SCATTER_PROP_SETS, BIOME_ANIMAL_SETS, ANIMATED_DECO_PROPS } from '../../data/spriteKeyMap.js';
 import { KENMI_FRAME_TABLES } from '../../data/kenmiFrameTables.js';
 import { KENMI_CATALOG } from '../../data/kenmiCatalog.js';
 import { SHARED_ASSETS } from '../../data/zoneAssetManifests.js';
@@ -1474,6 +1474,12 @@ export class MapLoader {
    * Place world objects (trees, buildings, etc.) with Y-sorting
    */
   placeObjects(objects) {
+    // If any object is an animated deco prop, register its animation configs
+    // so .play() will work below. Idempotent.
+    if (objects.some((o) => ANIMATED_DECO_PROPS[o.key])) {
+      this._createDecoGrassAnimations();
+    }
+
     const sortedObjects = [...objects].sort((a, b) => a.y - b.y);
     sortedObjects.forEach((obj) => {
       const px = obj.x * TILE + TILE / 2;
@@ -1482,7 +1488,11 @@ export class MapLoader {
       // Remap old placeholder keys to Kenmi asset keys (backward compatible)
       const kenmiKey = SPRITE_KEY_MAP[obj.key];
       const textureKey = kenmiKey && this.scene.textures.exists(kenmiKey) ? kenmiKey : obj.key;
-      const sprite = this.scene.add.image(px, py, textureKey);
+      const animName = ANIMATED_DECO_PROPS[textureKey];
+      const sprite = animName
+        ? this.scene.add.sprite(px, py, textureKey, 0)
+        : this.scene.add.image(px, py, textureKey);
+      if (animName && this.scene.anims.exists(animName)) sprite.play(animName);
 
       // Select random variation from spritesheet if multi-item prop (2+ regions)
       // Single-region crops are for large singular objects (e.g. palm trees)

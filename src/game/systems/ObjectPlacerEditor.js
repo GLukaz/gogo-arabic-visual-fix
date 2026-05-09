@@ -14,7 +14,7 @@
 
 import { TILE, ZONES } from '../../data/zones.js';
 import { PROP_CROP_REGIONS, FLAT_GROUND_PROPS, KENMI_SCALE } from './MapLoader.js';
-import { BIOME_DECORATION_SETS, BIOME_SCATTER_PROP_SETS } from '../../data/spriteKeyMap.js';
+import { BIOME_DECORATION_SETS, BIOME_SCATTER_PROP_SETS, ANIMATED_DECO_PROPS } from '../../data/spriteKeyMap.js';
 
 // Texture-key prefixes that count as placeable scatter objects. Anything in the
 // Phaser texture cache matching one of these is shown in the palette, so non-
@@ -59,6 +59,12 @@ export class ObjectPlacerEditor {
   }
 
   enable() {
+    // Register deco animations (campfire, flies, banners, animated grass) so
+    // animated previews/placements actually play. scatterDecorations would
+    // normally do this but it's no longer auto-running.
+    if (this.scene.mapLoader && this.scene.mapLoader._createDecoGrassAnimations) {
+      this.scene.mapLoader._createDecoGrassAnimations();
+    }
     this._buildDOM();
     this._refreshPalette();
     this._attachInput();
@@ -174,6 +180,9 @@ export class ObjectPlacerEditor {
       for (const list of Object.values(scatterSet)) for (const k of list) biomeKeys.add(k);
     }
     for (const k of (BIOME_DECORATION_SETS[biome] || [])) biomeKeys.add(k);
+    // Animated deco props (campfire, flies, banners, animated grass) — small set
+    // shared across desert/grass biomes; always include so they're placeable.
+    for (const k of Object.keys(ANIMATED_DECO_PROPS)) biomeKeys.add(k);
 
     let known;
     if (this.showAllBiomes) {
@@ -419,7 +428,14 @@ export class ObjectPlacerEditor {
   _renderProp(textureKey, tileX, tileY) {
     const px = tileX * TILE + TILE / 2;
     const py = tileY * TILE + TILE / 2;
-    const sprite = this.scene.add.image(px, py, textureKey);
+
+    // Animated deco props: spawn as sprite + play looping animation. Mirrors
+    // MapLoader.placeObjects's animated branch.
+    const animName = ANIMATED_DECO_PROPS[textureKey];
+    const sprite = animName
+      ? this.scene.add.sprite(px, py, textureKey, 0)
+      : this.scene.add.image(px, py, textureKey);
+    if (animName && this.scene.anims.exists(animName)) sprite.play(animName);
 
     const cropRegions = PROP_CROP_REGIONS[textureKey];
     if (cropRegions && cropRegions.length > 0) {

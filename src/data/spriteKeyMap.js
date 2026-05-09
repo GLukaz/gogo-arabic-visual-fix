@@ -210,6 +210,25 @@ export const BIOME_SCATTER_PROP_SETS = {
 };
 
 /**
+ * ANIMATED_DECO_PROPS — texture key → Phaser animation name for decoration props
+ * that play looping animations when placed (campfire, flies, banners, animated
+ * grass, etc.). MapLoader.placeObjects switches to sprite+play() for these
+ * keys, and the ObjectPlacerEditor uses the same mapping for previews.
+ *
+ * The animation configs themselves are created by
+ * MapLoader._createDecoGrassAnimations() — call that once before placing.
+ */
+export const ANIMATED_DECO_PROPS = {
+  'kenmi-desert-props-outdoor-decor-animations-desert-grass-1-anim': 'deco-grass-1',
+  'kenmi-desert-props-outdoor-decor-animations-desert-grass-2-anim': 'deco-grass-2',
+  'kenmi-desert-props-outdoor-decor-animations-desert-grass-3-anim': 'deco-grass-3',
+  'kenmi-military-campfire-pot-anim': 'deco-campfire',
+  'kenmi-desert-props-flies-anim': 'deco-flies',
+  'kenmi-military-banners-anim': 'deco-banner',
+  'kenmi-military-flags-anim': 'deco-flag',
+};
+
+/**
  * BIOME_ANIMAL_SETS — Animal sprite keys available for spawnAmbientAnimals per biome.
  * Phase 97 Plan 05.
  *
