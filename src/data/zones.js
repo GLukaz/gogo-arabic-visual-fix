@@ -479,6 +479,252 @@ const ancient_library = {
     // DECO-05: NPC-adjacent props
     { key: 'kenmi-desert-props-sleeping-mat', x: 18, y: 12, collide: false },
     { key: 'kenmi-desert-props-water-sack-on-stick', x: 11, y: 17, collide: false },
+  {
+    "key": "kenmi-desert-props-desert-fern",
+    "x": 10,
+    "y": 26,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-fern",
+    "x": 31,
+    "y": 12,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-fern",
+    "x": 31,
+    "y": 20,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 24,
+    "y": 25,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 27,
+    "y": 18,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 26,
+    "y": 15,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-ladder",
+    "x": 9,
+    "y": 11,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-pots-sacks",
+    "x": 11,
+    "y": 9,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-pots-sacks",
+    "x": 5,
+    "y": 9,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-pots-sacks",
+    "x": 6,
+    "y": 11,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-pots-sacks",
+    "x": 28,
+    "y": 11,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-rugs",
+    "x": 27,
+    "y": 13,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-rugs",
+    "x": 17,
+    "y": 12,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-rugs",
+    "x": 20,
+    "y": 17,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-fire-pit",
+    "x": 13,
+    "y": 7,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-fire-pit",
+    "x": 15,
+    "y": 7,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-fire-pit",
+    "x": 19,
+    "y": 7,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-fire-pit",
+    "x": 21,
+    "y": 7,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-fire-pit",
+    "x": 15,
+    "y": 7,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-cactus",
+    "x": 9,
+    "y": 5,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-cactus",
+    "x": 26,
+    "y": 2,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-cactus",
+    "x": 8,
+    "y": 2,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-cactus",
+    "x": 11,
+    "y": 29,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-cactus",
+    "x": 10,
+    "y": 27,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-cactus",
+    "x": 9,
+    "y": 31,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 20,
+    "y": 31,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 17,
+    "y": 29,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 26,
+    "y": 29,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-pots-sacks",
+    "x": 23,
+    "y": 30,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-pots-sacks",
+    "x": 26,
+    "y": 28,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-pots-sacks",
+    "x": 18,
+    "y": 28,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-rugs",
+    "x": 22,
+    "y": 32,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-rugs",
+    "x": 15,
+    "y": 22,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-rugs",
+    "x": 16,
+    "y": 4,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-rugs",
+    "x": 29,
+    "y": 5,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-rugs",
+    "x": 27,
+    "y": 3,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-rugs",
+    "x": 30,
+    "y": 2,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-fallen-palm-leaves-dead",
+    "x": 42,
+    "y": 11,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-golden-pots",
+    "x": 21,
+    "y": 6,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-sleeping-mat",
+    "x": 30,
+    "y": 4,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-water-sack-on-stick",
+    "x": 32,
+    "y": 4,
+    "collide": true
+  }
   ],
 
   npcs: [
