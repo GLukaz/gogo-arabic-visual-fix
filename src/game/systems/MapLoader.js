@@ -401,6 +401,9 @@ export const PROP_CROP_REGIONS = {
   'kenmi-military-lookout-towers': [
     { x: 0, y: 0, w: 72, h: 128 },
   ],
+  'kenmi-base-outdoor-decoration-scarecrows': [
+    { x: 64, y: 0, w: 32, h: 32 },
+  ],
 };
 
 // Biome-to-tileset config table.

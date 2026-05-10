@@ -2091,6 +2091,14 @@ const farmland = {
     "collide": true,
     "cropIndex": 5
   },
+ 
+  {
+    "key": "kenmi-base-outdoor-decoration-scarecrows",
+    "x": 15,
+    "y": 25,
+    "collide": true,
+    "cropIndex": 0
+  },
 
   ],
 
