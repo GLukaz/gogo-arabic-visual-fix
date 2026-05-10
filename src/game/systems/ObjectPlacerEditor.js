@@ -473,25 +473,29 @@ export class ObjectPlacerEditor {
   // --------------------------------------------------------------
 
   _copyJSON() {
-    const objects = this.placements.map(({ key, x, y, collide, cropIndex }) => ({
-      key, x, y,
-      ...(collide ? { collide: true } : {}),
-      ...(cropIndex != null ? { cropIndex } : {}),
-    }));
-    const json = JSON.stringify(objects, null, 2);
+    // Emit zones.js-style single-line JS object literals (unquoted keys,
+    // single-quoted string values, 4-space indent) so output can be pasted
+    // directly into a zone's `objects: [...]` array without reformatting.
+    const lines = this.placements.map(({ key, x, y, collide, cropIndex }) => {
+      const parts = [`key: '${key.replace(/'/g, "\\'")}'`, `x: ${x}`, `y: ${y}`];
+      if (collide) parts.push('collide: true');
+      if (cropIndex != null) parts.push(`cropIndex: ${cropIndex}`);
+      return `    { ${parts.join(', ')} },`;
+    });
+    const text = lines.join('\n');
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(json).then(
-        () => this._setStatus(`Copied ${objects.length} objects to clipboard`),
-        () => this._copyFallback(json)
+      navigator.clipboard.writeText(text).then(
+        () => this._setStatus(`Copied ${lines.length} objects to clipboard`),
+        () => this._copyFallback(text)
       );
     } else {
-      this._copyFallback(json);
+      this._copyFallback(text);
     }
   }
 
-  _copyFallback(json) {
+  _copyFallback(text) {
     const ta = document.createElement('textarea');
-    ta.value = json;
+    ta.value = text;
     ta.style.position = 'fixed';
     ta.style.opacity = '0';
     document.body.appendChild(ta);
@@ -500,8 +504,8 @@ export class ObjectPlacerEditor {
       document.execCommand('copy');
       this._setStatus(`Copied ${this.placements.length} objects (fallback)`);
     } catch {
-      this._setStatus('Copy failed — open devtools to read JSON');
-      console.log('[ObjectPlacerEditor] objects JSON:\n' + json);
+      this._setStatus('Copy failed — open devtools to read output');
+      console.log('[ObjectPlacerEditor] objects:\n' + text);
     }
     document.body.removeChild(ta);
   }
