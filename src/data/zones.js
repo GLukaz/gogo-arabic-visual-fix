@@ -260,7 +260,15 @@ const oasis_village = {
     "x": 21,
     "y": 13,
     "collide": true
+  },
+  
+  {
+    "key": "kenmi-base-outdoor-decoration-outdoor-decor-animations-water-decor-animations-water-plants-lillypad-green-1-anim",
+    "x": 20,
+    "y": 15,
+    "collide": true
   }
+
   ],
 
   npcs: [
@@ -499,7 +507,6 @@ const ancient_library = {
     // DECO-04: Obelisks flanking the library gate + golden pot in reading garden
     { key: 'kenmi-desert-temple-desert-obelisk-2', x: 12, y: 22, collide: true, collideW: 20, collideH: 20 },
     { key: 'kenmi-desert-temple-desert-obelisk-2', x: 22, y: 22, collide: true, collideW: 20, collideH: 20 },
-    { key: 'kenmi-desert-props-golden-pots', x: 17, y: 14, collide: false },
     // DECO-05: NPC-adjacent props
     { key: 'kenmi-desert-props-sleeping-mat', x: 18, y: 12, collide: false },
     { key: 'kenmi-desert-props-water-sack-on-stick', x: 11, y: 17, collide: false },
@@ -637,12 +644,6 @@ const ancient_library = {
   },
   
   {
-    "key": "kenmi-desert-props-flies-anim",
-    "x": 17,
-    "y": 15,
-    "collide": true
-  },
-  {
     "key": "kenmi-desert-props-outdoor-decor-animations-desert-grass-3-anim",
     "x": 8,
     "y": 21,
@@ -702,6 +703,14 @@ const ancient_library = {
     "y": 21,
     "collide": true
   },
+  
+  {
+    "key": "kenmi-base-outdoor-decoration-outdoor-decor-animations-water-decor-animations-water-plants-lillypad-green-2-anim",
+    "x": 17,
+    "y": 15,
+    "collide": true
+  }
+
   ],
 
   npcs: [
@@ -886,7 +895,6 @@ const desert_marketplace = {
     { key: 'kenmi-desert-props-desert-fencewall', x: 28, y: 15, collide: true, collideW: 40, collideH: 10 },
     { key: 'kenmi-desert-props-desert-fencewall', x: 34, y: 15, collide: true, collideW: 40, collideH: 10 },
     // DECO-04: Golden pot at market fountain / small obelisk at market entrance
-    { key: 'kenmi-desert-props-golden-pots', x: 22, y: 17, collide: false },
     { key: 'kenmi-desert-temple-desert-obelisk-small-2', x: 20, y: 2, collide: true, collideW: 20, collideH: 20 },
     // DECO-05: NPC-adjacent props (Layla 15,17; Hassan 29,17; Guard Hamza 22,8)
     { key: 'kenmi-desert-props-desert-pots-sacks', x: 14, y: 18, collide: false },
@@ -1189,6 +1197,14 @@ const desert_marketplace = {
     "y": 24,
     "collide": true
   },
+  
+  {
+    "key": "kenmi-base-outdoor-decoration-outdoor-decor-animations-water-decor-animations-water-plants-lillypad-purple-2-anim",
+    "x": 22,
+    "y": 17,
+    "collide": true
+  },
+
 
   ],
 
@@ -2275,7 +2291,7 @@ const bedouin_camp = {
     { key: 'kenmi-desert-props-water-sack-on-stick', x: 18, y: 14, collide: false },
     { key: 'kenmi-desert-props-desert-rugs', x: 9, y: 9, collide: false },
     { key: 'kenmi-desert-props-sleeping-mat', x: 28, y: 9, collide: false },
-    
+
   {
     "key": "kenmi-desert-props-desert-rugs",
     "x": 6,
