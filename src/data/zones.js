@@ -989,6 +989,207 @@ const desert_marketplace = {
     "y": 4,
     "collide": true
   },  
+
+  
+  {
+    "key": "kenmi-desert-props-desert-bones",
+    "x": 37,
+    "y": 30,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-bones",
+    "x": 40,
+    "y": 30,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-bones",
+    "x": 39,
+    "y": 24,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-rocks",
+    "x": 38,
+    "y": 6,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-fern-dead",
+    "x": 43,
+    "y": 17,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-fern-dead",
+    "x": 39,
+    "y": 33,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-fern-dead",
+    "x": 32,
+    "y": 28,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 33,
+    "y": 7,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 26,
+    "y": 8,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 34,
+    "y": 13,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 42,
+    "y": 16,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 42,
+    "y": 19,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 43,
+    "y": 21,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 33,
+    "y": 21,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 28,
+    "y": 23,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 28,
+    "y": 27,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 17,
+    "y": 25,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 13,
+    "y": 26,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 9,
+    "y": 24,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 14,
+    "y": 12,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 17,
+    "y": 10,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 12,
+    "y": 7,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-rocks",
+    "x": 13,
+    "y": 10,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-rocks",
+    "x": 9,
+    "y": 4,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-flies-anim",
+    "x": 22,
+    "y": 16,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-outdoor-decor-animations-desert-grass-1-anim",
+    "x": 19,
+    "y": 18,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-outdoor-decor-animations-desert-grass-2-anim",
+    "x": 23,
+    "y": 15,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-outdoor-decor-animations-desert-grass-3-anim",
+    "x": 21,
+    "y": 20,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-water-sack-on-stick",
+    "x": 13,
+    "y": 22,
+    "collide": true
+  },
+  {
+    "key": "kenmi-military-campfire-pot-anim",
+    "x": 25,
+    "y": 17,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-rocks",
+    "x": 26,
+    "y": 23,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-rocks",
+    "x": 9,
+    "y": 28,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-rocks",
+    "x": 11,
+    "y": 24,
+    "collide": true
+  },
+  
   ],
 
   npcs: [
@@ -1173,6 +1374,8 @@ const farmland = {
     // DECO-05: NPC-adjacent props (Omar 12,10 and Maryam 33,25)
     { key: 'kenmi-base-outdoor-decoration-hay-bales', x: 11, y: 11, collide: false },
     { key: 'kenmi-base-outdoor-decoration-barrels', x: 34, y: 26, collide: false },
+    
+
   ],
 
   npcs: [
