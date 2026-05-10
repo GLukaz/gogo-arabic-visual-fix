@@ -2275,6 +2275,254 @@ const bedouin_camp = {
     { key: 'kenmi-desert-props-water-sack-on-stick', x: 18, y: 14, collide: false },
     { key: 'kenmi-desert-props-desert-rugs', x: 9, y: 9, collide: false },
     { key: 'kenmi-desert-props-sleeping-mat', x: 28, y: 9, collide: false },
+    
+  {
+    "key": "kenmi-desert-props-desert-rugs",
+    "x": 6,
+    "y": 13,
+    "collide": true,
+    "cropIndex": 1
+  },
+  {
+    "key": "kenmi-desert-props-desert-rugs",
+    "x": 25,
+    "y": 13,
+    "collide": true,
+    "cropIndex": 0
+  },
+  {
+    "key": "kenmi-desert-props-desert-pots-sacks",
+    "x": 10,
+    "y": 7,
+    "collide": true,
+    "cropIndex": 1
+  },
+  {
+    "key": "kenmi-desert-props-desert-pots-sacks",
+    "x": 5,
+    "y": 9,
+    "collide": true,
+    "cropIndex": 3
+  },
+  {
+    "key": "kenmi-desert-props-desert-rocks",
+    "x": 33,
+    "y": 8,
+    "collide": true,
+    "cropIndex": 2
+  },
+  {
+    "key": "kenmi-desert-props-desert-rocks",
+    "x": 28,
+    "y": 2,
+    "collide": true,
+    "cropIndex": 10
+  },
+  {
+    "key": "kenmi-desert-props-desert-rocks",
+    "x": 6,
+    "y": 2,
+    "collide": true,
+    "cropIndex": 0
+  },
+  {
+    "key": "kenmi-desert-props-golden-pots",
+    "x": 8,
+    "y": 20,
+    "collide": true,
+    "cropIndex": 2
+  },
+  {
+    "key": "kenmi-desert-props-golden-pots",
+    "x": 9,
+    "y": 20,
+    "collide": true,
+    "cropIndex": 1
+  },
+  {
+    "key": "kenmi-desert-props-golden-pots",
+    "x": 5,
+    "y": 20,
+    "collide": true,
+    "cropIndex": 2
+  },
+  {
+    "key": "kenmi-desert-props-desert-pots-sacks",
+    "x": 30,
+    "y": 8,
+    "collide": true,
+    "cropIndex": 2
+  },
+  {
+    "key": "kenmi-desert-props-desert-pots-sacks",
+    "x": 30,
+    "y": 7,
+    "collide": true,
+    "cropIndex": 3
+  },
+  {
+    "key": "kenmi-desert-props-desert-pots-sacks",
+    "x": 24,
+    "y": 8,
+    "collide": true,
+    "cropIndex": 0
+  },
+  {
+    "key": "kenmi-military-banners-anim",
+    "x": 10,
+    "y": 3,
+    "collide": true
+  },
+  {
+    "key": "kenmi-military-banners-anim",
+    "x": 24,
+    "y": 3,
+    "collide": true
+  },
+  {
+    "key": "kenmi-base-outdoor-decoration-camp-decor",
+    "x": 15,
+    "y": 19,
+    "collide": true,
+    "cropIndex": 1
+  },
+  {
+    "key": "kenmi-base-outdoor-decoration-camp-decor",
+    "x": 19,
+    "y": 19,
+    "collide": true,
+    "cropIndex": 0
+  },
+  {
+    "key": "kenmi-base-outdoor-decoration-camp-decor",
+    "x": 27,
+    "y": 20,
+    "collide": true,
+    "cropIndex": 1
+  },
+  {
+    "key": "kenmi-base-outdoor-decoration-lantern",
+    "x": 25,
+    "y": 10,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-outdoor-decor-animations-desert-grass-1-anim",
+    "x": 12,
+    "y": 10,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-outdoor-decor-animations-desert-grass-2-anim",
+    "x": 12,
+    "y": 14,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-outdoor-decor-animations-desert-grass-3-anim",
+    "x": 22,
+    "y": 12,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 19,
+    "y": 22,
+    "collide": true,
+    "cropIndex": 1
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 29,
+    "y": 17,
+    "collide": true,
+    "cropIndex": 0
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 8,
+    "y": 23,
+    "collide": true,
+    "cropIndex": 1
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 13,
+    "y": 7,
+    "collide": true,
+    "cropIndex": 2
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 16,
+    "y": 6,
+    "collide": true,
+    "cropIndex": 0
+  },
+  {
+    "key": "kenmi-desert-props-desert-grass-props",
+    "x": 19,
+    "y": 8,
+    "collide": true,
+    "cropIndex": 0
+  },
+  {
+    "key": "kenmi-desert-props-desert-fern",
+    "x": 5,
+    "y": 3,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-fern",
+    "x": 30,
+    "y": 3,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-desert-fern",
+    "x": 33,
+    "y": 2,
+    "collide": true
+  },
+  {
+    "key": "kenmi-desert-props-golden-pots",
+    "x": 16,
+    "y": 16,
+    "collide": true,
+    "cropIndex": 0
+  },
+  {
+    "key": "kenmi-military-campfire-pot-anim",
+    "x": 17,
+    "y": 7,
+    "collide": true
+  },
+  {
+    "key": "kenmi-military-palisade",
+    "x": 33,
+    "y": 15,
+    "collide": true,
+    "cropIndex": 1
+  },
+  {
+    "key": "kenmi-military-flags-anim",
+    "x": 10,
+    "y": 16,
+    "collide": true
+  },
+  {
+    "key": "kenmi-military-flags-anim",
+    "x": 10,
+    "y": 6,
+    "collide": true
+  },
+  {
+    "key": "kenmi-military-flags-anim",
+    "x": 24,
+    "y": 6,
+    "collide": true
+  },
+
   ],
 
   npcs: [
