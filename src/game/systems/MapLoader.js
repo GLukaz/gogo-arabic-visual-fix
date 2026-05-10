@@ -1494,14 +1494,19 @@ export class MapLoader {
         : this.scene.add.image(px, py, textureKey);
       if (animName && this.scene.anims.exists(animName)) sprite.play(animName);
 
-      // Select random variation from spritesheet if multi-item prop (2+ regions)
-      // Single-region crops are for large singular objects (e.g. palm trees)
+      // Select crop variation from spritesheet if multi-item prop (2+ regions).
+      // If the object specifies a `cropIndex` (set by ObjectPlacerEditor) use
+      // that exact variant so saved placements render identically to what the
+      // editor showed; otherwise pick a random variant for procedural scatters.
       const cropRegions = PROP_CROP_REGIONS[textureKey];
       let depth = py;
       if (cropRegions && cropRegions.length > 0) {
-        // Multi-item spritesheet: pick random variant
-        const randomIdx = Math.floor(Math.random() * cropRegions.length);
-        const region = cropRegions[randomIdx];
+        const idx = (Number.isInteger(obj.cropIndex)
+          && obj.cropIndex >= 0
+          && obj.cropIndex < cropRegions.length)
+          ? obj.cropIndex
+          : Math.floor(Math.random() * cropRegions.length);
+        const region = cropRegions[idx];
         sprite.setCrop(region.x, region.y, region.w, region.h);
         sprite.setScale(KENMI_SCALE);
         // Pin origin to the visual center of the crop region so py lands on the

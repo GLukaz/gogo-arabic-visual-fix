@@ -383,11 +383,11 @@ export class ObjectPlacerEditor {
       this._setStatus(`Texture not loaded: ${this.selectedKey}`);
       return;
     }
-    const sprite = this._renderProp(this.selectedKey, 0, 0);
-    if (sprite) {
-      sprite.setAlpha(0.55);
-      sprite.setDepth(99998);
-      this.previewSprite = sprite;
+    const result = this._renderProp(this.selectedKey, 0, 0);
+    if (result) {
+      result.sprite.setAlpha(0.55);
+      result.sprite.setDepth(99998);
+      this.previewSprite = result.sprite;
     }
   }
 
@@ -396,13 +396,15 @@ export class ObjectPlacerEditor {
       this._setStatus(`Texture not loaded: ${this.selectedKey}`);
       return;
     }
-    const sprite = this._renderProp(this.selectedKey, tileX, tileY);
-    if (!sprite) return;
+    const result = this._renderProp(this.selectedKey, tileX, tileY);
+    if (!result) return;
+    const { sprite, cropIndex } = result;
     this.placements.push({
       key: this.selectedKey,
       x: tileX,
       y: tileY,
       collide: this.defaultCollide,
+      ...(cropIndex != null ? { cropIndex } : {}),
       _sprite: sprite,
     });
     this._refreshList();
@@ -425,6 +427,8 @@ export class ObjectPlacerEditor {
 
   // Mirrors MapLoader.placeObjects rendering so previews/placements look identical
   // to what the game will draw when this JSON gets baked into a snapshot.
+  // Returns { sprite, cropIndex } — cropIndex is the spritesheet variant chosen
+  // (or null for non-cropped props) so callers can persist it for in-game reload.
   _renderProp(textureKey, tileX, tileY) {
     const px = tileX * TILE + TILE / 2;
     const py = tileY * TILE + TILE / 2;
@@ -438,8 +442,10 @@ export class ObjectPlacerEditor {
     if (animName && this.scene.anims.exists(animName)) sprite.play(animName);
 
     const cropRegions = PROP_CROP_REGIONS[textureKey];
+    let cropIndex = null;
     if (cropRegions && cropRegions.length > 0) {
-      const region = cropRegions[Math.floor(Math.random() * cropRegions.length)];
+      cropIndex = Math.floor(Math.random() * cropRegions.length);
+      const region = cropRegions[cropIndex];
       sprite.setCrop(region.x, region.y, region.w, region.h);
       sprite.setScale(KENMI_SCALE);
       const src = this.scene.textures.get(textureKey).source[0];
@@ -459,7 +465,7 @@ export class ObjectPlacerEditor {
         : py + sprite.displayHeight * 0.2;
       sprite.setDepth(depth);
     }
-    return sprite;
+    return { sprite, cropIndex };
   }
 
   // --------------------------------------------------------------
@@ -467,8 +473,10 @@ export class ObjectPlacerEditor {
   // --------------------------------------------------------------
 
   _copyJSON() {
-    const objects = this.placements.map(({ key, x, y, collide }) => ({
-      key, x, y, ...(collide ? { collide: true } : {}),
+    const objects = this.placements.map(({ key, x, y, collide, cropIndex }) => ({
+      key, x, y,
+      ...(collide ? { collide: true } : {}),
+      ...(cropIndex != null ? { cropIndex } : {}),
     }));
     const json = JSON.stringify(objects, null, 2);
     if (navigator.clipboard && navigator.clipboard.writeText) {
