@@ -136,7 +136,7 @@ export function useObjectEvents(playSFX) {
           message: `${word.arabic} — ${word.english}`,
           type: 'word',
         }));
-      } else if (reread) {
+      } else if (word && reread) {
         dispatch(showNotification({
           message: `${word.arabic} — ${word.english}`,
           type: 'word',

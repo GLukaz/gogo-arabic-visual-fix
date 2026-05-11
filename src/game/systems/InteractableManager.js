@@ -219,19 +219,18 @@ export class InteractableManager {
       });
       EventBus.emit(EVENTS.PLAYER_FREEZE);
     } else if (obj.type === 'bookshelf') {
+      EventBus.emit(EVENTS.PLAYER_FREEZE);
       if (!readBooks.includes(obj.id)) {
         EventBus.emit(EVENTS.BOOKSHELF_INTERACT, {
           category: obj.category,
           id: obj.id,
         });
-        EventBus.emit(EVENTS.PLAYER_FREEZE);
       } else {
         EventBus.emit(EVENTS.BOOKSHELF_INTERACT, {
           category: obj.category,
           id: obj.id,
           reread: true,
         });
-        EventBus.emit(EVENTS.PLAYER_FREEZE);
       }
     } else if (obj.type === 'chest') {
       if (!openedChests.includes(obj.id)) {
