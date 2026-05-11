@@ -121,9 +121,15 @@ export class WorldScene extends Phaser.Scene {
     // Companion system (must be after PlayerController)
     this.companionManager = new CompanionManager(this);
 
-    // Load the default zone
-    const zone = ZONES.oasis_village;
-    this.buildZone('oasis_village', zone.spawnPoint.x * TILE, zone.spawnPoint.y * TILE);
+    // Load the zone from Redux state (defaults to oasis_village if not set)
+    const savedZone = store.getState().player.currentZone || 'oasis_village';
+    const zone = ZONES[savedZone] || ZONES.oasis_village;
+    const zoneName = ZONES[savedZone] ? savedZone : 'oasis_village';
+    this.currentZone = zoneName;
+    this.buildZone(zoneName, zone.spawnPoint.x * TILE, zone.spawnPoint.y * TILE);
+
+    // Emit ZONE_CHANGE to trigger audio, dialogue preloading, and other zone-specific effects
+    EventBus.emit(EVENTS.ZONE_CHANGE, { zone: zoneName, x: zone.spawnPoint.x * TILE, y: zone.spawnPoint.y * TILE });
 
     // AutoSave + GameplayStats
     this.autoSave = new AutoSave();
