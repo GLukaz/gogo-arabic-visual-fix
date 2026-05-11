@@ -6,3 +6,4 @@ dist/
 coverage/
 .claude/worktrees/
 scripts/output/
+.claude/settings.local.json
