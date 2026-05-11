@@ -20,7 +20,8 @@ import styles from './WordSearch.module.css';
  */
 export default function WordSearch({ onBack }) {
   const vocabularyState = useSelector((state) => state.vocabulary);
-  const allWords = vocabularyState.words || [];
+
+  const allWords = useMemo(() => vocabularyState.words || [], [vocabularyState.words]);
 
   const [difficulty, setDifficulty] = useState(null);
   const [category, setCategory] = useState(null);

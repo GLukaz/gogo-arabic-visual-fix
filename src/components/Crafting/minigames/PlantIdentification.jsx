@@ -165,24 +165,6 @@ export default function PlantIdentification({ recipeId, professionLevel, onCompl
 
   const currentQuestion = questions[currentIndex];
 
-  // Timer countdown
-  useEffect(() => {
-    if (!currentQuestion || !currentQuestion.hasTimer || isComplete || feedback) return;
-
-    const interval = setInterval(() => {
-      setTimeRemaining((prev) => {
-        if (prev <= 100) {
-          // Time's up - mark as incorrect
-          handleAnswer(null, true);
-          return 0;
-        }
-        return prev - 100;
-      });
-    }, 100);
-
-    return () => clearInterval(interval);
-  }, [currentQuestion, isComplete, feedback]);
-
   const handleAnswer = useCallback(
     (choiceId, isTimeout = false) => {
       if (!currentQuestion || feedback) return;
@@ -220,6 +202,24 @@ export default function PlantIdentification({ recipeId, professionLevel, onCompl
     },
     [currentQuestion, currentIndex, feedback, questions, score, onComplete]
   );
+
+  // Timer countdown
+  useEffect(() => {
+    if (!currentQuestion || !currentQuestion.hasTimer || isComplete || feedback) return;
+
+    const interval = setInterval(() => {
+      setTimeRemaining((prev) => {
+        if (prev <= 100) {
+          // Time's up - mark as incorrect
+          handleAnswer(null, true);
+          return 0;
+        }
+        return prev - 100;
+      });
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [currentQuestion, isComplete, feedback, handleAnswer]);
 
   if (!currentQuestion || isComplete) {
     return null;

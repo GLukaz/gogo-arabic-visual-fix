@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useFormatArabic } from '../../hooks/useFormatArabic.js';
 import { PASSAGES, getPassagesByDifficulty } from '../../data/readingPassages.js';
 import styles from './ReadingExercise.module.css';
@@ -36,6 +36,24 @@ export default function ReadingExercise({ onBack }) {
     setShowTransliteration(false);
   }, [currentPassageIndex, difficulty]);
 
+  const handleSubmitAnswer = useCallback(() => {
+    if (selectedAnswer === null) return;
+    const newAnswers = [...answers, selectedAnswer];
+    setAnswers(newAnswers);
+    if (currentQuestion < totalQuestions - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+      setSelectedAnswer(null);
+    } else {
+      setShowResults(true);
+    }
+  }, [selectedAnswer, answers, currentQuestion, totalQuestions]);
+
+  const handleNextPassage = useCallback(() => {
+    if (currentPassageIndex < passages.length - 1) {
+      setCurrentPassageIndex(currentPassageIndex + 1);
+    }
+  }, [currentPassageIndex, passages.length]);
+
   useEffect(() => {
     const handleKeyPress = (e) => {
       if (!showResults && question && !selectedAnswer) {
@@ -66,25 +84,7 @@ export default function ReadingExercise({ onBack }) {
     };
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [selectedAnswer, showResults, question, currentPassageIndex, passages.length, difficulty]);
-
-  const handleSubmitAnswer = () => {
-    if (selectedAnswer === null) return;
-    const newAnswers = [...answers, selectedAnswer];
-    setAnswers(newAnswers);
-    if (currentQuestion < totalQuestions - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-      setSelectedAnswer(null);
-    } else {
-      setShowResults(true);
-    }
-  };
-
-  const handleNextPassage = () => {
-    if (currentPassageIndex < passages.length - 1) {
-      setCurrentPassageIndex(currentPassageIndex + 1);
-    }
-  };
+  }, [selectedAnswer, showResults, question, currentPassageIndex, passages.length, difficulty, handleSubmitAnswer, handleNextPassage]);
 
   const calculateScore = () => {
     if (!passage || answers.length === 0) return 0;

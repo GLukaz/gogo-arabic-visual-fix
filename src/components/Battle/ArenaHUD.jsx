@@ -142,7 +142,7 @@ export default function ArenaHUD() {
         }
       };
     }
-  }, [timeLimit, timeRemaining > 0, waveTransition, arenaResult]);
+  }, [timeLimit, timeRemaining, waveTransition, arenaResult]);
 
   // Don't render when inactive
   if (!arenaActive) return null;

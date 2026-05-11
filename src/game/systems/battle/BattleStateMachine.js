@@ -40,6 +40,7 @@ import {
   spendCompanionMP,
   healCompanion,
   healPlayer,
+  healEnemy,
   setCompanionDefending,
   applyPlayerEffect,
   removeEnemyEffect,

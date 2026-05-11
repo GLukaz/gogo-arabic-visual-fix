@@ -10,6 +10,7 @@ import foundationReducer, {
   isStageComplete,
   getStageProgress,
   selectFoundationProgress,
+  CORE_VOCAB_STAGE_WORD_COUNT,
 } from '../slices/foundationSlice.js';
 import { foundationMiddleware } from '../middleware/foundationMiddleware.js';
 import { AFL_SEQUENCE } from '../slices/alphabetProgressSlice.js';

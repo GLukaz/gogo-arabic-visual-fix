@@ -193,7 +193,7 @@ function WritingCanvas({
     if (currentStroke && currentStroke.length > 0) {
       drawSmoothLine(ctx, currentStroke, strokeColor, 3);
     }
-  }, [strokes, currentStroke, templateStrokes, templateDots, ghostColor, strokeColor, bgColor, size]);
+  }, [strokes, currentStroke, templateStrokes, templateDots, ghostColor, strokeColor, bgColor]);
 
   useEffect(() => {
     redraw();

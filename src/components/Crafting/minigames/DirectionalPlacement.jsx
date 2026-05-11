@@ -182,24 +182,6 @@ export default function DirectionalPlacement({ recipeId, professionLevel, onComp
 
   const currentTask = tasks[currentIndex];
 
-  // Timer countdown
-  useEffect(() => {
-    if (!currentTask || !currentTask.hasTimer || isComplete || feedback) return;
-
-    const interval = setInterval(() => {
-      setTimeRemaining((prev) => {
-        if (prev <= 100) {
-          // Time's up - mark as incorrect
-          handlePlacement(null, null, true);
-          return 0;
-        }
-        return prev - 100;
-      });
-    }, 100);
-
-    return () => clearInterval(interval);
-  }, [currentTask, isComplete, feedback]);
-
   const handlePlacement = useCallback(
     (row, col, isTimeout = false) => {
       if (!currentTask || feedback) return;
@@ -253,6 +235,24 @@ export default function DirectionalPlacement({ recipeId, professionLevel, onComp
     },
     [currentTask, currentIndex, feedback, tasks, score, onComplete]
   );
+
+  // Timer countdown
+  useEffect(() => {
+    if (!currentTask || !currentTask.hasTimer || isComplete || feedback) return;
+
+    const interval = setInterval(() => {
+      setTimeRemaining((prev) => {
+        if (prev <= 100) {
+          // Time's up - mark as incorrect
+          handlePlacement(null, null, true);
+          return 0;
+        }
+        return prev - 100;
+      });
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [currentTask, isComplete, feedback, handlePlacement]);
 
   if (!blueprint || !currentTask || isComplete) {
     return null;

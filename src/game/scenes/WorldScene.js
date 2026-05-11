@@ -398,7 +398,9 @@ export class WorldScene extends Phaser.Scene {
       const { audioManager } = await import('../../services/audio.js');
       const { INTERIOR_BGM } = await import('../../data/audioConfig.js');
       audioManager.playBGM(INTERIOR_BGM[interiorId] || INTERIOR_BGM.default || 'interior');
-    } catch (_e) { /* audio not critical */ }
+    } catch {
+      // Audio not critical
+    }
     this.sceneStackManager.pushScene('InteriorScene', { interiorId, entryPosition });
     EventBus.emit(EVENTS.BUILDING_ENTERED, { interiorId });
   }

@@ -156,7 +156,7 @@ function VerbChainMode({ template, onFieldSubmit }) {
   }, [chain.length]);
 
   const currentFormIndex = chain.length;
-  const forms = template.forms || [];
+  const forms = useMemo(() => template.forms || [], [template.forms]);
   const currentForm = forms[currentFormIndex];
   const isComplete = currentFormIndex >= forms.length;
 

@@ -40,9 +40,9 @@ export default function LeaderboardBanner() {
     return {
       wordsLearned,
       quizzesCompleted,
-      streak: streakInfo.current,
+      streak: streakInfo,
     };
-  }, [fsrsCards, streakInfo.current]);
+  }, [fsrsCards, streakInfo]);
 
   // Record snapshot on mount and when stats change
   useEffect(() => {

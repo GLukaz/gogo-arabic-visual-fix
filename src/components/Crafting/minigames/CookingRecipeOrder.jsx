@@ -96,6 +96,30 @@ export default function CookingRecipeOrder({ recipeId, professionLevel, onComple
     setIncorrectAttempts(new Array(ingredientData.length).fill(0));
   }, [professionLevel, recipeId]);
 
+  /**
+   * Calculate accuracy and complete
+   */
+  const handleCompletion = useCallback(() => {
+    // Accuracy = (correct_first_try_count / total_ingredients)
+    const correctFirstTry = incorrectAttempts.filter((count) => count === 0).length;
+    const accuracy = correctFirstTry / correctOrder.length;
+
+    onComplete(accuracy);
+  }, [incorrectAttempts, correctOrder, onComplete]);
+
+  /**
+   * Handle timeout
+   */
+  const handleTimeout = useCallback(() => {
+    // Calculate partial accuracy based on correct selections
+    const correctCount = selectedIngredients.length;
+    const correctFirstTry = incorrectAttempts.slice(0, correctCount).filter((count) => count === 0)
+      .length;
+    const accuracy = Math.max(0, correctFirstTry / correctOrder.length);
+
+    onComplete(accuracy);
+  }, [selectedIngredients, incorrectAttempts, correctOrder, onComplete]);
+
   // Timer countdown
   useEffect(() => {
     if (!difficulty || difficulty.timeLimit === 0) return;
@@ -112,7 +136,7 @@ export default function CookingRecipeOrder({ recipeId, professionLevel, onComple
     }, 100);
 
     return () => clearInterval(interval);
-  }, [difficulty]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [difficulty, handleTimeout]);
 
   /**
    * Handle ingredient selection
@@ -150,32 +174,8 @@ export default function CookingRecipeOrder({ recipeId, professionLevel, onComple
         setTimeout(() => setFlashState(null), 400);
       }
     },
-    [selectedIngredients, correctOrder]
-  );  
-
-  /**
-   * Calculate accuracy and complete
-   */
-  const handleCompletion = useCallback(() => {
-    // Accuracy = (correct_first_try_count / total_ingredients)
-    const correctFirstTry = incorrectAttempts.filter((count) => count === 0).length;
-    const accuracy = correctFirstTry / correctOrder.length;
-
-    onComplete(accuracy);
-  }, [incorrectAttempts, correctOrder, onComplete]);
-
-  /**
-   * Handle timeout
-   */
-  const handleTimeout = useCallback(() => {
-    // Calculate partial accuracy based on correct selections
-    const correctCount = selectedIngredients.length;
-    const correctFirstTry = incorrectAttempts.slice(0, correctCount).filter((count) => count === 0)
-      .length;
-    const accuracy = Math.max(0, correctFirstTry / correctOrder.length);
-
-    onComplete(accuracy);
-  }, [selectedIngredients, incorrectAttempts, correctOrder, onComplete]);
+    [selectedIngredients, correctOrder, handleCompletion]
+  );
 
   if (!difficulty || ingredients.length === 0) {
     return <div className={styles.container}>Loading...</div>;

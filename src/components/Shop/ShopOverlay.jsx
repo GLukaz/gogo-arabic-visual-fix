@@ -25,7 +25,7 @@ function ShopOverlay() {
   const dispatch = useDispatch();
   const player = useSelector((s) => s.player);
   const vocabularyState = useSelector((s) => s.vocabulary);
-  const completedQuests = useSelector((s) => s.quests.completed);
+  const _completedQuests = useSelector((s) => s.quests.completed);
   const inventoryItems = useSelector(selectInventoryItems);
   const inventoryFull = useSelector(selectIsInventoryFull);
   const dialogueConfig = useSelector((s) => s.ui.dialogueConfig);
@@ -36,6 +36,11 @@ function ShopOverlay() {
   const [confirmSell, setConfirmSell] = useState(null);
 
   const focusTrapRef = useFocusTrap(true, null);
+
+  // Shopkeeper info
+  const shopId = dialogueConfig?.shopId || 'oasis_village_shop';
+  const shopName = dialogueConfig?.shopName || "Merchant Fatima's Shop";
+  const shopGreeting = dialogueConfig?.shopGreeting || 'مرحبا! Welcome to my shop!';
 
   const handleClose = useCallback(() => {
     dispatch(closeDialogue());
@@ -66,12 +71,7 @@ function ShopOverlay() {
       const zonePrice = getZoneAdjustedBuyPrice(item.price, itemData, shopId);
       return { ...item, price: zonePrice };
     });
-  }, [dialogueConfig, player.level, completedQuests, shopId]);
-
-  // Shopkeeper info
-  const shopId = dialogueConfig?.shopId || 'oasis_village_shop';
-  const shopName = dialogueConfig?.shopName || "Merchant Fatima's Shop";
-  const shopGreeting = dialogueConfig?.shopGreeting || 'مرحبا! Welcome to my shop!';
+  }, [dialogueConfig]);
 
   const handleBuy = useCallback((itemId, price) => {
     if (player.dirhams < price) {

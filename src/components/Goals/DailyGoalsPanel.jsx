@@ -25,8 +25,8 @@ function DailyGoalsPanel({ onClose }) {
   const focusTrapRef = useFocusTrap(true, null);
 
   const nextMilestone = useMemo(
-    () => getNextStreakMilestone(streakInfo.current),
-    [streakInfo.current]
+    () => getNextStreakMilestone(streakInfo),
+    [streakInfo]
   );
 
   const handleOverlayClick = useCallback(

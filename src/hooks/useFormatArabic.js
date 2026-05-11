@@ -1,5 +1,6 @@
 import { createElement } from 'react';
 import { useCallback } from 'react';
+import { useSelector } from 'react-redux';
 import { stripDiacritics } from '../utils/arabicUtils.js';
 import { splitTashkeel, hasDiacritics } from '../utils/tashkeelFading.js';
 import vocabulary from '../data/vocabularyAll.js';

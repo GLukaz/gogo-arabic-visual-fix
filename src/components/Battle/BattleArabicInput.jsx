@@ -71,7 +71,7 @@ export default function BattleArabicInput({ prompt, onSubmit, mode = 'attack' })
     startTimeRef.current = Date.now();
     submittedRef.current = false;
     inputRef.current?.focus();
-  }, [prompt]);
+  }, [prompt, mode]);
 
   const handleSubmit = useCallback(
     (value, isTimeout = false) => {

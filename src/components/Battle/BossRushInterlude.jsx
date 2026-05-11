@@ -39,6 +39,15 @@ export default function BossRushInterlude() {
   const [interludeData, setInterludeData] = useState(null);
   const timerRef = useRef(null);
 
+  const handleContinue = useCallback(() => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+    setInterludeData(null);
+    EventBus.emit(EVENTS.BOSS_RUSH_CONTINUE);
+  }, []);
+
   useEffect(() => {
     const onInterlude = (data) => {
       setInterludeData(data);
@@ -68,16 +77,7 @@ export default function BossRushInterlude() {
         timerRef.current = null;
       }
     };
-  }, [interludeData]);
-
-  const handleContinue = useCallback(() => {
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-      timerRef.current = null;
-    }
-    setInterludeData(null);
-    EventBus.emit(EVENTS.BOSS_RUSH_CONTINUE);
-  }, []);
+  }, [interludeData, handleContinue]);
 
   const motionProps = reduceMotion
     ? {}

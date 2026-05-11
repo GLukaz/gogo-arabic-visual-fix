@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   completeOnboarding,
@@ -53,8 +53,8 @@ export default function TutorialHints() {
 
   // Mentor and Scholar positions in screen coords (updated from Phaser position events)
   // We use viewport center as a reference and show arrows at screen edges
-  const MENTOR_WORLD = { x: 14 * 64, y: 18 * 64 };
-  const SCHOLAR_WORLD = { x: 9 * 64, y: 6 * 64 };
+  const MENTOR_WORLD = useMemo(() => ({ x: 14 * 64, y: 18 * 64 }), []);
+  const SCHOLAR_WORLD = useMemo(() => ({ x: 9 * 64, y: 6 * 64 }), []);
 
   const handlePositionUpdate = useCallback(({ x, y }) => {
     setPlayerPos({ x, y });
@@ -64,7 +64,7 @@ export default function TutorialHints() {
       (x - MENTOR_WORLD.x) ** 2 + (y - MENTOR_WORLD.y) ** 2
     );
     setNearMentor(distToMentor < 128);
-  }, []);
+  }, [MENTOR_WORLD]);
 
   useEffect(() => {
     EventBus.on(EVENTS.PLAYER_POSITION_UPDATE, handlePositionUpdate);

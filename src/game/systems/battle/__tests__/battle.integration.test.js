@@ -19,6 +19,7 @@ import battleReducer, {
   updateComboMeter,
   resetComboMeter,
   initCompanionBattle,
+  damageCompanion,
 } from '../../../../store/slices/battleSlice.js';
 
 /**

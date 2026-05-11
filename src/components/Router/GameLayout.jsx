@@ -31,6 +31,25 @@ const SignOverlay = lazy(() => import('../World/SignOverlay.jsx'));
 const ObjectInteractionOverlay = lazy(() => import('../World/ObjectInteractionOverlay.jsx'));
 const TutorialHints = lazy(() => import('../Onboarding/TutorialHints.jsx'));
 const WelcomeSplash = lazy(() => import('../Onboarding/TutorialHints.jsx').then(m => ({ default: m.WelcomeSplash })));
+const AchievementToast = lazy(() => import('../Achievements/AchievementToast.jsx'));
+const StreakRewardToast = lazy(() => import('../Goals/StreakRewardToast.jsx'));
+const LevelUpModal = lazy(() => import('../UI/LevelUpModal.jsx'));
+const PathChoice = lazy(() => import('../Onboarding/PathChoice.jsx'));
+const ShopOverlay = lazy(() => import('../Shop/ShopOverlay.jsx'));
+const PauseMenu = lazy(() => import('./PauseMenu.jsx'));
+const QuestJournal = lazy(() => import('../Quest/QuestJournal.jsx'));
+const BattleOverlay = lazy(() => import('../Battle/BattleOverlay.jsx'));
+const MagicOverlay = lazy(() => import('../Magic/MagicOverlay.jsx'));
+const SpellMenu = lazy(() => import('../Magic/SpellMenu.jsx'));
+const RootDiscoveryToast = lazy(() => import('../Magic/RootDiscoveryToast.jsx'));
+const InventoryUI = lazy(() => import('../Inventory/InventoryUI.jsx'));
+const Wardrobe = lazy(() => import('../Wardrobe/Wardrobe.jsx'));
+const FactionPanel = lazy(() => import('../Faction/FactionPanel.jsx'));
+const PoetryBattleOverlay = lazy(() => import('../Poetry/PoetryBattleOverlay.jsx'));
+const WelcomeBackOverlay = lazy(() => import('../WelcomeBack/WelcomeBackOverlay.jsx'));
+const MicroReviewOverlay = lazy(() => import('../Quiz/MicroReviewOverlay.jsx'));
+const RecipeBook = lazy(() => import('../Crafting/RecipeBook.jsx'));
+const CraftingMiniGame = lazy(() => import('../Crafting/CraftingMiniGame.jsx'));
 
 import styles from './GameLayout.module.css';
 
@@ -199,7 +218,7 @@ export default function GameLayout() {
       EventBus.off(EVENTS.POETRY_BATTLE_START, handlePoetryStart);
       EventBus.off(EVENTS.POETRY_BATTLE_END, handlePoetryEnd);
     };
-  }, []);
+  }, [dispatch]);
 
   // CalligraphyScene dynamic launcher — handles CALLIGRAPHY_LAUNCH_REQUESTED event
   // and a window.__pendingCalligraphyLaunch set by MiniGamesHub before navigating to /game

@@ -114,7 +114,7 @@ export default function MemoryMatchGame({ onBack }) {
         utterance.lang = 'ar';
         utterance.rate = 0.8;
         window.speechSynthesis.speak(utterance);
-      } catch (_e) {
+      } catch {
         // Graceful fallback: no TTS
       }
     }
