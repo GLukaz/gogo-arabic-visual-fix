@@ -123,9 +123,10 @@ export default defineConfig({
             if (id.includes('node_modules/ts-fsrs')) {
               return 'fsrs-vendor';
             }
-            // React ecosystem (~400KB) - check scheduler separately to avoid circular deps
-            if (id.includes('node_modules/react/') ||
+            // React + ecosystem in one chunk to avoid circular deps
+            if (id.includes('node_modules/react') ||
               id.includes('node_modules/react-dom') ||
+              id.includes('node_modules/scheduler') ||
               id.includes('node_modules/framer-motion')) {
               return 'react-vendor';
             }
@@ -139,18 +140,14 @@ export default defineConfig({
             if (id.includes('node_modules/react-router')) {
               return 'router-vendor';
             }
-            // Scheduler (shared by react and framer-motion)
-            if (id.includes('node_modules/scheduler')) {
-              return 'react-vendor';
-            }
             // recharts + d3 sub-packages (~200KB)
             if (id.includes('node_modules/recharts') ||
                 id.includes('node_modules/victory-vendor') ||
                 id.includes('node_modules/d3-')) {
               return 'charts-vendor';
             }
-            // All other node_modules
-            return 'misc-vendor';
+            // All other node_modules - group with react to avoid circular
+            return 'react-vendor';
           }
         },
       },
