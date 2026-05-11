@@ -18,7 +18,7 @@ export class DynamicObject extends Phaser.GameObjects.Sprite {
         }
     }
 
-    handleStateChange(change) {
+    handleStateChange(_change) {
         // Optimization: check if change is relevant to this object
         this.updateState();
     }

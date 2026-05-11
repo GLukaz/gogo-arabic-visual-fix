@@ -10,7 +10,7 @@
  *   onClose: () => void  — close the overlay
  */
 
-import React, { useState, useCallback, useMemo, useEffect, useRef } from 'react';
+import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import WordBank from './WordBank.jsx';
 import {
@@ -174,7 +174,7 @@ function ActiveView({ scenarioId, onComplete, onBack }) {
   const dispatch = useDispatch();
   const currentIndex = useSelector(selectCurrentExchangeIndex);
   const sessionScore = useSelector(selectSessionScore);
-  const exchangeScores = useSelector(selectExchangeScores);
+  const _exchangeScores = useSelector(selectExchangeScores);
   const scenario = useMemo(() => getScenarioById(scenarioId), [scenarioId]);
   const chatEndRef = useRef(null);
 
@@ -529,7 +529,7 @@ function CompleteView({ scenarioId, finalScore, onRetry, onNext, onBrowse }) {
 
 function ConversationPracticeOverlay({ onClose }) {
   const dispatch = useDispatch();
-  const currentScenarioId = useSelector(selectCurrentScenarioId);
+  const _currentScenarioId = useSelector(selectCurrentScenarioId);
 
   const [view, setView] = useState('browse'); // 'browse' | 'active' | 'complete'
   const [activeScenarioId, setActiveScenarioId] = useState(null);

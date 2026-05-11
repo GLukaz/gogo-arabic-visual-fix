@@ -33,7 +33,7 @@ function HUD({ onMenu }) {
   // Use memoized selectors from Redux slices
   const { level, xp, xpToNextLevel } = useSelector(selectPlayerStats);
   const activeQuestCount = useSelector(selectActiveQuestCount);
-  const reviewDueCount = useSelector(selectReviewQueueCount);
+  const _reviewDueCount = useSelector(selectReviewQueueCount);
   const achievementCount = useSelector(selectUnlockedCount);
   const completedGoalsCount = useSelector(selectCompletedGoalsCount);
   const totalGoalsCount = useSelector(selectTotalGoalsCount);

@@ -12,7 +12,7 @@ export class FastTravelManager {
    * @param {string} zoneId
    * @returns {boolean}
    */
-  isUnlocked(zoneId) {
+  isUnlocked(_zoneId) {
     return false; // No fast travel zones unlocked yet
   }
 

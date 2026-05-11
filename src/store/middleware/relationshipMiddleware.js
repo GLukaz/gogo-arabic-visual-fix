@@ -52,7 +52,7 @@ export const relationshipMiddleware = (store) => (next) => (action) => {
     return next(action);
   }
 
-  const { npcId, relationshipDelta } = action.payload || {};
+  const { npcId, _relationshipDelta } = action.payload || {};
   if (!npcId) return next(action);
 
   // Capture friendship BEFORE the reducer runs

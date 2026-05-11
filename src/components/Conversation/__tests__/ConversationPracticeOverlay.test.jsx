@@ -8,7 +8,6 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
-import React from 'react';
 
 import ConversationPracticeOverlay from '../ConversationPracticeOverlay.jsx';
 import conversationReducer from '../../../store/slices/conversationSlice.js';

@@ -80,7 +80,7 @@ const styles = {
   },
 };
 
-export default function Transliteration({ word, options, onAnswer, feedback }) {
+export default function Transliteration({ word, _options, onAnswer, feedback }) {
   const formatArabic = useFormatArabic();
   const [input, setInput] = useState('');
 

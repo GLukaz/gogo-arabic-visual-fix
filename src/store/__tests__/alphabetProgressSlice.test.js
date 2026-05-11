@@ -1,17 +1,13 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import alphabetProgressReducer, {
   recordFormScore,
   resetLetterMastery,
   AFL_SEQUENCE,
   VOWEL_IDS,
   ALL_LETTER_IDS,
-  MASTERY_THRESHOLD,
   getLetterMastery,
   isAlphabetComplete,
-  selectLetterMastery,
-  selectIsAlphabetComplete,
   selectNextLettersToLearn,
-  selectAlphabetProgressSummary,
 } from '../slices/alphabetProgressSlice.js';
 import { alphabetGateMiddleware } from '../middleware/alphabetGateMiddleware.js';
 

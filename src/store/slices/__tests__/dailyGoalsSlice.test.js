@@ -1,13 +1,10 @@
 import { describe, it, expect } from 'vitest';
 import dailyGoalsReducer, {
   endSession,
-  startSession,
   markWelcomeBackShown,
   resetWelcomeBackShown,
   checkDailyReset,
-  updateDailyGoal,
   selectLastSessionSummary,
-  selectWelcomeBackShown,
 } from '../dailyGoalsSlice.js';
 
 function getInitialState() {

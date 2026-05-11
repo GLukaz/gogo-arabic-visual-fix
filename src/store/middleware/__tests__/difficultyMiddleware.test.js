@@ -7,7 +7,6 @@ import difficultyReducer, {
 } from '../../slices/difficultySlice.js';
 import playerReducer from '../../slices/playerSlice.js';
 import achievementReducer, {
-  incrementReviews,
   recordPerfectQuiz,
 } from '../../slices/achievementSlice.js';
 import dailyChallengeReducer, {

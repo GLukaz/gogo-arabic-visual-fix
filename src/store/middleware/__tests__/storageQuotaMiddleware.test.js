@@ -5,7 +5,7 @@
  * and only checks once per session.
  */
 
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { REHYDRATE } from 'redux-persist';
 
 // Mock storage quota functions at module level

@@ -41,7 +41,7 @@ function RecipeBook({ onClose, onSelectRecipe }) {
   const professions = useSelector(selectProfessions);
   const discoveredRecipes = useSelector(selectDiscoveredRecipes);
   const resources = useSelector(selectResources);
-  const fsrsCards = useSelector((state) => state.vocabulary.fsrsCards);
+  const _fsrsCards = useSelector((state) => state.vocabulary.fsrsCards);
 
   const [selectedProfession, setSelectedProfession] = useState('calligrapher');
   const [filter, setFilter] = useState('all'); // 'all' | 'unlocked' | 'craftable'

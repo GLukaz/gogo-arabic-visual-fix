@@ -49,8 +49,6 @@ import {
 // Quest selectors
 import {
   selectAllQuests,
-  selectActiveQuests,
-  selectCompletedQuests,
 } from '../slices/questSlice.js';
 
 // Skill tree selectors

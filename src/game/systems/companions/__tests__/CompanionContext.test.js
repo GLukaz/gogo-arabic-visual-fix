@@ -67,7 +67,7 @@ vi.mock('../../../../data/companionDialogue.js', () => ({
 
 // Mock dialogueComplexity
 vi.mock('../../../../utils/dialogueComplexity.js', () => ({
-  scaleDialogueComplexity: vi.fn((line, cefrLevel) => ({
+  scaleDialogueComplexity: vi.fn((line, _cefrLevel) => ({
     primary: line.arabic,
     secondary: line.english,
     showTransliteration: true,

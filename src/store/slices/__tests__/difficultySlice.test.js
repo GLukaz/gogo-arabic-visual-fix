@@ -10,7 +10,6 @@ import difficultyReducer, {
   incrementNewWords,
   selectDifficultyLevel,
   selectRecentResults,
-  selectSessionStats,
   selectShouldBreak,
   selectNewWordBudget,
   selectRecentAccuracy,

@@ -30,7 +30,7 @@ function StudyCalendar({ dailyActivityOverride }) {
   const dailyActivity = dailyActivityOverride || reduxDailyActivity;
   const [tooltip, setTooltip] = useState(null);
 
-  const { weeks, monthLabels, streak } = useMemo(() => {
+  const { weeks, streak } = useMemo(() => {
     const today = new Date();
     const result = [];
     const months = [];

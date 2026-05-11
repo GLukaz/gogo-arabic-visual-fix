@@ -10,7 +10,6 @@
  *   showCorrect: boolean     — highlight correct answer state
  */
 
-import React from 'react';
 import styles from './WordBank.module.css';
 
 function WordBank({

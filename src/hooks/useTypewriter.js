@@ -35,7 +35,7 @@ function isPunctuation(char) {
  */
 export function useTypewriter(text, baseSpeed = 30) {
   const [displayText, setDisplayText] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [_currentIndex, setCurrentIndex] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
   const intervalRef = useRef(null);
   const pauseTimeoutRef = useRef(null);

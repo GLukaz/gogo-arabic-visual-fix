@@ -6,7 +6,7 @@
  * then provides zone-adjusted pricing functions for the shop UI.
  */
 
-import { getBuyPrice, getSellPrice, getCheapestBuyZone, getBestSellingZone } from './tradeRouteService.js';
+import { getCheapestBuyZone, getBestSellingZone } from './tradeRouteService.js';
 import { ZONE_TRADE_PROFILES } from '../data/tradeRoutes.js';
 
 // Map shopId → zoneId

@@ -5,7 +5,6 @@ import {
   completeOnboarding,
   setOnboardingTargetNpc,
   PATH_MENTORS,
-  PATH_FIRST_QUESTS,
 } from '../store/slices/playerSlice.js';
 import { checkPrerequisites } from '../store/slices/questSlice.js';
 import { store } from '../store/store.js';

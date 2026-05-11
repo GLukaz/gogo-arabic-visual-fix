@@ -18,7 +18,6 @@ import {
   clearBattleState,
   setLastCastTimestamp,
   selectEquippedSpells,
-  selectRootMastery,
   selectAffinity,
 } from '../../../store/slices/magicSlice.js';
 import { spendMP, dealDamage } from '../../../store/slices/battleSlice.js';

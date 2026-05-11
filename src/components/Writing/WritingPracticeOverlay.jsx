@@ -23,7 +23,6 @@ import {
   selectLetterScores,
   selectWordScores,
   selectPhraseScores,
-  selectLevelProgress,
   selectWritingStats,
   selectAverageScore,
 } from '../../store/slices/writingSlice.js';
@@ -51,7 +50,7 @@ function getItemDisplay(item, level) {
   return { arabic: item.arabic, english: item.english, sub: item.transliteration || '' };
 }
 
-function getItemId(item, level) {
+function getItemId(item, _level) {
   return item.id;
 }
 

@@ -3,7 +3,7 @@
  * Phase 79 (NAR-04): "Library of Knowledge" (مكتبة المعرفة)
  */
 
-import { useState, useMemo, useCallback, useEffect, lazy, Suspense } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { markAllRead, selectDiscoveredIds, selectTotalDiscovered, selectNewEntryIds } from '../../store/slices/loreSlice.js';
 import { LORE_ENTRIES, LORE_CATEGORIES, CATEGORY_META, getCategoryTotals } from '../../data/loreEntries.js';

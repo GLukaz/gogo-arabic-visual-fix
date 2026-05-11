@@ -315,7 +315,7 @@ function PoemLine({ line, lineIdx, battle, answeredBlanks, currentBlankIndex, sc
   // Build segments by splitting line.text on blank markers (_____+)
   // The text uses _____ (5+ underscores) as blank markers
   const segments = [];
-  let remaining = line.text;
+  let _remaining = line.text;
   let blankIdx = 0;
 
   const blankPattern = /_{3,}/g;

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useFocusTrap } from '../../hooks/useFocusTrap.js';
 import styles from './PixelPanel.module.css';
 

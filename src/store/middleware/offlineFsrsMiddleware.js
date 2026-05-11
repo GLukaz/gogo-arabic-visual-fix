@@ -12,7 +12,7 @@ import { updateFsrsCard } from '../slices/vocabularySlice.js';
 
 let syncInProgress = false;
 
-export const offlineFsrsMiddleware = (store) => (next) => (action) => {
+export const offlineFsrsMiddleware = (_store) => (next) => (action) => {
   const result = next(action);
 
   // Queue review for server sync when offline

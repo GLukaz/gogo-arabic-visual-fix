@@ -24,7 +24,6 @@ import vocabularyAll from '../data/vocabularyAll.js';
 const CEFR_LEVELS = ['A1', 'A2', 'B1', 'B2'];
 const CEFR_RANK   = { A1: 1, A2: 2, B1: 3, B2: 4 };
 const MASTERY_THRESHOLD = 0.6; // 60% reviewed = level mastered
-const STABILITY_KNOWN   = 0;   // any stability value means the card is started
 const HOURS_PER_NEW_WORD = 5 / 60; // 5 minutes of study per new word
 
 export const SKILLS = ['reading', 'writing', 'grammar', 'listening', 'speaking'];

@@ -2,7 +2,7 @@
  * DyslexiaFont.test.jsx
  * Phase 75 — Task 3: Dyslexia-friendly font toggle
  */
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { screen, fireEvent } from '@testing-library/react';
 import { renderWithProviders } from '../../../test/testUtils.jsx';
 import AccessibilityPanel from '../AccessibilityPanel.jsx';

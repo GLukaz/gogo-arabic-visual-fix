@@ -5,7 +5,6 @@ import {
   syncConflict,
   setSyncError,
   setPendingChanges,
-  SyncStatus,
 } from '../store/slices/syncSlice.js';
 import { mergeGameStates } from '../utils/syncMerge.js';
 
@@ -105,7 +104,7 @@ export async function syncGameState(dispatch, getState) {
  * @param {Error} conflictError - The conflict error from server
  * @returns {Promise<Object>} Resolution result
  */
-async function handleSyncConflict(dispatch, getState, conflictError) {
+async function handleSyncConflict(dispatch, getState, _conflictError) {
   try {
     // In a real implementation, parse the 409 response JSON
     // For now, we'll fetch the server state separately

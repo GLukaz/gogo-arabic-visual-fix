@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { startBattle as startBattleAction, dealDamage, useHint as activateHintAction, endBattle, resetBattle } from '../store/slices/battleSlice.js';
+import { startBattle as startBattleAction, dealDamage, useHint as activateHintAction, endBattle } from '../store/slices/battleSlice.js';
 import { addXP, addDirhams, spendDirhams } from '../store/slices/playerSlice.js';
 import { addFsrsCard, updateFsrsCard } from '../store/slices/vocabularySlice.js';
 import { createNewCard, reviewCard, Rating } from '../services/fsrs.js';

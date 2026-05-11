@@ -472,7 +472,7 @@ export function getPoemBlanks(poem) {
   const blanks = [];
   poem.lines.forEach((line, lineIndex) => {
     if (line.blanks && line.blanks.length > 0) {
-      line.blanks.forEach((blank, blankOffset) => {
+      line.blanks.forEach((blank, _blankOffset) => {
         blanks.push({
           ...blank,
           lineIndex,

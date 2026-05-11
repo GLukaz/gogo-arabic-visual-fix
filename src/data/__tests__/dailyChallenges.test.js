@@ -29,7 +29,7 @@ describe('CHALLENGE_TYPES', () => {
   });
 
   it('every type has required fields', () => {
-    Object.entries(CHALLENGE_TYPES).forEach(([key, type]) => {
+    Object.entries(CHALLENGE_TYPES).forEach(([_key, type]) => {
       expect(type).toHaveProperty('label');
       expect(type).toHaveProperty('labelArabic');
       expect(type).toHaveProperty('description');

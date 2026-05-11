@@ -70,7 +70,7 @@ export class WeatherSystem {
     }
 
     startRain() {
-        const { width, height } = this.scene.scale;
+        const { width } = this.scene.scale;
         // Phaser 3.60+ API: scene.add.particles(x, y, texture, config) returns a ParticleEmitter
         const emitter = this.scene.add.particles(0, -50, 'weather-particle', {
             x: { min: 0, max: width },
@@ -92,7 +92,7 @@ export class WeatherSystem {
     }
 
     startSnow() {
-        const { width, height } = this.scene.scale;
+        const { width } = this.scene.scale;
         const emitter = this.scene.add.particles(0, -50, 'weather-particle', {
             x: { min: 0, max: width },
             lifespan: 3000,

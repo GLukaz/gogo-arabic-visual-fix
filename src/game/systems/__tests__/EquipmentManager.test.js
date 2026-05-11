@@ -108,7 +108,7 @@ describe('EquipmentManager', () => {
     });
 
     // Override scene.add.sprite to return proper mock
-    scene.add.sprite = vi.fn((x, y, key) => ({
+    scene.add.sprite = vi.fn((x, y, _key) => ({
       x, y,
       setDepth: vi.fn().mockReturnThis(),
       setScale: vi.fn().mockReturnThis(),

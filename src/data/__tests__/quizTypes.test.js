@@ -36,7 +36,7 @@ describe('QUIZ_TYPE_REGISTRY', () => {
   });
 
   it('every entry has label, cluster, minLevel, and cefrMin fields', () => {
-    Object.entries(QUIZ_TYPE_REGISTRY).forEach(([key, entry]) => {
+    Object.entries(QUIZ_TYPE_REGISTRY).forEach(([_key, entry]) => {
       expect(entry).toHaveProperty('label');
       expect(entry).toHaveProperty('cluster');
       expect(entry).toHaveProperty('minLevel');

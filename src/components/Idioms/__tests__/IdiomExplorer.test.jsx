@@ -2,7 +2,7 @@ import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
-import idiomReducer, { learnIdiom } from '../../../store/slices/idiomSlice.js';
+import idiomReducer from '../../../store/slices/idiomSlice.js';
 import { IDIOM_CATEGORIES, CATEGORY_META, ARABIC_IDIOMS } from '../../../data/arabicIdioms.js';
 import IdiomExplorer from '../IdiomExplorer.jsx';
 

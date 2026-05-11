@@ -2,7 +2,6 @@ import { describe, it, expect } from 'vitest';
 import {
   getItemTradeCategory,
   getZonePriceMultiplier,
-  getZoneSellMultiplier,
   getZoneAdjustedBuyPrice,
   getZoneAdjustedSellPrice,
   getCheapestZoneForItem,

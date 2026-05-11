@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import deckReducer, {
   createDeck,
   deleteDeck,
@@ -8,8 +8,6 @@ import deckReducer, {
   generateDeckByCefr,
   generateDeckByCategory,
   getSessionCardsFromDeck,
-  selectDecks,
-  selectDeck,
   selectDeckStats,
   MAX_CUSTOM_DECKS,
   ZONE_VOCAB_CATEGORIES,

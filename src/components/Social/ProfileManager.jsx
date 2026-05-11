@@ -11,7 +11,7 @@
  * Redux leaderboard slice tracks the currently active profile.
  */
 
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import {

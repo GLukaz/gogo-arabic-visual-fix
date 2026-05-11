@@ -57,7 +57,7 @@ export default function BattleOverlay() {
   const [showTargetSelector, setShowTargetSelector] = useState(false);
   const [targetSelectorData, setTargetSelectorData] = useState(null);
   const [showPostReview, setShowPostReview] = useState(false);
-  const [postReviewData, setPostReviewData] = useState(null);
+  const [_postReviewData, setPostReviewData] = useState(null);
   const [showArenaHUD, setShowArenaHUD] = useState(false);
   const [fleeChallengeData, setFleeChallengeData] = useState(null);
 

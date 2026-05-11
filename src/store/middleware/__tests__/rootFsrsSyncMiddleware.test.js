@@ -30,7 +30,7 @@ vi.mock('../../../utils/eventBus.js', () => ({
 }));
 
 // Import mocked modules
-import { getWordRoot, getRootWords } from '../../../data/rootsData.js';
+import { _getWordRoot, _getRootWords } from '../../../data/rootsData.js';
 import { EventBus } from '../../../utils/eventBus.js';
 import { EVENTS } from '../../../utils/eventBusTypes.js';
 

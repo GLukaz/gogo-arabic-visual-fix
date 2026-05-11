@@ -23,7 +23,7 @@ export default function MicroReviewOverlay({ wordIds, onClose }) {
   const fsrsCards = useSelector((s) => s.vocabulary.fsrsCards);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [feedback, setFeedback] = useState(null);
-  const [score, setScore] = useState(0);
+  const [_score, setScore] = useState(0);
 
   // Resolve word objects from IDs
   const words = wordIds

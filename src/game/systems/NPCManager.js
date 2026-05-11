@@ -34,7 +34,7 @@ export class NPCManager {
    * NPCs with a schedule are only spawned if their schedule matches the
    * current zone and hour. NPCs without a schedule always spawn.
    */
-  create(npcConfigs, playerSprite, wallGroup, domOverlay) {
+  create(npcConfigs, playerSprite, _wallGroup, _domOverlay) {
     this.npcs = [];
 
     // Read current game time and story flags for schedule evaluation

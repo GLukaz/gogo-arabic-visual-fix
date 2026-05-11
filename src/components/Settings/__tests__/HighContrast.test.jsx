@@ -3,7 +3,7 @@
  * Phase 75 — Task 2: High Contrast Mode
  * Verifies high-contrast palette, CSS variable overrides, theme utility, and toggle persistence.
  */
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { screen, fireEvent } from '@testing-library/react';
 import { renderWithProviders } from '../../../test/testUtils.jsx';
 import AccessibilityPanel from '../AccessibilityPanel.jsx';

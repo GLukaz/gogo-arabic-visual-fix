@@ -13,7 +13,7 @@ import {
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 const LOW  = { cefr: 'A1', level: 1 };
-const MID  = { cefr: 'B1', level: 25 };
+const _MID  = { cefr: 'B1', level: 25 };
 const HIGH = { cefr: 'C2', level: 50 }; // C2 + max level = difficulty 1.0
 
 // ── getWordSearchParams ───────────────────────────────────────────────────────

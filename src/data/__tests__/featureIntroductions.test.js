@@ -43,7 +43,7 @@ describe('FEATURE_INTRODUCTIONS', () => {
 
   it('every step has text and textArabic', () => {
     FEATURE_INTRODUCTIONS.forEach((intro) => {
-      intro.steps.forEach((step, idx) => {
+      intro.steps.forEach((step, _idx) => {
         expect(typeof step.text).toBe('string');
         expect(step.text.length).toBeGreaterThan(0);
         expect(typeof step.textArabic).toBe('string');

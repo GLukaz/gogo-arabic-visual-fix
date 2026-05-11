@@ -105,7 +105,7 @@ describe('equipment data integrity', () => {
   });
 
   it('all rarity tiers have Arabic color names', () => {
-    for (const [rarity, tier] of Object.entries(RARITY_TIERS)) {
+    for (const [_rarity, tier] of Object.entries(RARITY_TIERS)) {
       expect(tier.nameArabic).toBeTruthy();
       expect(tier.nameArabic.length).toBeGreaterThan(0);
     }

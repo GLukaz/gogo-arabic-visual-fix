@@ -17,7 +17,6 @@ import cefrProgressReducer, {
   setCefrLevel,
   resetCefrProgress,
   selectCefrHistory,
-  selectCefrLevel,
 } from '../cefrProgressSlice.js';
 
 // Helper: wrap state as if it were the Redux store root for selectors

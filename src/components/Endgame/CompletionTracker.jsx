@@ -87,7 +87,7 @@ const CircularRing = memo(function CircularRing({ percentage, size = 180 }) {
 });
 
 // ── Category progress bar ───────────────────────────────────────────────────
-const CategoryBar = memo(function CategoryBar({ label, icon, current, total, percentage }) {
+const CategoryBar = memo(function CategoryBar({ label, icon, current, total, _percentage }) {
   const pct = total > 0 ? Math.min((current / total) * 100, 100) : 0;
   return (
     <div className={styles.categoryRow}>
@@ -179,7 +179,7 @@ function CompletionTracker({ onClose, categoryData }) {
   const ngPlusBonus = useSelector(selectNewGamePlusBonus);
   const weeklyChallenge = useSelector(selectWeeklyChallenge);
   const weeklyChallengeHistory = useSelector(selectWeeklyChallengeHistory);
-  const unlockedAchievements = useSelector(selectUnlockedCount);
+  const _unlockedAchievements = useSelector(selectUnlockedCount);
 
   const completedChallengeCount = weeklyChallengeHistory.length;
 

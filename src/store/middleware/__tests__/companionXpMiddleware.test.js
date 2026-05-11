@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
   companionXpMiddleware,
   COMPANION_XP_CONFIG,
@@ -11,10 +11,6 @@ import {
   MAX_COMPANION_LEVEL,
   COMPANION_ABILITY_LEVELS,
 } from '../../../data/companionAbilities.js';
-import companionReducer, {
-  addCompanionXP,
-  recruitCompanion,
-} from '../../slices/companionSlice.js';
 
 // Mock companionSlice so we can inspect dispatched actions
 vi.mock('../../slices/companionSlice.js', async (importOriginal) => {

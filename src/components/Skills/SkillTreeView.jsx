@@ -24,7 +24,7 @@ export default function SkillTreeView({ treeId }) {
   const dispatch = useDispatch();
 
   const tree = SKILL_TREES[treeId];
-  const unlockedNodes = useSelector(selectUnlockedNodes(treeId));
+  const _unlockedNodes = useSelector(selectUnlockedNodes(treeId));
   const currentXP = useSelector(selectSkillXP(treeId));
   const availability = useSelector(selectNodeAvailability(treeId));
 
@@ -118,7 +118,7 @@ export default function SkillTreeView({ treeId }) {
           const isClickable = state === 'available';
           const isUnlocked = state === 'unlocked';
           const rewardLabel = getRewardLabel(node.rewards);
-          const originalIndex = tree.nodes.indexOf(node);
+          const _originalIndex = tree.nodes.indexOf(node);
 
           return (
             <li key={node.id} className={styles.nodeRow}>

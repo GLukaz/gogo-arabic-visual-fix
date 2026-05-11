@@ -25,7 +25,7 @@ export const friendshipMiddleware = (store) => (next) => (action) => {
   // Listen to quest completion
   // Slice name is 'quests' → action type is 'quests/completeQuest'
   if (action.type === 'quests/completeQuest') {
-    const { questId, npcId } = action.payload || {};
+    const { _questId, npcId } = action.payload || {};
     if (npcId) {
       store.dispatch(adjustFriendship({ npcId, delta: FRIENDSHIP_DELTAS.questComplete, reason: 'questComplete' }));
     }

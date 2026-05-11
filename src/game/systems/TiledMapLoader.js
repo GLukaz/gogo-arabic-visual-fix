@@ -1,4 +1,3 @@
-import Phaser from 'phaser';
 import { TILE } from '../../data/zones.js';
 
 /**

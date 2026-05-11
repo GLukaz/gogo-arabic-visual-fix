@@ -1,4 +1,3 @@
-import Phaser from 'phaser';
 import { EventBus } from '../../utils/eventBus.js';
 import { EVENTS } from '../../utils/eventBusTypes.js';
 import { prepareArabicText } from './ArabicText.js';

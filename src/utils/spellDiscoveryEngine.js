@@ -111,8 +111,6 @@ export function canDiscoverSpell(spellId, playerState, spellDefs = SPELLS) {
  * @returns {Object[]} Array of discoverable spell definitions
  */
 export function getDiscoverableSpells(playerState, allSpells = SPELLS) {
-  const discoveredRoots = playerState.magic?.discoveredRoots ?? [];
-
   // Collect root+form pairs already in magic.rootMastery.formsUnlocked to avoid re-discovering
   const rootMastery = playerState.magic?.rootMastery ?? {};
   const alreadyUnlocked = new Set();

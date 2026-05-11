@@ -3,10 +3,8 @@ import { EventBus } from '../../utils/eventBus.js';
 import { EVENTS } from '../../utils/eventBusTypes.js';
 import {
   recordWordLearned,
-  recordAnswer,
   recordZoneTime,
   recordBattle,
-  updateStreak,
   incrementPlayTime,
   startSession,
 } from '../../store/slices/statsSlice.js';

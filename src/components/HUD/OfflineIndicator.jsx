@@ -5,7 +5,7 @@
  * Listens to navigator.onLine events.
  */
 
-import { useState, useEffect, useRef, memo } from 'react';
+import { useState, useEffect, memo } from 'react';
 
 // Inject the keyframe once into the document head
 let keyframeInjected = false;

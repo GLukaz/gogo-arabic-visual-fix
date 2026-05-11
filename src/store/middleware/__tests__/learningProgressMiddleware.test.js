@@ -3,7 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { learningProgressMiddleware } from '../learningProgressMiddleware.js';
 import skillTreeReducer from '../../slices/skillTreeSlice.js';
 import grammarReducer, { completeLesson } from '../../slices/grammarSlice.js';
-import questReducer, { completeQuest } from '../../slices/questSlice.js';
+import questReducer from '../../slices/questSlice.js';
 import achievementReducer, { recordPerfectQuiz, incrementReviews } from '../../slices/achievementSlice.js';
 import alphabetReducer, { completeGroup } from '../../slices/alphabetSlice.js';
 import poetryReducer, { endPoetryBattle } from '../../slices/poetrySlice.js';

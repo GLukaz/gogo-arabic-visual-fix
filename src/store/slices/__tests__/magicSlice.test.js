@@ -2,7 +2,6 @@ import { describe, it, expect, beforeEach } from 'vitest';
 import reducer, {
   discoverRoot,
   recordRootUse,
-  unlockForm,
   recordAffinityChoice,
   equipSpell,
   unequipSpell,

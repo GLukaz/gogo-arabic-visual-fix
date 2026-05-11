@@ -1,7 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setSuggestFeature, recordFeatureUse } from '../../store/slices/onboardingSlice.js';
-import { getFeatureIntroById } from '../../data/featureIntroductions.js';
 import { FEATURE_INTRODUCTIONS } from '../../data/featureIntroductions.js';
 import styles from './FeatureSuggestion.module.css';
 

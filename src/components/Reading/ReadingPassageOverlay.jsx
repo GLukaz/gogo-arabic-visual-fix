@@ -22,7 +22,6 @@ import {
   completePassage,
   resetCurrent,
   selectCompletedPassages,
-  selectReadingStats,
 } from '../../store/slices/readingSlice.js';
 import VocabTooltip from './VocabTooltip.jsx';
 import styles from './ReadingPassageOverlay.module.css';

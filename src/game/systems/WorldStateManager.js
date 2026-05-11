@@ -1,5 +1,5 @@
 import { store } from '../../store/store.js';
-import { setFlag, incrementCounter, setCounter, selectFlag, selectCounter } from '../../store/slices/worldStateSlice.js';
+import { setFlag, incrementCounter, selectFlag } from '../../store/slices/worldStateSlice.js';
 
 export class WorldStateManager {
     constructor(scene) {

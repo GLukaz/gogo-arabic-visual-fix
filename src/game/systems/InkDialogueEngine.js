@@ -1,7 +1,7 @@
 import { store } from '../../store/store.js';
 import { setFlag } from '../../store/slices/worldStateSlice.js';
 import { WORLD_STATE_KEYS } from '../../data/worldStateKeys.js';
-import { setLearningPath, setTutorialPhase } from '../../store/slices/playerSlice.js';
+import { setLearningPath } from '../../store/slices/playerSlice.js';
 import { updateQuestProgress } from '../../store/slices/questSlice.js';
 import { incrementNpcRelationship } from '../../store/slices/narrativeSlice.js';
 import { addFsrsCard } from '../../store/slices/vocabularySlice.js';

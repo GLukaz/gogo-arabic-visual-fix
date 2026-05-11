@@ -7,12 +7,11 @@
 
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import React from 'react';
 
 // ── Mock framer-motion — replace animated elements with plain HTML ─────────
 vi.mock('framer-motion', () => ({
   motion: {
-    div: ({ children, className, onMouseEnter, onMouseLeave, ...rest }) => (
+    div: ({ children, className, onMouseEnter, onMouseLeave, ..._rest }) => (
       <div
         className={className}
         onMouseEnter={onMouseEnter}

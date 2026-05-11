@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { setTutorialPhase } from '../../store/slices/playerSlice.js';
 import styles from './CinematicIntro.module.css';

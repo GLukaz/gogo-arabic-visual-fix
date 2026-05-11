@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
-import idiomReducer, { setDailyIdiom } from '../../../store/slices/idiomSlice.js';
+import idiomReducer from '../../../store/slices/idiomSlice.js';
 import { ARABIC_IDIOMS, getIdiomById } from '../../../data/arabicIdioms.js';
 import { getDailyIdiomId } from '../../../utils/idiomHelpers.js';
 import DailyIdiom from '../DailyIdiom.jsx';

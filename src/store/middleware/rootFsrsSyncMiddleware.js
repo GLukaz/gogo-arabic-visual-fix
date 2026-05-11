@@ -17,7 +17,6 @@ import { getRootWords, getWordRoot } from '../../data/rootsData.js';
 import {
   recordRootUse,
   unlockForm,
-  selectRootMastery,
 } from '../slices/magicSlice.js';
 import { addFsrsCard, selectNewCardsByPath } from '../slices/vocabularySlice.js';
 import vocabulary from '../../data/vocabularyAll.js';

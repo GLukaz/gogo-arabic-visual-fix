@@ -113,7 +113,7 @@ export function createMockScene(overrides = {}) {
     setPosition: vi.fn().mockReturnThis(),
     setAngle: vi.fn().mockReturnThis(),
     setCrop: vi.fn().mockReturnThis(),
-    setPipeline: vi.fn(function(name) {
+    setPipeline: vi.fn(function(_name) {
       this.pipeline = {
         set3f: vi.fn(),
         set1i: vi.fn(),
@@ -188,7 +188,7 @@ export function createMockScene(overrides = {}) {
     physics: {
       add: {
         collider: vi.fn(),
-        sprite: vi.fn((x, y, key) => ({
+        sprite: vi.fn((x, y, _key) => ({
           ...mockSprite,
           x,
           y
@@ -219,7 +219,7 @@ export function createMockScene(overrides = {}) {
         texture: { key },
         frame: frame != null ? { name: frame } : { name: 0 },
       })),
-      text: vi.fn((x, y, content, style) => ({
+      text: vi.fn((x, y, _content, _style) => ({
         ...mockText,
         x,
         y,
@@ -237,7 +237,7 @@ export function createMockScene(overrides = {}) {
 
     // Make methods
     make: {
-      tilemap: vi.fn((config) => mockTilemap),
+      tilemap: vi.fn((_config) => mockTilemap),
       graphics: vi.fn(() => ({
         fillStyle: vi.fn(),
         fillCircle: vi.fn(),
@@ -271,7 +271,7 @@ export function createMockScene(overrides = {}) {
     // Input
     input: {
       keyboard: {
-        addKey: vi.fn((keyCode) => ({
+        addKey: vi.fn((_keyCode) => ({
           isDown: false,
           isUp: true
         })),
@@ -287,7 +287,7 @@ export function createMockScene(overrides = {}) {
 
     // Time
     time: {
-      delayedCall: vi.fn((delay, callback) => {
+      delayedCall: vi.fn((_delay, _callback) => {
         // Optionally auto-execute for testing
         return { remove: vi.fn() };
       })
@@ -295,7 +295,7 @@ export function createMockScene(overrides = {}) {
 
     // Tweens
     tweens: {
-      add: vi.fn((config) => mockTween)
+      add: vi.fn((_config) => mockTween)
     },
 
     // Load
@@ -365,7 +365,7 @@ export function createMockScene(overrides = {}) {
         get: vi.fn((key) => ({
           key,
           frameTotal: _textureFrameCounts.get(key) ?? 1,
-          getFrameNames: vi.fn((includeBase = false) => {
+          getFrameNames: vi.fn((_includeBase = false) => {
             const total = _textureFrameCounts.get(key) ?? 1;
             return Array.from({ length: total }, (_, i) => String(i));
           }),

@@ -414,7 +414,7 @@ describe('Desert NPC Dialogues (.ink.json parse verification)', () => {
     it('all 5 Desert dialogues contain #vocab tags on teaching lines', () => {
       let filesWithVocabTags = 0;
 
-      for (const [npcId, json] of Object.entries(INK_FILES)) {
+      for (const [_npcId, json] of Object.entries(INK_FILES)) {
         const story = new Story(json);
         bindNoopExternals(story);
 

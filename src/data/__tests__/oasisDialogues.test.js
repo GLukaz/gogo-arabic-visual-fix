@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { Story } from 'inkjs';
 
 import guardHamzaJson from '../ink/guard-hamza.ink.json';
@@ -359,7 +359,7 @@ describe('Oasis NPC Dialogues (.ink.json parse verification)', () => {
     it('at least 3 of the 5 new dialogues contain #vocab tags', () => {
       let filesWithVocabTags = 0;
 
-      for (const [npcId, json] of Object.entries(INK_FILES)) {
+      for (const [_npcId, json] of Object.entries(INK_FILES)) {
         const story = new Story(json);
         bindNoopExternals(story);
 

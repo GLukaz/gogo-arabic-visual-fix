@@ -7,12 +7,9 @@ import analyticsReducer, {
   recordDropout,
   recordLessonCompleted,
   resetAnalytics,
-  selectWordAccuracy,
   selectHardestWords,
   selectSessionTrends,
   selectOverallAccuracy,
-  selectDropoutPoints,
-  selectDailyActivity,
 } from '../analyticsSlice.js';
 
 describe('analyticsSlice', () => {

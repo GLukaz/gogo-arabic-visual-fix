@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLearningPath, setTutorialPhase } from '../../store/slices/playerSlice.js';
 import styles from './PathChoice.module.css';

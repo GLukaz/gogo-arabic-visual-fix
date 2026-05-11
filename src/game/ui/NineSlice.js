@@ -1,5 +1,3 @@
-import Phaser from 'phaser';
-
 /**
  * NineSlice — Thin utility wrapper around Phaser's built-in NineSlice game object.
  *

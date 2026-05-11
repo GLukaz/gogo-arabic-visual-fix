@@ -5,7 +5,7 @@ import { closeDialogue, showNotification } from '../../store/slices/uiSlice.js';
 import { selectNpcRelationship, incrementNpcRelationship } from '../../store/slices/narrativeSlice.js';
 import { giveNpcGift } from '../../store/slices/npcSlice.js';
 import { selectInventoryItems, removeItem } from '../../store/slices/inventorySlice.js';
-import { GIFTS, GIFTS_BY_ID } from '../../data/gifts.js';
+import { GIFTS_BY_ID } from '../../data/gifts.js';
 import { EventBus } from '../../utils/eventBus.js';
 import { EVENTS } from '../../utils/eventBusTypes.js';
 import { InkDialogueEngine } from '../../game/systems/InkDialogueEngine.js';

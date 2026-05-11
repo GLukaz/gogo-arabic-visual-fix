@@ -102,7 +102,7 @@ const GRASS_F = {
 
 // Water tileset animated (24 cols x 5 rows = 120 frames)
 const WATER_KEY = 'kenmi-base-tiles-water-water-tile-3-anim';
-const WATER_COLS = 24;
+const _WATER_COLS = 24;
 
 // Animated water tileset frame indices (stride=3 per row)
 const WATER_F = {
@@ -142,8 +142,8 @@ _assertFrameTableMatch(GRASS_KEY, 16, 10);
 _assertFrameTableMatch(WATER_KEY, 24, 5);
 
 // Water foam animation key (20 cols x 3 rows = 60 frames)
-const FOAM_KEY = 'kenmi-desert-tiles-desert-water-foam-animation';
-const FOAM_COLS = 20;
+const _FOAM_KEY = 'kenmi-desert-tiles-desert-water-foam-animation';
+const _FOAM_COLS = 20;
 
 export const KENMI_SCALE = 4; // 16px tiles -> 64px game tiles
 
@@ -2018,7 +2018,7 @@ export class MapLoader {
     // Military banner and flag animations for bedouin camp
     const bannerKey = 'kenmi-military-banners-anim';
     if (this.scene.textures.exists(bannerKey) && !this.scene.anims.exists('deco-banner')) {
-      const tex = this.scene.textures.get(bannerKey);
+      const _tex = this.scene.textures.get(bannerKey);
       const firstBannersFrames = 17;
       const frameCount = firstBannersFrames - 1;
       if (frameCount > 0) {
@@ -2033,7 +2033,7 @@ export class MapLoader {
 
     const flagKey = 'kenmi-military-flags-anim';
     if (this.scene.textures.exists(flagKey) && !this.scene.anims.exists('deco-flag')) {
-      const tex = this.scene.textures.get(flagKey);
+      const _tex = this.scene.textures.get(flagKey);
       const firstFlagFrames = 6;
       const frameCount = firstFlagFrames - 1;
       if (frameCount > 0) {

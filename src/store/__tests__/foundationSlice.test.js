@@ -4,16 +4,11 @@ import foundationReducer, {
   bypassFoundationWithPlacement,
   resetFoundation,
   FOUNDATION_STAGES,
-  CORE_VOCAB_STAGE_THRESHOLD,
-  CORE_VOCAB_STAGE_WORD_COUNT,
-  ROOTS_INTRO_REQUIRED,
   getCurrentFoundationStage,
   isFoundationComplete,
   getNextStage,
   isStageComplete,
   getStageProgress,
-  selectFoundationStage,
-  selectIsFoundationComplete,
   selectFoundationProgress,
 } from '../slices/foundationSlice.js';
 import { foundationMiddleware } from '../middleware/foundationMiddleware.js';

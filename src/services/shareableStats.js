@@ -90,7 +90,6 @@ export function generateShareText(playerState) {
   const {
     name,
     level = 1,
-    xp = 0,
     wordsLearned = 0,
     streak = 0,
     cefrLevel,

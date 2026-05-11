@@ -12,7 +12,7 @@
  */
 
 import { useState, useEffect, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   saveToSlot,
   loadSlot,
@@ -52,7 +52,7 @@ function formatZone(zone) {
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default function SaveLoadMenu({ onClose, mode = 'save', onLoad }) {
-  const dispatch = useDispatch();
+  const _dispatch = useDispatch();
   const [slots, setSlots] = useState([]);
   const [selectedSlot, setSelectedSlot] = useState(null);
   const [confirmDelete, setConfirmDelete] = useState(null); // slot number awaiting confirm

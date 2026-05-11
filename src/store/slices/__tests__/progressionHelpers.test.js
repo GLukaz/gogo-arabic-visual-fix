@@ -20,7 +20,7 @@ import {
   getProgressReport,
 } from '../../../services/progressionService.js';
 
-import { XP_CURVE, UNLOCK_GATES } from '../../../data/progressionConfig.js';
+import { XP_CURVE } from '../../../data/progressionConfig.js';
 
 // ============================================================
 // MOCK STATE BUILDERS
@@ -288,7 +288,7 @@ describe('Progression integration — progress report', () => {
     const player = mockPlayerState({ level: 10, xp: 3000, streak: 5, maxStreak: 10 });
     const vocab = mockVocabState(200, 80);
     const grammar = mockGrammarState(15);
-    const quests = mockQuestState(10, 60);
+    const _quests = mockQuestState(10, 60);
 
     const report = getProgressReport({
       level: player.level,

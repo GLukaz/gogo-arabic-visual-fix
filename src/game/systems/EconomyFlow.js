@@ -7,7 +7,7 @@
  */
 
 import { SHOP_PRODUCTION } from '../../data/shops.js';
-import { ZONES } from '../../data/zones.js';
+import { _ZONES } from '../../data/zones.js';
 
 // Explicit shop-to-zone mapping (shop IDs vs zone IDs don't always share a common prefix)
 const SHOP_ZONE_MAP = {

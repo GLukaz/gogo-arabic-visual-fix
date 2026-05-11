@@ -14,7 +14,7 @@ import { EventBus } from '../../../utils/eventBus.js';
 import { EVENTS } from '../../../utils/eventBusTypes.js';
 import { BOSS_RUSH_SEQUENCE } from '../../../data/arenaChallenges.js';
 import { getEnemy } from '../../../data/enemies.js';
-import { startBattle, endBattle } from '../../../store/slices/battleSlice.js';
+import { startBattle } from '../../../store/slices/battleSlice.js';
 import { submitArenaScore } from '../../../store/slices/arenaSlice.js';
 
 export class BossRushController {

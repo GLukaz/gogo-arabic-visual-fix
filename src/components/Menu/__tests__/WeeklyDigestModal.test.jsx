@@ -2,7 +2,7 @@
  * WeeklyDigestModal.test.jsx
  * WIRE-007 — Weekly digest popup integration
  */
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { screen, fireEvent } from '@testing-library/react';
 import { renderWithProviders } from '../../../test/testUtils.jsx';
 import MainMenu from '../MainMenu.jsx';

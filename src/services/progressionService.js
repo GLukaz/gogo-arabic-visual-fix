@@ -237,7 +237,6 @@ export function getSessionPlan(playerState) {
     reviewWords = [],
     newWords = [],
     recentMastery = 1,
-    streak = 0,
     unlockedQuizTypes = [],
   } = playerState;
 

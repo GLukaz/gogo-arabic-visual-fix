@@ -1,6 +1,4 @@
 import { useGameNavigation } from '../../hooks/useGameNavigation.js';
-import { EventBus } from '../../utils/eventBus.js';
-import { EVENTS } from '../../utils/eventBusTypes.js';
 import styles from './MiniGamesHub.module.css';
 
 /**

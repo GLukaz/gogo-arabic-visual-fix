@@ -1,5 +1,3 @@
-import { EventBus } from '../../utils/eventBus.js';
-import { EVENTS } from '../../utils/eventBusTypes.js';
 
 export class PuzzleManager {
     constructor(scene) {

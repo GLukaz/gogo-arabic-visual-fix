@@ -37,7 +37,7 @@ describe('SEASONAL_EVENTS structure', () => {
       'description', 'descriptionArabic', 'duration', 'xpMultiplier',
       'themeColor', 'accentColor', 'icon', 'specialVocabulary', 'quests',
     ];
-    for (const [key, event] of Object.entries(SEASONAL_EVENTS)) {
+    for (const [_key, event] of Object.entries(SEASONAL_EVENTS)) {
       for (const field of requiredFields) {
         expect(event).toHaveProperty(field);
       }

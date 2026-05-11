@@ -40,7 +40,7 @@ export const EVENT_SCHEDULE = Object.freeze({
  * @param {number} gameMinutes — minutes into the current day (0-1439)
  * @returns {number} hour (0-23)
  */
-const minutesToHour = (gameMinutes) => {
+const _minutesToHour = (gameMinutes) => {
   const clamped = ((gameMinutes % 1440) + 1440) % 1440; // handle negatives
   return Math.floor(clamped / 60);
 };

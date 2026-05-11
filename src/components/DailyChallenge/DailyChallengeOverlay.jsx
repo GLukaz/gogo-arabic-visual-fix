@@ -29,7 +29,6 @@ import {
   generateGrammarChallenge,
   generateSpeedQuiz,
   generateCulturalTrivia,
-  getNextStreakReward,
 } from '../../data/dailyChallenges.js';
 import vocabularyAll from '../../data/vocabularyAll.js';
 import { LORE_ENTRIES } from '../../data/loreEntries.js';
@@ -179,7 +178,7 @@ export default function DailyChallengeOverlay({ onClose }) {
 // PREVIEW STATE
 // ═══════════════════════════════════════════════════════════
 
-function PreviewState({ challengeType, challengeTypeKey, currentStreak, nextReward, completedToday, onStart }) {
+function PreviewState({ challengeType, currentStreak, nextReward, completedToday, onStart }) {
   if (!challengeType) return null;
 
   const progressToNext = nextReward
@@ -772,7 +771,7 @@ function CulturalTriviaGame({ today, onComplete }) {
 // ═══════════════════════════════════════════════════════════
 
 function CompleteState({
-  challengeType,
+  _challengeType,
   result,
   currentStreak,
   nextReward,

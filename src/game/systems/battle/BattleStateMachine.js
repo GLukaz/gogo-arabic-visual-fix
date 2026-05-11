@@ -27,7 +27,6 @@ import {
   dealDamage,
   dealDamageToEnemy,
   dealDamageToPlayer,
-  healEnemy,
   setPlayerDefending,
   setCurrentTurn,
   spendMP,
@@ -41,7 +40,6 @@ import {
   spendCompanionMP,
   healCompanion,
   healPlayer,
-  damageCompanion,
   setCompanionDefending,
   applyPlayerEffect,
   removeEnemyEffect,
@@ -53,7 +51,6 @@ import {
   clearGrammarComboState,
   selectArabicUsedThisBattle,
   selectAllEnemiesDefeated,
-  selectActiveEnemies,
 } from '../../../store/slices/battleSlice.js';
 import { consumeItem } from '../../../store/slices/inventorySlice.js';
 import { getEnemy } from '../../../data/enemies.js';

@@ -304,7 +304,7 @@ const battleSlice = createSlice({
       state.playerEffects = filtered;
     },
 
-    removeEnemyEffect(state, action) {
+    removeEnemyEffect(state, _action) {
       // payload: enemyIndex (number) — removes first status effect from enemy
       // For now, we only have 1 enemy, so just remove first effect
       if (state.enemyEffects.length > 0) {

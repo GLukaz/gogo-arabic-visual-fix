@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './PauseMenu.module.css';
 
 export default function ActivitiesMenu({ onBack, onNavigate, onOpenPathSwitch }) {

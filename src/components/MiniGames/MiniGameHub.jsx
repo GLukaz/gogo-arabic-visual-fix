@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectMiniGameStats } from '../../store/slices/miniGameSlice.js';
 import styles from './MiniGameHub.module.css';

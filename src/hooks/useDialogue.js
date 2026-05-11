@@ -14,7 +14,6 @@ import { shuffle } from '../utils/shuffle.js';
 import { selectWordsByDifficulty } from '../utils/wordSelection.js';
 import vocabulary from '../data/vocabularyAll.js';
 import questsData from '../data/quests.json';
-import { getCulturalDialoguesForNPC } from '../data/culturalDialogues.js';
 import { DialogueEngine } from '../game/systems/DialogueEngine.js';
 
 /**
@@ -80,7 +79,7 @@ export function useDialogue(npc) {
   const dispatch = useDispatch();
   const cards = useSelector((s) => s.vocabulary.fsrsCards);
   const dialogueState = useSelector((s) => s.npc?.dialogueState || {});
-  const quests = useSelector((s) => s.quests.quests);
+  const _quests = useSelector((s) => s.quests.quests);
   const playerLevel = useSelector((s) => s.player.level);
   const wordsLearned = useSelector((s) => s.player.wordsLearned);
 
@@ -110,7 +109,7 @@ export function useDialogue(npc) {
   // Hub-and-spoke state
   const [phase, setPhase] = useState('greeting'); // 'greeting' | 'hub' | 'topic' | 'returning'
   const [availableTopics, setAvailableTopics] = useState([]);
-  const [currentTopicTreeId, setCurrentTopicTreeId] = useState(null);
+  const [_currentTopicTreeId, setCurrentTopicTreeId] = useState(null);
   const [topicsDiscussed, setTopicsDiscussed] = useState([]); // track discussed topics this session
   const [quizReturnState, setQuizReturnState] = useState(null); // {treeId, lineIndex} for mid-quiz return
 

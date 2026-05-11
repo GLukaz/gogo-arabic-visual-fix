@@ -8,7 +8,7 @@ vi.mock('ts-fsrs', () => {
     Rating,
     generatorParameters: () => ({}),
     fsrs: () => ({
-      repeat: (card, date) => ({
+      repeat: (card, _date) => ({
         [Rating.Again]: {
           card: { ...card, due: '2026-03-25T00:00:00Z', reps: (card.reps || 0) + 1, state: 'Learning' },
           log: { rating: Rating.Again },

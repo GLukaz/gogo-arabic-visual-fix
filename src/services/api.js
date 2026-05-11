@@ -18,7 +18,7 @@ async function request(path, options = {}) {
     let data;
     try {
       data = await res.json();
-    } catch (parseError) {
+    } catch (_parseError) {
       throw new Error('Invalid JSON response from server');
     }
 

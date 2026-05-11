@@ -13,8 +13,6 @@ import inventoryReducer, {
   buyBackItem,
   computeSellPrice,
   selectSellableItems,
-  selectBuyBackHistory,
-  selectInventoryItems,
 } from '../inventorySlice.js';
 import { RARITY_SELL_MULTIPLIERS, RARITY_TIERS } from '../../../data/equipment.js';
 import playerReducer from '../playerSlice.js';

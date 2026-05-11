@@ -368,7 +368,6 @@ const COMBO_LABELS = {
 
 export default function GrammarComboInput({ comboType, template, onSubmit, onCancel }) {
   const [timeRemaining, setTimeRemaining] = useState(TIMER_DURATIONS[comboType] || 20000);
-  const startTimeRef = useRef(Date.now());
   const submittedRef = useRef(false);
   const timerDuration = TIMER_DURATIONS[comboType] || 20000;
 

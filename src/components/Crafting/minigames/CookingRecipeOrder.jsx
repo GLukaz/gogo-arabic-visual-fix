@@ -65,8 +65,6 @@ export default function CookingRecipeOrder({ recipeId, professionLevel, onComple
   const [timeRemaining, setTimeRemaining] = useState(0);
   const [flashState, setFlashState] = useState(null); // { ingredientId, type: 'correct' | 'incorrect' }
 
-  const startTimeRef = useState(Date.now())[0];
-
   // Initialize difficulty and ingredients
   useEffect(() => {
     const settings = getDifficultySettings(professionLevel);

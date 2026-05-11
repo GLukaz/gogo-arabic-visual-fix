@@ -1,5 +1,5 @@
 import { store } from '../../../store/store.js';
-import { COMPANION_DIALOGUE, getDialogueForContext, getTeachingDialogue, getZoneDialogue } from '../../../data/companionDialogue.js';
+import { COMPANION_DIALOGUE, getTeachingDialogue, getZoneDialogue } from '../../../data/companionDialogue.js';
 import { COMPANIONS } from '../../../data/companions.js';
 import { scaleDialogueComplexity } from '../../../utils/dialogueComplexity.js';
 import { getRelationshipTier } from '../../../utils/companionRelationship.js';
@@ -22,7 +22,6 @@ export class CompanionDialogueManager {
     const state = store.getState();
     const relationship = state.companions?.companions?.[companionId]?.relationship ?? 0;
     const tier = getRelationshipTier(relationship);
-    const cefrLevel = this._estimateCEFR(state);
 
     const topics = [];
 
@@ -85,7 +84,7 @@ export class CompanionDialogueManager {
    * Get dialogue lines for a selected topic.
    * Scales Arabic complexity based on player CEFR level.
    */
-  getDialogueForTopic(companionId, topicId, context) {
+  getDialogueForTopic(companionId, topicId, _context) {
     const state = store.getState();
     const cefrLevel = this._estimateCEFR(state);
     const relationship = state.companions?.companions?.[companionId]?.relationship ?? 0;

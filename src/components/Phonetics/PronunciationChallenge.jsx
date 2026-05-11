@@ -7,7 +7,7 @@
  * summary at the end.
  */
 
-import { useState, useCallback, useMemo, useEffect } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { speakArabic, isArabicTtsAvailable } from '../../services/ttsService.js';
 import { ARABIC_CONSONANTS, MINIMAL_PAIRS, SOUND_CATEGORIES } from '../../data/arabicPhonetics.js';
@@ -21,12 +21,6 @@ const MAX_FREE_REPLAYS = 2;
 function pickRandom(arr, count) {
   const shuffled = [...arr].sort(() => Math.random() - 0.5);
   return shuffled.slice(0, count);
-}
-
-/** Extract the first Arabic letter from a word string (strips parenthetical translations). */
-function getFirstLetter(wordEntry) {
-  const word = wordEntry.split(' ')[0]; // "باب (door)" -> "باب"
-  return word.charAt(0);
 }
 
 /** Build a round: pick a pair, choose a word, generate distractors. */
@@ -90,7 +84,7 @@ function buildRound(focusCategory) {
 }
 
 export default function PronunciationChallenge({
-  difficulty = 2,
+  difficulty: _difficulty = 2,
   focusCategory,
   onComplete,
 }) {

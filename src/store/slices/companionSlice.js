@@ -274,7 +274,7 @@ export const selectCompanionRelationship = (companionId) => (state) => {
   return state.companions.companions[companionId]?.relationship ?? 0;
 };
 
-export const selectCompanionsByZone = (zone) => (state) => {
+export const selectCompanionsByZone = (_zone) => (_state) => {
   // Note: This selector will require companion data to be imported
   // For now, return empty array - will be wired in Task 2 after companions.js exists
   return [];

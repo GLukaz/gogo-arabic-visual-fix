@@ -35,7 +35,7 @@ describe('TARGET_SUCCESS_RATE', () => {
 
 describe('calculateDifficultyLevel', () => {
   /** Helper to build N results with a given correct ratio. */
-  function buildResults(total, correctRatio) {
+  function _buildResults(total, correctRatio) {
     const correctCount = Math.round(total * correctRatio);
     const results = [];
     // Interleave correct and incorrect for realistic EMA

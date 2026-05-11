@@ -139,13 +139,13 @@ describe('VOCAB_PACING', () => {
 
 describe('UNLOCK_GATES', () => {
   it('all quiz types have level >= 1', () => {
-    for (const [type, level] of Object.entries(UNLOCK_GATES.quizTypes)) {
+    for (const [_type, level] of Object.entries(UNLOCK_GATES.quizTypes)) {
       expect(level).toBeGreaterThanOrEqual(1);
     }
   });
 
   it('all features have level >= 1', () => {
-    for (const [feature, level] of Object.entries(UNLOCK_GATES.features)) {
+    for (const [_feature, level] of Object.entries(UNLOCK_GATES.features)) {
       expect(level).toBeGreaterThanOrEqual(1);
     }
   });
