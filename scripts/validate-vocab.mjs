@@ -95,7 +95,6 @@ for (const word of vocabulary) {
 let errors = 0;
 let warnings = 0;
 
-console.log(`Validating ${vocabulary.length} words (merged from 3 sources)...\n`);
 
 // ── Check 1: Duplicate Arabic text ──────────────────────────────────────────
 // The merge already deduplicates, but we verify no duplicates snuck through
@@ -154,12 +153,10 @@ for (const w of vocabulary) {
   if (VALID_CEFR.has(w.cefrLevel)) cefrDist[w.cefrLevel]++;
 }
 
-console.log(`CEFR distribution: A1=${cefrDist.A1} A2=${cefrDist.A2} B1=${cefrDist.B1} B2=${cefrDist.B2}`);
 
 if (errors > 0) {
   console.error(`\nFAILED: ${errors} error(s), ${warnings} warning(s) in ${vocabulary.length} words`);
   process.exit(1);
 }
 
-console.log(`\nvocab:validate PASSED — ${vocabulary.length} words, 0 errors, ${warnings} warning(s)`);
 process.exit(0);

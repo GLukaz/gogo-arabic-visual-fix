@@ -10,14 +10,11 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/gogo-a
 
 async function main() {
   await mongoose.connect(MONGODB_URI);
-  console.log('Connected to MongoDB');
 
   // For now, just verify connection.
   // Users, cards, and quests are created at runtime.
-  console.log('Database ready. No seed data required — all data is created at runtime.');
 
   await mongoose.disconnect();
-  console.log('Done');
 }
 
 main().catch((err) => {

@@ -39,7 +39,6 @@ if (rumi) {
       }
     ]
   });
-  console.log('Added rumi_loanwords_poetry tree');
 }
 
 // imam-muhammad: add return_visit prayer vocabulary
@@ -68,8 +67,6 @@ if (imam) {
       }
     ]
   });
-  console.log('Added imam_arabic_unique tree');
 }
 
 fs.writeFileSync(npcsPath, JSON.stringify(npcs, null, 2), 'utf8');
-console.log('Done!');

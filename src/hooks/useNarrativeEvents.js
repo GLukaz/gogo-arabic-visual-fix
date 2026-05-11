@@ -50,9 +50,6 @@ export function useNarrativeEvents() {
         dispatch(setStoryFlag({ flag: flagKey, value: true }));
       }
 
-      if (import.meta.env.DEV) {
-        console.log('[useNarrativeEvents] Topic visited:', { npcId, topicId, topic });
-      }
     };
 
     EventBus.on(EVENTS.NARRATIVE_FLAG_SET, handleFlagSet);

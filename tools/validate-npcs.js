@@ -158,26 +158,17 @@ function report(results) {
   const FAIL = '\x1b[31mFAIL\x1b[0m';
   const WARN = '\x1b[33mWARN\x1b[0m';
 
-  console.log('\n=== NPC Validation Report ===\n');
 
-  console.log(`NPCs:             ${results.npcCount}`);
-  console.log(`Dialogue lines:   ${results.totalLines.toLocaleString()}`);
-  console.log(`teachWords:       ${results.teachWordCount}`);
-  console.log(`culturalNotes:    ${results.culturalNoteCount}`);
 
   // Missing dialogueTrees
   if (results.missingDialogueTrees.length === 0) {
-    console.log(`\n[${PASS}] All NPCs have dialogueTrees`);
   } else {
-    console.log(`\n[${FAIL}] ${results.missingDialogueTrees.length} NPC(s) missing dialogueTrees:`);
     for (const id of results.missingDialogueTrees) {
-      console.log(`       "${id}"`);
     }
   }
 
   // Invalid teachWords
   if (results.invalidTeachWords.length === 0) {
-    console.log(`[${PASS}] All teachWord references resolved`);
   } else {
     // Deduplicate for display
     const seen = new Set();
@@ -187,29 +178,22 @@ function report(results) {
       seen.add(key);
       return true;
     });
-    console.log(`[${WARN}] ${unique.length} unresolved teachWord reference(s):`);
     for (const { npcId, teachWord } of unique.slice(0, 20)) {
-      console.log(`       NPC "${npcId}" → teachWord "${teachWord}" not found in vocabulary`);
     }
     if (unique.length > 20) {
-      console.log(`       ... and ${unique.length - 20} more`);
     }
   }
 
   // Malformed culturalNotes
   if (results.malformedCulturalNotes.length === 0) {
-    console.log(`[${PASS}] All culturalNote entries are valid strings`);
   } else {
-    console.log(`[${FAIL}] ${results.malformedCulturalNotes.length} malformed culturalNote(s):`);
     for (const { npcId, value } of results.malformedCulturalNotes.slice(0, 10)) {
-      console.log(`       NPC "${npcId}" has culturalNote: ${JSON.stringify(value)}`);
     }
   }
 
   // Overall
   const hasErrors = results.missingDialogueTrees.length > 0 || results.malformedCulturalNotes.length > 0;
   const hasWarnings = results.invalidTeachWords.length > 0;
-  console.log(`\nOverall: ${hasErrors ? FAIL : hasWarnings ? WARN : PASS}`);
 
   return hasErrors ? 1 : 0;
 }
@@ -221,11 +205,9 @@ async function main() {
   try {
     process.stdout.write('Loading npcs.json... ');
     const npcs = loadNpcs();
-    console.log(`${npcs.length} NPCs loaded.`);
 
     process.stdout.write('Building vocabulary ID set... ');
     const vocabIds = buildVocabIdSet();
-    console.log(`${vocabIds.size.toLocaleString()} vocabulary IDs indexed.`);
 
     const results = validateNpcs(npcs, vocabIds);
     const exitCode = report(results);

@@ -177,7 +177,6 @@ function main() {
   // Ensure output directory
   if (!fs.existsSync(OUTPUT_DIR)) {
     fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-    console.log(`Created output directory: ${OUTPUT_DIR}`);
   }
 
   // ------------------------------------------------------------------
@@ -192,9 +191,6 @@ function main() {
   // practical-vocabulary-raw.json may be a plain array or wrapped
   const practicalVocab = Array.isArray(practicalRaw) ? practicalRaw : (practicalRaw.words || []);
 
-  console.log(`Loaded ${quranicVocab.length} Quranic words`);
-  console.log(`Loaded ${rootsData.verbs.length} root verbs, ${Object.keys(rootsData.rootMap).length} roots`);
-  console.log(`Loaded ${practicalVocab.length} practical words`);
 
   // ------------------------------------------------------------------
   // 2. Build root lookup tables from quranic-roots.json
@@ -309,12 +305,6 @@ function main() {
     }
   }
 
-  console.log(`\nMerge results:`);
-  console.log(`  Quranic words:      ${quranicNormalised.length}`);
-  console.log(`  Practical words:     ${practicalNormalised.length}`);
-  console.log(`  Enrichments applied: ${enriched}`);
-  console.log(`  Practical-only adds: ${practicalOnly}`);
-  console.log(`  Deduplicated total:  ${merged.size}`);
 
   // ------------------------------------------------------------------
   // 6. Assign zones
@@ -395,14 +385,12 @@ function main() {
   // 11. Write vocabulary-final.json
   // ------------------------------------------------------------------
   fs.writeFileSync(FINAL_OUTPUT_PATH, JSON.stringify(finalOutput, null, 2), 'utf-8');
-  console.log(`\nWrote ${finalOutput.length} words to ${FINAL_OUTPUT_PATH}`);
 
   // ------------------------------------------------------------------
   // 12. Compute and write stats
   // ------------------------------------------------------------------
   const stats = computeStats(finalOutput);
   fs.writeFileSync(STATS_OUTPUT_PATH, JSON.stringify(stats, null, 2), 'utf-8');
-  console.log(`Wrote stats to ${STATS_OUTPUT_PATH}`);
 
   // Print summary
   printStats(stats);
@@ -439,7 +427,6 @@ function balanceZones(words) {
   // if we have more words than 8*250.
   const targetPerZone = Math.max(IDEAL_PER_ZONE, Math.ceil(words.length / numZones));
 
-  console.log(`  Balance target per zone: ~${targetPerZone} (${words.length} words / ${numZones} zones)`);
 
   /** Quick count helper */
   function countByZone() {
@@ -450,9 +437,7 @@ function balanceZones(words) {
   }
 
   const beforeCounts = countByZone();
-  console.log('\nZone distribution before balancing:');
   for (const z of ZONE_ORDER) {
-    console.log(`  ${z}: ${beforeCounts[z]}`);
   }
 
   // Strategy: redistribute from oversized zones to undersized zones.
@@ -530,9 +515,7 @@ function balanceZones(words) {
   // Re-count after balancing
   const finalCounts = countByZone();
 
-  console.log('\nZone distribution after balancing:');
   for (const z of ZONE_ORDER) {
-    console.log(`  ${z}: ${finalCounts[z]}`);
   }
 }
 
@@ -589,33 +572,19 @@ function computeStats(words) {
 // Helper: print stats
 // ---------------------------------------------------------------------------
 function printStats(stats) {
-  console.log('\n=== Vocabulary Stats ===');
-  console.log(`Total words: ${stats.totalWords}`);
 
-  console.log('\nBy source:');
   for (const [k, v] of Object.entries(stats.bySource)) {
-    console.log(`  ${k}: ${v}`);
   }
 
-  console.log('\nBy zone:');
   for (const z of ZONE_ORDER) {
-    console.log(`  ${z}: ${stats.byZone[z] || 0}`);
   }
 
-  console.log('\nBy difficulty:');
   for (let d = 1; d <= 5; d++) {
-    console.log(`  ${d}: ${stats.byDifficulty[String(d)] || 0}`);
   }
 
-  console.log('\nBy part of speech:');
   for (const [k, v] of Object.entries(stats.byPartOfSpeech).sort((a, b) => b[1] - a[1])) {
-    console.log(`  ${k}: ${v}`);
   }
 
-  console.log(`\nWords with roots:           ${stats.wordsWithRoots}`);
-  console.log(`Words with Quran ref:       ${stats.wordsWithQuranRef}`);
-  console.log(`Words with English:         ${stats.wordsWithEnglish}`);
-  console.log(`Words with transliteration: ${stats.wordsWithTransliteration}`);
 }
 
 // ---------------------------------------------------------------------------

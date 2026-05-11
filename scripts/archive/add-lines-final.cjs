@@ -33,7 +33,6 @@ if (aisha) {
       }
     ]
   });
-  console.log('Added aisha_women_scholars tree');
 }
 
 // Add one more line to wanderer-ali's default tree
@@ -59,10 +58,8 @@ if (ali) {
           teachWord: 'moon_w15'
         }
       );
-      console.log('Added extra lines to wanderer-ali default tree');
     }
   }
 }
 
 fs.writeFileSync(npcsPath, JSON.stringify(npcs, null, 2), 'utf8');
-console.log('Done!');

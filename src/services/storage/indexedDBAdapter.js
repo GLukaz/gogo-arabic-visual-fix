@@ -62,7 +62,6 @@ const getDB = () => {
       if (event.oldVersion < 1) {
         if (!db.objectStoreNames.contains(STORE_NAME)) {
           db.createObjectStore(STORE_NAME);
-          if (import.meta.env.DEV) console.log(`[IndexedDB] Created object store: ${STORE_NAME}`);
         }
       }
 

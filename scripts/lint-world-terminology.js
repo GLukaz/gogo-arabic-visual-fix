@@ -82,4 +82,3 @@ if (hits > 0) {
   console.error(`\n${hits} terminology violation(s) — Phase 97 forbids "map"/"UI" in new world-layer files`);
   process.exit(1);
 }
-console.log('lint:world-terminology — clean');

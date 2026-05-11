@@ -143,7 +143,6 @@ if (mysteriousTraveler) {
       ]
     }
   ];
-  console.log('Expanded mysterious-traveler');
 }
 
 // ─── night-guard: expand from 1 line to a proper character ───────────────────
@@ -247,7 +246,6 @@ if (nightGuard) {
       ]
     }
   ];
-  console.log('Expanded night-guard');
 }
 
 // ─── Add return_visit teaching trees to secondary NPCs ───────────────────────
@@ -291,7 +289,6 @@ if (nadia) {
       }
     ]
   });
-  console.log('Added return_visit tree to dockmaster-nadia');
 }
 
 // carpet-seller-jamal: add carpet materials vocabulary
@@ -339,7 +336,6 @@ if (jamal) {
       }
     ]
   });
-  console.log('Added return_visit tree to carpet-seller-jamal');
 }
 
 // garden-keeper-leila: add plant vocabulary
@@ -382,7 +378,6 @@ if (leila) {
       }
     ]
   });
-  console.log('Added return_visit tree to garden-keeper-leila');
 }
 
 // baker-yasmin: add sweets vocabulary
@@ -424,7 +419,6 @@ if (yasmin) {
       }
     ]
   });
-  console.log('Added return_visit tree to baker-yasmin');
 }
 
 // mountain-hermit-idris: add philosophy vocabulary
@@ -466,7 +460,6 @@ if (idris) {
       }
     ]
   });
-  console.log('Added return_visit tree to mountain-hermit-idris');
 }
 
 // stable-master-yara: add more animal vocabulary
@@ -514,7 +507,6 @@ if (yara) {
       }
     ]
   });
-  console.log('Added return_visit tree to stable-master-yara');
 }
 
 // astronomer-zain: add star names vocabulary
@@ -556,9 +548,7 @@ if (zain) {
       }
     ]
   });
-  console.log('Added return_visit tree to astronomer-zain');
 }
 
 // Write the updated npcs.json
 fs.writeFileSync(npcsPath, JSON.stringify(npcs, null, 2), 'utf8');
-console.log('\nDone! npcs.json updated with additional dialogue lines.');

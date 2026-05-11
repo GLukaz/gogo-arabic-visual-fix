@@ -342,8 +342,6 @@ async function runValidator(name, scriptPath) {
 async function main() {
   const startTime = Date.now();
 
-  console.log(`\n${C.bold}${C.cyan}=== Gogo Arabic Content Stats ===${C.reset}\n`);
-  console.log(`${C.dim}Collecting stats from all content files...${C.reset}\n`);
 
   // Gather all stats concurrently
   const [vocabStats, npcStats, questStats, grammarStats, achievementStats, loreStats, skillTreeStats] =
@@ -366,7 +364,6 @@ async function main() {
   {
     const s = vocabStats;
     if (s.error) {
-      console.log(`${C.red}Vocabulary:  ERROR — ${s.error}${C.reset}`);
     } else {
       const bd = s.cefrBreakdown;
       const parts = [
@@ -376,9 +373,6 @@ async function main() {
         `B2: ${bd.B2.toLocaleString()}`,
       ];
       if (bd.untagged > 0) parts.push(`untagged: ${bd.untagged.toLocaleString()}`);
-      console.log(`${statusIcon(s.status)} ${C.bold}Vocabulary:${C.reset}   ${s.total.toLocaleString()} words (${parts.join(', ')})`);
-      if (s.duplicates > 0) console.log(`    ${C.red}! ${s.duplicates} duplicate ID(s)${C.reset}`);
-      if (s.missingFields > 0) console.log(`    ${C.red}! ${s.missingFields} word(s) with missing fields${C.reset}`);
     }
   }
 
@@ -386,13 +380,9 @@ async function main() {
   {
     const s = npcStats;
     if (s.error) {
-      console.log(`${C.red}NPCs:        ERROR — ${s.error}${C.reset}`);
     } else {
-      console.log(
         `${statusIcon(s.status)} ${C.bold}NPCs:${C.reset}         ${s.npcCount} (${s.totalLines.toLocaleString()} dialogue lines, ${s.totalTeachWords} teachWords, ${s.totalCulturalNotes} culturalNotes)`
       );
-      if (s.missingDialogueTrees > 0) console.log(`    ${C.red}! ${s.missingDialogueTrees} NPC(s) missing dialogueTrees${C.reset}`);
-      if (s.invalidTeachWords > 0) console.log(`    ${C.yellow}⚠ ${s.invalidTeachWords} unresolved teachWord ref(s)${C.reset}`);
     }
   }
 
@@ -400,19 +390,14 @@ async function main() {
   {
     const s = questStats;
     if (s.error) {
-      console.log(`${C.red}Quests:      ERROR — ${s.error}${C.reset}`);
     } else {
       const bd = s.typeBreakdown;
       const mainStory = bd['main_story'] || 0;
       const side = bd['side_quest'] || 0;
       const companion = bd['companion_quest'] || 0;
       const other = s.total - mainStory - side - companion;
-      console.log(
         `${statusIcon(s.status)} ${C.bold}Quests:${C.reset}       ${s.total} (${mainStory} main story, ${side} side, ${companion} companion, ${other} other)`
       );
-      if (s.brokenPrereqs > 0) console.log(`    ${C.red}! ${s.brokenPrereqs} broken prerequisite(s)${C.reset}`);
-      if (s.orphans > 0) console.log(`    ${C.yellow}⚠ ${s.orphans} orphan quest(s)${C.reset}`);
-      if (s.rewardViolations > 0) console.log(`    ${C.red}! ${s.rewardViolations} reward violation(s)${C.reset}`);
     }
   }
 
@@ -420,12 +405,10 @@ async function main() {
   {
     const s = grammarStats;
     if (s.error) {
-      console.log(`${C.red}Grammar:     ERROR — ${s.error}${C.reset}`);
     } else {
       const bd = s.cefrBreakdown;
       const parts = [`A1: ${bd.A1}`, `A2: ${bd.A2}`, `B1: ${bd.B1}`, `B2: ${bd.B2}`];
       if (s.untagged > 0) parts.push(`untagged: ${s.untagged}`);
-      console.log(`${statusIcon(s.status)} ${C.bold}Grammar:${C.reset}      ${s.total} lessons (${parts.join(', ')})`);
     }
   }
 
@@ -433,9 +416,7 @@ async function main() {
   {
     const s = achievementStats;
     if (s.error) {
-      console.log(`${C.red}Achievements: ERROR — ${s.error}${C.reset}`);
     } else {
-      console.log(`${statusIcon(s.status)} ${C.bold}Achievements:${C.reset} ${s.total} across ${s.categoryCount} categories`);
     }
   }
 
@@ -443,9 +424,7 @@ async function main() {
   {
     const s = loreStats;
     if (s.error) {
-      console.log(`${C.red}Lore Codex:  ERROR — ${s.error}${C.reset}`);
     } else {
-      console.log(`${statusIcon(s.status)} ${C.bold}Lore Codex:${C.reset}   ${s.total} entries across ${s.categoryCount} categories`);
     }
   }
 
@@ -453,17 +432,13 @@ async function main() {
   {
     const s = skillTreeStats;
     if (s.error) {
-      console.log(`${C.red}Skill Trees: ERROR — ${s.error}${C.reset}`);
     } else {
-      console.log(`${statusIcon(s.status)} ${C.bold}Skill Trees:${C.reset}  ${s.treeCount} trees, ${s.nodeCount} nodes`);
     }
   }
 
   // ---------------------------------------------------------------------------
   // Run individual validators and report their status
   // ---------------------------------------------------------------------------
-  console.log(`\n${C.dim}─────────────────────────────────────────${C.reset}`);
-  console.log(`${C.bold}Running validators...${C.reset}\n`);
 
   const validators = [
     { name: 'validate-vocabulary', script: path.join(__dirname, 'validate-vocabulary.js') },
@@ -476,21 +451,18 @@ async function main() {
   for (const { name, script } of validators) {
     const result = await runValidator(name, script);
     const icon = result.code === 0 ? `${C.green}PASS${C.reset}` : `${C.red}FAIL${C.reset}`;
-    console.log(`  [${icon}] ${name}`);
     if (result.code !== 0) {
       allPassed = false;
       // Print the validator output indented
       const lines = result.stdout.trim().split('\n');
       for (const line of lines) {
-        if (line.trim()) console.log(`         ${line}`);
+        if (line.trim()) {
+        }
       }
     }
   }
 
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
-  console.log(`\n${C.dim}─────────────────────────────────────────${C.reset}`);
-  console.log(`\n${C.bold}Overall: ${allPassed ? `${C.green}ALL CHECKS PASSED` : `${C.red}SOME CHECKS FAILED`}${C.reset}`);
-  console.log(`${C.dim}Completed in ${elapsed}s${C.reset}\n`);
 
   process.exit(allPassed ? 0 : 1);
 }

@@ -62,5 +62,3 @@ ${unused.sort().map((k) => `- ${k}`).join('\n')}
 `;
 
 fs.writeFileSync(outPath, body);
-console.log(`wrote ${outPath}`);
-console.log(`coverage: ${used.length}/${allKeys.length} (${((used.length / allKeys.length) * 100).toFixed(1)}%)`);

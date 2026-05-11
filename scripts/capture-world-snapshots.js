@@ -127,7 +127,6 @@ function captureAndWrite(zoneId, zone) {
   const snapshot = captureZoneSnapshot(loader, zone, zone.tilesetTheme);
   const outPath = path.join(OUT_DIR, `${zoneId}.json`);
   fs.writeFileSync(outPath, JSON.stringify(snapshot, null, 2) + '\n');
-  console.log(`wrote ${outPath} — ${snapshot.tiles.length} tiles, ${snapshot.objects.length} objects, ${snapshot.decoCount} deco, ${snapshot.animalCount} animals`);
   return true;
 }
 
@@ -141,5 +140,4 @@ for (const zoneId of CORE_ZONES) {
   if (captureAndWrite(zoneId, zone)) wrote++;
 }
 
-console.log(`\nCaptured ${wrote} / ${CORE_ZONES.length} zones.`);
 if (wrote < CORE_ZONES.length) process.exit(1);

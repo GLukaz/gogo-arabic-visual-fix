@@ -32,11 +32,6 @@ export const CURRENT_VERSION = 12;
 const migrations = {
   // Version 0 -> 1: localStorage-only to IndexedDB hybrid
   1: (state) => {
-    if (import.meta.env.DEV) {
-       
-      console.log('[Migration] Starting v0 -> v1: localStorage to IndexedDB hybrid');
-    }
-
     try {
       // redux-persist has already deserialized the state from localStorage
       // The new nested persistReducers will now write vocabulary + battle to IndexedDB
@@ -58,10 +53,6 @@ const migrations = {
 
             // Write back the cleaned root key
             localStorage.setItem(rootKey, JSON.stringify(parsed));
-            if (import.meta.env.DEV) {
-               
-              console.log('[Migration] Cleaned up old localStorage vocabulary + battle data');
-            }
           }
         } catch (cleanupError) {
           console.warn('[Migration] Failed to cleanup old localStorage data:', cleanupError);
@@ -69,10 +60,6 @@ const migrations = {
         }
       }, 5000);
 
-      if (import.meta.env.DEV) {
-         
-        console.log('[Migration] v0 -> v1 complete');
-      }
       return state;
     } catch (error) {
       console.error('[Migration] v0 -> v1 failed, returning state unchanged:', error);
@@ -88,18 +75,8 @@ const migrations = {
 
   // Version 5: Crafting added to IndexedDB (Phase 31)
   5: (state) => {
-    if (import.meta.env.DEV) {
-       
-      console.log('[Migration] Starting v4 -> v5: crafting added to IndexedDB');
-    }
-
     // New slice, no data to migrate
     // Crafting data will be initialized via nested persistReducer
-
-    if (import.meta.env.DEV) {
-       
-      console.log('[Migration] v4 -> v5 complete');
-    }
     return state;
   },
   // Version 6: Force-skip broken tutorial (root persist only)
@@ -118,11 +95,6 @@ const migrations = {
 
   // Version 7: v7.0 World & Content — new slices and fields
   7: (state) => {
-    if (import.meta.env.DEV) {
-       
-      console.log('[Migration] Starting v6 -> v7: v7.0 World & Content slices');
-    }
-
     // Initialize home slice if missing
     if (state && !state.home) {
       state.home = {
@@ -174,20 +146,11 @@ const migrations = {
       };
     }
 
-    if (import.meta.env.DEV) {
-       
-      console.log('[Migration] v6 -> v7 complete');
-    }
     return state;
   },
 
   // Version 8: worldState moved from localStorage to IndexedDB (Phase 50)
   8: (state) => {
-    if (import.meta.env.DEV) {
-       
-      console.log('[Migration] Starting v7 -> v8: worldState moved to IndexedDB');
-    }
-
     // Schedule cleanup of old localStorage worldState data after rehydration
     setTimeout(() => {
       try {
@@ -201,30 +164,17 @@ const migrations = {
           delete parsed.worldState;
 
           localStorage.setItem(rootKey, JSON.stringify(parsed));
-          if (import.meta.env.DEV) {
-             
-            console.log('[Migration] Cleaned up old localStorage worldState data');
-          }
         }
       } catch (cleanupError) {
         console.warn('[Migration] Failed to cleanup old localStorage worldState:', cleanupError);
       }
     }, 5000);
 
-    if (import.meta.env.DEV) {
-       
-      console.log('[Migration] v7 -> v8 complete');
-    }
     return state;
   },
 
   // Version 9: faction moved from localStorage to IndexedDB (Phase 53)
   9: (state) => {
-    if (import.meta.env.DEV) {
-       
-      console.log('[Migration] Starting v8 -> v9: faction moved to IndexedDB');
-    }
-
     setTimeout(() => {
       try {
         const rootKey = 'persist:gogo-arabic';
@@ -233,30 +183,17 @@ const migrations = {
           const parsed = JSON.parse(oldData);
           delete parsed.faction;
           localStorage.setItem(rootKey, JSON.stringify(parsed));
-          if (import.meta.env.DEV) {
-             
-            console.log('[Migration] Cleaned up old localStorage faction data');
-          }
         }
       } catch (cleanupError) {
         console.warn('[Migration] Failed to cleanup old localStorage faction:', cleanupError);
       }
     }, 5000);
 
-    if (import.meta.env.DEV) {
-       
-      console.log('[Migration] v8 -> v9 complete');
-    }
     return state;
   },
 
   // Version 10: poetry added to IndexedDB (Phase 55)
   10: (state) => {
-    if (import.meta.env.DEV) {
-       
-      console.log('[Migration] Starting v9 -> v10: poetry added to IndexedDB');
-    }
-
     // Clean up any stale localStorage poetry key if it exists (defensive)
     setTimeout(() => {
       try {
@@ -267,10 +204,6 @@ const migrations = {
           if (parsed.poetry) {
             delete parsed.poetry;
             localStorage.setItem(rootKey, JSON.stringify(parsed));
-            if (import.meta.env.DEV) {
-               
-              console.log('[Migration] Cleaned up old localStorage poetry data');
-            }
           }
         }
       } catch (cleanupError) {
@@ -278,20 +211,11 @@ const migrations = {
       }
     }, 5000);
 
-    if (import.meta.env.DEV) {
-       
-      console.log('[Migration] v9 -> v10 complete');
-    }
     return state;
   },
 
   // Version 11: FIX-02 grammar slug migration + placementSlice + cefrProgressSlice init (Phase 56)
   11: (state) => {
-    if (import.meta.env.DEV) {
-       
-      console.log('[Migration] Starting v10 -> v11: placement + cefr slices + grammar slug fix');
-    }
-
     // FIX-02: Remap any numeric lesson IDs in grammar.completedLessons to slugs.
     // 42 entries matching grammar.js lesson order exactly.
     const LESSON_SLUGS = [
@@ -350,20 +274,11 @@ const migrations = {
       };
     }
 
-    if (import.meta.env.DEV) {
-       
-      console.log('[Migration] v10 -> v11 complete');
-    }
     return state;
   },
 
   // Version 12: Add grammar.unlockedLessons for lesson gating (Phase 58)
   12: (state) => {
-    if (import.meta.env.DEV) {
-       
-      console.log('[Migration] Starting v11 -> v12: grammar unlockedLessons init');
-    }
-
     // Only apply to root persist config (has grammar key)
     if (state?.grammar) {
       if (!Array.isArray(state.grammar.unlockedLessons)) {
@@ -401,10 +316,6 @@ const migrations = {
       }
     }
 
-    if (import.meta.env.DEV) {
-       
-      console.log('[Migration] v11 -> v12 complete');
-    }
     return state;
   },
 };

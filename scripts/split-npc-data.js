@@ -37,12 +37,8 @@ for (const [zone, dialogue] of Object.entries(byZone)) {
 
 // Summary
 const metaSize = Buffer.byteLength(JSON.stringify(meta));
-console.log(`npcs-meta.json: ${(metaSize / 1024).toFixed(1)} KB (${npcs.length} NPCs)`);
 let totalDialogue = 0;
 for (const [zone, dialogue] of Object.entries(byZone)) {
   const size = Buffer.byteLength(JSON.stringify(dialogue));
   totalDialogue += size;
-  console.log(`npc-dialogue/${zone}.json: ${(size / 1024).toFixed(1)} KB (${dialogue.length} NPCs)`);
 }
-console.log(`\nTotal dialogue: ${(totalDialogue / 1024).toFixed(1)} KB across ${Object.keys(byZone).length} zones`);
-console.log(`Original npcs.json: ${(Buffer.byteLength(fs.readFileSync(path.join(dataDir, 'npcs.json'), 'utf-8')) / 1024).toFixed(1)} KB`);

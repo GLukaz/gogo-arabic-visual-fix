@@ -505,7 +505,6 @@ export class ObjectPlacerEditor {
       this._setStatus(`Copied ${this.placements.length} objects (fallback)`);
     } catch {
       this._setStatus('Copy failed — open devtools to read output');
-      console.log('[ObjectPlacerEditor] objects:\n' + text);
     }
     document.body.removeChild(ta);
   }

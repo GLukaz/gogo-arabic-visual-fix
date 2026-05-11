@@ -310,11 +310,9 @@ function difficultyForSupplementary(category) {
 // ---------------------------------------------------------------------------
 function main() {
   // 1. Read and parse the 1000 common words
-  console.log(`Reading common words from: ${INPUT_PATH}`);
   const rawInput = readFileSync(INPUT_PATH, 'utf-8');
   const inputData = JSON.parse(rawInput);
   const commonWords = inputData.words;
-  console.log(`  Loaded ${commonWords.length} common words`);
 
   // Collect all supplementary Arabic forms for deduplication
   const supplementaryArabicSet = new Set();
@@ -364,7 +362,6 @@ function main() {
     });
   }
 
-  console.log(`  Processed ${output.length} common words (after dedup & supplementary exclusion)`);
 
   // 3. Process supplementary words
   let supplementaryCount = 0;
@@ -391,7 +388,6 @@ function main() {
     }
   }
 
-  console.log(`  Added ${supplementaryCount} supplementary words`);
 
   // 4. Summary statistics
   const categoryCounts = {};
@@ -404,32 +400,23 @@ function main() {
     difficultyCounts[entry.difficulty] = (difficultyCounts[entry.difficulty] || 0) + 1;
   }
 
-  console.log(`\nTotal words: ${output.length}`);
-  console.log(`  Common: ${sourceCounts.common}`);
-  console.log(`  Supplementary: ${sourceCounts.supplementary}`);
 
-  console.log('\nBy category:');
   Object.entries(categoryCounts)
     .sort((a, b) => b[1] - a[1])
     .forEach(([cat, count]) => {
-      console.log(`  ${cat}: ${count}`);
     });
 
-  console.log('\nBy difficulty:');
   Object.keys(difficultyCounts)
     .sort()
     .forEach((d) => {
-      console.log(`  Level ${d}: ${difficultyCounts[d]}`);
     });
 
   // 5. Write output
   if (!existsSync(OUTPUT_DIR)) {
     mkdirSync(OUTPUT_DIR, { recursive: true });
-    console.log(`\nCreated output directory: ${OUTPUT_DIR}`);
   }
 
   writeFileSync(OUTPUT_PATH, JSON.stringify(output, null, 2), 'utf-8');
-  console.log(`\nWrote ${output.length} entries to: ${OUTPUT_PATH}`);
 }
 
 main();

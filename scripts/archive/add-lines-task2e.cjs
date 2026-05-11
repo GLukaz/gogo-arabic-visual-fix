@@ -39,7 +39,6 @@ if (khalid) {
       }
     ]
   });
-  console.log('Added khalid_review tree');
 }
 
 // guard-hamza: add return_visit city wall tree
@@ -75,7 +74,6 @@ if (hamza) {
       }
     ]
   });
-  console.log('Added hamza_city_walls tree');
 }
 
 // vizier-abbas: add return_visit justice vocabulary
@@ -110,8 +108,6 @@ if (abbas) {
       }
     ]
   });
-  console.log('Added abbas_justice tree');
 }
 
 fs.writeFileSync(npcsPath, JSON.stringify(npcs, null, 2), 'utf8');
-console.log('\nDone! Final lines added.');

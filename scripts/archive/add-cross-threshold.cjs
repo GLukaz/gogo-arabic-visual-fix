@@ -38,8 +38,6 @@ if (rashid) {
       }
     ]
   });
-  console.log('Added rashid_sea_proverbs tree (4 lines)');
 }
 
 fs.writeFileSync(npcsPath, JSON.stringify(npcs, null, 2), 'utf8');
-console.log('Done!');

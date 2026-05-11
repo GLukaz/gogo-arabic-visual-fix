@@ -27,10 +27,8 @@ async function compile() {
     const jsonStr = story.ToJson();
     const outName = basename(file, '.ink') + '.ink.json';
     writeFileSync(join(outDir, outName), jsonStr);
-    console.log(`Compiled: ${file} -> ${outName}`);
   }
 
-  console.log(`Done. Compiled ${files.length} ink file(s).`);
 }
 
 compile().catch(err => {

@@ -40,9 +40,6 @@ export function initOfflineSync(store) {
       const count = await getQueueCount();
       if (count > 0) {
         const synced = await syncQueuedReviews(store.dispatch, updateFsrsCard);
-        if (synced > 0 && import.meta.env.DEV) {
-          console.log(`[OfflineSync] Synced ${synced} queued reviews`);
-        }
       }
     } catch (err) {
       if (import.meta.env.DEV) console.warn('[OfflineSync] Sync failed:', err);

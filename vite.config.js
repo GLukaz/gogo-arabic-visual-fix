@@ -20,7 +20,6 @@ function validateDialoguePlugin() {
       if (!result.success) {
         throw new Error(`Dialogue data validation failed:\n${result.errors.join('\n')}`);
       }
-      console.log('[validate-dialogue] NPC data validated successfully');
     },
   };
 }

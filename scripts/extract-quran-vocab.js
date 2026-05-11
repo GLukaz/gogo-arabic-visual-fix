@@ -187,20 +187,15 @@ function parseCSV(text) {
 // Main
 // ---------------------------------------------------------------------------
 function main() {
-  console.log('=== Quranic Vocabulary Extractor ===\n');
 
   // ---- 1. Read morphology CSV ----
-  console.log('Reading morphology CSV...');
   const csvText = fs.readFileSync(MORPHOLOGY_CSV, 'utf-8');
   const morphRows = parseCSV(csvText);
-  console.log(`  Parsed ${morphRows.length} morphology rows`);
 
   // ---- 2. Filter to Stems only ----
   const stems = morphRows.filter(r => r.Morph_type === 'Stem');
-  console.log(`  Stems: ${stems.length}`);
 
   // ---- 3. Read all 114 chapter JSON files ----
-  console.log('\nReading Quran chapter files...');
   const chapters = [];
   for (let i = 1; i <= 114; i++) {
     const filePath = path.join(QURAN_JSON_DIR, `${i}.json`);
@@ -211,14 +206,12 @@ function main() {
     const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
     chapters.push(data);
   }
-  console.log(`  Loaded ${chapters.length} chapters`);
 
   // ---- 4. Build word frequency map from stems ----
   //
   // Key: Without_Diacritics (undiacritized stem form)
   // Value: { arabic, withoutDiacritics, partOfSpeech, morphTag, frequency, quranRefs }
   //
-  console.log('\nBuilding vocabulary from stems...');
   const vocabMap = new Map();
 
   for (const row of stems) {
@@ -270,7 +263,6 @@ function main() {
     }
   }
 
-  console.log(`  Unique stems (before filtering): ${vocabMap.size}`);
 
   // ---- 5. Convert to array, sort by frequency descending ----
   let vocab = Array.from(vocabMap.values());
@@ -290,29 +282,22 @@ function main() {
 
     return true;
   });
-  console.log(`  After filtering function words: ${vocab.length} (removed ${beforeFilter - vocab.length})`);
 
   // ---- 7. Keep top 1500 ----
   vocab = vocab.slice(0, 1500);
-  console.log(`  Keeping top ${vocab.length} words`);
 
   // ---- 8. Print some stats ----
   const posCounts = {};
   for (const entry of vocab) {
     posCounts[entry.partOfSpeech] = (posCounts[entry.partOfSpeech] || 0) + 1;
   }
-  console.log('\n  Part-of-speech breakdown:');
   for (const [pos, count] of Object.entries(posCounts).sort((a, b) => b[1] - a[1])) {
-    console.log(`    ${pos}: ${count}`);
   }
 
-  console.log(`\n  Highest frequency word: "${vocab[0].arabic}" (${vocab[0].withoutDiacritics}) — ${vocab[0].frequency} occurrences`);
-  console.log(`  Lowest frequency word in set: "${vocab[vocab.length - 1].arabic}" (${vocab[vocab.length - 1].withoutDiacritics}) — ${vocab[vocab.length - 1].frequency} occurrences`);
 
   // ---- 9. Write output ----
   if (!fs.existsSync(OUTPUT_DIR)) {
     fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-    console.log(`\n  Created output directory: ${OUTPUT_DIR}`);
   }
 
   const output = {
@@ -329,9 +314,6 @@ function main() {
   };
 
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(output, null, 2), 'utf-8');
-  console.log(`\n  Output written to: ${OUTPUT_FILE}`);
-  console.log(`  File size: ${(fs.statSync(OUTPUT_FILE).size / 1024).toFixed(1)} KB`);
-  console.log('\nDone!');
 }
 
 main();

@@ -91,4 +91,3 @@ const body = [
   '',
 ].join('\n');
 fs.writeFileSync(outPath, body);
-console.log(`wrote ${outPath} — ${Object.keys(tables).length} tile tables, ${outliers.length} outliers`);

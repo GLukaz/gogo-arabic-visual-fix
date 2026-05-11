@@ -94,7 +94,6 @@ function main() {
     process.exit(1);
   }
 
-  console.log(`Loaded ${words.length} verbs from dictionary.json`);
 
   // 2. Build verb entries
   const verbs = words.map((w) => ({
@@ -135,7 +134,6 @@ function main() {
   // 4. Ensure output directory exists
   if (!fs.existsSync(OUTPUT_DIR)) {
     fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-    console.log(`Created output directory: ${OUTPUT_DIR}`);
   }
 
   // 5. Write output
@@ -152,19 +150,12 @@ function main() {
     (r) => r.words.length > 1
   );
 
-  console.log(`\nResults:`);
-  console.log(`  Total verbs:   ${verbs.length}`);
-  console.log(`  Unique roots:  ${uniqueRoots}`);
-  console.log(`  Shared roots:  ${sharedRoots.length} roots have multiple verbs`);
 
   if (sharedRoots.length > 0) {
-    console.log(`\nShared root details:`);
     for (const r of sharedRoots) {
-      console.log(`  ${r.rootSpaced} (${r.root}): ${r.words.join(', ')}`);
     }
   }
 
-  console.log(`\nOutput written to: ${OUTPUT_PATH}`);
 }
 
 main();

@@ -125,68 +125,49 @@ function report(results) {
   const FAIL = '\x1b[31mFAIL\x1b[0m';
   const WARN = '\x1b[33mWARN\x1b[0m';
 
-  console.log('\n=== Vocabulary Validation Report ===\n');
 
   // Total
-  console.log(`Total words: ${results.total.toLocaleString()}`);
 
   // CEFR breakdown
-  console.log('\nCEFR Breakdown:');
   for (const [level, count] of Object.entries(results.cefrBreakdown)) {
     if (count > 0) {
-      console.log(`  ${level.padEnd(8)} ${count.toLocaleString()}`);
     }
   }
 
   // Duplicates
   if (results.duplicateIds.length === 0) {
-    console.log(`\n[${PASS}] No duplicate IDs`);
   } else {
-    console.log(`\n[${FAIL}] ${results.duplicateIds.length} duplicate ID(s) found:`);
     for (const { id, count } of results.duplicateIds.slice(0, 20)) {
-      console.log(`       ID "${id}" appears ${count} times`);
     }
     if (results.duplicateIds.length > 20) {
-      console.log(`       ... and ${results.duplicateIds.length - 20} more`);
     }
   }
 
   // Missing fields
   if (results.missingFields.length === 0) {
-    console.log(`[${PASS}] All required fields present`);
   } else {
-    console.log(`[${FAIL}] ${results.missingFields.length} word(s) missing required fields:`);
     for (const { id, missing } of results.missingFields.slice(0, 20)) {
-      console.log(`       "${id}" missing: ${missing.join(', ')}`);
     }
     if (results.missingFields.length > 20) {
-      console.log(`       ... and ${results.missingFields.length - 20} more`);
     }
   }
 
   // Invalid CEFR
   if (results.invalidCefr.length === 0) {
-    console.log(`[${PASS}] All cefrLevel values valid`);
   } else {
-    console.log(`[${FAIL}] ${results.invalidCefr.length} word(s) with invalid cefrLevel:`);
     for (const { id, cefrLevel } of results.invalidCefr.slice(0, 10)) {
-      console.log(`       "${id}" has cefrLevel="${cefrLevel}"`);
     }
   }
 
   // Invalid frequency
   if (results.invalidFrequency.length === 0) {
-    console.log(`[${PASS}] All frequency values valid`);
   } else {
-    console.log(`[${WARN}] ${results.invalidFrequency.length} word(s) with invalid frequency:`);
     for (const { id, frequency } of results.invalidFrequency.slice(0, 10)) {
-      console.log(`       "${id}" has frequency=${frequency}`);
     }
   }
 
   // Overall status
   const hasErrors = results.duplicateIds.length > 0 || results.missingFields.length > 0 || results.invalidCefr.length > 0;
-  console.log(`\nOverall: ${hasErrors ? FAIL : PASS}`);
 
   return hasErrors ? 1 : 0;
 }
@@ -198,7 +179,6 @@ async function main() {
   try {
     process.stdout.write('Loading vocabularyExpanded.js... ');
     const words = await loadVocabulary();
-    console.log(`${words.length} words loaded.`);
 
     const results = validateVocabulary(words);
     const exitCode = report(results);

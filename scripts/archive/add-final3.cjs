@@ -34,10 +34,8 @@ if (hana) {
           transliteration: "wa idhaa akhtaa't — laa ba's! at-tujjaar yafhamoon wa yabtasimoon"
         }
       );
-      console.log('Added 3 lines to hana_buying_lesson');
     }
   } else {
-    console.log('hana_buying_lesson not found, adding standalone tree');
     hana.dialogueTrees.push({
       id: 'hana_market_wisdom',
       trigger: 'return_visit',
@@ -67,4 +65,3 @@ if (hana) {
 }
 
 fs.writeFileSync(npcsPath, JSON.stringify(npcs, null, 2), 'utf8');
-console.log('Done!');

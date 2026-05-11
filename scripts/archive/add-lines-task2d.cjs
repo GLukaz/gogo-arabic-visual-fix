@@ -117,4 +117,3 @@ if (zain) {
 
 // Write the updated npcs.json
 fs.writeFileSync(npcsPath, JSON.stringify(npcs, null, 2), 'utf8');
-console.log('Done! Final batch of lines added to npcs.json.');

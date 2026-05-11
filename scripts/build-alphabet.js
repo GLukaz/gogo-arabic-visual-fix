@@ -13,14 +13,12 @@ async function main() {
   const raw = await readFile('client/src/data/alphabet.json', 'utf-8');
   const letters = JSON.parse(raw);
 
-  console.log(`Loaded ${letters.length} letters`);
 
   if (letters.length < EXPECTED_LETTERS) {
     console.warn(`Warning: Expected ${EXPECTED_LETTERS} letters, got ${letters.length}`);
   }
 
   const groups = new Set(letters.map((l) => l.group));
-  console.log(`Found ${groups.size} groups`);
 
   if (groups.size !== EXPECTED_GROUPS) {
     console.warn(`Warning: Expected ${EXPECTED_GROUPS} groups, got ${groups.size}`);
@@ -40,7 +38,6 @@ async function main() {
   });
 
   if (errors === 0) {
-    console.log('All letters validated successfully!');
   } else {
     console.error(`${errors} validation errors found`);
     process.exit(1);

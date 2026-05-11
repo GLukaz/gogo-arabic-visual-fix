@@ -268,27 +268,4 @@ export function getBossAchievements(defeatedBossIds = []) {
  */
 export function debugBattleSystem(state) {
   if (!import.meta.env.DEV) return;
-
-  console.group('Battle System Debug');
-  console.log('Total Bosses:', BOSSES.length);
-  console.log('Defeated:', state.battle?.bossesDefeated?.length || 0);
-  console.log('Completion:', getBossCompletionRate(state.battle?.bossesDefeated || []));
-  console.log('Active Battle:', state.battle?.activeBattle || 'None');
-
-  if (state.battle?.activeBattle) {
-    console.log('Player HP:', state.battle.playerHP);
-    console.log('Boss HP:', state.battle.bossHP, '/', state.battle.maxBossHP);
-    console.log('Round:', state.battle.currentRound);
-    console.log('Streak:', state.battle.streak);
-  }
-
-  console.log('Recent Battles:');
-  (state.battle?.battleHistory || []).slice(0, 3).forEach((battle, i) => {
-    console.log(`${i + 1}.`, formatBattleStats(battle));
-  });
-
-  console.log('Recommended Boss (Level', state.player?.level || 1, '):');
-  const recommended = getRecommendedBoss(state.player?.level || 1);
-  console.log(recommended?.name || 'None');
-  console.groupEnd();
 }

@@ -16,7 +16,6 @@ async function main() {
   const raw = await readFile('client/src/data/vocabulary.json', 'utf-8');
   const words = JSON.parse(raw);
 
-  console.log(`Loaded ${words.length} vocabulary words`);
 
   // Category breakdown
   const catCounts = {};
@@ -24,12 +23,10 @@ async function main() {
     catCounts[w.category] = (catCounts[w.category] || 0) + 1;
   });
 
-  console.log('\nCategory breakdown:');
   Object.entries(catCounts)
     .sort((a, b) => b[1] - a[1])
     .forEach(([cat, count]) => {
       const valid = VALID_CATEGORIES.includes(cat) ? '' : ' [INVALID CATEGORY]';
-      console.log(`  ${cat}: ${count}${valid}`);
     });
 
   // Validate
@@ -52,7 +49,6 @@ async function main() {
   });
 
   if (errors === 0) {
-    console.log(`\nAll ${words.length} words validated successfully!`);
   } else {
     console.error(`\n${errors} validation errors found`);
     process.exit(1);

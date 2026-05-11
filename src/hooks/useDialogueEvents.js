@@ -86,23 +86,14 @@ export function useDialogueEvents(playSFX) {
       if (payload.type === 'teach_word') {
         // Word teaching flow is handled by useDialogue's handleTeachWord
         // This event is for logging/analytics purposes
-        if (import.meta.env.DEV) {
-          console.log('[useDialogueEvents] teach_word effect:', payload.wordId);
-        }
       } else if (payload.type === 'give_item') {
         // Show item received notification (inventory system Phase 25+)
         dispatch(showNotification({
           message: `Received: ${payload.itemId}`,
           type: 'success',
         }));
-        if (import.meta.env.DEV) {
-          console.log('[useDialogueEvents] give_item effect:', payload);
-        }
       } else if (payload.type === 'reward') {
         // Reward effect feedback
-        if (import.meta.env.DEV) {
-          console.log('[useDialogueEvents] reward effect:', payload);
-        }
       }
     };
 
@@ -124,17 +115,10 @@ export function useDialogueEvents(playSFX) {
       } else if (amount < 0) {
         EventBus.emit(EVENTS.SFX_WRONG);
       }
-
-      if (import.meta.env.DEV) {
-        console.log('[useDialogueEvents] Relationship changed:', { npcId, amount, newLevel });
-      }
     };
 
     const handleDialogueEnded = ({ npcId }) => {
-      // Log conversation end for analytics (DEV mode only)
-      if (import.meta.env.DEV) {
-        console.log('[useDialogueEvents] Dialogue ended with NPC:', npcId);
-      }
+      // Conversation end logged for analytics
     };
 
     // Cultural note shown → unlock a codex entry

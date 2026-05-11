@@ -35,8 +35,6 @@ class ZoneManager {
         this.previousZoneId = this.currentZoneId;
         this.currentZoneId = zoneId;
 
-        if (import.meta.env.DEV) console.log(`ZoneManager: Traveled to ${zone.name} (${zoneId})`);
-
         // In a full implementation, this would trigger scene changes, asset loading, etc.
         return { success: true, zone };
     }

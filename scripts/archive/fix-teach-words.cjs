@@ -81,7 +81,6 @@ npcs.forEach(npc => {
       if (line.teachWord && !allIds.has(line.teachWord)) {
         const replacement = fixMap[line.teachWord];
         if (replacement && allIds.has(replacement)) {
-          console.log(`Fixed [${npc.id}/${tree.id}]: ${line.teachWord} -> ${replacement}`);
           line.teachWord = replacement;
           fixCount++;
         } else {
@@ -94,9 +93,6 @@ npcs.forEach(npc => {
 
 fs.writeFileSync(npcsPath, JSON.stringify(npcs, null, 2), 'utf8');
 
-console.log(`\nFixed ${fixCount} invalid teachWord references.`);
 if (stillInvalid.length > 0) {
-  console.log('Still invalid:', JSON.stringify(stillInvalid));
 } else {
-  console.log('All invalid teachWord references resolved.');
 }

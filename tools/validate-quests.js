@@ -141,70 +141,49 @@ function report(results) {
   const FAIL = '\x1b[31mFAIL\x1b[0m';
   const WARN = '\x1b[33mWARN\x1b[0m';
 
-  console.log('\n=== Quest Validation Report ===\n');
 
-  console.log(`Total quests: ${results.total}`);
 
   // Type breakdown
-  console.log('\nBy type:');
   const sortedTypes = Object.entries(results.typeBreakdown).sort((a, b) => b[1] - a[1]);
   for (const [type, count] of sortedTypes) {
-    console.log(`  ${type.padEnd(20)} ${count}`);
   }
 
   // Duplicate IDs
   if (results.duplicateIds.length === 0) {
-    console.log(`\n[${PASS}] No duplicate quest IDs`);
   } else {
-    console.log(`\n[${FAIL}] ${results.duplicateIds.length} duplicate quest ID(s):`);
     for (const { id, count } of results.duplicateIds) {
-      console.log(`       "${id}" appears ${count} times`);
     }
   }
 
   // Broken prerequisites
   if (results.brokenPrerequisites.length === 0) {
-    console.log(`[${PASS}] All prerequisites reference existing quests`);
   } else {
-    console.log(`[${FAIL}] ${results.brokenPrerequisites.length} broken prerequisite(s):`);
     for (const { questId, missingPrereq } of results.brokenPrerequisites.slice(0, 20)) {
-      console.log(`       Quest "${questId}" requires missing quest "${missingPrereq}"`);
     }
     if (results.brokenPrerequisites.length > 20) {
-      console.log(`       ... and ${results.brokenPrerequisites.length - 20} more`);
     }
   }
 
   // Orphan quests
   if (results.orphanQuests.length === 0) {
-    console.log(`[${PASS}] No orphan quests`);
   } else {
-    console.log(`[${WARN}] ${results.orphanQuests.length} orphan quest(s) (no prereqs, not autoStart, not referenced):`);
     for (const id of results.orphanQuests.slice(0, 10)) {
-      console.log(`       "${id}"`);
     }
     if (results.orphanQuests.length > 10) {
-      console.log(`       ... and ${results.orphanQuests.length - 10} more`);
     }
   }
 
   // Invalid trackEvents
   if (results.invalidTrackEvents.length === 0) {
-    console.log(`[${PASS}] All trackEvent values are valid`);
   } else {
-    console.log(`[${FAIL}] ${results.invalidTrackEvents.length} invalid trackEvent(s):`);
     for (const { questId, trackEvent } of results.invalidTrackEvents) {
-      console.log(`       Quest "${questId}" has trackEvent: ${JSON.stringify(trackEvent)}`);
     }
   }
 
   // Reward violations
   if (results.rewardViolations.length === 0) {
-    console.log(`[${PASS}] All rewards have valid xp and dirhams`);
   } else {
-    console.log(`[${FAIL}] ${results.rewardViolations.length} reward violation(s):`);
     for (const { questId, issue } of results.rewardViolations.slice(0, 20)) {
-      console.log(`       Quest "${questId}": ${issue}`);
     }
   }
 
@@ -216,7 +195,6 @@ function report(results) {
     results.rewardViolations.length > 0;
   const hasWarnings = results.orphanQuests.length > 0;
 
-  console.log(`\nOverall: ${hasErrors ? FAIL : hasWarnings ? WARN : PASS}`);
 
   return hasErrors ? 1 : 0;
 }
@@ -228,7 +206,6 @@ async function main() {
   try {
     process.stdout.write('Loading quests.json... ');
     const quests = loadQuests();
-    console.log(`${quests.length} quests loaded.`);
 
     const results = validateQuests(quests);
     const exitCode = report(results);

@@ -23,7 +23,6 @@ export class BootScene extends Phaser.Scene {
     Promise.all([pixelAERegular.load(), pixelAEBold.load()])
       .then((fonts) => {
         fonts.forEach((f) => document.fonts.add(f));
-        if (import.meta.env.DEV) console.log('[BootScene] PixelAE fonts loaded');
       })
       .catch((err) => {
         console.warn('[BootScene] PixelAE font failed to load:', err);

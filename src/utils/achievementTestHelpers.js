@@ -33,9 +33,6 @@ import { ACHIEVEMENTS } from '../data/achievements.js';
  * Unlock all achievements instantly (for testing)
  */
 export function unlockAll() {
-  if (import.meta.env.DEV) {
-    console.log('🏆 Unlocking all achievements...');
-  }
   ACHIEVEMENTS.forEach((achievement) => {
     const req = achievement.requirement;
     switch (req.type) {
@@ -111,32 +108,19 @@ export function unlockAll() {
         break;
     }
   });
-  if (import.meta.env.DEV) {
-    console.log('✅ All achievements unlocked!');
-  }
 }
 
 /**
  * Reset all achievement progress (for testing)
  */
 export function resetAll() {
-  if (import.meta.env.DEV) {
-    console.log('🔄 Resetting all achievements...');
-  }
   localStorage.removeItem('persist:gogo-arabic');
-  if (import.meta.env.DEV) {
-    console.log('✅ Achievement data cleared. Refresh the page.');
-  }
 }
 
 /**
  * Simulate realistic progress to trigger some achievements
  */
 export function simulateProgress() {
-  if (import.meta.env.DEV) {
-    console.log('🎮 Simulating player progress...');
-  }
-
   // Learn 10 words
   for (let i = 0; i < 10; i++) {
     store.dispatch(incrementWordsLearned());
@@ -158,10 +142,6 @@ export function simulateProgress() {
 
   // Update streak
   store.dispatch(updateStreak());
-
-  if (import.meta.env.DEV) {
-    console.log('✅ Progress simulated! Check for achievement toasts.');
-  }
 }
 
 /**
@@ -170,15 +150,9 @@ export function simulateProgress() {
 export function unlock(achievementId) {
   const achievement = ACHIEVEMENTS.find((a) => a.id === achievementId);
   if (!achievement) {
-    if (import.meta.env.DEV) {
-      console.error(`❌ Achievement not found: ${achievementId}`);
-    }
     return;
   }
 
-  if (import.meta.env.DEV) {
-    console.log(`🏆 Unlocking: ${achievement.name}`);
-  }
   const req = achievement.requirement;
 
   switch (req.type) {
@@ -194,14 +168,7 @@ export function unlock(achievementId) {
       store.dispatch(recordPerfectQuiz());
       break;
     default:
-      if (import.meta.env.DEV) {
-        console.warn('⚠️ Manual unlock for this achievement type not implemented yet');
-      }
       break;
-  }
-
-  if (import.meta.env.DEV) {
-    console.log('✅ Done!');
   }
 }
 
@@ -210,9 +177,6 @@ export function unlock(achievementId) {
  */
 export function clearToasts() {
   store.dispatch(clearAllNotifications());
-  if (import.meta.env.DEV) {
-    console.log('✅ Toast queue cleared');
-  }
 }
 
 /**
@@ -224,16 +188,6 @@ export function showStats() {
   const unlocked = Object.keys(achievements.unlockedAchievements).length;
   const total = ACHIEVEMENTS.length;
   const percentage = ((unlocked / total) * 100).toFixed(1);
-
-  if (import.meta.env.DEV) {
-    console.log('📊 Achievement Stats:');
-    console.log(`   Unlocked: ${unlocked}/${total} (${percentage}%)`);
-    console.log(`   Total Reviews: ${achievements.stats.totalReviews}`);
-    console.log(`   Review Streak: ${achievements.stats.reviewStreakDays} days`);
-    console.log(`   Perfect Quizzes: ${achievements.stats.perfectQuizzes}`);
-    console.log(`   Shop Purchases: ${achievements.stats.shopPurchases}`);
-    console.log(`   Dirhams Spent: ${achievements.stats.dirhamsSpent}`);
-  }
 }
 
 // Browser console helpers (only in development)
@@ -246,5 +200,4 @@ if (typeof window !== 'undefined' && import.meta.env.DEV) {
     clearToasts,
     showStats,
   };
-  console.log('🧪 Achievement test helpers loaded. Try: window.AchievementTest.simulateProgress()');
 }

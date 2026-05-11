@@ -198,7 +198,6 @@ for (const packName of Object.keys(PACK_PREFIXES)) {
     entries.push(entry);
   });
 
-  console.log(`Processed ${packName}: ${entries.length} entries so far`);
 }
 
 // Sort entries by key for deterministic output
@@ -208,10 +207,6 @@ entries.sort((a, b) => a.key.localeCompare(b.key));
 const spritesheets = entries.filter((e) => e.type === 'spritesheet').length;
 const images = entries.filter((e) => e.type === 'image').length;
 
-console.log(`\nTotal entries: ${entries.length}`);
-console.log(`Spritesheets: ${spritesheets}`);
-console.log(`Images: ${images}`);
-console.log(`Duplicate keys: ${duplicates.length}`);
 if (duplicates.length > 0) {
   console.warn('Duplicate keys:', duplicates.slice(0, 10));
 }
@@ -248,4 +243,3 @@ export default KENMI_CATALOG;
 `;
 
 fs.writeFileSync(OUTPUT_FILE, fileContent, 'utf-8');
-console.log(`\nWritten to: ${OUTPUT_FILE}`);

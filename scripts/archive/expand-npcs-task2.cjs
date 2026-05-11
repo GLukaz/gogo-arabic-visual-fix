@@ -167,7 +167,6 @@ blacksmithDaud.dialogueTrees.push(
   }
 );
 
-console.log('blacksmith-daud trees:', data.find(n => n.id === 'blacksmith-daud').dialogueTrees.length);
 
 // ============================================================
 // 2. vizier-abbas — Shrewd political advisor, Abbasid court
@@ -328,7 +327,6 @@ vizierAbbas.dialogueTrees.push(
   }
 );
 
-console.log('vizier-abbas trees:', data.find(n => n.id === 'vizier-abbas').dialogueTrees.length);
 
 // ============================================================
 // 3. princess-aisha — Strong-willed noblewoman, Fatima al-Fihri
@@ -458,7 +456,6 @@ princessAisha.dialogueTrees.push(
   }
 );
 
-console.log('princess-aisha trees:', data.find(n => n.id === 'princess-aisha').dialogueTrees.length);
 
 // ============================================================
 // 4. poet-rumi — Contemplative wordsmith, Arabic prosody
@@ -588,7 +585,6 @@ poetRumi.dialogueTrees.push(
   }
 );
 
-console.log('poet-rumi trees:', data.find(n => n.id === 'poet-rumi').dialogueTrees.length);
 
 // ============================================================
 // 5. imam-muhammad — Gentle spiritual guide, tajweed
@@ -749,7 +745,6 @@ imamMuhammad.dialogueTrees.push(
   }
 );
 
-console.log('imam-muhammad trees:', data.find(n => n.id === 'imam-muhammad').dialogueTrees.length);
 
 // ============================================================
 // 6. guide-amira — Warm mentor, ANCHOR of the game
@@ -908,13 +903,11 @@ guideAmira.dialogueTrees.push(
   }
 );
 
-console.log('guide-amira trees:', data.find(n => n.id === 'guide-amira').dialogueTrees.length);
 
 // ============================================================
 // Write the file
 // ============================================================
 fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-console.log('\nFile written successfully!');
 
 // Final counts
 const targets2 = ['blacksmith-daud', 'vizier-abbas', 'princess-aisha', 'poet-rumi', 'imam-muhammad', 'guide-amira'];
@@ -924,5 +917,4 @@ targets2.forEach(id => {
   const lines = n.dialogueTrees.reduce((s, t) => s + t.lines.filter(l => l.speaker || l.arabic).length, 0);
   const tw = n.dialogueTrees.reduce((s, t) => s + t.lines.filter(l => l.teachWord).length, 0);
   const cn = n.dialogueTrees.reduce((s, t) => s + t.lines.filter(l => l.culturalNote).length, 0);
-  console.log(`${id}: trees=${trees} lines=${lines} teachWords=${tw} culturalNotes=${cn}`);
 });
