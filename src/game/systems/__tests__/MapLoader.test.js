@@ -2,6 +2,15 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { createMockScene } from './mocks/sceneMock.js';
 import { MapLoader } from '../MapLoader.js';
 
+// Mock ReplaceColorPipeline to avoid Phaser dependency
+vi.mock('../ReplaceColorPipeline.js', () => ({
+  default: class ReplaceColorPipeline {
+    constructor(game) {
+      this.game = game;
+    }
+  },
+}));
+
 // Mock zone data constants
 vi.mock('../../../data/zones.js', () => ({
   TILE: 64,

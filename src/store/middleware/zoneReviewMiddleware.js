@@ -14,17 +14,43 @@ import { getDueCards } from '../../services/fsrs.js';
 
 // Import vocabulary data lazily to avoid circular deps
 let _vocabByZone = null;
-async function getVocabByZone() {
-  if (_vocabByZone) return _vocabByZone;
-  const vocabAll = (await import('../../data/vocabularyAll.js')).default;
-  _vocabByZone = {};
-  for (const word of vocabAll) {
-    const zone = word.zone || 'oasis_village';
-    if (!_vocabByZone[zone]) _vocabByZone[zone] = [];
-    _vocabByZone[zone].push(word.id);
+let _vocabAllLoaded = false;
+
+async function loadVocabAll() {
+  try {
+    return (await import('../../data/vocabularyAll.js')).default;
+  } catch (e) {
+    console.error('[zoneReviewMiddleware] Failed to load vocabularyAll:', e);
+    return [];
   }
+}
+
+export async function getVocabByZone() {
+  if (_vocabByZone) return _vocabByZone;
+
+  try {
+    const vocabAll = await loadVocabAll();
+    if (!vocabAll || vocabAll.length === 0) {
+      return {};
+    }
+
+    _vocabByZone = {};
+    for (const word of vocabAll) {
+      const zone = word.zone || 'oasis_village';
+      if (!_vocabByZone[zone]) _vocabByZone[zone] = [];
+      _vocabByZone[zone].push(word.id);
+    }
+    _vocabAllLoaded = true;
+  } catch (e) {
+    console.error('[zoneReviewMiddleware] Error building vocab map:', e);
+    _vocabByZone = {};
+  }
+
   return _vocabByZone;
 }
+
+// Export for testing
+export { loadVocabAll };
 
 const COOLDOWN_MS = 10 * 60 * 1000; // 10 minutes
 const MIN_DUE_FOR_TRIGGER = 2;

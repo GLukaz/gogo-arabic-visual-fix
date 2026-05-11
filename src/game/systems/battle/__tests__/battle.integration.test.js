@@ -21,7 +21,7 @@ import battleReducer, {
   initCompanionBattle,
   healPlayer,
   damageCompanion,
-} from '../../../store/slices/battleSlice.js';
+} from '../../../../store/slices/battleSlice.js';
 
 /**
  * Battle System Integration Tests (Phase H / Ralph Phase 71)

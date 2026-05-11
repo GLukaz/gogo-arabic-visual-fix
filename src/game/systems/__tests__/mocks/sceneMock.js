@@ -376,6 +376,13 @@ export function createMockScene(overrides = {}) {
       },
       loop: {
         delta: 16.67 // ~60fps
+      },
+      renderer: {
+        pipelines: {
+          addPostPipeline: vi.fn().mockReturnThis(),
+          get: vi.fn(),
+          add: vi.fn()
+        }
       }
     },
 

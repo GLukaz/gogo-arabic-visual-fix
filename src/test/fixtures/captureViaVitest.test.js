@@ -8,11 +8,21 @@
  * Usage:  CAPTURE_WORLD_SNAPSHOTS=1 npx vitest run src/test/fixtures/captureViaVitest.test.js
  */
 
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import '../../game/systems/__tests__/mocks/sceneMock.js';
 import { createMockScene } from '../../game/systems/__tests__/mocks/sceneMock.js';
+
+// Mock ReplaceColorPipeline to avoid Phaser dependency
+vi.mock('../../game/systems/ReplaceColorPipeline.js', () => ({
+  default: class ReplaceColorPipeline {
+    constructor(game) {
+      this.game = game;
+    }
+  },
+}));
+
 import { MapLoader } from '../../game/systems/MapLoader.js';
 import { captureZoneSnapshot } from '../../game/systems/world/WorldSnapshot.js';
 import { ZONES } from '../../data/zones.js';

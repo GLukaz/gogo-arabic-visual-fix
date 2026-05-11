@@ -14,16 +14,21 @@ const playerReducer = (state = { currentZone: 'oasis_village' }, action) => {
 };
 
 // Mock EventBus
-vi.mock('../../utils/eventBus.js', () => ({
+vi.mock('../../../utils/eventBus.js', () => ({
   EventBus: { emit: vi.fn(), on: vi.fn(), off: vi.fn() },
 }));
 
-vi.mock('../../utils/eventBusTypes.js', () => ({
+vi.mock('../../../utils/eventBusTypes.js', () => ({
   EVENTS: { MICRO_REVIEW_TRIGGER: 'react:quiz:micro-review-trigger' },
 }));
 
-// Mock vocabularyAll — provide some words with zones
-vi.mock('../../data/vocabularyAll.js', () => ({
+// Mock getDueCards to return specified due cards
+vi.mock('../../../services/fsrs.js', () => ({
+  getDueCards: vi.fn((cards) => Object.keys(cards)),
+}));
+
+// Mock vocabularyAll
+vi.mock('../../../data/vocabularyAll.js', () => ({
   default: [
     { id: 'word1', zone: 'oasis_village' },
     { id: 'word2', zone: 'oasis_village' },
@@ -32,23 +37,17 @@ vi.mock('../../data/vocabularyAll.js', () => ({
   ],
 }));
 
-// Mock getDueCards to return specified due cards
-vi.mock('../../services/fsrs.js', () => ({
-  getDueCards: vi.fn((cards) => Object.keys(cards)),
-}));
-
 describe('zoneReviewMiddleware', () => {
   let store;
   let EventBusMock;
 
   beforeEach(async () => {
-    vi.resetModules();
+    const { zoneReviewMiddleware } = await import('../zoneReviewMiddleware.js');
 
-    const { EventBus } = await import('../../utils/eventBus.js');
+    // Get the mocked EventBus
+    const { EventBus } = await import('../../../utils/eventBus.js');
     EventBusMock = EventBus;
     EventBusMock.emit.mockClear();
-
-    const { zoneReviewMiddleware } = await import('../zoneReviewMiddleware.js');
 
     store = configureStore({
       reducer: {
@@ -58,6 +57,12 @@ describe('zoneReviewMiddleware', () => {
       middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(zoneReviewMiddleware),
     });
+  });
+
+  const waitForAsync = () => new Promise(resolve => {
+    setTimeout(resolve, 50);
+    // Also flush any pending promises
+    Promise.resolve().then(() => {});
   });
 
   it('should emit MICRO_REVIEW_TRIGGER when ≥2 due cards exist in zone', async () => {
@@ -74,8 +79,10 @@ describe('zoneReviewMiddleware', () => {
     // Trigger zone change
     store.dispatch({ type: 'player/setCurrentZone', payload: 'oasis_village' });
 
-    // Wait for the async vocab lookup
-    await new Promise((r) => setTimeout(r, 100));
+    // Wait for the async operation using multiple microtask cycles
+    await waitForAsync();
+    await waitForAsync();
+    await waitForAsync();
 
     expect(EventBusMock.emit).toHaveBeenCalledWith(
       'react:quiz:micro-review-trigger',
@@ -94,14 +101,12 @@ describe('zoneReviewMiddleware', () => {
 
     store.dispatch({ type: 'player/setCurrentZone', payload: 'oasis_village' });
 
-    await new Promise((r) => setTimeout(r, 100));
+    // Wait for the async operation
+    await waitForAsync();
+    await waitForAsync();
+    await waitForAsync();
 
-    // word2 and word4 don't have FSRS cards, so getDueCards won't include them
     // Only word1 has a card, which is 1 < MIN_DUE_FOR_TRIGGER
-    // Note: getDueCards mock returns all keys, but zoneDue filters to zone words with cards
-    // Actually mock returns ALL keys of cards. word1 is in oasis.
-    // Since we only have 1 card total and it maps to 1 oasis word, this should NOT trigger.
-    // But our mock getDueCards returns ["word1"] — and zone has word1, so zoneDue=[word1], length=1 < 2. 
     expect(EventBusMock.emit).not.toHaveBeenCalledWith(
       'react:quiz:micro-review-trigger',
       expect.anything()
@@ -118,7 +123,10 @@ describe('zoneReviewMiddleware', () => {
 
     store.dispatch({ type: 'player/setCurrentZone', payload: 'unknown_zone' });
 
-    await new Promise((r) => setTimeout(r, 100));
+    // Wait for the async operation
+    await waitForAsync();
+    await waitForAsync();
+    await waitForAsync();
 
     expect(EventBusMock.emit).not.toHaveBeenCalledWith(
       'react:quiz:micro-review-trigger',
@@ -137,7 +145,11 @@ describe('zoneReviewMiddleware', () => {
     });
 
     store.dispatch({ type: 'player/setCurrentZone', payload: 'oasis_village' });
-    await new Promise((r) => setTimeout(r, 100));
+
+    // Wait for the async operation
+    await waitForAsync();
+    await waitForAsync();
+    await waitForAsync();
 
     const call = EventBusMock.emit.mock.calls.find(
       (c) => c[0] === 'react:quiz:micro-review-trigger'
