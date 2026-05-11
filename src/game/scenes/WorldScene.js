@@ -243,6 +243,7 @@ export class WorldScene extends Phaser.Scene {
   }
 
   shutdown() {
+    EventBus.emit(EVENTS.SCENE_SHUTDOWN);
     if (this.introSequencer) { this.introSequencer.cleanup(); this.introSequencer = null; }
     if (this.dialogueBox) { this.dialogueBox.destroy(); this.dialogueBox = null; }
     EventBus.off(EVENTS.NPC_SIMPLE_DIALOGUE, this._handleSimpleDialogue, this);
@@ -367,15 +368,25 @@ export class WorldScene extends Phaser.Scene {
   }
 
   handleFreeze() {
-    if (!this.scene || !this.scene.isActive()) return;
-    this.frozen = true;
-    this.playerController.freeze();
+    try {
+      if (!this.scene?.isActive?.()) return;
+      if (!this.playerController) return;
+      this.frozen = true;
+      this.playerController.freeze();
+    } catch (e) {
+      // Scene was destroyed or not ready, silently ignore
+    }
   }
 
   handleUnfreeze() {
-    if (!this.scene || !this.scene.isActive()) return;
-    this.frozen = false;
-    this.playerController.unfreeze();
+    try {
+      if (!this.scene?.isActive?.()) return;
+      if (!this.playerController) return;
+      this.frozen = false;
+      this.playerController.unfreeze();
+    } catch (e) {
+      // Scene was destroyed or not ready, silently ignore
+    }
   }
 
   setInteractCooldown(value) { this.interactCooldown = value; }

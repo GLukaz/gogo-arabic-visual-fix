@@ -211,6 +211,7 @@ export class NPCManager {
     const currentZone = this.scene.currentZone || '';
 
     this.npcs.forEach((npc) => {
+      if (!npc.active) return; // Skip destroyed or inactive NPCs
       const fullData = NPC_DATA_MAP.get(npc.npcId);
       if (!fullData?.schedule?.length) return; // No schedule = always active, skip
 

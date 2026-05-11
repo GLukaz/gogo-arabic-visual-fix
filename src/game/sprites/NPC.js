@@ -536,6 +536,7 @@ export class NPC extends Phaser.Physics.Arcade.Sprite {
    * Called when player interacts with NPC.
    */
   stopMovement() {
+    if (!this.active || !this.body) return;
     this.setVelocity(0, 0);
     this._playIdleAnim();
 

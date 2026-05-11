@@ -125,6 +125,21 @@ export default function GameLayout() {
   // Poetry battle state — set on POETRY_BATTLE_START, cleared on POETRY_BATTLE_END
   const [poetryBattleData, setPoetryBattleData] = useState(null);
 
+  // Track if scene is ready to prevent unfreeze during shutdown/transitions
+  const [sceneReady, setSceneReady] = useState(false);
+
+  // Track scene lifecycle to prevent unfreeze events during shutdown
+  useEffect(() => {
+    const onSceneReady = () => setSceneReady(true);
+    const onSceneShutdown = () => setSceneReady(false);
+    EventBus.on(EVENTS.SCENE_READY, onSceneReady);
+    EventBus.on(EVENTS.SCENE_SHUTDOWN, onSceneShutdown);
+    return () => {
+      EventBus.off(EVENTS.SCENE_READY, onSceneReady);
+      EventBus.off(EVENTS.SCENE_SHUTDOWN, onSceneShutdown);
+    };
+  }, []);
+
   useEffect(() => {
     const onStart = () => setZoneLoading(true);
     const onEnd = () => setZoneLoading(false);
@@ -297,7 +312,7 @@ export default function GameLayout() {
   // Safety net: if no overlays are open, ensure player is unfrozen
   // and refocus the Phaser canvas so keyboard input resumes.
   useEffect(() => {
-    if (!anyOverlayOpen && !showWardrobe) {
+    if (!anyOverlayOpen && !showWardrobe && sceneReady) {
       // Small delay to avoid race with overlay close animations
       const timer = setTimeout(() => {
         EventBus.emit(EVENTS.PLAYER_UNFREEZE);
@@ -307,7 +322,7 @@ export default function GameLayout() {
       }, 100);
       return () => clearTimeout(timer);
     }
-  }, [anyOverlayOpen, showWardrobe]);
+  }, [anyOverlayOpen, showWardrobe, sceneReady]);
 
   return (
     <div className={styles.container}>

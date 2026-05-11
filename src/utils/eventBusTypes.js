@@ -192,6 +192,8 @@ export const EVENTS = Object.freeze({
   // ────────────────────────────────────────────────
   /** Phaser → React: BootScene/WorldScene finished initializing */
   SCENE_READY: 'phaser:scene:ready',
+  /** Phaser → React: WorldScene shutting down, disallow event emissions */
+  SCENE_SHUTDOWN: 'phaser:scene:shutdown',
   /** Phaser → Phaser: building entered, interior scene launched */
   BUILDING_ENTERED: 'phaser:scene:building-entered',
   /** Phaser → Phaser: building exited, WorldScene resumed */
