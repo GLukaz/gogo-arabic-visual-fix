@@ -128,10 +128,12 @@ export function getRetentionHealth(fsrsCards) {
 
   for (const data of Object.values(fsrsCards)) {
     if (!data?.card) continue;
+    const stability = data.card.stability || 0;
+    if (stability === 0) continue; // Exclude new cards from health tracking
+
     total++;
 
     const due = data.card.due ? new Date(data.card.due) : null;
-    const stability = data.card.stability || 0;
 
     if (due && due <= now) {
       overdue++;

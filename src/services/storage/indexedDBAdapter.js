@@ -49,7 +49,7 @@ const getDB = () => {
       // Invalidate cache if connection is closed by browser (tab sleep, background eviction)
       dbInstance.onclose = () => { dbInstance = null; };
       dbInstance.onversionchange = () => {
-        dbInstance.close();
+        if (dbInstance) dbInstance.close();
         dbInstance = null;
       };
       resolve(dbInstance);

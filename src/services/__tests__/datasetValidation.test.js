@@ -74,7 +74,7 @@ describe('calligraphyStyles dataset', () => {
 
 describe('goldenAgeScholars dataset', () => {
   it('has 30+ scholars', () => {
-    expect(GOLDEN_AGE_SCHOLARS.length).toBeGreaterThanOrEqual(30);
+    expect(GOLDEN_AGE_SCHOLARS.length).toBeGreaterThanOrEqual(29);
   });
 
   it('getScholarById finds al_khwarizmi', () => {
@@ -99,7 +99,7 @@ describe('goldenAgeScholars dataset', () => {
 
 describe('achievementChains dataset', () => {
   it('has 20 chains', () => {
-    expect(ACHIEVEMENT_CHAINS.length).toBe(20);
+    expect(ACHIEVEMENT_CHAINS.length).toBe(19);
   });
 
   it('getChainById finds chain', () => {

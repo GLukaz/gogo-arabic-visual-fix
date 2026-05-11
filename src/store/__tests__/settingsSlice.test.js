@@ -35,14 +35,16 @@ describe('settingsSlice', () => {
         difficulty: 'normal',
         vowelMarks: true,
         hintFrequency: 'normal',
-        battleSpeed: 1,
+        battleSpeed: 1.0,
         vocabRandomizerSeed: null,
         showRomanization: true,
         colorBlindMode: 'none',
-        fontScale: 1,
+        fontScale: 1.0,
         reducedMotion: false,
         highContrast: false,
         screenReaderMode: false,
+        pronunciationPractice: false,
+        spacedListeningEnabled: false,
       });
     });
   });

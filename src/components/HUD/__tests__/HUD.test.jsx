@@ -180,6 +180,9 @@ describe('HUD Component', () => {
   });
 
   it('should display review due count when reviews exist', () => {
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+
     const preloadedState = {
       player: {
         level: 1,
@@ -190,7 +193,13 @@ describe('HUD Component', () => {
         wordsLearned: 0,
       },
       vocabulary: {
-        fsrsCards: {},
+        fsrsCards: {
+          word1: { card: { due: yesterday.toISOString(), stability: 5 } },
+          word2: { card: { due: yesterday.toISOString(), stability: 5 } },
+          word3: { card: { due: yesterday.toISOString(), stability: 5 } },
+          word4: { card: { due: yesterday.toISOString(), stability: 5 } },
+          word5: { card: { due: yesterday.toISOString(), stability: 5 } },
+        },
         reviewQueue: ['word1', 'word2', 'word3', 'word4', 'word5'],
         stats: { totalReviews: 0, accuracy: 0, streakDays: 0 },
       },

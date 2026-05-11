@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import {
   getUrgentReviewList,
   getDecayingWords,
@@ -7,21 +7,25 @@ import {
 } from '../forgettingCurveService.js';
 
 describe('forgettingCurveService', () => {
-  const now = new Date();
-  const yesterday = new Date(now);
-  yesterday.setDate(yesterday.getDate() - 1);
-  const lastWeek = new Date(now);
-  lastWeek.setDate(lastWeek.getDate() - 7);
-  const tomorrow = new Date(now);
-  tomorrow.setDate(tomorrow.getDate() + 1);
+  let mockCards;
 
-  const mockCards = {
-    word_overdue_7d: { card: { due: lastWeek.toISOString(), stability: 2 } },
-    word_overdue_1d: { card: { due: yesterday.toISOString(), stability: 5 } },
-    word_due_tomorrow: { card: { due: tomorrow.toISOString(), stability: 14 } },
-    word_new: { card: { due: null, stability: 0 } },
-    word_healthy: { card: { due: tomorrow.toISOString(), stability: 30 } },
-  };
+  beforeEach(() => {
+    const now = new Date();
+    const yesterday = new Date(now);
+    yesterday.setDate(yesterday.getDate() - 1);
+    const lastWeek = new Date(now);
+    lastWeek.setDate(lastWeek.getDate() - 7);
+    const tomorrow = new Date(now);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    mockCards = {
+      word_overdue_7d: { card: { due: lastWeek.toISOString(), stability: 2 } },
+      word_overdue_1d: { card: { due: yesterday.toISOString(), stability: 5 } },
+      word_due_tomorrow: { card: { due: tomorrow.toISOString(), stability: 14 } },
+      word_new: { card: { due: null, stability: 0 } },
+      word_healthy: { card: { due: tomorrow.toISOString(), stability: 30 } },
+    };
+  });
 
   describe('getUrgentReviewList', () => {
     it('should return overdue words sorted by urgency', () => {
