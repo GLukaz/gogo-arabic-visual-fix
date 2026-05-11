@@ -117,7 +117,7 @@ export function useDialogueEvents(playSFX) {
       }
     };
 
-    const handleDialogueEnded = ({ npcId }) => {
+    const handleDialogueEnded = (data = {}) => {
       // Conversation end logged for analytics
     };
 

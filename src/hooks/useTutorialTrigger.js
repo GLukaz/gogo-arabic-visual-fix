@@ -61,7 +61,8 @@ export function useTutorialTrigger() {
   useEffect(() => {
     if (onboardingComplete) return;
 
-    const handleDialogueEnded = ({ npcId }) => {
+    const handleDialogueEnded = (data = {}) => {
+      const { npcId } = data;
       if (tutorialPhase === 'awaiting_mentor' && npcId === MENTOR_NPC_ID) {
         dispatch(setTutorialPhase('met_mentor'));
         dispatch(setOnboardingTargetNpc(null));

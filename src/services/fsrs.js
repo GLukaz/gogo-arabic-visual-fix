@@ -9,7 +9,11 @@ const params = generatorParameters();
 const scheduler = fsrs(params);
 
 export function createNewCard() {
-  return createEmptyCard();
+  const card = createEmptyCard();
+  return {
+    ...card,
+    due: card.due instanceof Date ? card.due.toISOString() : card.due,
+  };
 }
 
 export function reviewCard(card, rating) {
@@ -17,7 +21,11 @@ export function reviewCard(card, rating) {
   const ratingMap = { 1: Rating.Again, 2: Rating.Hard, 3: Rating.Good, 4: Rating.Easy };
   const result = scheduler.repeat(card, new Date());
   const selectedRating = ratingMap[rating] || Rating.Good;
-  return result[selectedRating];
+  const updatedCard = result[selectedRating];
+  return {
+    ...updatedCard,
+    due: updatedCard.due instanceof Date ? updatedCard.due.toISOString() : updatedCard.due,
+  };
 }
 
 export function getDueCards(cards) {
@@ -75,7 +83,11 @@ export function getNewCardsForSession(maxCards = 5) {
  */
 export function getRetrievability(card, now = new Date()) {
   if (!card || card.reps === 0 || !card.stability) return 1.0;
-  return scheduler.get_retrievability(card, now, false);
+  const normalizedCard = {
+    ...card,
+    due: card.due instanceof Date ? card.due : new Date(card.due),
+  };
+  return scheduler.get_retrievability(normalizedCard, now, false);
 }
 
 export { Rating };
