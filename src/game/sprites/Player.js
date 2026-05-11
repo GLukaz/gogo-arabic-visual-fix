@@ -237,8 +237,12 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 
   freeze() {
     this.isFrozen = true;
-    this.setVelocity(0, 0);
-    this._playAnim(`idle-${this.lastDir}`);
+    if (this.body) {
+      this.setVelocity(0, 0);
+    }
+    if (this.lastDir) {
+      this._playAnim(`idle-${this.lastDir}`);
+    }
   }
 
   unfreeze() {

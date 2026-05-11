@@ -38,7 +38,7 @@ export class PlayerController {
    * Freeze player movement (during dialogue/overlays)
    */
   freeze() {
-    if (this.player) {
+    if (this.player && typeof this.player.freeze === 'function') {
       this.player.freeze();
     }
   }

@@ -196,13 +196,19 @@ export class InteriorScene extends Phaser.Scene {
   }
 
   handleFreeze() {
+    if (!this.sys.isActive()) return;
     this.frozen = true;
-    this.playerController.freeze();
+    if (this.playerController && this.playerController.getPlayer()) {
+      this.playerController.freeze();
+    }
   }
 
   handleUnfreeze() {
+    if (!this.sys.isActive()) return;
     this.frozen = false;
-    this.playerController.unfreeze();
+    if (this.playerController) {
+      this.playerController.unfreeze();
+    }
   }
 
   setInteractCooldown(value) {
