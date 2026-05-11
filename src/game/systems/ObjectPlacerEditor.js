@@ -40,7 +40,7 @@ export class ObjectPlacerEditor {
     this.scene = scene;
     this.placements = []; // [{ key, x, y, collide, _sprite }]
     this.selectedKey = null;
-    this.defaultCollide = true;
+    this.defaultCollide = false;
     this.showAllBiomes = false;
     this.previewSprite = null;
     this.tileLabel = null;
@@ -122,7 +122,7 @@ export class ObjectPlacerEditor {
           <button id="op-close"  style="${btnCSS('#666')}">Close</button>
         </div>
         <label style="display:flex; align-items:center; gap:4px; margin-top:6px; font-size:11px; color:#aaa;">
-          <input type="checkbox" id="op-collide" checked> collide on new placements
+          <input type="checkbox" id="op-collide"> collide on new placements
         </label>
         <label style="display:flex; align-items:center; gap:4px; margin-top:2px; font-size:11px; color:#aaa;">
           <input type="checkbox" id="op-showall"> show all biomes (incl. military, christmas)
