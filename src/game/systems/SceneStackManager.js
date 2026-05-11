@@ -33,14 +33,12 @@ export class SceneStackManager {
   popScene() {
     if (this._stack.length === 0) return null;
 
-    const activeScenes = this.scene.sys.scene.manager.getActiveScenes();
-    const interiorScene = activeScenes.find(
-      (s) => s !== this.scene && s.scene.key !== this.scene.scene.key
-    );
-
-    if (interiorScene) {
-      interiorScene.scene.stop();
-    }
+    const scenes = this.scene.scene.manager.scenes;
+    scenes.forEach((s) => {
+      if (s !== this.scene && s.sys.isActive()) {
+        s.scene.stop();
+      }
+    });
 
     this.scene.scene.resume();
     return this._stack.pop();
