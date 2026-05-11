@@ -74,16 +74,16 @@ export default function AlphabetModule({ onBack }) {
         <div className={styles.body}>
           <div className={styles.groupGrid}>
             {groups.map((g) => {
-              const groupLetters = groupedLetters[g.number] || [];
+              const groupLetters = groupedLetters[g.id] || [];
               const done = groupLetters.filter((l) => completedIds.has(l.id)).length;
               const total = groupLetters.length;
               const isComplete = done === total && total > 0;
               return (
                 <div
-                  key={g.number}
+                  key={g.id}
                   className={`${styles.groupCard} ${isComplete ? styles.groupCardComplete : ''}`}
                   onClick={() => {
-                    setSelectedGroup(g.number);
+                    setSelectedGroup(g.id);
                     setCurrentLetterIdx(0);
                     setStep(0);
                     setQuizAnswer(null);
@@ -91,7 +91,7 @@ export default function AlphabetModule({ onBack }) {
                     setWritingResult(null);
                   }}
                 >
-                  <div className={styles.groupName}>Group {g.number}: {g.name}</div>
+                  <div className={styles.groupName}>Group {g.id}: {g.name}</div>
                   <div className={styles.groupLetters}>
                     {groupLetters.map((l) => l.letter).join(' ')}
                   </div>

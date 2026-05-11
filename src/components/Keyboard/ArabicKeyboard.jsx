@@ -25,13 +25,13 @@ export default function ArabicKeyboard({
   return (
     <div className={styles.container}>
       {ROWS.map((row, ri) => (
-        <div key={ri} className={styles.row}>
-          {row.map((letter) => {
+        <div key={`row-${ri}`} className={styles.row}>
+          {row.map((letter, li) => {
             const isHighlighted = highlightedKeys.includes(letter);
             const isDisabled = disabledKeys.includes(letter);
             return (
               <button
-                key={letter}
+                key={`${ri}-${li}`}
                 className={`${styles.key} ${isHighlighted ? styles.keyHighlighted : ''} ${isDisabled ? styles.keyDisabled : ''}`}
                 onClick={() => handleKey(letter)}
                 disabled={isDisabled}
