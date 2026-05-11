@@ -54,7 +54,7 @@ export default function RootExpand({ word, options, onAnswer, feedback }) {
       <div className={styles.instruction} id="re-instruction">Select all words derived from this root:</div>
       <div className={styles.promptBox} aria-label={`Root: ${rootDisplay}, meaning: "${rootMeaning}"`}>
         <div className={styles.rootDisplay}>{formatArabic(rootDisplay)}</div>
-        <div className={styles.rootMeaning}>Root meaning: "{rootMeaning}"</div>
+        <div className={styles.rootMeaning}>Root meaning: &quot;{rootMeaning}&quot;</div>
       </div>
       <div className={styles.hint} aria-label={`Select ${correctCount} correct words, then submit`}>
         Tap to select, then submit ({correctCount} correct words)

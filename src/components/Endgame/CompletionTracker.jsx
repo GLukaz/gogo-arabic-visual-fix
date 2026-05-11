@@ -161,7 +161,7 @@ const WeeklyChallengeCard = memo(function WeeklyChallengeCard({ challenge, compl
         <span className={styles.weeklyRewardLabel}>Reward:</span>
         <span className={styles.weeklyRewardXP}>+{challenge.reward.xp} XP</span>
         {challenge.reward.title && (
-          <span className={styles.weeklyRewardTitle}>"{challenge.reward.title}" title</span>
+          <span className={styles.weeklyRewardTitle}>&quot;{challenge.reward.title}&quot; title</span>
         )}
         {challenge.reward.achievement && (
           <span className={styles.weeklyRewardAchiev}>+ Achievement</span>

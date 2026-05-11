@@ -199,7 +199,7 @@ if (import.meta.env.DEV) {
     else if (a.length > 1) summary.shared++;
     else summary[a[0]]++;
   }
-  // eslint-disable-next-line no-console
+   
   console.debug('[vocabularyAll] domainAffinity distribution:', summary);
 }
 

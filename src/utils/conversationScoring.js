@@ -159,7 +159,7 @@ export function extractVocabularyFromSentence(expectedText) {
 
   for (const token of tokens) {
     // Strip trailing punctuation
-    const clean = token.replace(/[،؟!.,;:'"()\[\]{}]/g, '').trim();
+    const clean = token.replace(/[،؟!.,;:'"()[\]{}]/g, '').trim();
     if (clean && arabicPattern.test(clean) && !seen.has(clean)) {
       seen.add(clean);
       result.push(clean);

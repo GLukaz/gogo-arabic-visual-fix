@@ -29,7 +29,7 @@ export default function ConjugationPick({ word, options, onAnswer, feedback }) {
       <div className={styles.instruction} id="conj-instruction">Pick the correct conjugation:</div>
       <div className={styles.promptBox} aria-label={`Verb: ${word.transliteration || word.arabic}, meaning "${word.english}", pronoun: ${pronounObj.en}`}>
         <div className={styles.verbRoot}>{formatArabic(word.arabic)}</div>
-        <div className={styles.verbMeaning}>"{word.english}"</div>
+        <div className={styles.verbMeaning}>&quot;{word.english}&quot;</div>
         <div className={styles.pronounRow}>
           <div className={styles.pronoun}>{pronounObj.en}</div>
           <div className={styles.pronounAr}>{formatArabic(pronounObj.ar)}</div>

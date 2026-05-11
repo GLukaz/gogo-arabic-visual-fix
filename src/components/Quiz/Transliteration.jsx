@@ -106,7 +106,7 @@ export default function Transliteration({ word, options, onAnswer, feedback }) {
       <div style={styles.instruction} id="translit-instruction">Type the transliteration (romanized):</div>
       <div style={styles.prompt} aria-label={`Arabic word: ${word.transliteration || word.arabic}`}>{formatArabic(word.arabic)}</div>
       <div style={styles.englishHint} aria-label={`Meaning: ${word.english}`}>{word.english}</div>
-      <div style={styles.hint}>e.g. "kitaab", "baytu", "salaam"</div>
+      <div style={styles.hint}>e.g. &quot;kitaab&quot;, &quot;baytu&quot;, &quot;salaam&quot;</div>
       <input
         style={inputStyle}
         type="text"

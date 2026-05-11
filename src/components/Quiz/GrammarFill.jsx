@@ -188,7 +188,7 @@ export default function GrammarFill({ word, options, onAnswer, feedback }) {
       <div className={styles.instruction} id="grammar-instruction">Complete the conjugation:</div>
       <div className={styles.promptBox} aria-label={`Verb: ${displayVerb}, root: ${displayRoot}, meaning: "${displayMeaning}", ${displayParadigm} tense, pronoun: ${displayPronoun.en}`}>
         <div className={styles.verbRoot}>{formatArabic(displayVerb)}</div>
-        <div className={styles.verbMeaning}>"{displayMeaning}"</div>
+        <div className={styles.verbMeaning}>&quot;{displayMeaning}&quot;</div>
         <div className={styles.paradigmLabel}>{displayParadigm} tense</div>
         <div className={styles.pronounAr}>{formatArabic(displayPronoun.ar)}</div>
         <div className={styles.pronoun}>{displayPronoun.en}</div>

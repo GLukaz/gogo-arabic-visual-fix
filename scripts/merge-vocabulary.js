@@ -105,7 +105,7 @@ const IDEAL_PER_ZONE = 250;
  * plus 0x0670 (superscript alef).
  */
 function stripDiacritics(str) {
-  // eslint-disable-next-line no-control-regex
+   
   return str.replace(/[\u0610-\u061A\u064B-\u065F\u0670]/g, '');
 }
 

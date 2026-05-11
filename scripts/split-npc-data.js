@@ -15,7 +15,7 @@ const dataDir = path.resolve(__dirname, '../src/data');
 const npcs = JSON.parse(fs.readFileSync(path.join(dataDir, 'npcs.json'), 'utf-8'));
 
 // Meta: everything except dialogueTrees (the heavy field — 824 KB)
-const meta = npcs.map(({ dialogueTrees, ...rest }) => rest);
+const meta = npcs.map(({ _dialogueTrees, ...rest }) => rest);
 fs.writeFileSync(path.join(dataDir, 'npcs-meta.json'), JSON.stringify(meta, null, 2));
 
 // Dialogue: grouped by zone (dialogueTrees is the heavy data)

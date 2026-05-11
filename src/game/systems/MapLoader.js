@@ -658,7 +658,7 @@ export class MapLoader {
     // Phase 97 Plan 04 — DEV-mode warn when clamping so future frame-index drift surfaces loudly.
     if (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.DEV) {
       const table = KENMI_FRAME_TABLES[textureKey];
-      // eslint-disable-next-line no-console
+       
       console.warn(`[MapLoader] _safeFrame clamped: key=${textureKey} requested=${frame} maxFrame=${maxFrame}${table ? ` tableTotal=${table.totalFrames}` : ''}`);
     }
     return Math.min(frame, Math.max(0, maxFrame));

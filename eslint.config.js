@@ -44,7 +44,7 @@ export default [
 
   // Test files config (Vitest globals)
   {
-    files: ['**/*.test.{js,jsx}', '**/__tests__/**/*.{js,jsx}', 'src/test/**/*.{js,jsx}'],
+    files: ['**/*.test.{js,jsx}', '**/__tests__/**/*.{js,jsx}', 'src/test/**/*.{js,jsx}', 'e2e/**/*.{js,jsx}'],
     languageOptions: {
       globals: {
         describe: 'readonly',
@@ -57,16 +57,28 @@ export default [
         beforeAll: 'readonly',
         afterAll: 'readonly',
         global: 'writable',
+        process: 'readonly',
+        require: 'readonly',
       },
     },
   },
 
   // Server and scripts config (Node.js environment)
   {
-    files: ['server/**/*.js', 'scripts/**/*.js'],
+    files: ['server/**/*.{js,cjs,mjs}', 'scripts/**/*.{js,cjs,mjs}'],
     languageOptions: {
       globals: {
         ...globals.node,
+      },
+    },
+  },
+
+  // Game/Phaser config
+  {
+    files: ['src/game/**/*.js'],
+    languageOptions: {
+      globals: {
+        Phaser: 'readonly',
       },
     },
   },

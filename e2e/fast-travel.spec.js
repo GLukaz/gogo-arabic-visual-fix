@@ -78,9 +78,6 @@ test.describe('GoGo Arabic - Fast Travel (World Map)', () => {
     // Wait for map to load
     await page.waitForTimeout(1000);
 
-    // Look for completion percentage or stats
-    const hasStats = await page.locator('[class*="completion"], [class*="progress"], [class*="percent"]').count() > 0;
-
     // Stats may be visible or require hovering over zones
     // This test validates the map loads correctly
     expect(page.url().includes('/game/map')).toBe(true);

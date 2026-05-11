@@ -58,13 +58,8 @@ function CraftingResult({ recipeId, quality, accuracy, xpGained, onClose, onCraf
   const focusTrapRef = useFocusTrap(true, onClose);
 
   const recipe = RECIPES[recipeId];
-  if (!recipe) {
-    console.error(`[CraftingResult] Recipe '${recipeId}' not found`);
-    return null;
-  }
-
-  const professionState = professions[recipe.professionId];
-  const professionData = PROFESSIONS[recipe.professionId];
+  const professionState = recipe ? professions[recipe.professionId] : null;
+  const professionData = recipe ? PROFESSIONS[recipe.professionId] : null;
 
   // Calculate profession XP progress
   const xpProgress = useMemo(() => {
@@ -77,10 +72,6 @@ function CraftingResult({ recipeId, quality, accuracy, xpGained, onClose, onCraf
     const check = hasRequiredResources(recipeId, resources, RECIPES);
     return check.canCraft;
   }, [recipeId, resources]);
-
-  // Determine if this is a consumable (has buffEffect)
-  const isConsumable = Boolean(recipe.buffEffect);
-  const isEnchantment = recipe.category === 'enchantment';
 
   // Play sound based on quality
   useEffect(() => {
@@ -105,6 +96,15 @@ function CraftingResult({ recipeId, quality, accuracy, xpGained, onClose, onCraf
       onCraftAgain();
     }
   }, [canCraftAgain, onCraftAgain]);
+
+  if (!recipe) {
+    console.error(`[CraftingResult] Recipe '${recipeId}' not found`);
+    return null;
+  }
+
+  // Determine if this is a consumable (has buffEffect)
+  const isConsumable = Boolean(recipe.buffEffect);
+  const isEnchantment = recipe.category === 'enchantment';
 
   return (
     <div className={styles.backdrop} onClick={handleClose}>

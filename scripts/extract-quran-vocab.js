@@ -222,7 +222,6 @@ function main() {
   const vocabMap = new Map();
 
   for (const row of stems) {
-    const withoutDiacritics = row.Without_Diacritics;
     const segmentedWord = row.Segmented_Word;
     const morphTag = row.Morph_tag;
     const surah = parseInt(row.Sura_No, 10);

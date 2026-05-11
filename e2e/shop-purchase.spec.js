@@ -381,9 +381,6 @@ test.describe('GoGo Arabic - Shop Purchase (Wardrobe)', () => {
           await purchaseButtons.first().click();
           await page.waitForTimeout(1000);
 
-          // Look for error toast/notification
-          const hasError = await page.getByText(/not enough|insufficient|can't afford/i).isVisible({ timeout: 3000 }).catch(() => false);
-
           // Verify dirhams didn't go negative
           const finalDirhams = await page.evaluate(() => {
             const data = localStorage.getItem('persist:gogo-arabic');

@@ -33,7 +33,7 @@ const migrations = {
   // Version 0 -> 1: localStorage-only to IndexedDB hybrid
   1: (state) => {
     if (import.meta.env.DEV) {
-      // eslint-disable-next-line no-console
+       
       console.log('[Migration] Starting v0 -> v1: localStorage to IndexedDB hybrid');
     }
 
@@ -59,7 +59,7 @@ const migrations = {
             // Write back the cleaned root key
             localStorage.setItem(rootKey, JSON.stringify(parsed));
             if (import.meta.env.DEV) {
-              // eslint-disable-next-line no-console
+               
               console.log('[Migration] Cleaned up old localStorage vocabulary + battle data');
             }
           }
@@ -70,7 +70,7 @@ const migrations = {
       }, 5000);
 
       if (import.meta.env.DEV) {
-        // eslint-disable-next-line no-console
+         
         console.log('[Migration] v0 -> v1 complete');
       }
       return state;
@@ -89,7 +89,7 @@ const migrations = {
   // Version 5: Crafting added to IndexedDB (Phase 31)
   5: (state) => {
     if (import.meta.env.DEV) {
-      // eslint-disable-next-line no-console
+       
       console.log('[Migration] Starting v4 -> v5: crafting added to IndexedDB');
     }
 
@@ -97,7 +97,7 @@ const migrations = {
     // Crafting data will be initialized via nested persistReducer
 
     if (import.meta.env.DEV) {
-      // eslint-disable-next-line no-console
+       
       console.log('[Migration] v4 -> v5 complete');
     }
     return state;
@@ -119,7 +119,7 @@ const migrations = {
   // Version 7: v7.0 World & Content — new slices and fields
   7: (state) => {
     if (import.meta.env.DEV) {
-      // eslint-disable-next-line no-console
+       
       console.log('[Migration] Starting v6 -> v7: v7.0 World & Content slices');
     }
 
@@ -175,7 +175,7 @@ const migrations = {
     }
 
     if (import.meta.env.DEV) {
-      // eslint-disable-next-line no-console
+       
       console.log('[Migration] v6 -> v7 complete');
     }
     return state;
@@ -184,7 +184,7 @@ const migrations = {
   // Version 8: worldState moved from localStorage to IndexedDB (Phase 50)
   8: (state) => {
     if (import.meta.env.DEV) {
-      // eslint-disable-next-line no-console
+       
       console.log('[Migration] Starting v7 -> v8: worldState moved to IndexedDB');
     }
 
@@ -202,7 +202,7 @@ const migrations = {
 
           localStorage.setItem(rootKey, JSON.stringify(parsed));
           if (import.meta.env.DEV) {
-            // eslint-disable-next-line no-console
+             
             console.log('[Migration] Cleaned up old localStorage worldState data');
           }
         }
@@ -212,7 +212,7 @@ const migrations = {
     }, 5000);
 
     if (import.meta.env.DEV) {
-      // eslint-disable-next-line no-console
+       
       console.log('[Migration] v7 -> v8 complete');
     }
     return state;
@@ -221,7 +221,7 @@ const migrations = {
   // Version 9: faction moved from localStorage to IndexedDB (Phase 53)
   9: (state) => {
     if (import.meta.env.DEV) {
-      // eslint-disable-next-line no-console
+       
       console.log('[Migration] Starting v8 -> v9: faction moved to IndexedDB');
     }
 
@@ -234,7 +234,7 @@ const migrations = {
           delete parsed.faction;
           localStorage.setItem(rootKey, JSON.stringify(parsed));
           if (import.meta.env.DEV) {
-            // eslint-disable-next-line no-console
+             
             console.log('[Migration] Cleaned up old localStorage faction data');
           }
         }
@@ -244,7 +244,7 @@ const migrations = {
     }, 5000);
 
     if (import.meta.env.DEV) {
-      // eslint-disable-next-line no-console
+       
       console.log('[Migration] v8 -> v9 complete');
     }
     return state;
@@ -253,7 +253,7 @@ const migrations = {
   // Version 10: poetry added to IndexedDB (Phase 55)
   10: (state) => {
     if (import.meta.env.DEV) {
-      // eslint-disable-next-line no-console
+       
       console.log('[Migration] Starting v9 -> v10: poetry added to IndexedDB');
     }
 
@@ -268,7 +268,7 @@ const migrations = {
             delete parsed.poetry;
             localStorage.setItem(rootKey, JSON.stringify(parsed));
             if (import.meta.env.DEV) {
-              // eslint-disable-next-line no-console
+               
               console.log('[Migration] Cleaned up old localStorage poetry data');
             }
           }
@@ -279,7 +279,7 @@ const migrations = {
     }, 5000);
 
     if (import.meta.env.DEV) {
-      // eslint-disable-next-line no-console
+       
       console.log('[Migration] v9 -> v10 complete');
     }
     return state;
@@ -288,7 +288,7 @@ const migrations = {
   // Version 11: FIX-02 grammar slug migration + placementSlice + cefrProgressSlice init (Phase 56)
   11: (state) => {
     if (import.meta.env.DEV) {
-      // eslint-disable-next-line no-console
+       
       console.log('[Migration] Starting v10 -> v11: placement + cefr slices + grammar slug fix');
     }
 
@@ -351,7 +351,7 @@ const migrations = {
     }
 
     if (import.meta.env.DEV) {
-      // eslint-disable-next-line no-console
+       
       console.log('[Migration] v10 -> v11 complete');
     }
     return state;
@@ -360,7 +360,7 @@ const migrations = {
   // Version 12: Add grammar.unlockedLessons for lesson gating (Phase 58)
   12: (state) => {
     if (import.meta.env.DEV) {
-      // eslint-disable-next-line no-console
+       
       console.log('[Migration] Starting v11 -> v12: grammar unlockedLessons init');
     }
 
@@ -402,7 +402,7 @@ const migrations = {
     }
 
     if (import.meta.env.DEV) {
-      // eslint-disable-next-line no-console
+       
       console.log('[Migration] v11 -> v12 complete');
     }
     return state;

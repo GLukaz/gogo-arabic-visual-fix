@@ -59,7 +59,7 @@ export default function MainMenu({ onStartGame, onAlphabet, onReview, onSettings
     if (hasCharacter && !hasCompletedPlacement) {
       setShowPlacement(true);
     }
-  }, [hasCharacter, hasCompletedPlacement]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [hasCharacter, hasCompletedPlacement]);  
 
   let dueCount = 0;
   try {

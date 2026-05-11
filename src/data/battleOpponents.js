@@ -861,5 +861,4 @@ export function selectOpponentById(id) {
   return getOpponentById(id);
 }
 
-export { OPPONENT_TYPES, PERSONALITY_TYPES, WEAKNESS_CATEGORIES, OPPONENT_ZONES };
 export default battleOpponents;

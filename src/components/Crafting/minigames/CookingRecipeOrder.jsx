@@ -153,7 +153,7 @@ export default function CookingRecipeOrder({ recipeId, professionLevel, onComple
       }
     },
     [selectedIngredients, correctOrder]
-  ); // eslint-disable-line react-hooks/exhaustive-deps
+  );  
 
   /**
    * Calculate accuracy and complete
