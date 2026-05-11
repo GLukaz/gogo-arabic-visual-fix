@@ -276,7 +276,7 @@ export default function WorldMap({ onBack }) {
       : `${zone.name}. Locked zone.`;
 
     return (
-      <button
+      <div
         key={zoneId}
         className={`${styles.zoneNode} ${!isUnlocked ? styles.zoneNodeLocked : ''} ${isHovered ? styles.zoneNodeHovered : ''}`}
         style={{
@@ -286,8 +286,16 @@ export default function WorldMap({ onBack }) {
         onClick={() => handleZoneClick(zoneId)}
         onMouseEnter={() => setHoveredZone(zoneId)}
         onMouseLeave={() => setHoveredZone(null)}
+        role="button"
+        tabIndex={0}
         aria-label={ariaLabel}
         aria-disabled={!isUnlocked}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleZoneClick(zoneId);
+          }
+        }}
       >
         <div className={dotClassName} aria-hidden="true">
           {statusIndicator}
@@ -417,7 +425,7 @@ export default function WorldMap({ onBack }) {
             </div>
           </div>
         )}
-      </button>
+      </div>
     );
   };
 
