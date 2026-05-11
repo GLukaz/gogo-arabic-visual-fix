@@ -152,9 +152,11 @@ export default function QuestLog() {
           <span className={styles.progressText}>
             {progress}/{target} <span className={styles.progressPct}>({Math.round(pct)}%)</span>
           </span>
-          <span className={styles.reward}>
-            {qd.reward.xp} XP + {qd.reward.dirhams} Dirhams
-          </span>
+          {qd.reward && (
+            <span className={styles.reward}>
+              {qd.reward.xp} XP + {qd.reward.dirhams} Dirhams
+            </span>
+          )}
         </div>
         {status === 'active' && (
           <button
