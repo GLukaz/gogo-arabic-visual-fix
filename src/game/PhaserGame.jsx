@@ -7,11 +7,16 @@ import { EVENTS } from '../utils/eventBusTypes.js';
 export const PhaserGame = forwardRef(function PhaserGame({ onSceneReady }, ref) {
   const gameRef = useRef(null);
   const containerRef = useRef(null);
+  const onSceneReadyRef = useRef(onSceneReady);
 
   useImperativeHandle(ref, () => ({
     game: gameRef.current,
     scene: gameRef.current?.scene?.getScene('WorldScene'),
   }));
+
+  useEffect(() => {
+    onSceneReadyRef.current = onSceneReady;
+  }, [onSceneReady]);
 
   useEffect(() => {
     if (gameRef.current) return;
@@ -30,7 +35,7 @@ export const PhaserGame = forwardRef(function PhaserGame({ onSceneReady }, ref) 
 
     // When WorldScene is ready, notify parent
     EventBus.once(EVENTS.SCENE_READY, () => {
-      if (onSceneReady) onSceneReady(game.scene.getScene('WorldScene'));
+      if (onSceneReadyRef.current) onSceneReadyRef.current(game.scene.getScene('WorldScene'));
     });
 
     return () => {

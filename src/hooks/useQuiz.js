@@ -85,7 +85,7 @@ export function useQuiz() {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [feedback, setFeedback] = useState(null);
 
-  function buildChoices(word, type, tier = 'normal') {
+  const buildChoices = useCallback((word, type, tier = 'normal') => {
     const distractors = pickDistractors(word, 3, tier);
 
     if (type === 'ar-to-en' || type === 'listen') {
@@ -292,9 +292,9 @@ export function useQuiz() {
     }
 
     return [];
-  }
+  }, [fsrsCards]);
 
-  function loadQuestion(words, idx, type, fsrsCardsRef, pLevel, cLevel) {
+  const loadQuestion = useCallback((words, idx, type, fsrsCardsRef, pLevel, cLevel) => {
     if (idx >= words.length) return;
     const word = words[idx];
     const card = fsrsCardsRef?.[word.id]?.card;
@@ -310,7 +310,7 @@ export function useQuiz() {
       return { ...prev, currentWord: word, choices, quizType: effectiveType, fsrsDueOverride: isDue, distractorTier: tier };
     });
     setFeedback(null);
-  }
+  }, [buildChoices]);
 
   const start = useCallback((words, quizType) => {
     const type = quizType || selectQuizTypeForPlayer(
@@ -352,7 +352,7 @@ export function useQuiz() {
       const choices = buildChoices(word, type, tier);
       setQuizState((prev) => ({ ...prev, currentWord: word, choices, fsrsDueOverride: isDue }));
     }
-  }, [fsrsCards, playerLevel, cefrLevel]);
+  }, [fsrsCards, playerLevel, cefrLevel, buildChoices]);
 
   const answer = useCallback((userAnswer) => {
     const word = quizState.currentWord;
@@ -527,7 +527,7 @@ export function useQuiz() {
     setQuestionIndex(nextIdx);
     loadQuestion(words, nextIdx, quizState.quizType, fsrsCards, playerLevel, cefrLevel);
     return false;
-  }, [questionIndex, quizState, dispatch, playerLevel, cefrLevel]);
+  }, [questionIndex, quizState, dispatch, playerLevel, cefrLevel, fsrsCards, loadQuestion]);
 
   const close = useCallback(() => {
     endQuizStatSession();

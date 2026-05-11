@@ -79,7 +79,7 @@ export default function QuizOverlay() {
       setShowSummary(false);
       setLocalFeedback(null);
     }
-  }, []);
+  }, [quiz.active, overlayData, playerLevel, wordsLearned, start]);
 
   const handleAnswer = useCallback((userAnswer) => {
     answer(userAnswer);
@@ -131,7 +131,7 @@ export default function QuizOverlay() {
       }
       audioManager.playSFX(isCorrect ? 'correct' : 'wrong');
     }
-  }, [answer, quiz.currentWord, quiz.quizType]);
+  }, [answer, quiz.currentWord, quiz.quizType, quiz.choices]);
 
   const handleNext = useCallback(() => {
     const done = next();

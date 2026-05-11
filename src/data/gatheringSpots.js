@@ -12,8 +12,6 @@
  * - papyrus_stand: papyrus, vellum (calligrapher)
  */
 
-import { _RESOURCES } from './resources.js';
-
 /**
  * GATHERING_SPOTS — Flat object keyed by spotId for O(1) lookup
  */

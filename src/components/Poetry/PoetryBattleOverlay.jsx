@@ -173,7 +173,7 @@ function BattleContent({
         dispatch(advanceBlank());
       }, 600);
     },
-    [choicesDisabled, currentBlankIndex, dispatch]
+    [choicesDisabled, currentBlankIndex, dispatch, setChoiceFeedback, setChoicesDisabled]
   );
 
   // Close battle overlay

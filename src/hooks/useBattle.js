@@ -107,7 +107,7 @@ export function useBattle(bossId) {
         return prev - 100;
       });
     }, 100);
-  }, [boss, battleWords, currentWordIndex, buildChoices]);
+  }, [boss, battleWords, currentWordIndex, buildChoices, handleAnswer]);
 
   // Calculate damage based on speed and streak
   const calculateDamage = useCallback((correct, timeElapsed) => {

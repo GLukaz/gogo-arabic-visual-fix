@@ -31,7 +31,7 @@ export default function CategorySort({ word, options, onAnswer, feedback }) {
     setBuckets({ [catA]: [], [catB]: [] });
     setRemaining(options.map((o, i) => ({ ...o, idx: i })));
     setPendingWord(null);
-  }, [word?.id]);
+  }, [word?.id, catA, catB, options]);
 
   const handleBankClick = (item) => {
     if (feedback) return;
