@@ -97,6 +97,7 @@ export function createMockScene(overrides = {}) {
   const mockSprite = {
     x: 0,
     y: 0,
+    pipeline: null,
     setOrigin: vi.fn().mockReturnThis(),
     setDepth: vi.fn().mockReturnThis(),
     setScale: vi.fn().mockReturnThis(),
@@ -112,6 +113,16 @@ export function createMockScene(overrides = {}) {
     setPosition: vi.fn().mockReturnThis(),
     setAngle: vi.fn().mockReturnThis(),
     setCrop: vi.fn().mockReturnThis(),
+    setPipeline: vi.fn(function(name) {
+      this.pipeline = {
+        set3f: vi.fn(),
+        set1i: vi.fn(),
+        set1f: vi.fn(),
+        set2f: vi.fn(),
+        set4f: vi.fn(),
+      };
+      return this;
+    }),
     body: {
       setSize: vi.fn(),
       setOffset: vi.fn()
@@ -359,11 +370,24 @@ export function createMockScene(overrides = {}) {
             return Array.from({ length: total }, (_, i) => String(i));
           }),
           frames: {},
+          source: [{
+            width: 512,
+            height: 512
+          }]
         })),
         _setFrameTotal: (key, total) => _textureFrameCounts.set(key, total),
       };
       return texturesObj;
     })(),
+
+    // Renderer (used by MapLoader for pipelines)
+    renderer: {
+      pipelines: {
+        addPostPipeline: vi.fn().mockReturnThis(),
+        get: vi.fn(),
+        add: vi.fn()
+      }
+    },
 
     // Game reference for MapLoader and DOMOverlay
     game: {

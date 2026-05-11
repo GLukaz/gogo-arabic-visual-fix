@@ -52,6 +52,13 @@ export async function getVocabByZone() {
 // Export for testing
 export { loadVocabAll };
 
+// Reset function for testing
+export function _resetStateForTests() {
+  _vocabByZone = null;
+  _vocabAllLoaded = false;
+  _lastTriggerTime = 0;
+}
+
 const COOLDOWN_MS = 10 * 60 * 1000; // 10 minutes
 const MIN_DUE_FOR_TRIGGER = 2;
 const MAX_REVIEW_WORDS = 3;
